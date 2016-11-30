@@ -1,0 +1,489 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+    /*width: calc(100% - 300px);*/
+}
+
+div.trackcol{
+    width:100px;
+}
+
+div.durationcol{
+    max-width:50px;
+}
+
+#gpxtable a.permalink , #gpxtable a.csrtm , #gpxtable a.csrtms{
+    float: right;
+    font-size: 11px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+div#logo, div#logo img {
+    height:80px;
+}
+div#logo div{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+div#logo div p{
+    width:100%;
+    text-align:center;
+    float:right;
+    font-size:10px;
+}
+div#logo{
+    position:relative;
+}
+div#logo p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+div#logo {
+    background-image: url('images/gpxpod.png');
+    width: 65px;
+    background-size: 65px 65px;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+}
+
+
+#folderrightdiv, #waypointstyle, #comparebutton, #optionbuttonsdiv, #folderdiv, #tzselect, #trackwaypointdisplay,
+#astlegend, #picturestylediv{
+    float:right;
+    display:block;
+}
+
+#picturestyleselect{
+    max-width: 90px;
+}
+
+#folderrightdiv, #removeelevation, #comparebutton, #optionbuttonsdiv{
+    font-size: 11px;
+}
+
+#optionbuttonsdiv{
+    max-width: 60%;
+}
+#optioncheckdiv{
+    max-width: 40%;
+    font-size: 11px;
+}
+#folderdiv, #scantypediv{
+    max-width: 80%;
+}
+
+#tzselect{
+    max-width:200px;
+}
+
+#titlechoosedirform, #logo, #optioncheckdiv, #computecheckdiv{
+    float:left;
+    display:block;
+}
+#folderrightdiv {
+    /*max-width:60%;
+    margin-top: 12px;*/
+}
+#scantypediv{
+    float:right;
+}
+#logo {
+    max-width:40%;
+}
+
+#optionbuttonsdiv{
+    border-left:solid 1px;
+}
+
+#titlechoosedirform{
+    font-size: 16px;
+    font-weight: bold;
+}
+h1.sectiontitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+h3.sectiontitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+div#settings h1, div#help h1{
+    /*margin-left:30px;*/
+    text-align:center;
+}
+
+ul,hr {
+    margin-top : 3px;
+    margin-bottom : 3px;
+}
+h3 {
+    margin-top : 5px;
+    margin-bottom : 5px;
+}
+
+.transparent {
+    opacity : 0.6;
+}
+
+.uibutton {
+    font-size: 13px;
+    height : 28px;
+}
+
+#filterlist li input{
+    margin-bottom: 10px;
+    width:100px;
+}
+
+#filterlist li b{
+    margin-bottom: 10px;
+}
+
+#filterlist li .ui-spinner {
+    height:28px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#clearfilter{
+    margin-left:10px;
+}
+.filterbutton{
+    float:right;
+}
+
+#filtertabtitle h1{
+    float:left;
+    margin-left:30px;
+}
+#filtertabtitle h3{
+    float:left;
+}
+
+#gpxtable{
+    word-wrap: break-word;
+    border-radius: 7px;
+}
+#gpxtable tr:first-child th:first-child
+{
+    border-top-left-radius: 7px;
+}
+#gpxtable tr:first-child th:last-child
+{
+    border-top-right-radius: 7px;
+}
+#gpxtable tr:last-child td:first-child
+{
+    border-bottom-left-radius: 7px;
+}
+#gpxtable tr:last-child td:last-child
+{
+    border-bottom-right-radius: 7px;
+}
+
+#gpxtable th, #gpxtable td {
+    border: 1px solid grey;
+}
+#gpxtable td {
+    background-color: white;
+}
+
+.activeArea{
+    position: absolute;
+    top: 10px;
+    left: 450px;
+    right: 10px;
+    bottom: 10px;
+}
+
+#settings{
+    color:black;
+}
+.disclist{
+    margin-left:20px;
+    list-style-type:disc;
+}
+.circlist{
+    margin-left:20px;
+    list-style-type:circle;
+}
+#loading, #loadingmarkers, #deleting {
+    /*width: 330px;*/
+    padding-left: 5px;
+    /*height: 35px;*/
+    text-align: right;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    background-color: #0074D9;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 3% 50%;
+    border-radius: 7px;
+    /*float: right;*/
+    position:fixed;
+    left:60px;
+    top:60px;
+    display:none;
+    /*z-index: 1000;*/
+}
+#loading .fa, #loadingmarkers .fa, #deleting .fa {
+    font-size: 22px;
+}
+
+#loadingmarkers {
+    background-color: green;
+}
+
+#loading p, #loadingmarkers p, #deleting p{
+    padding: 6px 6px 6px 6px;
+}
+.clear {
+    clear:both;
+}
+#nofolder {
+    font-size: 16px;
+    font-weight: bold;
+    color:red;
+}
+#nofoldertext ,#nofolder {
+    float:left;
+    clear:both;
+}
+#nofoldertext{
+    color:blue;
+}
+#subfolderselect, #processtypeselect, #tablecriteriasel {
+    max-width:200px;
+    text-overflow:ellipsis;
+}
+/*#ticv {
+    display:none;
+}*/
+
+.spinning {
+    -moz-animation:spin 0.7s linear infinite;
+    -webkit-animation:spin 0.7s linear infinite;
+    animation:spin 0.7s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/*#tablecriterialabel{
+    float:left;
+}
+#tablecriteriasel{
+    float:right;
+}
+*/
+#colorcriteriadiv{
+    float:right;
+}
+
+.toplink:link {
+    color: blue;
+    text-decoration: underline;
+}
+.toplink:visited {
+    color: blue;
+    text-decoration: underline;
+}
+.toplink:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+.toplink:active {
+    color: green;
+    text-decoration: underline;
+}
+#clean_results{
+    word-wrap:break-word;
+}
+#clean_results ul{
+    list-style-type:disc;
+}
+#tileserveradd, #tileserveradd input{
+    width:100%;
+}
+
+#gpxtable thead i.bigfa{
+    width: 100%;
+    text-align: center;
+    font-size:19px;
+}
+.permalink:link {
+    color: black;
+    text-decoration: underline;
+}
+.permalink:visited {
+    color: black;
+    text-decoration: underline;
+}
+.permalink:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+.permalink:active {
+    color: green;
+    text-decoration: underline;
+}
+#folderdiv .permalink{
+    font-size:16px;
+}
+.popuptable{
+    font-size: 10px;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 250px;
+    margin: auto;
+}
+.popuptable td{
+    border: 1px solid black;
+    padding: 0px 5px 0px 5px;
+}
+.popuptable tr:nth-child(even){background-color: #f2f2f2;}
+.popuptable tr:hover {background-color: #ddd;}
+
+#linkinput {
+    width:98%;
+}
+#optiontitle{
+    width:100%;
+    float:left;
+    cursor: pointer;
+}
+
+/* adapt right leaflet controls when sidebar pushes them */
+@media screen and (max-width: 767px) {
+    .leaflet-right { right:40px; }
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
+.tooltipblue{
+    background: rgba(0, 0, 255, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipred{
+    background: rgba(255, 0, 0, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipcyan{
+    background: rgba(0, 255, 255, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltippurple{
+    background: rgba(128, 0, 128, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipLime{
+    background: rgba(0, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipyellow{
+    background: rgba(255, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipblack{
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltiporange{
+    background: rgba(255, 165, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipbrown{
+    background: rgba(165, 42, 42, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipChartreuse{
+    background: rgba(127, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipCrimson{
+    background: rgba(220, 20, 60, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipDeepPink{
+    background: rgba(255, 20, 147, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipGold{
+    background: rgba(255, 215, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+
+.leaflet-div-icon2
+{
+    background-image: url('images/pinblue.png') !important;
+    width: 21px !important;
+    height: 30px !important;
+}
+
+.leaflet-marker-red
+{
+    background-image: url('images/marker-icon-red.png');
+    width: 25px !important;
+    height: 41px !important;
+}
+
+.popupImage{
+    width: 80px;
+    height: 80px;
+}
+
+.leaflet-popup-content{
+    margin: 4px 4px;
+}
+
+.smallRedMarker{
+    background: rgba(255,0,0,1);
+    border: 1px solid black;
+}
+.trackNamesList{
+    list-style-type:disc;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
