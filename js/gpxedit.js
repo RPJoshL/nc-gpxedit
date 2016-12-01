@@ -24,7 +24,7 @@ function load_map() {
           +'&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal'
           +'&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}' ;
   }
-  // change it if you deploy GPXPOD
+  // change it if you deploy GPXEDIT
   var API_KEY = 'ljthe66m795pr2v2g8p7faxt';
   var ign = new L.tileLayer ( geopUrl(API_KEY,'GEOGRAPHICALGRIDSYSTEMS.MAPS'),
           { attribution:'&copy; <a href="http://www.ign.fr/">IGN-France</a>',
@@ -172,7 +172,7 @@ function load_map() {
 
   gpxedit.minimapControl = new L.Control.MiniMap(
           osmfr2,
-          { toggleDisplay: true, position:'bottomleft' }
+          { toggleDisplay: true, position:'bottomright' }
   ).addTo(gpxedit.map);
   gpxedit.minimapControl._toggleDisplayButtonClicked();
 
@@ -184,7 +184,7 @@ function load_map() {
   gpxedit.map.addLayer(gpxedit.editableLayers);
 
   var options = {
-      position: 'topright',
+      position: 'bottomleft',
       draw: {
           polyline: {
               shapeOptions: {
@@ -396,9 +396,32 @@ function parseGpx(xml){
     });
 }
 
+/*
+ * get key events
+ */
+function checkKey(e){
+    e = e || window.event;
+    var kc = e.keyCode;
+    console.log(kc);
+
+    if (kc === 0 || kc === 176 || kc === 192){
+        e.preventDefault();
+        gpxedit.searchControl._toggle();
+    }
+    if (kc === 161 || kc === 223){
+        e.preventDefault();
+        gpxedit.minimapControl._toggleDisplayButtonClicked();
+    }
+    if (kc === 60 || kc === 220){
+        e.preventDefault();
+        $('#sidebar').toggleClass('collapsed');
+    }
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
+	document.onkeydown = checkKey;
 
     $('body').on('click','button.popupOkButton', function(e) {
         var id = parseInt($(this).attr('layerid'));
@@ -419,7 +442,7 @@ $(document).ready(function(){
         alert(gpxText);
     });
 
-    parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
+    parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name><desc>plop\nplap</desc>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
 
 });
 
