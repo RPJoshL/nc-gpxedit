@@ -180,8 +180,8 @@ function load_map() {
   //gpxedit.map.on('zoomend',updateTrackListFromBounds);
   //gpxedit.map.on('baselayerchange',updateTrackListFromBounds);
 
-  var editableLayers = new L.FeatureGroup();
-  gpxedit.map.addLayer(editableLayers);
+  gpxedit.editableLayers = new L.FeatureGroup();
+  gpxedit.map.addLayer(gpxedit.editableLayers);
 
   var MyCustomMarker = L.Icon.extend({
       options: {
@@ -217,7 +217,7 @@ function load_map() {
           }
       },
       edit: {
-          featureGroup: editableLayers, //REQUIRED!!
+          featureGroup: gpxedit.editableLayers, //REQUIRED!!
       }
   };
 
@@ -240,7 +240,7 @@ function load_map() {
       layer.gpxedit_id = gpxedit.id;
       layer.type = type;
       gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', layer: layer};
-      editableLayers.addLayer(layer);
+      gpxedit.editableLayers.addLayer(layer);
       gpxedit.id++;
   });
   gpxedit.map.on('draw:edited', function (e) {
@@ -249,17 +249,17 @@ function load_map() {
 		  //do whatever you want; most likely save back to db
           //alert('edited : '+Object.keys(layer));
       });
-      editableLayers.eachLayer(function (layer) {
-          //alert('edited : '+Object.keys(layer));
-          alert('edited : '+Object.keys(layer._leaflet_id));
-      });
+      //editableLayers.eachLayer(function (layer) {
+      //    //alert('edited : '+Object.keys(layer));
+      //    alert('edited : '+Object.keys(layer._leaflet_id));
+      //});
   });
   gpxedit.map.on('draw:deleted', function (e) {
 	  var layers = e.layers;
 	  layers.eachLayer(function (layer) {
           delete gpxedit.layersData[layer.gpxedit_id];
       });
-      editableLayers.eachLayer(function (layer) {
+      gpxedit.editableLayers.eachLayer(function (layer) {
           alert(layer.gpxedit_id);
       });
   });
@@ -288,6 +288,69 @@ function getUrlParameter(sParam)
     }
 }
 
+function generateGpx(){
+    var gpxText = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n';
+    var now = new Date();
+    var now_utc_str = now.getUTCFullYear()+'-'+
+            ("0" + now.getUTCMonth()).slice(-2)+'-'+
+            ("0" + now.getUTCDate()).slice(-2)+'T'+
+            ("0" + now.getUTCHours()).slice(-2)+':'+
+            ("0" + now.getUTCMinutes()).slice(-2)+':'+
+            ("0" + now.getUTCSeconds()).slice(-2)+'Z';
+    gpxText = gpxText + '<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">\n';
+    gpxText = gpxText + '<metadata>\n<time>'+now_utc_str+'</time>\n</metadata>\n';
+
+    gpxedit.editableLayers.eachLayer(function(layer){
+        var id = layer.gpxedit_id;
+        var name = gpxedit.layersData[id].name;
+        var comment = gpxedit.layersData[id].comment;
+        var description = gpxedit.layersData[id].description;
+        if (layer.type === 'marker'){
+            var lat = layer._latlng.lat;
+            var lng = layer._latlng.lng;
+            gpxText = gpxText + ' <wpt lat="'+lat+'" lon="'+lng+'">\n';
+            if (name){
+                gpxText = gpxText + '  <name>'+name+'</name>\n';
+            }
+            else{
+                gpxText = gpxText + '  <name>unnamed</name>\n';
+            }
+            if (comment){
+                gpxText = gpxText + '  <cmt>'+comment+'</cmt>\n';
+            }
+            if (description){
+                gpxText = gpxText + '  <desc>'+description+'</desc>\n';
+            }
+            gpxText = gpxText + ' </wpt>\n';
+        }
+        else{
+            gpxText = gpxText + ' <trk>\n';
+            if (name){
+                gpxText = gpxText + '  <name>'+name+'</name>\n';
+            }
+            else{
+                gpxText = gpxText + '  <name>unnamed</name>\n';
+            }
+            if (comment){
+                gpxText = gpxText + '  <cmt>'+comment+'</cmt>\n';
+            }
+            if (description){
+                gpxText = gpxText + '  <desc>'+description+'</desc>\n';
+            }
+            gpxText = gpxText + '  <trkseg>\n';
+            for (var i=0; i<layer._latlngs.length; i++){
+                var lat = layer._latlngs[i].lat;
+                var lng = layer._latlngs[i].lng;
+                gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n'+
+                    '   </trkpt>\n';
+            }
+            gpxText = gpxText + '</trkseg>\n</trk>\n';
+        }
+    });
+    gpxText = gpxText + ' <extensions/>\n</gpx>';
+    return gpxText;
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
@@ -304,6 +367,14 @@ $(document).ready(function(){
         gpxedit.layersData[id].layer.bindTooltip(name, {sticky:true});
 
         gpxedit.map.closePopup();
+    });
+
+    $('button#saveButton').click(function(e){
+        var gpxText = generateGpx();
+        alert(gpxText);
+        //var m = L.marker([0,0]);
+        //m.addTo(gpxedit.map);
+        //m.addTo(gpxedit.editableLayers);
     });
 });
 
