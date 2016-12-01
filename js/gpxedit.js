@@ -210,20 +210,18 @@ function load_map() {
   var drawControl = new L.Control.Draw(options);
   gpxedit.map.addControl(drawControl);
 
+  // when something is created, we generate popup content
+  // and initialize layer data
   gpxedit.map.on(L.Draw.Event.CREATED, function (e) {
       onCreated(e.layerType, e.layer);
   });
+  // not used for the moment
   gpxedit.map.on('draw:edited', function (e) {
 	  var layers = e.layers;
 	  layers.eachLayer(function (layer) {
-		  //do whatever you want; most likely save back to db
-          //alert('edited : '+Object.keys(layer));
       });
-      //editableLayers.eachLayer(function (layer) {
-      //    //alert('edited : '+Object.keys(layer));
-      //    alert('edited : '+Object.keys(layer._leaflet_id));
-      //});
   });
+  // remove data associated with the deleted layer
   gpxedit.map.on('draw:deleted', function (e) {
 	  var layers = e.layers;
 	  layers.eachLayer(function (layer) {
@@ -231,6 +229,9 @@ function load_map() {
       });
   });
 
+  // load data into popup when it opens
+  // this is needed because popup content is created each time we open one
+  // so, the content is lost when it's closed
   gpxedit.map.on('popupopen', function(e){
       var id = parseInt(e.popup.getContent().match(/layerid="(\d+)"/)[1]);
       var buttonParent = $('button.popupOkButton[layerid='+id+']').parent();
@@ -241,6 +242,9 @@ function load_map() {
 
 }
 
+// called when something is drawn by hand or when a gpx is loaded
+// it generates the popup content and initializes the layer's data
+// it returns the layer in case we want to set the layer's data manually (when loading a gpx)
 function onCreated(type, layer){
       var popupTitle = 'Line';
       if (type === 'marker') {
@@ -257,6 +261,7 @@ function onCreated(type, layer){
       gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', layer: layer};
       gpxedit.editableLayers.addLayer(layer);
       gpxedit.id++;
+      return layer;
 }
 
 function getUrlParameter(sParam)
@@ -273,6 +278,7 @@ function getUrlParameter(sParam)
     }
 }
 
+// generate gpx text from current map elements
 function generateGpx(){
     var gpxText = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n';
     var now = new Date();
@@ -336,6 +342,60 @@ function generateGpx(){
     return gpxText;
 }
 
+// adds a marker and initialize its data
+function drawMarker(latlng, name, desc, cmt){
+    // to add a marker
+    var m = L.marker(latlng, {
+          icon: L.divIcon({
+              className: 'leaflet-div-icon2',
+              iconAnchor: [5, 30]
+          })
+    });
+    var layer = onCreated('marker', m);
+    gpxedit.layersData[layer.gpxedit_id].name = name;
+    gpxedit.layersData[layer.gpxedit_id].comment = cmt;
+    gpxedit.layersData[layer.gpxedit_id].description = desc;
+}
+
+// adds a polyline and initialize its data
+function drawLine(latlngs, name, desc, cmt){
+    var p = L.polyline(latlngs, {
+                  color: '#f357a1',
+                  weight: 7
+    });
+    var layer = onCreated('polyline', p);
+    gpxedit.layersData[layer.gpxedit_id].name = name;
+    gpxedit.layersData[layer.gpxedit_id].comment = cmt;
+    gpxedit.layersData[layer.gpxedit_id].description = desc;
+}
+
+// parse gpx xml text to draw it on the map
+function parseGpx(xml){
+    var dom = $.parseXML(xml);
+    $(dom).find('wpt').each(function(){
+        var lat = $(this).attr('lat');
+        var lon = $(this).attr('lon');
+        var name = $(this).find('name').text();
+        var cmt = $(this).find('cmt').text();
+        var desc = $(this).find('desc').text();
+        drawMarker([lat, lon], name, desc, cmt);
+    });
+    $(dom).find('trk').each(function(){
+        var latlngs = [];
+        var name = $(this).find('name').text();
+        var cmt = $(this).find('cmt').text();
+        var desc = $(this).find('desc').text();
+        $(this).find('trkseg').each(function(){
+            $(this).find('trkpt').each(function(){
+                var lat = $(this).attr('lat');
+                var lon = $(this).attr('lon');
+                latlngs.push([lat,lon]);
+            });
+        });
+        drawLine(latlngs, name, desc, cmt);
+    });
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
@@ -359,19 +419,8 @@ $(document).ready(function(){
         alert(gpxText);
     });
 
-    // to add a marker
-    var m = L.marker([0,0],{
-          icon: L.divIcon({
-              className: 'leaflet-div-icon2',
-              iconAnchor: [5, 30]
-          })
-    });
-    //m.addTo(gpxedit.map);
-    onCreated('marker', m);
+    parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
 
-    //var p = L.polyline([[0,0],[0,1]], {color: 'red'});
-    ////p.addTo(gpxedit.map);
-    //onCreated('polyline', p);
 });
 
 })(jQuery, OC);
