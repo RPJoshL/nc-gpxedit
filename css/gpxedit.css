@@ -224,7 +224,7 @@ h3 {
     margin-left:20px;
     list-style-type:circle;
 }
-#loading, #loadingmarkers, #deleting {
+#saved {
     /*width: 330px;*/
     padding-left: 5px;
     /*height: 35px;*/
@@ -244,15 +244,11 @@ h3 {
     display:none;
     /*z-index: 1000;*/
 }
-#loading .fa, #loadingmarkers .fa, #deleting .fa {
+#saved .fa {
     font-size: 22px;
 }
 
-#loadingmarkers {
-    background-color: green;
-}
-
-#loading p, #loadingmarkers p, #deleting p{
+#saved p{
     padding: 6px 6px 6px 6px;
 }
 .clear {

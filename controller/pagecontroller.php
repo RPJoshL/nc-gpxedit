@@ -180,4 +180,97 @@ class PageController extends Controller {
         return $response;
     }
 
+    /**
+     * 
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function getgpx($path) {
+        $userFolder = \OC::$server->getUserFolder();
+        $cleanpath = str_replace(array('../', '..\\'), '',  $path);
+        $gpxContent = '';
+        if ($userFolder->nodeExists($cleanpath)){
+            $file = $userFolder->get($cleanpath);
+            if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE and
+                (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx'))
+            ){
+                // all ok
+            }
+            else{
+                $file = null;
+            }
+        }
+
+        if ($file !== null){
+            $gpxContent = $file->getContent();
+        }
+
+        $response = new DataResponse(
+            [
+                'gpx'=>$gpxContent
+            ]
+        );
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        return $response;
+    }
+
+    /**
+     * 
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function savegpx($path, $content) {
+        $userFolder = \OC::$server->getUserFolder();
+        $cleanpath = str_replace(array('../', '..\\'), '',  $path);
+        $status = false;
+        if (endswith($cleanpath, '.GPX') or endswith($cleanpath, '.gpx')){
+            if ($userFolder->nodeExists($cleanpath)){
+                $file = $userFolder->get($cleanpath);
+                if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE and
+                    $file->isUpdateable()){
+                    $file->putContent($content);
+                    $status = true;
+                }
+                else{
+                    $status = 'fiw';
+                }
+            }
+            else{
+                $dirpath = dirname($cleanpath);
+                $newFileName = basename($cleanpath);
+                if ($userFolder->nodeExists($dirpath)){
+                    $dir = $userFolder->get($dirpath);
+                    if ($dir->getType() === \OCP\Files\FileInfo::TYPE_FOLDER and
+                        $dir->isCreatable()){
+                        $dir->newFile($newFileName);
+                        $dir->get($newFileName)->putContent($content);
+                        $status = true;
+                    }
+                    else{
+                        $status = 'fw';
+                    }
+                }
+                else{
+                    $status = 'fu';
+                }
+            }
+        }
+
+        $response = new DataResponse(
+            [
+                'status'=>$status
+            ]
+        );
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        return $response;
+    }
+
 }

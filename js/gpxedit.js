@@ -396,6 +396,19 @@ function parseGpx(xml){
     });
 }
 
+// remove layers from map and delete all layers data
+function clear(){
+    var layersToRemove = [];
+    gpxedit.editableLayers.eachLayer(function (layer) {
+          delete gpxedit.layersData[layer.gpxedit_id];
+          layersToRemove.push(layer);
+    });
+
+    for(var i=0; i<layersToRemove.length; i++){
+        gpxedit.editableLayers.removeLayer(layersToRemove[i]);
+    }
+}
+
 /*
  * get key events
  */
@@ -418,6 +431,15 @@ function checkKey(e){
     }
 }
 
+function showSaveSuccessAnimation(){
+    $('#saved').show();
+    setTimeout(hideSaveSuccessAnimation, 4000);
+}
+
+function hideSaveSuccessAnimation(){
+    $('#saved').hide();
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
@@ -437,12 +459,56 @@ $(document).ready(function(){
         gpxedit.map.closePopup();
     });
 
-    $('button#saveButton').click(function(e){
-        var gpxText = generateGpx();
-        alert(gpxText);
+    $('button#clearButton').click(function(e){
+        clear();
     });
 
-    parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name><desc>plop\nplap</desc>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
+    $('button#saveButton').click(function(e){
+        var gpxText = generateGpx();
+        //alert(gpxText);
+        var req = {
+            path: $('input#savePath').val(),
+            content: gpxText 
+        }
+        var url = OC.generateUrl('/apps/gpxedit/savegpx');
+        $.post(url, req).done(function (response) {
+            if (response.status === 'fiw'){
+                alert('Impossible to write file : write access denied');
+            }
+            else if (response.status === 'fu'){
+                alert('Impossible to write file : folder does not exist');
+            }
+            else if (response.status === 'fw'){
+                alert('Impossible to write file : folder write access denied');
+            }
+            else{
+                showSaveSuccessAnimation();
+            }
+        });
+    });
+
+    //parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name><desc>plop\nplap</desc>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
+
+    $('button#getButton').click(function(e){
+        var req = {
+            path : $('input#getPath').val()
+        }
+        var url = OC.generateUrl('/apps/gpxedit/getgpx');
+        $.post(url, req).done(function (response) {
+            clear();
+            if (response.gpx === ''){
+                alert('The file does not exist or it is not a gpx');
+            }
+            else{
+                parseGpx(response.gpx);
+                var bounds = gpxedit.editableLayers.getBounds();
+                gpxedit.map.fitBounds(bounds,
+                    {animate:true, paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]}
+                );
+            }
+        });
+    });
+
 
 });
 

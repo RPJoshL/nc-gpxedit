@@ -20,5 +20,7 @@
 return [
     'routes' => [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+        ['name' => 'page#getgpx', 'url' => '/getgpx', 'verb' => 'POST'],
+        ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
     ]
 ];

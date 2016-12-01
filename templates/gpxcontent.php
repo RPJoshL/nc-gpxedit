@@ -52,9 +52,18 @@ if (count($_['dirs']) === 0){
     <div style="clear:both"></div>
     </form>
     <hr/>
+    <input id="getPath"></input>
+    <button id="getButton">Load</button>
+    <hr/>
+    <input id="savePath"></input>
     <button id="saveButton">Save</button>
     <div style="clear:both"></div>
     <hr/>
+    <button id="clearButton">Clear map</button>
+    <div id="saved"><p>
+        <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
+        <?php p($l->t('File saved')); ?>&nbsp;</p>
+    </div>
 <?php
 
 echo '<p id="username" style="display:none">';
