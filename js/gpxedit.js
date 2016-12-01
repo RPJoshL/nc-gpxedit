@@ -183,20 +183,6 @@ function load_map() {
   gpxedit.editableLayers = new L.FeatureGroup();
   gpxedit.map.addLayer(gpxedit.editableLayers);
 
-  var MyCustomMarker = L.Icon.extend({
-      options: {
-          shadowUrl: null,
-          //iconAnchor: new L.Point(12, 12),
-          //iconSize: new L.Point(24, 24),
-          //iconUrl: 'link/to/image.png'
-          icon: L.divIcon({
-              className: 'leaflet-div-icon2',
-              iconAnchor: [5, 30]
-          })
-
-      }
-  });
-
   var options = {
       position: 'topright',
       draw: {
@@ -225,23 +211,7 @@ function load_map() {
   gpxedit.map.addControl(drawControl);
 
   gpxedit.map.on(L.Draw.Event.CREATED, function (e) {
-      var type = e.layerType,
-      layer = e.layer;
-      var popupTitle = 'Line';
-      if (type === 'marker') {
-          popupTitle = 'Waypoint';
-      }
-
-      layer.bindPopup('<h2>'+popupTitle+'</h2>Name : <input class="layerName"></input><br/>'+
-              'Description : <textarea class="layerDesc"></textarea><br/>'+
-              'Comment : <textarea class="layerCmt"></textarea><br/>'+
-              '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>');
-
-      layer.gpxedit_id = gpxedit.id;
-      layer.type = type;
-      gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', layer: layer};
-      gpxedit.editableLayers.addLayer(layer);
-      gpxedit.id++;
+      onCreated(e.layerType, e.layer);
   });
   gpxedit.map.on('draw:edited', function (e) {
 	  var layers = e.layers;
@@ -259,9 +229,6 @@ function load_map() {
 	  layers.eachLayer(function (layer) {
           delete gpxedit.layersData[layer.gpxedit_id];
       });
-      gpxedit.editableLayers.eachLayer(function (layer) {
-          alert(layer.gpxedit_id);
-      });
   });
 
   gpxedit.map.on('popupopen', function(e){
@@ -272,6 +239,24 @@ function load_map() {
       buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
   });
 
+}
+
+function onCreated(type, layer){
+      var popupTitle = 'Line';
+      if (type === 'marker') {
+          popupTitle = 'Waypoint';
+      }
+
+      layer.bindPopup('<h2>'+popupTitle+'</h2>Name : <input class="layerName"></input><br/>'+
+              'Description : <textarea class="layerDesc"></textarea><br/>'+
+              'Comment : <textarea class="layerCmt"></textarea><br/>'+
+              '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>');
+
+      layer.gpxedit_id = gpxedit.id;
+      layer.type = type;
+      gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', layer: layer};
+      gpxedit.editableLayers.addLayer(layer);
+      gpxedit.id++;
 }
 
 function getUrlParameter(sParam)
@@ -344,7 +329,7 @@ function generateGpx(){
                 gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n'+
                     '   </trkpt>\n';
             }
-            gpxText = gpxText + '</trkseg>\n</trk>\n';
+            gpxText = gpxText + '  </trkseg>\n </trk>\n';
         }
     });
     gpxText = gpxText + ' <extensions/>\n</gpx>';
@@ -372,10 +357,21 @@ $(document).ready(function(){
     $('button#saveButton').click(function(e){
         var gpxText = generateGpx();
         alert(gpxText);
-        //var m = L.marker([0,0]);
-        //m.addTo(gpxedit.map);
-        //m.addTo(gpxedit.editableLayers);
     });
+
+    // to add a marker
+    var m = L.marker([0,0],{
+          icon: L.divIcon({
+              className: 'leaflet-div-icon2',
+              iconAnchor: [5, 30]
+          })
+    });
+    //m.addTo(gpxedit.map);
+    onCreated('marker', m);
+
+    //var p = L.polyline([[0,0],[0,1]], {color: 'red'});
+    ////p.addTo(gpxedit.map);
+    //onCreated('polyline', p);
 });
 
 })(jQuery, OC);
