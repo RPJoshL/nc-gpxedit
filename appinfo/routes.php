@@ -22,5 +22,7 @@ return [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
         ['name' => 'page#getgpx', 'url' => '/getgpx', 'verb' => 'POST'],
         ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
+        ['name' => 'page#getdircontent', 'url' => '/getdircontent', 'verb' => 'POST'],
+        ['name' => 'page#getdircontentdir', 'url' => '/getdircontentdir', 'verb' => 'POST'],
     ]
 ];

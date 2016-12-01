@@ -52,17 +52,20 @@ if (count($_['dirs']) === 0){
     <div style="clear:both"></div>
     </form>
     <hr/>
-    <input id="getPath"></input>
-    <button id="getButton">Load</button>
+    <h2>Load file :</h2>
+    <div id="loadtree"></div>
     <hr/>
-    <input id="savePath"></input>
+    <h2>Save to :</h2>
+    <div id="savetree"></div>
+    <input id="saveName"></input>
     <button id="saveButton">Save</button>
     <div style="clear:both"></div>
     <hr/>
     <button id="clearButton">Clear map</button>
+    <hr/>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
-        <?php p($l->t('File saved')); ?>&nbsp;</p>
+        <b id="content"><?php p($l->t('File saved')); ?></b></p>
     </div>
 <?php
 

@@ -16,6 +16,7 @@ script('gpxedit', 'moment-timezone-with-data.min');
 script('gpxedit', 'jquery.colorbox-min');
 script('gpxedit', 'leaflet.draw');
 script('gpxedit', 'leaflet.measurecontrol');
+script('gpxedit', 'jQueryFileTree.min');
 script('gpxedit', 'gpxedit');
 
 style('gpxedit', 'style');
@@ -32,6 +33,7 @@ style('gpxedit', 'L.Control.Locate.min');
 style('gpxedit', 'tablesorter/themes/blue/style');
 style('gpxedit', 'leaflet.draw');
 style('gpxedit', 'leaflet.measurecontrol');
+style('gpxedit', 'jQueryFileTree.min');
 style('gpxedit', 'colorbox');
 
 ?>

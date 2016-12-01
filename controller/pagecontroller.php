@@ -24,6 +24,7 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
 function delTree($dir) {
@@ -259,6 +260,9 @@ class PageController extends Controller {
                 }
             }
         }
+        else{
+            $status = 'bfn';
+        }
 
         $response = new DataResponse(
             [
@@ -270,6 +274,86 @@ class PageController extends Controller {
             ->addAllowedMediaDomain('*')
             ->addAllowedConnectDomain('*');
         $response->setContentSecurityPolicy($csp);
+        return $response;
+    }
+
+    /**
+     * 
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function getdircontent($dir) {
+        $userFolder = \OC::$server->getUserFolder();
+        $userfolder_path = $userFolder->getPath();
+        $responseTxt = '<ul class="jqueryFileTree">';
+
+        //error_log('DIR : '.$dir);
+
+        if ($userFolder->nodeExists($dir)){
+            $direlem = $userFolder->get($dir);
+            if ($direlem->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
+                foreach($direlem->getDirectoryListing() as $elem){
+                    $elempath = str_replace($userfolder_path, '', $elem->getPath());
+                    if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
+                        $responseTxt .= '<li class="directory collapsed"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                    }
+                    else if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FILE and
+                    (endswith($elempath, '.gpx') or endswith($elempath, '.GPX'))){
+                        $responseTxt .= '<li class="file ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                    }
+                }
+            }
+        }
+
+        $responseTxt .= '</ul>';
+
+        $response = new Response();
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        //error_log($responseTxt);
+        echo $responseTxt;
+        return $response;
+    }
+
+    /**
+     * 
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function getdircontentdir($dir) {
+        $userFolder = \OC::$server->getUserFolder();
+        $userfolder_path = $userFolder->getPath();
+        $responseTxt = '<ul class="jqueryFileTree">';
+
+        if ($userFolder->nodeExists($dir)){
+            $direlem = $userFolder->get($dir);
+            if ($direlem->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
+                foreach($direlem->getDirectoryListing() as $elem){
+                    $elempath = str_replace($userfolder_path, '', $elem->getPath());
+                    if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
+                        $responseTxt .= '<li class="directory collapsed"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                    }
+                    //else if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FILE and
+                    //(endswith($elempath, '.gpx') or endswith($elempath, '.GPX'))){
+                    //    $responseTxt .= '<li class="file ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                    //}
+                }
+            }
+        }
+
+        $responseTxt .= '</ul>';
+
+        $response = new Response();
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        //error_log($responseTxt);
+        echo $responseTxt;
         return $response;
     }
 

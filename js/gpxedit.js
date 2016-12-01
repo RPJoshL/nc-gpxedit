@@ -431,13 +431,34 @@ function checkKey(e){
     }
 }
 
-function showSaveSuccessAnimation(){
+function showSaveSuccessAnimation(path){
+    $('#saved').find('b#content').html('File successfully saved as<br/>'+path);
     $('#saved').show();
     setTimeout(hideSaveSuccessAnimation, 4000);
 }
 
 function hideSaveSuccessAnimation(){
     $('#saved').hide();
+}
+
+function loadFile(file){
+    var req = {
+        path : file
+    }
+    var url = OC.generateUrl('/apps/gpxedit/getgpx');
+    $.post(url, req).done(function (response) {
+        clear();
+        if (response.gpx === ''){
+            alert('The file does not exist or it is not a gpx');
+        }
+        else{
+            parseGpx(response.gpx);
+            var bounds = gpxedit.editableLayers.getBounds();
+            gpxedit.map.fitBounds(bounds,
+                    {animate:true, paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]}
+                    );
+        }
+    });
 }
 
 $(document).ready(function(){
@@ -465,9 +486,15 @@ $(document).ready(function(){
 
     $('button#saveButton').click(function(e){
         var gpxText = generateGpx();
-        //alert(gpxText);
+        var nbExpanded = $('#savetree li.expanded').length;
+        if (nbExpanded == 0){
+            var saveFilePath = '/'+$('input#saveName').val();
+        }
+        else{
+            var saveFilePath = gpxedit.savePath+'/'+$('input#saveName').val();
+        }
         var req = {
-            path: $('input#savePath').val(),
+            path: saveFilePath,
             content: gpxText 
         }
         var url = OC.generateUrl('/apps/gpxedit/savegpx');
@@ -481,34 +508,31 @@ $(document).ready(function(){
             else if (response.status === 'fw'){
                 alert('Impossible to write file : folder write access denied');
             }
+            else if (response.status === 'bfn'){
+                alert('Bad file name, must end with ".gpx"');
+            }
             else{
-                showSaveSuccessAnimation();
+                showSaveSuccessAnimation(saveFilePath);
             }
         });
     });
 
-    //parseGpx('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>            <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">            <metadata>            <time>2016-11-01T14:18:24Z</time>            </metadata>            <trk>            <name>droit</name><desc>plop\nplap</desc>            <trkseg>            <trkpt lat="1" lon="3">            </trkpt>            <trkpt lat="2" lon="3">            </trkpt>            <trkpt lat="3" lon="3">            </trkpt>            </trkseg>            </trk>            <trk>            <name>yeye</name>            <trkseg>            <trkpt lat="7.449624260197829" lon="10.063476562500002">            </trkpt>            <trkpt lat="11.005904459659451" lon="9.931640625000002">            </trkpt>            <trkpt lat="9.665738395188692" lon="14.721679687500002"> </trkpt> </trkseg></trk><wpt lat="23.07973176244989" lon="40.42968750000001"><name>unnamed</name><desc>plop</desc></wpt><extensions/> </gpx>');
-
-    $('button#getButton').click(function(e){
-        var req = {
-            path : $('input#getPath').val()
-        }
-        var url = OC.generateUrl('/apps/gpxedit/getgpx');
-        $.post(url, req).done(function (response) {
-            clear();
-            if (response.gpx === ''){
-                alert('The file does not exist or it is not a gpx');
-            }
-            else{
-                parseGpx(response.gpx);
-                var bounds = gpxedit.editableLayers.getBounds();
-                gpxedit.map.fitBounds(bounds,
-                    {animate:true, paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]}
-                );
-            }
-        });
+    var treeurl = OC.generateUrl('/apps/gpxedit/getdircontent');
+    $('#loadtree').fileTree({root: '/', script: treeurl, multiFolder: false }, function(file) {
+        gpxedit.fileToLoad = file;
+        loadFile(file);
     });
 
+    var savetreeurl = OC.generateUrl('/apps/gpxedit/getdircontentdir');
+    $('#savetree').fileTree({root: '/', script: savetreeurl, multiFolder: false, onlyFolders: true }, function(file) {
+    });
+
+    $('#savetree').on('filetreeexpand', function(e, data){
+        gpxedit.savePath = data.rel;
+    });
+    $('#savetree').on('filetreecollapse', function(e, data){
+        gpxedit.savePath = data.rel;
+    });
 
 });
 
