@@ -19,50 +19,24 @@ p($_['gpxedit_version']);
             </p>
             </div>
         </div>
-        <div id="folderdiv">
-        <label for="subfolderselect"><?php p($l->t('Folder')); ?> :</label>
-            <select name="subfolder" id="subfolderselect">
-            <option style="color:red; font-weight:bold"><?php p($l->t('Choose a folder')); ?></option>
-<?php
-
-// populate select options
-if (count($_['dirs']) > 0){
-    foreach($_['dirs'] as $dir){
-        echo '<option>';
-        p($dir);
-        echo '</option>'."\n";
-    }
-}
-
-?>
-            </select>
-        </div>
-<?php
-
-if (count($_['dirs']) === 0){
-    echo '<p id="nofolder">';
-    p($l->t('No gpx file found'));
-    echo '</p><p id="nofoldertext">';
-    p($l->t('You should have at least one gpx/kml/tcx file in your files'));
-    echo '.</p>';
-}
-
-?>
     </div>
     <div style="clear:both"></div>
     </form>
     <hr/>
-    <h2>Load file :</h2>
-    <div id="loadtree"></div>
+    <h2 id="loadtitle">Load <b id="loadoptiontoggle"><i class="fa fa-expand"></i></b></h2>
+    <div id="loaddiv" style="display:none;">
+        <div id="loadtree"></div>
+    </div>
     <hr/>
-    <h2>Save to :</h2>
-    <div id="savetree"></div>
-    <input id="saveName"></input>
-    <button id="saveButton">Save</button>
+    <h2 id="savetitle">Save <b id="saveoptiontoggle"><i class="fa fa-expand"></i></b></h2>
+    <div id="savediv" style="display:none;">
+        <div id="savetree"></div>
+        <input id="saveName"></input>
+        <button id="saveButton">Save</button>
+    </div>
     <div style="clear:both"></div>
     <hr/>
     <button id="clearButton">Clear map</button>
-    <hr/>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
         <b id="content"><?php p($l->t('File saved')); ?></b></p>

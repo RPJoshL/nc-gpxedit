@@ -433,12 +433,13 @@ function checkKey(e){
 
 function showSaveSuccessAnimation(path){
     $('#saved').find('b#content').html('File successfully saved as<br/>'+path);
-    $('#saved').show();
+    //$('#saved').show();
+    $('#saved').fadeIn();
     setTimeout(hideSaveSuccessAnimation, 4000);
 }
 
 function hideSaveSuccessAnimation(){
-    $('#saved').hide();
+    $('#saved').fadeOut();
 }
 
 function loadFile(file){
@@ -536,6 +537,28 @@ $(document).ready(function(){
         gpxedit.savePath = data.li.parent().parent().find('>a').attr('rel');
         data.li.find('li.expanded').removeClass('expanded');
         data.li.find('>a').removeClass('selectedFolder');
+    });
+
+    $('body').on('click','h2#loadtitle', function(e) {
+        if ($('#loaddiv').is(':visible')){
+            $('#loaddiv').slideUp();
+            $('#loadoptiontoggle').html('<i class="fa fa-expand"></i>');
+        }
+        else{
+            $('#loaddiv').slideDown();
+            $('#loadoptiontoggle').html('<i class="fa fa-compress"></i>');
+        }
+    });
+
+    $('body').on('click','h2#savetitle', function(e) {
+        if ($('#savediv').is(':visible')){
+            $('#savediv').slideUp();
+            $('#saveoptiontoggle').html('<i class="fa fa-expand"></i>');
+        }
+        else{
+            $('#savediv').slideDown();
+            $('#saveoptiontoggle').html('<i class="fa fa-compress"></i>');
+        }
     });
 
 });

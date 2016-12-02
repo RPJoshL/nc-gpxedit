@@ -34,6 +34,12 @@ div.durationcol{
     margin-right: 2px;
 }
 
+div#logofolder{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
 div#logo, div#logo img {
     height:80px;
 }
@@ -93,7 +99,7 @@ div#logo {
     max-width:200px;
 }
 
-#titlechoosedirform, #logo, #optioncheckdiv, #computecheckdiv{
+#titlechoosedirform, #optioncheckdiv, #computecheckdiv{
     float:left;
     display:block;
 }
@@ -103,9 +109,6 @@ div#logo {
 }
 #scantypediv{
     float:right;
-}
-#logo {
-    max-width:40%;
 }
 
 #optionbuttonsdiv{
@@ -486,4 +489,13 @@ input[type=checkbox]
 .selectedFolder{
     color: blue !important;
     font-weight: bold !important;
+}
+h2#loadtitle, h2#savetitle{
+    text-align:center;
+    cursor: pointer;
+}
+#clearButton{
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
 }
