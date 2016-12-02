@@ -491,10 +491,13 @@ input[type=checkbox]
     font-weight: bold !important;
 }
 h2#loadtitle, h2#savetitle{
-    text-align:center;
+    text-align: center;
     cursor: pointer;
 }
-#clearButton{
+h2.popupTitle{
+    text-align: center;
+}
+#clearButton, .popupOkButton{
     margin-left: auto;
     margin-right: auto;
     display:block;

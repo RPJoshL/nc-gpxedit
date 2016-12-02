@@ -246,14 +246,15 @@ function load_map() {
 // it generates the popup content and initializes the layer's data
 // it returns the layer in case we want to set the layer's data manually (when loading a gpx)
 function onCreated(type, layer){
-      var popupTitle = 'Line';
+      var popupTitle = 'Track';
       if (type === 'marker') {
           popupTitle = 'Waypoint';
       }
 
-      layer.bindPopup('<h2>'+popupTitle+'</h2>Name : <input class="layerName"></input><br/>'+
-              'Description : <textarea class="layerDesc"></textarea><br/>'+
-              'Comment : <textarea class="layerCmt"></textarea><br/>'+
+      layer.bindPopup('<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
+              '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
+              '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
+              '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr></table>'+
               '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>');
 
       layer.gpxedit_id = gpxedit.id;
@@ -352,6 +353,7 @@ function drawMarker(latlng, name, desc, cmt){
           })
     });
     var layer = onCreated('marker', m);
+    m.bindTooltip(name, {sticky:true});
     gpxedit.layersData[layer.gpxedit_id].name = name;
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
@@ -364,6 +366,7 @@ function drawLine(latlngs, name, desc, cmt){
                   weight: 7
     });
     var layer = onCreated('polyline', p);
+    p.bindTooltip(name, {sticky:true});
     gpxedit.layersData[layer.gpxedit_id].name = name;
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
