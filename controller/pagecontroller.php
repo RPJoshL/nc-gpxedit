@@ -299,7 +299,7 @@ class PageController extends Controller {
                     }
                     else if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FILE and
                     (endswith($elempath, '.gpx') or endswith($elempath, '.GPX'))){
-                        $responseTxt .= '<li class="file ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                        $responseTxt .= '<li class="gpx ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
                     }
                 }
             }

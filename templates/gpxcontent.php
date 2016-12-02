@@ -25,11 +25,13 @@ p($_['gpxedit_version']);
     <hr/>
     <h2 id="loadtitle">Load <b id="loadoptiontoggle"><i class="fa fa-expand"></i></b></h2>
     <div id="loaddiv" style="display:none;">
+        <p>Select a gpx file to load it on the map</p><br/>
         <div id="loadtree"></div>
     </div>
     <hr/>
     <h2 id="savetitle">Save <b id="saveoptiontoggle"><i class="fa fa-expand"></i></b></h2>
     <div id="savediv" style="display:none;">
+        <p>Select a folder, set a name and click "Save" button</p><br/>
         <div id="savetree"></div>
         <input id="saveName"></input>
         <button id="saveButton">Save</button>

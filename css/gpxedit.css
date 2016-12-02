@@ -502,3 +502,9 @@ h2.popupTitle{
     margin-right: auto;
     display:block;
 }
+#saveButton{
+    width:18%;
+}
+#saveName{
+    width:78%;
+}
