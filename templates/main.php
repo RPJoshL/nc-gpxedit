@@ -1,6 +1,5 @@
 <?php
 script('gpxedit', 'leaflet');
-script('gpxedit', 'leaflet.label');
 script('gpxedit', 'L.Control.MousePosition');
 script('gpxedit', 'Control.Geocoder');
 script('gpxedit', 'ActiveLayers');
@@ -22,7 +21,6 @@ script('gpxedit', 'gpxedit');
 style('gpxedit', 'style');
 style('gpxedit', 'leaflet');
 style('gpxedit', 'L.Control.MousePosition');
-style('gpxedit', 'leaflet.label');
 style('gpxedit', 'Control.Geocoder');
 style('gpxedit', 'leaflet-sidebar');
 style('gpxedit', 'Control.MiniMap');
