@@ -434,6 +434,16 @@ function checkKey(e){
     }
 }
 
+function showFailedSuccessAnimation(path, message){
+    $('#failed').find('b#content').html('Failed to save file '+path+'<br/>'+message);
+    $('#failed').fadeIn();
+    setTimeout(hideFailedSuccessAnimation, 4000);
+}
+
+function hideFailedSuccessAnimation(){
+    $('#failed').fadeOut();
+}
+
 function showSaveSuccessAnimation(path){
     $('#saved').find('b#content').html('File successfully saved as<br/>'+path);
     //$('#saved').show();
@@ -504,16 +514,16 @@ $(document).ready(function(){
         var url = OC.generateUrl('/apps/gpxedit/savegpx');
         $.post(url, req).done(function (response) {
             if (response.status === 'fiw'){
-                alert('Impossible to write file : write access denied');
+                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : write access denied');
             }
             else if (response.status === 'fu'){
-                alert('Impossible to write file : folder does not exist');
+                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder does not exist');
             }
             else if (response.status === 'fw'){
-                alert('Impossible to write file : folder write access denied');
+                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder write access denied');
             }
             else if (response.status === 'bfn'){
-                alert('Bad file name, must end with ".gpx"');
+                showFailedSuccessAnimation(saveFilePath, 'Bad file name, must end with ".gpx"');
             }
             else{
                 showSaveSuccessAnimation(saveFilePath);

@@ -227,11 +227,11 @@ h3 {
     margin-left:20px;
     list-style-type:circle;
 }
-#saved {
+#saved, #failed {
     /*width: 330px;*/
     padding-left: 5px;
     /*height: 35px;*/
-    text-align: right;
+    text-align: left;
     font-weight: bold;
     font-size: 22px;
     color: white;
@@ -247,11 +247,14 @@ h3 {
     display:none;
     /*z-index: 1000;*/
 }
-#saved .fa {
+#failed{
+    background-color: red;
+}
+#saved .fa, #failed .fa {
     font-size: 22px;
 }
 
-#saved p{
+#saved p, #failed p{
     padding: 6px 6px 6px 6px;
 }
 .clear {

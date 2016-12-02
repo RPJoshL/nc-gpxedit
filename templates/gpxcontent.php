@@ -41,7 +41,11 @@ p($_['gpxedit_version']);
     <button id="clearButton">Clear map</button>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
-        <b id="content"><?php p($l->t('File saved')); ?></b></p>
+        <b id="content"></b></p>
+    </div>
+    <div id="failed"><p>
+        <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
+        <b id="content"></b></p>
     </div>
 <?php
 
