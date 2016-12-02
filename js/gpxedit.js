@@ -522,6 +522,10 @@ $(document).ready(function(){
     $('#loadtree').fileTree({root: '/', script: treeurl, multiFolder: false }, function(file) {
         gpxedit.fileToLoad = file;
         loadFile(file);
+        // set save name
+        var spl = file.split('/');
+        var basename = spl[spl.length-1];
+        $('input#saveName').val(basename);
     });
 
     var savetreeurl = OC.generateUrl('/apps/gpxedit/getdircontentdir');
@@ -537,6 +541,7 @@ $(document).ready(function(){
         gpxedit.savePath = data.li.parent().parent().find('>a').attr('rel');
         data.li.find('li.expanded').removeClass('expanded');
         data.li.find('>a').removeClass('selectedFolder');
+        data.li.parent().parent().find('>a').addClass('selectedFolder');
     });
 
     $('body').on('click','h2#loadtitle', function(e) {
