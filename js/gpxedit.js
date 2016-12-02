@@ -529,9 +529,13 @@ $(document).ready(function(){
 
     $('#savetree').on('filetreeexpand', function(e, data){
         gpxedit.savePath = data.rel;
+        $('#savetree a').removeClass('selectedFolder');
+        data.li.find('>a').addClass('selectedFolder');
     });
     $('#savetree').on('filetreecollapse', function(e, data){
-        gpxedit.savePath = data.rel;
+        gpxedit.savePath = data.li.parent().parent().find('>a').attr('rel');
+        data.li.find('li.expanded').removeClass('expanded');
+        data.li.find('>a').removeClass('selectedFolder');
     });
 
 });
