@@ -181,6 +181,53 @@ class PageController extends Controller {
         return $response;
     }
 
+
+    /**
+     * convert the given file (csv or kml) to gpx and return its content
+     */
+    public function toGpx($file){
+        $gpsbabel_path = getProgramPath('gpsbabel');
+        $data_folder = $this->userAbsoluteDataPath;
+        $tempdir = $data_folder.'/../cache/'.rand();
+        mkdir($tempdir);
+
+        $filename = $file->getName();
+        $filecontent = $file->getContent();
+        $file_clear_path = $tempdir.'/'.$filename;
+        $gpx_target_clear_path = $tempdir.'/'.$filename.'.gpx';
+        file_put_contents($file_clear_path, $filecontent);
+
+        if (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml')){
+            $fmt = 'kml';
+        }
+        else if (endswith($file->getName(), '.csv') or endswith($file->getName(), '.CSV')){
+            $fmt = 'unicsv';
+        }
+        $args = Array('-i', $fmt, '-f', $file_clear_path, '-o',
+            'gpx', '-F', $gpx_target_clear_path);
+        $cmdparams = '';
+        foreach($args as $arg){
+            $shella = escapeshellarg($arg);
+            $cmdparams .= " $shella";
+        }
+        exec(
+            escapeshellcmd(
+                $gpsbabel_path.' '.$cmdparams
+            ),
+            $output, $returnvar
+        );
+        if (file_exists($gpx_target_clear_path)){
+            $gpx_clear_content = file_get_contents($gpx_target_clear_path);
+        }
+        else{
+            $gpx_clear_content = '';
+        }
+
+        delTree($tempdir);
+
+        return $gpx_clear_content;
+    }
+
     /**
      * 
      * @NoAdminRequired
@@ -192,18 +239,20 @@ class PageController extends Controller {
         $gpxContent = '';
         if ($userFolder->nodeExists($cleanpath)){
             $file = $userFolder->get($cleanpath);
-            if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE and
-                (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx'))
-            ){
-                // all ok
+            if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE){
+                if (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx')){
+                    $gpxContent = $file->getContent();
+                }
+                else if (getProgramPath('gpsbabel') !== null and
+                    (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml') or
+                    endswith($file->getName(), '.CSV') or endswith($file->getName(), '.csv'))
+                ){
+                    $gpxContent = $this->toGpx($file);
+                }
             }
             else{
                 $file = null;
             }
-        }
-
-        if ($file !== null){
-            $gpxContent = $file->getContent();
         }
 
         $response = new DataResponse(
@@ -285,6 +334,7 @@ class PageController extends Controller {
     public function getdircontent($dir) {
         $userFolder = \OC::$server->getUserFolder();
         $userfolder_path = $userFolder->getPath();
+        $gpsbabelpath = getProgramPath('gpsbabel');
         $responseTxt = '<ul class="jqueryFileTree">';
 
         //error_log('DIR : '.$dir);
@@ -297,9 +347,18 @@ class PageController extends Controller {
                     if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
                         $responseTxt .= '<li class="directory collapsed"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
                     }
-                    else if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FILE and
-                    (endswith($elempath, '.gpx') or endswith($elempath, '.GPX'))){
-                        $responseTxt .= '<li class="gpx ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                    else if ($elem->getType() === \OCP\Files\FileInfo::TYPE_FILE){
+                       if (endswith($elempath, '.gpx') or endswith($elempath, '.GPX')){
+                           $responseTxt .= '<li class="gpx ext_gpx"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                       }
+                       else if ($gpsbabelpath !== null and
+                       (endswith($elempath, '.csv') or endswith($elempath, '.CSV'))){
+                           $responseTxt .= '<li class="csv ext_csv"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                       }
+                       else if ($gpsbabelpath !== null and
+                       (endswith($elempath, '.kml') or endswith($elempath, '.KML'))){
+                           $responseTxt .= '<li class="kml ext_kml"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                       }
                     }
                 }
             }
