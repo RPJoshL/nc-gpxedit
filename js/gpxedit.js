@@ -461,7 +461,9 @@ function loadFile(file){
     }
     var url = OC.generateUrl('/apps/gpxedit/getgpx');
     $.post(url, req).done(function (response) {
-        clear();
+        if ($('#clearbeforeload').is(':checked')){
+            clear();
+        }
         if (response.gpx === ''){
             alert('The file does not exist or it is not a gpx');
         }
