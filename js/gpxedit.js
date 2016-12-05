@@ -313,12 +313,16 @@ function generateGpx(){
         if (layer.type === 'marker'){
             var lat = layer._latlng.lat;
             var lng = layer._latlng.lng;
+            var alt = layer._latlng.alt;
             gpxText = gpxText + ' <wpt lat="'+lat+'" lon="'+lng+'">\n';
             if (name){
                 gpxText = gpxText + '  <name>'+name+'</name>\n';
             }
             else{
                 gpxText = gpxText + '  <name>unnamed</name>\n';
+            }
+            if (alt !== undefined){
+                gpxText = gpxText + '  <ele>'+alt+'</ele>\n';
             }
             if (comment){
                 gpxText = gpxText + '  <cmt>'+comment+'</cmt>\n';
@@ -398,7 +402,13 @@ function parseGpx(xml){
         var name = $(this).find('name').text();
         var cmt = $(this).find('cmt').text();
         var desc = $(this).find('desc').text();
-        drawMarker([lat, lon], name, desc, cmt);
+        var ele = $(this).find('ele').text();
+        if (ele !== ''){
+            drawMarker([lat, lon, ele], name, desc, cmt);
+        }
+        else{
+            drawMarker([lat, lon], name, desc, cmt);
+        }
     });
     $(dom).find('trk').each(function(){
         var latlngs = [];
