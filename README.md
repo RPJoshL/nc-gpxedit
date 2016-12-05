@@ -8,7 +8,8 @@ There is a file explorer inside the app interface to select a file to load and a
 
 This is not a perfect GPX editor.
 
-**WARNING** GpxEdit does not save any elevation/time data, even if you loaded a gpx file which has elevation/time information. Keep that in mind if you overwrite a file.
+**WARNING** GpxEdit does not load/save any time data, even if you loaded a gpx file which has time information. Keep that in mind if you overwrite a file.
+Elevation data is loaded and saved but every new data added by GpxEdit will not have elevation or time data.
 
 Markers are saved as waypoints. Lines (polylines) are saved as tracks with one segment.
 It is possible to set a name, description and comment for each marker and line in a popup.

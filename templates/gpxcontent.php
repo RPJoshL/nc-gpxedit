@@ -12,7 +12,7 @@
         <div id="logo">
             <!--p align="center"><img src="gpxedit.png"/></p-->
             <div>
-            <p>v
+            <p id="versionnumber">v
 <?php
 p($_['gpxedit_version']);
 ?>
