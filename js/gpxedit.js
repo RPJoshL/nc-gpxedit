@@ -564,6 +564,13 @@ $(document).ready(function(){
             else{
                 showSaveSuccessAnimation(saveFilePath);
             }
+
+            // reload load tree root
+            var tree = $('#loadtree').data('fileTree');
+            $('#loadtree').empty();
+            tree.showTree($('#loadtree'), escape(tree.options.root), function () {
+            });
+
         });
     });
 
