@@ -289,7 +289,20 @@ function generateGpx(){
             ("0" + now.getUTCHours()).slice(-2)+':'+
             ("0" + now.getUTCMinutes()).slice(-2)+':'+
             ("0" + now.getUTCSeconds()).slice(-2)+'Z';
-    gpxText = gpxText + '<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="GpxEdit Owncloud/Nextcloud app" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">\n';
+    gpxText = gpxText + '<gpx xmlns="http://www.topografix.com/GPX/1/1"'+
+       ' xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3"'+
+       ' xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1"'+
+       ' xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"'+
+       ' creator="GpxEdit Owncloud/Nextcloud app" version="1.1"'+
+       ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'+
+       ' xsi:schemaLocation="http://www.topografix.com/GPX/1/1'+
+       ' http://www.topografix.com/GPX/1/1/gpx.xsd'+
+       ' http://www.garmin.com/xmlschemas/GpxExtensions/v3'+
+       ' http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd'+
+       ' http://www.garmin.com/xmlschemas/WaypointExtension/v1'+
+       ' http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd'+
+       ' http://www.garmin.com/xmlschemas/TrackPointExtension/v1'+
+       ' http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">\n';
     gpxText = gpxText + '<metadata>\n<time>'+now_utc_str+'</time>\n</metadata>\n';
 
     gpxedit.editableLayers.eachLayer(function(layer){
@@ -333,8 +346,12 @@ function generateGpx(){
             for (var i=0; i<layer._latlngs.length; i++){
                 var lat = layer._latlngs[i].lat;
                 var lng = layer._latlngs[i].lng;
-                gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n'+
-                    '   </trkpt>\n';
+                var alt = layer._latlngs[i].alt;
+                gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n';
+                if (alt !== undefined){
+                    gpxText = gpxText + '    <ele>'+alt+'</ele>\n';
+                }
+                gpxText = gpxText + '   </trkpt>\n';
             }
             gpxText = gpxText + '  </trkseg>\n </trk>\n';
         }
@@ -392,7 +409,13 @@ function parseGpx(xml){
             $(this).find('trkpt').each(function(){
                 var lat = $(this).attr('lat');
                 var lon = $(this).attr('lon');
-                latlngs.push([lat,lon]);
+                var ele = $(this).find('ele').text();
+                if (ele !== ''){
+                    latlngs.push([lat,lon,ele]);
+                }
+                else{
+                    latlngs.push([lat,lon]);
+                }
             });
         });
         drawLine(latlngs, name, desc, cmt);
