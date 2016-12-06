@@ -582,7 +582,9 @@ $(document).ready(function(){
         // set save name
         var spl = file.split('/');
         var basename = spl[spl.length-1];
-        $('input#saveName').val(basename);
+        $('input#saveName').val(
+            basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
+        );
     });
 
     var savetreeurl = OC.generateUrl('/apps/gpxedit/getdircontentdir');

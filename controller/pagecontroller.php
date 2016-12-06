@@ -203,6 +203,9 @@ class PageController extends Controller {
         else if (endswith($file->getName(), '.csv') or endswith($file->getName(), '.CSV')){
             $fmt = 'unicsv';
         }
+        else if (endswith($file->getName(), '.jpg') or endswith($file->getName(), '.JPG')){
+            $fmt = 'exif';
+        }
         $args = Array('-i', $fmt, '-f', $file_clear_path, '-o',
             'gpx', '-F', $gpx_target_clear_path);
         $cmdparams = '';
@@ -245,6 +248,7 @@ class PageController extends Controller {
                 }
                 else if (getProgramPath('gpsbabel') !== null and
                     (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml') or
+                    endswith($file->getName(), '.JPG') or endswith($file->getName(), '.jpg') or
                     endswith($file->getName(), '.CSV') or endswith($file->getName(), '.csv'))
                 ){
                     $gpxContent = $this->toGpx($file);
@@ -358,6 +362,10 @@ class PageController extends Controller {
                        else if ($gpsbabelpath !== null and
                        (endswith($elempath, '.kml') or endswith($elempath, '.KML'))){
                            $responseTxt .= '<li class="kml ext_kml"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
+                       }
+                       else if ($gpsbabelpath !== null and
+                       (endswith($elempath, '.jpg') or endswith($elempath, '.JPG'))){
+                           $responseTxt .= '<li class="jpg ext_jpg"><a href="#" rel="'.$elempath.'">'.$elem->getName().'</a></li>';
                        }
                     }
                 }
