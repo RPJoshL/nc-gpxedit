@@ -388,28 +388,29 @@ function generateGpx(){
 // adds a marker and initialize its data
 function drawMarker(latlng, name, desc, cmt, sym){
     var wst = $('#markerstyleselect').val();
+    var tst = $('#tooltipstyleselect').val();
     var symboo = $('#symboloverwrite').is(':checked');
     var m = L.marker(latlng);
     if (symboo && sym !== '' && symbolIcons.hasOwnProperty(sym)){
         m.setIcon(symbolIcons[sym]);
     }
-    else if (wst === 'tp' || wst === 'p'){
+    else if (wst === 'p'){
         m.setIcon(L.divIcon({
             className: 'leaflet-div-icon2',
             iconAnchor: [5, 30]
         }));
     }
-    else if (wst === 'ts' || wst === 's'){
+    else if (wst === 's'){
         m.setIcon(L.divIcon({
             iconSize:L.point(6,6),
             html:'<div></div>'
         }));
     }
-    else if (wst === 'tm' || wst === 'm'){
+    else if (wst === 'm'){
     }
     var layer = onCreated('marker', m);
     if (name !== ''){
-        if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+        if (tst === 'p'){
             m.bindTooltip(name, {permanent:true});
         }
         else{
@@ -425,13 +426,14 @@ function drawMarker(latlng, name, desc, cmt, sym){
 // adds a polyline and initialize its data
 function drawLine(latlngs, name, desc, cmt){
     var wst = $('#markerstyleselect').val();
+    var tst = $('#tooltipstyleselect').val();
     var p = L.polyline(latlngs, {
                   color: '#f357a1',
                   weight: 7
     });
     var layer = onCreated('polyline', p);
     if (name !== ''){
-        if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+        if (tst === 'p'){
             p.bindTooltip(name, {permanent:true});
         }
         else{
@@ -631,20 +633,21 @@ function addTileServer(){
 // affects future markers and also existing ones
 function updateLeafletDrawMarkerStyle(){
     var wst = $('#markerstyleselect').val();
+    var tst = $('#tooltipstyleselect').val();
     var theicon;
-    if (wst === 'tp' || wst === 'p'){
+    if (wst === 'p'){
         theicon = L.divIcon({
             className: 'leaflet-div-icon2',
             iconAnchor: [5, 30]
         });
     }
-    else if (wst === 'ts' || wst === 's'){
+    else if (wst === 's'){
         theicon = L.divIcon({
             iconSize:L.point(6,6),
             html:'<div></div>'
         });
     }
-    else if (wst === 'tm' || wst === 'm'){
+    else if (wst === 'm'){
         theicon = L.divIcon({
             className: 'leaflet-marker-blue',
             iconAnchor: [12, 41]
@@ -672,7 +675,7 @@ function updateLeafletDrawMarkerStyle(){
         }
         if (name !== ''){
             layer.unbindTooltip();
-            if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+            if (tst === 'p'){
                 layer.bindTooltip(name, {permanent:true});
             }
             else{
@@ -702,6 +705,9 @@ function restoreOptions(){
     if (optionsValues.markerstyle !== undefined){
         $('#markerstyleselect').val(optionsValues.markerstyle);
     }
+    if (optionsValues.tooltipstyle !== undefined){
+        $('#tooltipstyleselect').val(optionsValues.tooltipstyle);
+    }
 	if (optionsValues.clearbeforeload !== undefined){
         $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
     }
@@ -713,6 +719,7 @@ function restoreOptions(){
 function saveOptions(){
     var optionsValues = {};
     optionsValues.markerstyle = $('#markerstyleselect').val();
+    optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
 	optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
 	optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
     //alert('to save : '+JSON.stringify(optionsValues));
@@ -743,6 +750,10 @@ $(document).ready(function(){
         updateLeafletDrawMarkerStyle();
 		saveOptions();
     });
+    $('select#tooltipstyleselect').change(function(e){
+        updateLeafletDrawMarkerStyle();
+		saveOptions();
+    });
     $('body').on('change','#symboloverwrite', function() {
         updateLeafletDrawMarkerStyle();
 		saveOptions();
@@ -758,13 +769,14 @@ $(document).ready(function(){
         var description = $(this).parent().find('.layerDesc').val();
         var comment = $(this).parent().find('.layerCmt').val();
         var wst = $('#markerstyleselect').val();
+        var tst = $('#tooltipstyleselect').val();
 
         gpxedit.layersData[id].name = name;
         gpxedit.layersData[id].description = description;
         gpxedit.layersData[id].comment = comment;
         gpxedit.layersData[id].layer.unbindTooltip();
         if (name !== ''){
-            if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+            if (tst === 'p'){
                 gpxedit.layersData[id].layer.bindTooltip(name, {permanent:true});
             }
             else{
