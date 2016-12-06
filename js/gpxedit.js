@@ -10,6 +10,21 @@ var gpxedit = {
     layersData: {}
 };
 
+var symbolIcons = {
+    'Flag, Green': L.divIcon({
+        className: 'flag-green',
+        iconAnchor: [1, 25]
+    }),
+    'Flag, Red': L.divIcon({
+        className: 'flag-red',
+        iconAnchor: [1, 25]
+    }),
+    'Flag, Blue': L.divIcon({
+        className: 'flag-blue',
+        iconAnchor: [1, 25]
+    }),
+}
+
 function load_map() {
   var layer = getUrlParameter('layer');
   console.log('layer '+layer);
@@ -371,26 +386,26 @@ function generateGpx(){
 }
 
 // adds a marker and initialize its data
-function drawMarker(latlng, name, desc, cmt){
+function drawMarker(latlng, name, desc, cmt, sym){
     var wst = $('#markerstyleselect').val();
-    if (wst === 'tp' || wst === 'p'){
-        var m = L.marker(latlng, {
-              icon: L.divIcon({
-                  className: 'leaflet-div-icon2',
-                  iconAnchor: [5, 30]
-              })
-        });
+    var symboo = $('#symboloverwrite').is(':checked');
+    var m = L.marker(latlng);
+    if (symboo && sym !== '' && symbolIcons.hasOwnProperty(sym)){
+        m.setIcon(symbolIcons[sym]);
+    }
+    else if (wst === 'tp' || wst === 'p'){
+        m.setIcon(L.divIcon({
+            className: 'leaflet-div-icon2',
+            iconAnchor: [5, 30]
+        }));
     }
     else if (wst === 'ts' || wst === 's'){
-        var m = L.marker(latlng, {
-            icon: L.divIcon({
-                iconSize:L.point(6,6),
-                html:'<div></div>'
-            })
-        });
+        m.setIcon(L.divIcon({
+            iconSize:L.point(6,6),
+            html:'<div></div>'
+        }));
     }
     else if (wst === 'tm' || wst === 'm'){
-        var m = L.marker(latlng);
     }
     var layer = onCreated('marker', m);
     if (name !== ''){
@@ -404,6 +419,7 @@ function drawMarker(latlng, name, desc, cmt){
     gpxedit.layersData[layer.gpxedit_id].name = name;
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
+    gpxedit.layersData[layer.gpxedit_id].symbol = sym;
 }
 
 // adds a polyline and initialize its data
@@ -437,12 +453,13 @@ function parseGpx(xml){
         var name = $(this).find('name').text();
         var cmt = $(this).find('cmt').text();
         var desc = $(this).find('desc').text();
+        var sym = $(this).find('sym').text();
         var ele = $(this).find('ele').text();
         if (ele !== ''){
-            drawMarker([lat, lon, ele], name, desc, cmt);
+            drawMarker([lat, lon, ele], name, desc, cmt, sym);
         }
         else{
-            drawMarker([lat, lon], name, desc, cmt);
+            drawMarker([lat, lon], name, desc, cmt, sym);
         }
     });
     dom.find('trk').each(function(){
@@ -639,11 +656,19 @@ function updateLeafletDrawMarkerStyle(){
             icon: theicon
         }
     });
+
+    var symboo = $('#symboloverwrite').is(':checked');
     gpxedit.editableLayers.eachLayer(function(layer){
         var id = layer.gpxedit_id;
         var name = gpxedit.layersData[id].name;
+        var symbol = gpxedit.layersData[id].symbol;
         if (layer.type === 'marker'){
-            layer.setIcon(theicon);
+            if (symboo && symbol !== '' && symbolIcons.hasOwnProperty(symbol)){
+                layer.setIcon(symbolIcons[symbol]);
+            }
+            else{
+                layer.setIcon(theicon);
+            }
         }
         if (name !== ''){
             layer.unbindTooltip();
@@ -680,12 +705,16 @@ function restoreOptions(){
 	if (optionsValues.clearbeforeload !== undefined){
         $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
     }
+	if (optionsValues.symboloverwrite !== undefined){
+        $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
+    }
 }
 
 function saveOptions(){
     var optionsValues = {};
     optionsValues.markerstyle = $('#markerstyleselect').val();
 	optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
+	optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
     //alert('to save : '+JSON.stringify(optionsValues));
 
     var req = {
@@ -711,6 +740,10 @@ $(document).ready(function(){
     restoreOptions();
 
     $('select#markerstyleselect').change(function(e){
+        updateLeafletDrawMarkerStyle();
+		saveOptions();
+    });
+    $('body').on('change','#symboloverwrite', function() {
         updateLeafletDrawMarkerStyle();
 		saveOptions();
     });

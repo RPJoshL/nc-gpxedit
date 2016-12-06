@@ -476,6 +476,40 @@ input[type=checkbox]
     width: 25px !important;
     height: 41px !important;
 }
+.flag-blue
+{
+    background-image: url('images/symbols/flag-blue.png') !important;
+    width: 18px !important;
+    height: 25px !important;
+}
+.flag-red
+{
+    background-image: url('images/symbols/flag-red.png') !important;
+    width: 18px !important;
+    height: 25px !important;
+}
+.flag-green
+{
+    background-image: url('images/symbols/flag-green.png') !important;
+    width: 18px !important;
+    height: 25px !important;
+}
+/*
+Block, Blue
+Blue Diamond
+City (Capitol)
+Flag, Blue
+Multi-cache
+Parking Area
+Pin, Blue
+Residence
+Traditional Cache
+Trailhead
+Unknown Cache
+Virtual Cache
+Event Cache
+Waypoint
+ */
 
 .popupImage{
     width: 80px;

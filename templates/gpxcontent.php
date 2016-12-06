@@ -75,6 +75,8 @@ echo '</p>'."\n";
 	<option value="m"><?php p($l->t('marker')); ?></option>
 </select>
 <br/>
+<input id="symboloverwrite" type="checkbox"></input>
+<label for="symboloverwrite">Use gpx symbol if set</label>
 <br/>
 <hr/>
 <br/>
