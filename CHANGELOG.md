@@ -11,7 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - ability to load jpg files as markers, conversion with gpsbabel like kml and csv
   [#3](https://gitlab.com/eneiluj/gpxedit-oc/issues/3) @eneiluj
 - custom tile server management
-  [#4](https://gitlab.com/eneiluj/gpxedit-oc/issues/3) @eneiluj
+  [#4](https://gitlab.com/eneiluj/gpxedit-oc/issues/4) @eneiluj
+- option to change marker style and tooltip visibility
+  [#2](https://gitlab.com/eneiluj/gpxedit-oc/issues/2) @eneiluj
 
 ### Fixed
 - remove $.parseXML, apparently useless and producing errors

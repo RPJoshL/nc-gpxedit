@@ -65,6 +65,19 @@ echo '</p>'."\n";
 <h1 class="sectiontitle"><?php p($l->t('Settings and extra actions')); ?></h1>
 <hr/>
 <br/>
+<label>Waypoint style:</label>
+<select id="markerstyleselect">
+	<option value="ts"><?php p($l->t('text+point')); ?></option>
+	<option value="s"><?php p($l->t('point')); ?></option>
+	<option value="tp"><?php p($l->t('text+pin')); ?></option>
+	<option value="p"><?php p($l->t('pin')); ?></option>
+	<option value="tm"><?php p($l->t('text+marker')); ?></option>
+	<option value="m"><?php p($l->t('marker')); ?></option>
+</select>
+<br/>
+<br/>
+<hr/>
+<br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom tile servers')); ?></h3>
     <br/>
     <div id="tileserveradd">

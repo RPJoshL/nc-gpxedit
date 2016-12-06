@@ -4,6 +4,7 @@
 var gpxedit = {
     map: {},
     baseLayers: null,
+    drawControl: null,
     id: 0,
     // indexed by gpxedit_id
     layersData: {}
@@ -183,10 +184,6 @@ function load_map() {
   ).addTo(gpxedit.map);
   gpxedit.minimapControl._toggleDisplayButtonClicked();
 
-  //gpxedit.map.on('moveend',updateTrackListFromBounds);
-  //gpxedit.map.on('zoomend',updateTrackListFromBounds);
-  //gpxedit.map.on('baselayerchange',updateTrackListFromBounds);
-
   gpxedit.editableLayers = new L.FeatureGroup();
   gpxedit.map.addLayer(gpxedit.editableLayers);
 
@@ -215,6 +212,7 @@ function load_map() {
   };
 
   var drawControl = new L.Control.Draw(options);
+  gpxedit.drawControl = drawControl;
   gpxedit.map.addControl(drawControl);
 
   // when something is created, we generate popup content
@@ -374,15 +372,35 @@ function generateGpx(){
 
 // adds a marker and initialize its data
 function drawMarker(latlng, name, desc, cmt){
-    // to add a marker
-    var m = L.marker(latlng, {
-          icon: L.divIcon({
-              className: 'leaflet-div-icon2',
-              iconAnchor: [5, 30]
-          })
-    });
+    var wst = $('#markerstyleselect').val();
+    if (wst === 'tp' || wst === 'p'){
+        var m = L.marker(latlng, {
+              icon: L.divIcon({
+                  className: 'leaflet-div-icon2',
+                  iconAnchor: [5, 30]
+              })
+        });
+    }
+    else if (wst === 'ts' || wst === 's'){
+        var m = L.marker(latlng, {
+            icon: L.divIcon({
+                iconSize:L.point(6,6),
+                html:'<div></div>'
+            })
+        });
+    }
+    else if (wst === 'tm' || wst === 'm'){
+        var m = L.marker(latlng);
+    }
     var layer = onCreated('marker', m);
-    m.bindTooltip(name, {sticky:true});
+    if (name !== ''){
+        if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+            m.bindTooltip(name, {permanent:true});
+        }
+        else{
+            m.bindTooltip(name, {sticky:true});
+        }
+    }
     gpxedit.layersData[layer.gpxedit_id].name = name;
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
@@ -390,12 +408,20 @@ function drawMarker(latlng, name, desc, cmt){
 
 // adds a polyline and initialize its data
 function drawLine(latlngs, name, desc, cmt){
+    var wst = $('#markerstyleselect').val();
     var p = L.polyline(latlngs, {
                   color: '#f357a1',
                   weight: 7
     });
     var layer = onCreated('polyline', p);
-    p.bindTooltip(name, {sticky:true});
+    if (name !== ''){
+        if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+            p.bindTooltip(name, {permanent:true});
+        }
+        else{
+            p.bindTooltip(name, {sticky:true});
+        }
+    }
     gpxedit.layersData[layer.gpxedit_id].name = name;
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
@@ -445,6 +471,7 @@ function parseGpx(xml){
 function clear(){
     var layersToRemove = [];
     gpxedit.editableLayers.eachLayer(function (layer) {
+          layer.unbindTooltip();
           delete gpxedit.layersData[layer.gpxedit_id];
           layersToRemove.push(layer);
     });
@@ -584,21 +611,68 @@ function addTileServer(){
     });
 }
 
+function updateLeafletDrawMarkerStyle(){
+    var wst = $('#markerstyleselect').val();
+    if (wst === 'tp' || wst === 'p'){
+        gpxedit.drawControl.setDrawingOptions({
+            marker: {
+                icon: L.divIcon({
+                    className: 'leaflet-div-icon2',
+                    iconAnchor: [5, 30]
+                })
+            }
+        });
+    }
+    else if (wst === 'ts' || wst === 's'){
+        gpxedit.drawControl.setDrawingOptions({
+            marker: {
+                icon: L.divIcon({
+                    iconSize:L.point(6,6),
+                    html:'<div></div>'
+                })
+            }
+        });
+    }
+    else if (wst === 'tm' || wst === 'm'){
+        gpxedit.drawControl.setDrawingOptions({
+            marker: {
+                icon: L.divIcon({
+                    className: 'leaflet-marker-blue',
+                    iconAnchor: [12, 41]
+                })
+            }
+        });
+    }
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
 	document.onkeydown = checkKey;
 
+    $('select#markerstyleselect').change(function(e){
+        updateLeafletDrawMarkerStyle();
+    });
+    updateLeafletDrawMarkerStyle();
     $('body').on('click','button.popupOkButton', function(e) {
         var id = parseInt($(this).attr('layerid'));
         var name = $(this).parent().find('.layerName').val();
         var description = $(this).parent().find('.layerDesc').val();
         var comment = $(this).parent().find('.layerCmt').val();
+        var wst = $('#markerstyleselect').val();
 
         gpxedit.layersData[id].name = name;
         gpxedit.layersData[id].description = description;
         gpxedit.layersData[id].comment = comment;
-        gpxedit.layersData[id].layer.bindTooltip(name, {sticky:true});
+        gpxedit.layersData[id].layer.unbindTooltip();
+        if (name !== ''){
+            if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+                gpxedit.layersData[id].layer.bindTooltip(name, {permanent:true});
+            }
+            else{
+                gpxedit.layersData[id].layer.bindTooltip(name, {sticky:true});
+            }
+        }
 
         gpxedit.map.closePopup();
     });
