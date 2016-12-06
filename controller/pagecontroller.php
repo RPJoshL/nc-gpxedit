@@ -160,12 +160,15 @@ class PageController extends Controller {
             }
         }
 
+        $tss = $this->getUserTileServers();
+
         // PARAMS to view
 
         sort($alldirs);
         $params = [
             'dirs'=>$alldirs,
             'username'=>$this->userId,
+			'tileservers'=>$tss,
             'gpxedit_version'=>$this->appVersion
         ];
         $response = new TemplateResponse('gpxedit', 'main', $params);
@@ -422,6 +425,20 @@ class PageController extends Controller {
         //error_log($responseTxt);
         echo $responseTxt;
         return $response;
+    }
+
+    private function getUserTileServers(){
+        // custom tile servers management
+        $sqlts = 'SELECT servername, url FROM *PREFIX*gpxedit_tile_servers ';
+        $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\';';
+        $req = $this->dbconnection->prepare($sqlts);
+        $req->execute();
+        $tss = Array();
+        while ($row = $req->fetch()){
+            $tss[$row["servername"]] = $row["url"];
+        }
+        $req->closeCursor();
+        return $tss;
     }
 
 }

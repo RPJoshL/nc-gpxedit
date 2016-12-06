@@ -2,6 +2,7 @@
 <!-- Nav tabs -->
 <ul class="sidebar-tabs" role="tablist">
 <li class="active" title="<?php p($l->t('Folder and tracks selection')); ?>"><a href="#ho" role="tab"><i class="fa fa-bars"></i></a></li>
+<li title="<?php p($l->t('Settings and extra actions')); ?>"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
 <li title="<?php p($l->t('About GpxEdit')); ?>"><a href="#help" role="tab"><i class="fa fa-question"></i></a></li>
 </ul>
 <!-- Tab panes -->
@@ -59,6 +60,42 @@ p($_['username']);
 echo '</p>'."\n";
 
 ?>
+</div>
+<div class="sidebar-pane" id="settings">
+<h1 class="sectiontitle"><?php p($l->t('Settings and extra actions')); ?></h1>
+<hr/>
+<br/>
+    <h3 class="sectiontitle"><?php p($l->t('Custom tile servers')); ?></h3>
+    <br/>
+    <div id="tileserveradd">
+        <?php p($l->t('Server name (for example \'my custom server\')')); ?> :
+        <input type="text" id="tileservername"><br/>
+        <?php p($l->t('Server url (\'http://tile.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :
+        <input type="text" id="tileserverurl"><br/>
+        <button id="addtileserver"><i class="fa fa-plus-circle" aria-hidden="true" style="color:green;"></i> <?php p($l->t('Add')); ?></button>
+    </div>
+    <br/>
+    <div id="tileserverlist">
+        <h2><?php p($l->t('Your servers')); ?></h2>
+        <ul class="disclist">
+<?php
+if (count($_['tileservers']) > 0){
+    foreach($_['tileservers'] as $name=>$url){
+        echo '<li name="';
+        p($name);
+        echo '" title="';
+        p($url);
+        echo '">';
+        p($name);
+        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        p($l->t('Delete'));
+        echo '</button></li>';
+    }
+}
+?>
+        </ul>
+    </div>
+
 </div>
 <div class="sidebar-pane" id="help">
     <h1 class="sectiontitle"><?php p($l->t('About GpxEdit')); ?></h1>

@@ -127,6 +127,13 @@ function load_map() {
         'Watercolor' : watercolor,
         'OpenStreetMap France': osmfr
   };
+  // add custom layers
+  $('#tileserverlist li').each(function(){
+      var sname = $(this).attr('name');
+      var surl = $(this).attr('title');
+      baseLayers[sname] = new L.TileLayer(surl,
+              {maxZoom: 18, attribution: 'custom tile server'});
+  });
   gpxedit.baseLayers = baseLayers;
   var baseOverlays = {
       'OsmFr Route500': route,
@@ -512,6 +519,71 @@ function loadFile(file){
     });
 }
 
+function deleteTileServer(li){
+    var sname = li.attr('name');
+    var req = {
+        servername : sname
+    }
+    var url = OC.generateUrl('/apps/gpxedit/deleteTileServer');
+    $.ajax({
+        type:'POST',
+        url:url,
+        data:req,
+        async:true
+    }).done(function (response) {
+        //alert(response.done);
+        if (response.done){
+            li.remove();
+            var activeLayerName = gpxedit.activeLayers.getActiveBaseLayer().name;
+            // if we delete the active layer, first select another
+            if (activeLayerName === sname){
+                $('input.leaflet-control-layers-selector').first().click();
+            }
+            gpxedit.activeLayers.removeLayer(gpxedit.baseLayers[sname]);
+            delete gpxedit.baseLayers[sname];
+        }
+    }).always(function(){
+    });
+}
+
+function addTileServer(){
+    var sname = $('#tileservername').val();
+    var surl = $('#tileserverurl').val();
+    if (sname === '' || surl === ''){
+        alert('Server name or server url should not be empty');
+        return;
+    }
+    $('#tileservername').val('');
+    $('#tileserverurl').val('');
+
+    var req = {
+        servername : sname,
+        serverurl : surl
+    }
+    var url = OC.generateUrl('/apps/gpxedit/addTileServer');
+    $.ajax({
+        type:'POST',
+        url:url,
+        data:req,
+        async:true
+    }).done(function (response) {
+        //alert(response.done);
+        if (response.done){
+            $('#tileserverlist ul').prepend(
+                '<li name="'+sname+'" title="'+surl+'">'+sname+' <button>'+
+                '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> '+
+                t('gpxedit','Delete')+'</button></li>'
+            );
+            // add tile server in leaflet control
+            var newlayer = new L.TileLayer(surl,
+                    {maxZoom: 18, attribution: 'custom tile server'});
+            gpxedit.activeLayers.addBaseLayer(newlayer, sname);
+            gpxedit.baseLayers[sname] = newlayer;
+        }
+    }).always(function(){
+    });
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
@@ -623,6 +695,14 @@ $(document).ready(function(){
             $('#savediv').slideDown();
             $('#saveoptiontoggle').html('<i class="fa fa-compress"></i>');
         }
+    });
+
+    // Custom tile server management
+    $('body').on('click','#tileserverlist button', function(e) {
+        deleteTileServer($(this).parent());
+    });
+    $('#addtileserver').click(function(){
+        addTileServer();
     });
 
 });

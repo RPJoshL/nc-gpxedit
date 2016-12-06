@@ -24,5 +24,7 @@ return [
         ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
         ['name' => 'page#getdircontent', 'url' => '/getdircontent', 'verb' => 'POST'],
         ['name' => 'page#getdircontentdir', 'url' => '/getdircontentdir', 'verb' => 'POST'],
+        ['name' => 'utils#addTileServer', 'url' => '/addTileServer', 'verb' => 'POST'],
+        ['name' => 'utils#deleteTileServer', 'url' => '/deleteTileServer', 'verb' => 'POST'],
     ]
 ];
