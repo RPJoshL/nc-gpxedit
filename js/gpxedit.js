@@ -396,8 +396,9 @@ function drawLine(latlngs, name, desc, cmt){
 
 // parse gpx xml text to draw it on the map
 function parseGpx(xml){
-    var dom = $.parseXML(xml);
-    $(dom).find('wpt').each(function(){
+    //var dom = $.parseXML(xml);
+    var dom = $(xml);
+    dom.find('wpt').each(function(){
         var lat = $(this).attr('lat');
         var lon = $(this).attr('lon');
         var name = $(this).find('name').text();
@@ -411,7 +412,7 @@ function parseGpx(xml){
             drawMarker([lat, lon], name, desc, cmt);
         }
     });
-    $(dom).find('trk').each(function(){
+    dom.find('trk').each(function(){
         var latlngs = [];
         var name = $(this).find('name').text();
         var cmt = $(this).find('cmt').text();
