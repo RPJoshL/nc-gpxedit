@@ -611,38 +611,50 @@ function addTileServer(){
     });
 }
 
+// affects future markers and also existing ones
 function updateLeafletDrawMarkerStyle(){
     var wst = $('#markerstyleselect').val();
+    var theicon;
     if (wst === 'tp' || wst === 'p'){
-        gpxedit.drawControl.setDrawingOptions({
-            marker: {
-                icon: L.divIcon({
-                    className: 'leaflet-div-icon2',
-                    iconAnchor: [5, 30]
-                })
-            }
+        theicon = L.divIcon({
+            className: 'leaflet-div-icon2',
+            iconAnchor: [5, 30]
         });
     }
     else if (wst === 'ts' || wst === 's'){
-        gpxedit.drawControl.setDrawingOptions({
-            marker: {
-                icon: L.divIcon({
-                    iconSize:L.point(6,6),
-                    html:'<div></div>'
-                })
-            }
+        theicon = L.divIcon({
+            iconSize:L.point(6,6),
+            html:'<div></div>'
         });
     }
     else if (wst === 'tm' || wst === 'm'){
-        gpxedit.drawControl.setDrawingOptions({
-            marker: {
-                icon: L.divIcon({
-                    className: 'leaflet-marker-blue',
-                    iconAnchor: [12, 41]
-                })
-            }
+        theicon = L.divIcon({
+            className: 'leaflet-marker-blue',
+            iconAnchor: [12, 41]
         });
     }
+
+    gpxedit.drawControl.setDrawingOptions({
+        marker: {
+            icon: theicon
+        }
+    });
+    gpxedit.editableLayers.eachLayer(function(layer){
+        var id = layer.gpxedit_id;
+        var name = gpxedit.layersData[id].name;
+        if (layer.type === 'marker'){
+            layer.setIcon(theicon);
+        }
+        if (name !== ''){
+            layer.unbindTooltip();
+            if (wst === 'tm' || wst === 'tp' || wst === 'ts'){
+                layer.bindTooltip(name, {permanent:true});
+            }
+            else{
+                layer.bindTooltip(name, {sticky:true});
+            }
+        }
+    });
 }
 
 $(document).ready(function(){
