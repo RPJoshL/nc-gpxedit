@@ -657,15 +657,68 @@ function updateLeafletDrawMarkerStyle(){
     });
 }
 
+function restoreOptions(){
+    var url = OC.generateUrl('/apps/gpxedit/getOptionsValues');
+    var req = {
+    }
+    var optionsValues = '{}';
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: req,
+        async: false
+    }).done(function (response) {
+        optionsValues = response.values;
+        //alert('option values : '+optionsValues);
+    }).fail(function(){
+        alert('failed to restore options values');
+    });
+    optionsValues = $.parseJSON(optionsValues);
+    if (optionsValues.markerstyle !== undefined){
+        $('#markerstyleselect').val(optionsValues.markerstyle);
+    }
+	if (optionsValues.clearbeforeload !== undefined){
+        $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
+    }
+}
+
+function saveOptions(){
+    var optionsValues = {};
+    optionsValues.markerstyle = $('#markerstyleselect').val();
+	optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
+    //alert('to save : '+JSON.stringify(optionsValues));
+
+    var req = {
+        optionsValues : JSON.stringify(optionsValues),
+    }
+    var url = OC.generateUrl('/apps/gpxedit/saveOptionsValues');
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: req,
+        async: true
+    }).done(function (response) {
+        //alert(response);
+    }).fail(function(){
+        alert('failed to save options values');
+    });
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
 	document.onkeydown = checkKey;
+    restoreOptions();
 
     $('select#markerstyleselect').change(function(e){
         updateLeafletDrawMarkerStyle();
+		saveOptions();
     });
+    // to set the draw style
     updateLeafletDrawMarkerStyle();
+	$('body').on('change','#clearbeforeload', function() {
+		saveOptions();
+    });
     $('body').on('click','button.popupOkButton', function(e) {
         var id = parseInt($(this).attr('layerid'));
         var name = $(this).parent().find('.layerName').val();

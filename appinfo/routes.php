@@ -26,5 +26,7 @@ return [
         ['name' => 'page#getdircontentdir', 'url' => '/getdircontentdir', 'verb' => 'POST'],
         ['name' => 'utils#addTileServer', 'url' => '/addTileServer', 'verb' => 'POST'],
         ['name' => 'utils#deleteTileServer', 'url' => '/deleteTileServer', 'verb' => 'POST'],
+        ['name' => 'utils#getOptionsValues', 'url' => '/getOptionsValues', 'verb' => 'POST'],
+        ['name' => 'utils#saveOptionsValues', 'url' => '/saveOptionsValues', 'verb' => 'POST'],
     ]
 ];

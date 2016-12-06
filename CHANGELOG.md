@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#4](https://gitlab.com/eneiluj/gpxedit-oc/issues/4) @eneiluj
 - option to change marker style and tooltip visibility
   [#2](https://gitlab.com/eneiluj/gpxedit-oc/issues/2) @eneiluj
+- automatic save/restore options values
+  [#7](https://gitlab.com/eneiluj/gpxedit-oc/issues/7) @eneiluj
 
 ### Fixed
 - remove $.parseXML, apparently useless and producing errors
