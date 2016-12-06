@@ -67,8 +67,8 @@ echo '</p>'."\n";
 <br/>
 <label>Waypoint style:</label>
 <select id="markerstyleselect">
-	<option value="s"><?php p($l->t('point')); ?></option>
 	<option value="p"><?php p($l->t('pin')); ?></option>
+	<option value="s"><?php p($l->t('point')); ?></option>
 	<option value="m"><?php p($l->t('marker')); ?></option>
 </select>
 <br/>
@@ -78,7 +78,7 @@ echo '</p>'."\n";
 	<option value="p"><?php p($l->t('permanent')); ?></option>
 </select>
 <br/>
-<input id="symboloverwrite" type="checkbox"></input>
+<input id="symboloverwrite" type="checkbox" checked></input>
 <label for="symboloverwrite">Use gpx symbol if set</label>
 <br/>
 <hr/>

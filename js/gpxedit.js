@@ -341,6 +341,7 @@ function generateGpx(){
         var comment = gpxedit.layersData[id].comment;
         var description = gpxedit.layersData[id].description;
         if (layer.type === 'marker'){
+            var symbol = gpxedit.layersData[id].symbol;
             var lat = layer._latlng.lat;
             var lng = layer._latlng.lng;
             var alt = layer._latlng.alt;
@@ -356,6 +357,9 @@ function generateGpx(){
             }
             if (comment){
                 gpxText = gpxText + '  <cmt>'+comment+'</cmt>\n';
+            }
+            if (symbol){
+                gpxText = gpxText + '  <sym>'+symbol+'</sym>\n';
             }
             if (description){
                 gpxText = gpxText + '  <desc>'+description+'</desc>\n';
