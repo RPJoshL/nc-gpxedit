@@ -258,6 +258,7 @@ function load_map() {
       buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
       buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
       buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
+      buttonParent.find('select.symbol').val(gpxedit.layersData[id].symbol);
   });
 
 }
@@ -271,15 +272,23 @@ function onCreated(type, layer){
           popupTitle = 'Waypoint';
       }
 
-      layer.bindPopup('<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
+      var popupTxt = '<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
               '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
               '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
-              '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr></table>'+
-              '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>');
+              '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
+      popupTxt = popupTxt + '<tr><td>Symbol</td><td><select class="symbol">';
+      popupTxt = popupTxt + '<option value="">No symbol</option>';
+      for (var cl in symbolIcons){
+          popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+      }
+      popupTxt = popupTxt + '</select></td></tr></table>';
+      popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
+
+      layer.bindPopup(popupTxt);
 
       layer.gpxedit_id = gpxedit.id;
       layer.type = type;
-      gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', layer: layer};
+      gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', symbol:'', layer: layer};
       gpxedit.editableLayers.addLayer(layer);
       gpxedit.id++;
       return layer;
@@ -768,13 +777,43 @@ $(document).ready(function(){
         var name = $(this).parent().find('.layerName').val();
         var description = $(this).parent().find('.layerDesc').val();
         var comment = $(this).parent().find('.layerCmt').val();
+        var symbol = $(this).parent().find('select.symbol').val();
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
+        var symboo = $('#symboloverwrite').is(':checked');
 
         gpxedit.layersData[id].name = name;
         gpxedit.layersData[id].description = description;
         gpxedit.layersData[id].comment = comment;
+        gpxedit.layersData[id].symbol = symbol;
         gpxedit.layersData[id].layer.unbindTooltip();
+        if (gpxedit.layersData[id].layer.type === 'marker'){
+            if (symboo && symbol !== '' && symbolIcons.hasOwnProperty(symbol)){
+                gpxedit.layersData[id].layer.setIcon(symbolIcons[symbol])
+            }
+            else{
+                var theicon;
+                if (wst === 'p'){
+                    theicon = L.divIcon({
+                        className: 'leaflet-div-icon2',
+                        iconAnchor: [5, 30]
+                    });
+                }
+                else if (wst === 's'){
+                    theicon = L.divIcon({
+                        iconSize:L.point(6,6),
+                        html:'<div></div>'
+                    });
+                }
+                else if (wst === 'm'){
+                    theicon = L.divIcon({
+                        className: 'leaflet-marker-blue',
+                        iconAnchor: [12, 41]
+                    });
+                }
+                gpxedit.layersData[id].layer.setIcon(theicon);
+            }
+        }
         if (name !== ''){
             if (tst === 'p'){
                 gpxedit.layersData[id].layer.bindTooltip(name, {permanent:true});

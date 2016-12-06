@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - automatic save/restore options values
   [#7](https://gitlab.com/eneiluj/gpxedit-oc/issues/7) @eneiluj
 
+### Changed
+- detach marker and tooltip styling option
+
 ### Fixed
 - remove $.parseXML, apparently useless and producing errors
   [#5](https://gitlab.com/eneiluj/gpxedit-oc/issues/5) @eneiluj
