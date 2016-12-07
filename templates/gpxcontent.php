@@ -67,9 +67,6 @@ echo '</p>'."\n";
 <br/>
 <label>Waypoint style:</label>
 <select id="markerstyleselect">
-	<option value="p"><?php p($l->t('pin')); ?></option>
-	<option value="s"><?php p($l->t('point')); ?></option>
-	<option value="m"><?php p($l->t('marker')); ?></option>
 </select>
 <br/>
 <label>Tooltip style:</label>

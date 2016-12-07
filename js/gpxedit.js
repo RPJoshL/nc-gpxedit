@@ -11,6 +11,10 @@ var gpxedit = {
 };
 
 var symbolIcons = {
+    'marker': L.divIcon({
+            className: 'leaflet-marker-blue',
+            iconAnchor: [12, 41]
+    }),
     'Dot, White': L.divIcon({
             iconSize:L.point(7,7),
     }),
@@ -330,7 +334,9 @@ function onCreated(type, layer){
       popupTxt = popupTxt + '<tr><td>Symbol</td><td><select class="symbol">';
       popupTxt = popupTxt + '<option value="">No symbol</option>';
       for (var cl in symbolIcons){
-          popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+          if (cl !== 'marker'){
+              popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+          }
       }
       popupTxt = popupTxt + '</select></td></tr></table>';
       popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
@@ -458,19 +464,8 @@ function drawMarker(latlng, name, desc, cmt, sym){
     if (symboo && sym !== '' && symbolIcons.hasOwnProperty(sym)){
         m.setIcon(symbolIcons[sym]);
     }
-    else if (wst === 'p'){
-        m.setIcon(L.divIcon({
-            className: 'leaflet-div-icon2',
-            iconAnchor: [5, 30]
-        }));
-    }
-    else if (wst === 's'){
-        m.setIcon(L.divIcon({
-            iconSize:L.point(6,6),
-            html:'<div></div>'
-        }));
-    }
-    else if (wst === 'm'){
+    else{
+        m.setIcon(symbolIcons[wst]);
     }
     var layer = onCreated('marker', m);
     if (name !== ''){
@@ -698,25 +693,7 @@ function addTileServer(){
 function updateLeafletDrawMarkerStyle(){
     var wst = $('#markerstyleselect').val();
     var tst = $('#tooltipstyleselect').val();
-    var theicon;
-    if (wst === 'p'){
-        theicon = L.divIcon({
-            className: 'leaflet-div-icon2',
-            iconAnchor: [5, 30]
-        });
-    }
-    else if (wst === 's'){
-        theicon = L.divIcon({
-            iconSize:L.point(6,6),
-            html:'<div></div>'
-        });
-    }
-    else if (wst === 'm'){
-        theicon = L.divIcon({
-            className: 'leaflet-marker-blue',
-            iconAnchor: [12, 41]
-        });
-    }
+    var theicon = symbolIcons[wst];
 
     gpxedit.drawControl.setDrawingOptions({
         marker: {
@@ -804,10 +781,18 @@ function saveOptions(){
     });
 }
 
+function fillWaypointStyles(){
+    for (var st in symbolIcons){
+        $('select#markerstyleselect').append('<option value="'+st+'">'+st+'</option>');
+    }
+    $('select#markerstyleselect').val('marker');
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
 	document.onkeydown = checkKey;
+    fillWaypointStyles();
     restoreOptions();
 
     $('select#markerstyleselect').change(function(e){
@@ -847,25 +832,7 @@ $(document).ready(function(){
                 gpxedit.layersData[id].layer.setIcon(symbolIcons[symbol])
             }
             else{
-                var theicon;
-                if (wst === 'p'){
-                    theicon = L.divIcon({
-                        className: 'leaflet-div-icon2',
-                        iconAnchor: [5, 30]
-                    });
-                }
-                else if (wst === 's'){
-                    theicon = L.divIcon({
-                        iconSize:L.point(6,6),
-                        html:'<div></div>'
-                    });
-                }
-                else if (wst === 'm'){
-                    theicon = L.divIcon({
-                        className: 'leaflet-marker-blue',
-                        iconAnchor: [12, 41]
-                    });
-                }
+                var theicon = symbolIcons[wst];
                 gpxedit.layersData[id].layer.setIcon(theicon);
             }
         }
