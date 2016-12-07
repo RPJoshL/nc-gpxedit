@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#7](https://gitlab.com/eneiluj/gpxedit-oc/issues/7) @eneiluj
 - load/save/edit symbol value (sym)
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
+- symbol selects include icons
+  [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
 
 ### Changed
 - detach marker and tooltip styling option

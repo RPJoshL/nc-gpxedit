@@ -471,6 +471,14 @@ input[type=checkbox]
     width: 25px !important;
     height: 41px !important;
 }
+.marker-select{
+    background: url('images/marker-icon.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 12px 20px;
+}
+.dot-select{
+    background: url('images/symbols/dot.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 
 .leaflet-marker-red
 {
@@ -487,11 +495,23 @@ input[type=checkbox]
 .flag-blue{
     background-image: url('images/symbols/flag-blue.png') !important;
 }
+.flag-blue-select{
+    background: url('images/symbols/flag-blue.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
+}
 .flag-red{
     background-image: url('images/symbols/flag-red.png') !important;
 }
+.flag-red-select{
+    background: url('images/symbols/flag-red.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
+}
 .flag-green{
     background-image: url('images/symbols/flag-green.png') !important;
+}
+.flag-green-select{
+    background: url('images/symbols/flag-green.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
 }
 .diamond-blue, .diamond-red, .diamond-green{
     background-size: 18px 18px !important;
@@ -502,11 +522,23 @@ input[type=checkbox]
 .diamond-blue{
     background-image: url('images/symbols/diamond-blue.png') !important;
 }
+.diamond-blue-select{
+    background: url('images/symbols/diamond-blue.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .diamond-green{
     background-image: url('images/symbols/diamond-green.png') !important;
 }
+.diamond-green-select{
+    background: url('images/symbols/diamond-green.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .diamond-red{
     background-image: url('images/symbols/diamond-red.png') !important;
+}
+.diamond-red-select{
+    background: url('images/symbols/diamond-red.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }
 .block-blue, .block-red, .block-green{
     background-size: 16px 16px !important;
@@ -517,11 +549,23 @@ input[type=checkbox]
 .block-blue{
     background-image: url('images/symbols/block-blue.png') !important;
 }
+.block-blue-select{
+    background: url('images/symbols/block-blue.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .block-green{
     background-image: url('images/symbols/block-green.png') !important;
 }
+.block-green-select{
+    background: url('images/symbols/block-green.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .block-red{
     background-image: url('images/symbols/block-red.png') !important;
+}
+.block-red-select{
+    background: url('images/symbols/block-red.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }
 .pin-blue, .pin-red, .pin-green{
     background-size: 21px 30px !important;
@@ -532,11 +576,23 @@ input[type=checkbox]
 .pin-blue{
     background-image: url('images/symbols/pin-blue.png') !important;
 }
+.pin-blue-select{
+    background: url('images/symbols/pin-blue.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
+}
 .pin-green{
     background-image: url('images/symbols/pin-green.png') !important;
 }
+.pin-green-select{
+    background: url('images/symbols/pin-green.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
+}
 .pin-red{
     background-image: url('images/symbols/pin-red.png') !important;
+}
+.pin-red-select{
+    background: url('images/symbols/pin-red.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 15px 20px;
 }
 .medical{
     background-image: url('images/symbols/medical.png') !important;
@@ -545,12 +601,20 @@ input[type=checkbox]
     width: 26px !important;
     height: 22px !important;
 }
+.medical-select{
+    background: url('images/symbols/medical.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 24px 20px;
+}
 .campground{
     background-image: url('images/symbols/campground.png') !important;
     background-size: 24px 24px !important;
     background-repeat: no-repeat !important;
     width: 24px !important;
     height: 24px !important;
+}
+.campground-select{
+    background: url('images/symbols/campground.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }
 .hike{
     background-image: url('images/symbols/hike.png') !important;
@@ -559,12 +623,20 @@ input[type=checkbox]
     width: 24px !important;
     height: 24px !important;
 }
+.hike-select{
+    background: url('images/symbols/hike.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .bike-trail{
     background-image: url('images/symbols/bike-trail.png') !important;
     background-size: 24px 24px !important;
     background-repeat: no-repeat !important;
     width: 24px !important;
     height: 24px !important;
+}
+.bike-trail-select{
+    background: url('images/symbols/bike-trail.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }
 .bar{
     background-image: url('images/symbols/bar.png') !important;
@@ -573,12 +645,20 @@ input[type=checkbox]
     width: 20px !important;
     height: 24px !important;
 }
+.bar-select{
+    background: url('images/symbols/bar.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .skullcross{
     background-image: url('images/symbols/skullcross.png') !important;
     background-size: 25px 25px !important;
     background-repeat: no-repeat !important;
     width: 25px !important;
     height: 25px !important;
+}
+.skullcross-select{
+    background: url('images/symbols/skullcross.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }
 .geocache{
     background-image: url('images/symbols/geocache.png') !important;
@@ -587,12 +667,20 @@ input[type=checkbox]
     width: 22px !important;
     height: 20px !important;
 }
+.geocache-select{
+    background: url('images/symbols/geocache.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
+}
 .geocache-open{
     background-image: url('images/symbols/geocache-open.png') !important;
     background-size: 22px 20px !important;
     background-repeat: no-repeat !important;
     width: 22px !important;
     height: 20px !important;
+}
+.geocache-open-select{
+    background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 22px 20px;
 }
 /*
 Block, Blue
@@ -651,4 +739,8 @@ h2.popupTitle{
 }
 #saveName{
     width:78%;
+}
+.selectimg{
+    background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
+    background-size: 20px 20px;
 }

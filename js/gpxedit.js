@@ -10,6 +10,31 @@ var gpxedit = {
     layersData: {}
 };
 
+var symbolSelectClasses = {
+    'marker': 'marker-select',
+    'Dot, White': 'dot-select',
+    'Pin, Blue': 'pin-blue-select',
+    'Pin, Green': 'pin-green-select',
+    'Pin, Red': 'pin-red-select',
+    'Flag, Green': 'flag-green-select',
+    'Flag, Red': 'flag-red-select',
+    'Flag, Blue': 'flag-blue-select',
+    'Block, Blue': 'block-blue-select',
+    'Block, Green': 'block-green-select',
+    'Block, Red': 'block-red-select',
+    'Blue Diamond': 'diamond-blue-select',
+    'Green Diamond': 'diamond-green-select',
+    'Red Diamond': 'diamond-red-select',
+    'Trail Head': 'hike-select',
+    'Bike Trail': 'bike-trail-select',
+    'Campground': 'campground-select',
+    'Bar': 'bar-select',
+    'Skull and Crossbones': 'skullcross-select',
+    'Geocache': 'geocache-select',
+    'Geocache Found': 'geocache-open-select',
+    'Medical Facility': 'medical-select',
+}
+
 var symbolIcons = {
     'marker': L.divIcon({
             className: 'leaflet-marker-blue',
@@ -333,7 +358,8 @@ function load_map() {
       buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
       buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
       buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
-      buttonParent.find('select.symbol').val(gpxedit.layersData[id].symbol);
+      buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+      buttonParent.find('select[role=symbol]').change();
   });
 
 }
@@ -351,7 +377,7 @@ function onCreated(type, layer){
               '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
               '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
               '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
-      popupTxt = popupTxt + '<tr><td>Symbol</td><td><select class="symbol">';
+      popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
       popupTxt = popupTxt + '<option value="">No symbol</option>';
       for (var cl in symbolIcons){
           if (cl !== 'marker'){
@@ -712,6 +738,9 @@ function addTileServer(){
 // affects future markers and also existing ones
 function updateLeafletDrawMarkerStyle(){
     var wst = $('#markerstyleselect').val();
+    var theclass = symbolSelectClasses[wst];
+    $('#markerstyleselect').removeClass($('#markerstyleselect').attr('class'));
+    $('#markerstyleselect').addClass(theclass);
     var tst = $('#tooltipstyleselect').val();
     var theicon = symbolIcons[wst];
 
@@ -837,7 +866,7 @@ $(document).ready(function(){
         var name = $(this).parent().find('.layerName').val();
         var description = $(this).parent().find('.layerDesc').val();
         var comment = $(this).parent().find('.layerCmt').val();
-        var symbol = $(this).parent().find('select.symbol').val();
+        var symbol = $(this).parent().find('select[role=symbol]').val();
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
         var symboo = $('#symboloverwrite').is(':checked');
@@ -968,6 +997,11 @@ $(document).ready(function(){
     });
     $('#addtileserver').click(function(){
         addTileServer();
+    });
+
+	$('body').on('change', 'select[role=symbol]', function() {
+        $(this).removeClass($(this).attr('class'));
+        $(this).addClass(symbolSelectClasses[$(this).val()]);
     });
 
 });
