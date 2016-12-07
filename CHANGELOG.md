@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - detach marker and tooltip styling option
+- every symbol can be default marker style choices
+  [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
 
 ### Fixed
 - remove $.parseXML, apparently useless and producing errors
