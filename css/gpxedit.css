@@ -459,6 +459,7 @@ input[type=checkbox]
 .leaflet-div-icon2
 {
     background-image: url('images/pinblue.png') !important;
+    background-repeat: no-repeat !important;
     width: 21px !important;
     height: 30px !important;
 }
@@ -466,32 +467,96 @@ input[type=checkbox]
 .leaflet-marker-blue
 {
     background-image: url('images/marker-icon.png') !important;
+    background-repeat: no-repeat !important;
     width: 25px !important;
     height: 41px !important;
 }
 
 .leaflet-marker-red
 {
-    background-image: url('images/marker-icon-red.png');
+    background-image: url('images/marker-icon-red.png') !important;
+    background-repeat: no-repeat !important;
     width: 25px !important;
     height: 41px !important;
 }
-.flag-blue
-{
+.flag-blue, .flag-red, .flag-green{
+    background-repeat: no-repeat !important;
+    width: 18px !important;
+    height: 25px !important;
+}
+.flag-blue{
     background-image: url('images/symbols/flag-blue.png') !important;
-    width: 18px !important;
-    height: 25px !important;
 }
-.flag-red
-{
+.flag-red{
     background-image: url('images/symbols/flag-red.png') !important;
-    width: 18px !important;
-    height: 25px !important;
 }
-.flag-green
-{
+.flag-green{
     background-image: url('images/symbols/flag-green.png') !important;
+}
+.diamond-blue, .diamond-red, .diamond-green{
+    background-size: 18px 18px !important;
+    background-repeat: no-repeat !important;
     width: 18px !important;
+    height: 18px !important;
+}
+.diamond-blue{
+    background-image: url('images/symbols/diamond-blue.png') !important;
+}
+.diamond-green{
+    background-image: url('images/symbols/diamond-green.png') !important;
+}
+.diamond-red{
+    background-image: url('images/symbols/diamond-red.png') !important;
+}
+.block-blue, .block-red, .block-green{
+    background-size: 16px 16px !important;
+    background-repeat: no-repeat !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+.block-blue{
+    background-image: url('images/symbols/block-blue.png') !important;
+}
+.block-green{
+    background-image: url('images/symbols/block-green.png') !important;
+}
+.block-red{
+    background-image: url('images/symbols/block-red.png') !important;
+}
+.pin-blue, .pin-red, .pin-green{
+    background-size: 21px 30px !important;
+    background-repeat: no-repeat !important;
+    width: 21px !important;
+    height: 30px !important;
+}
+.pin-blue{
+    background-image: url('images/symbols/pin-blue.png') !important;
+}
+.pin-green{
+    background-image: url('images/symbols/pin-green.png') !important;
+}
+.pin-red{
+    background-image: url('images/symbols/pin-red.png') !important;
+}
+.bike-trail{
+    background-image: url('images/symbols/bike-trail.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.bar{
+    background-image: url('images/symbols/bar.png') !important;
+    background-size: 20px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 20px !important;
+    height: 24px !important;
+}
+.skullcross{
+    background-image: url('images/symbols/skullcross.png') !important;
+    background-size: 25px 25px !important;
+    background-repeat: no-repeat !important;
+    width: 25px !important;
     height: 25px !important;
 }
 /*

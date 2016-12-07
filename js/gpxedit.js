@@ -11,6 +11,21 @@ var gpxedit = {
 };
 
 var symbolIcons = {
+    'Dot, White': L.divIcon({
+            iconSize:L.point(7,7),
+    }),
+    'Pin, Blue': L.divIcon({
+        className: 'pin-blue',
+        iconAnchor: [5, 30]
+    }),
+    'Pin, Green': L.divIcon({
+        className: 'pin-green',
+        iconAnchor: [5, 30]
+    }),
+    'Pin, Red': L.divIcon({
+        className: 'pin-red',
+        iconAnchor: [5, 30]
+    }),
     'Flag, Green': L.divIcon({
         className: 'flag-green',
         iconAnchor: [1, 25]
@@ -22,6 +37,42 @@ var symbolIcons = {
     'Flag, Blue': L.divIcon({
         className: 'flag-blue',
         iconAnchor: [1, 25]
+    }),
+    'Block, Blue': L.divIcon({
+        className: 'block-blue',
+        iconAnchor: [8, 8]
+    }),
+    'Block, Green': L.divIcon({
+        className: 'block-green',
+        iconAnchor: [8, 8]
+    }),
+    'Block, Red': L.divIcon({
+        className: 'block-red',
+        iconAnchor: [8, 8]
+    }),
+    'Blue Diamond': L.divIcon({
+        className: 'diamond-blue',
+        iconAnchor: [9, 9]
+    }),
+    'Green Diamond': L.divIcon({
+        className: 'diamond-green',
+        iconAnchor: [9, 9]
+    }),
+    'Red Diamond': L.divIcon({
+        className: 'diamond-red',
+        iconAnchor: [9, 9]
+    }),
+    'Bike Trail': L.divIcon({
+        className: 'bike-trail',
+        iconAnchor: [12, 12]
+    }),
+    'Bar': L.divIcon({
+        className: 'bar',
+        iconAnchor: [10, 12]
+    }),
+    'Skull and Crossbones': L.divIcon({
+        className: 'skullcross',
+        iconAnchor: [12, 12]
     }),
 }
 
