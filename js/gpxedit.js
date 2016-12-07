@@ -66,8 +66,16 @@ var symbolIcons = {
         className: 'diamond-red',
         iconAnchor: [9, 9]
     }),
+    'Trail Head': L.divIcon({
+        className: 'hike',
+        iconAnchor: [12, 12]
+    }),
     'Bike Trail': L.divIcon({
         className: 'bike-trail',
+        iconAnchor: [12, 12]
+    }),
+    'Campground': L.divIcon({
+        className: 'campground',
         iconAnchor: [12, 12]
     }),
     'Bar': L.divIcon({
@@ -77,6 +85,18 @@ var symbolIcons = {
     'Skull and Crossbones': L.divIcon({
         className: 'skullcross',
         iconAnchor: [12, 12]
+    }),
+    'Geocache': L.divIcon({
+        className: 'geocache',
+        iconAnchor: [11, 10]
+    }),
+    'Geocache Found': L.divIcon({
+        className: 'geocache-open',
+        iconAnchor: [11, 10]
+    }),
+    'Medical Facility': L.divIcon({
+        className: 'medical',
+        iconAnchor: [13, 11]
     }),
 }
 
