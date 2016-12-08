@@ -736,6 +736,16 @@ function hideSaveSuccessAnimation(){
     $('#saved').fadeOut();
 }
 
+function loadAction(file){
+    loadFile(file);
+    // set save name
+    var spl = file.split('/');
+    var basename = spl[spl.length-1];
+    $('input#saveName').val(
+            basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
+            );
+}
+
 function loadFile(file){
     var req = {
         path : file
@@ -1032,14 +1042,7 @@ $(document).ready(function(){
 
     var treeurl = OC.generateUrl('/apps/gpxedit/getdircontent');
     $('#loadtree').fileTree({root: '/', script: treeurl, multiFolder: false }, function(file) {
-        gpxedit.fileToLoad = file;
-        loadFile(file);
-        // set save name
-        var spl = file.split('/');
-        var basename = spl[spl.length-1];
-        $('input#saveName').val(
-            basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
-        );
+        loadAction(file);
     });
 
     var savetreeurl = OC.generateUrl('/apps/gpxedit/getdircontentdir');
@@ -1092,6 +1095,12 @@ $(document).ready(function(){
         $(this).removeClass($(this).attr('class'));
         $(this).addClass(symbolSelectClasses[$(this).val()]);
     });
+
+    // load a file if 'file' GET url parameter was given
+    var fileparam = getUrlParameter('file');
+    if (fileparam){
+        loadAction(fileparam);
+    }
 
 });
 

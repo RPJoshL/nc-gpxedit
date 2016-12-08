@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - symbol selects include icons
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
 - gpx route parsing, save it as route
+- GET param to load file on page load
 
 ### Changed
 - detach marker and tooltip styling option
