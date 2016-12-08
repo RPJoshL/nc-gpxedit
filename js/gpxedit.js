@@ -363,13 +363,16 @@ function load_map() {
   // this is needed because popup content is created each time we open one
   // so, the content is lost when it's closed
   gpxedit.map.on('popupopen', function(e){
-      var id = parseInt(e.popup.getContent().match(/layerid="(\d+)"/)[1]);
+      var id = e.popup._source.gpxedit_id;
+      //var id = parseInt(e.popup.getContent().match(/layerid="(\d+)"/)[1]);
       var buttonParent = $('button.popupOkButton[layerid='+id+']').parent();
       buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
       buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
       buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
-      buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
-      buttonParent.find('select[role=symbol]').change();
+      if (gpxedit.layersData[id].layer.type === 'marker'){
+          buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+          buttonParent.find('select[role=symbol]').change();
+      }
   });
 
 }
@@ -387,14 +390,17 @@ function onCreated(type, layer){
               '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
               '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
               '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
-      popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
-      popupTxt = popupTxt + '<option value="">No symbol</option>';
-      for (var cl in symbolIcons){
-          if (cl !== 'marker'){
-              popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+      if (type === 'marker') {
+          popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
+          popupTxt = popupTxt + '<option value="">No symbol</option>';
+          for (var cl in symbolIcons){
+              if (cl !== 'marker'){
+                  popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+              }
           }
+          popupTxt = popupTxt + '</select></td></tr>';
       }
-      popupTxt = popupTxt + '</select></td></tr></table>';
+      popupTxt = popupTxt + '</table>';
       popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
 
       layer.bindPopup(popupTxt);
@@ -898,13 +904,14 @@ $(document).ready(function(){
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
         var symboo = $('#symboloverwrite').is(':checked');
+        var type = gpxedit.layersData[id].layer.type;
 
         gpxedit.layersData[id].name = name;
         gpxedit.layersData[id].description = description;
         gpxedit.layersData[id].comment = comment;
         gpxedit.layersData[id].symbol = symbol;
         gpxedit.layersData[id].layer.unbindTooltip();
-        if (gpxedit.layersData[id].layer.type === 'marker'){
+        if (type === 'marker'){
             if (symboo && symbol !== '' && symbolIcons.hasOwnProperty(symbol)){
                 gpxedit.layersData[id].layer.setIcon(symbolIcons[symbol])
             }
