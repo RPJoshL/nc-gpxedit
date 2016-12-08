@@ -325,10 +325,7 @@ function load_map() {
           circle: false,
           rectangle:false,
           marker: {
-              icon: L.divIcon({
-                  className: 'leaflet-div-icon2',
-                  iconAnchor: [5, 30]
-              })
+              icon: symbolIcons['marker']
           }
       },
       edit: {
@@ -381,36 +378,46 @@ function load_map() {
 // it generates the popup content and initializes the layer's data
 // it returns the layer in case we want to set the layer's data manually (when loading a gpx)
 function onCreated(type, layer){
-      var popupTitle = 'Track';
-      if (type === 'marker') {
-          popupTitle = 'Waypoint';
-      }
+    var popupTitle;
+    var layerType;
+    if (type === 'polyline' || type === 'track'){
+        popupTitle = 'Track';
+        layerType = 'track';
+    }
+    else if (type === 'route') {
+        popupTitle = 'Route';
+        layerType = 'route';
+    }
+    else if (type === 'marker') {
+        popupTitle = 'Waypoint';
+        layerType = 'marker';
+    }
 
-      var popupTxt = '<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
-              '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
-              '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
-              '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
-      if (type === 'marker') {
-          popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
-          popupTxt = popupTxt + '<option value="">No symbol</option>';
-          for (var cl in symbolIcons){
-              if (cl !== 'marker'){
-                  popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
-              }
-          }
-          popupTxt = popupTxt + '</select></td></tr>';
-      }
-      popupTxt = popupTxt + '</table>';
-      popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
+    var popupTxt = '<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
+        '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
+        '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
+        '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
+    if (type === 'marker') {
+        popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
+        popupTxt = popupTxt + '<option value="">No symbol</option>';
+        for (var cl in symbolIcons){
+            if (cl !== 'marker'){
+                popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
+            }
+        }
+        popupTxt = popupTxt + '</select></td></tr>';
+    }
+    popupTxt = popupTxt + '</table>';
+    popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
 
-      layer.bindPopup(popupTxt);
+    layer.bindPopup(popupTxt);
 
-      layer.gpxedit_id = gpxedit.id;
-      layer.type = type;
-      gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', symbol:'', layer: layer};
-      gpxedit.editableLayers.addLayer(layer);
-      gpxedit.id++;
-      return layer;
+    layer.gpxedit_id = gpxedit.id;
+    layer.type = layerType;
+    gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', symbol:'', layer: layer};
+    gpxedit.editableLayers.addLayer(layer);
+    gpxedit.id++;
+    return layer;
 }
 
 function getUrlParameter(sParam)
@@ -485,7 +492,7 @@ function generateGpx(){
             }
             gpxText = gpxText + ' </wpt>\n';
         }
-        else{
+        else if(layer.type === 'track'){
             gpxText = gpxText + ' <trk>\n';
             if (name){
                 gpxText = gpxText + '  <name>'+name+'</name>\n';
@@ -511,6 +518,32 @@ function generateGpx(){
                 gpxText = gpxText + '   </trkpt>\n';
             }
             gpxText = gpxText + '  </trkseg>\n </trk>\n';
+        }
+        else if(layer.type === 'route'){
+            gpxText = gpxText + ' <rte>\n';
+            if (name){
+                gpxText = gpxText + '  <name>'+name+'</name>\n';
+            }
+            else{
+                gpxText = gpxText + '  <name>unnamed</name>\n';
+            }
+            if (comment){
+                gpxText = gpxText + '  <cmt>'+comment+'</cmt>\n';
+            }
+            if (description){
+                gpxText = gpxText + '  <desc>'+description+'</desc>\n';
+            }
+            for (var i=0; i<layer._latlngs.length; i++){
+                var lat = layer._latlngs[i].lat;
+                var lng = layer._latlngs[i].lng;
+                var alt = layer._latlngs[i].alt;
+                gpxText = gpxText + '  <rtept lat="'+lat+'" lon="'+lng+'">\n';
+                if (alt !== undefined){
+                    gpxText = gpxText + '   <ele>'+alt+'</ele>\n';
+                }
+                gpxText = gpxText + '  </rtept>\n';
+            }
+            gpxText = gpxText + ' </rte>\n';
         }
     });
     gpxText = gpxText + ' <extensions/>\n</gpx>';
@@ -545,14 +578,14 @@ function drawMarker(latlng, name, desc, cmt, sym){
 }
 
 // adds a polyline and initialize its data
-function drawLine(latlngs, name, desc, cmt){
+function drawLine(latlngs, name, desc, cmt, gpxtype){
     var wst = $('#markerstyleselect').val();
     var tst = $('#tooltipstyleselect').val();
     var p = L.polyline(latlngs, {
                   color: '#f357a1',
                   weight: 7
     });
-    var layer = onCreated('polyline', p);
+    var layer = onCreated(gpxtype, p);
     if (name !== ''){
         if (tst === 'p'){
             p.bindTooltip(name, {permanent:true});
@@ -603,7 +636,7 @@ function parseGpx(xml){
                 }
             });
         });
-        drawLine(latlngs, name, desc, cmt);
+        drawLine(latlngs, name, desc, cmt, 'track');
     });
     dom.find('rte').each(function(){
         var latlngs = [];
@@ -621,7 +654,7 @@ function parseGpx(xml){
                 latlngs.push([lat,lon]);
             }
         });
-        drawLine(latlngs, name, desc, cmt);
+        drawLine(latlngs, name, desc, cmt, 'route');
     });
 }
 
