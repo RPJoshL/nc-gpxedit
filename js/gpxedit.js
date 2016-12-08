@@ -25,6 +25,8 @@ var symbolSelectClasses = {
     'Blue Diamond': 'diamond-blue-select',
     'Green Diamond': 'diamond-green-select',
     'Red Diamond': 'diamond-red-select',
+    'Residence': 'residence-select',
+    'Drinking Water': 'drinking-water-select',
     'Trail Head': 'hike-select',
     'Bike Trail': 'bike-trail-select',
     'Campground': 'campground-select',
@@ -90,6 +92,14 @@ var symbolIcons = {
     'Red Diamond': L.divIcon({
         className: 'diamond-red',
         iconAnchor: [9, 9]
+    }),
+    'Residence': L.divIcon({
+        className: 'residence',
+        iconAnchor: [12, 12]
+    }),
+    'Drinking Water': L.divIcon({
+        className: 'drinking-water',
+        iconAnchor: [12, 12]
     }),
     'Trail Head': L.divIcon({
         className: 'hike',
