@@ -135,6 +135,17 @@ var symbolIcons = {
     }),
 }
 
+var hoverStyle = {
+    weight: 12,
+    opacity: 0.7,
+    color: 'black'
+};
+var defaultStyle = {
+    opacity: 0.9,
+    color: '#f357a1',
+    weight: 7
+};
+
 function load_map() {
   var layer = getUrlParameter('layer');
   console.log('layer '+layer);
@@ -333,6 +344,8 @@ function load_map() {
       }
   };
 
+  L.drawLocal.draw.toolbar.buttons.polyline = 'Draw a track';
+  L.drawLocal.draw.toolbar.buttons.marker = 'Add a waypoint';
   var drawControl = new L.Control.Draw(options);
   gpxedit.drawControl = drawControl;
   gpxedit.map.addControl(drawControl);
@@ -411,6 +424,14 @@ function onCreated(type, layer){
     popupTxt = popupTxt + '<button class="popupOkButton" layerid="'+gpxedit.id+'">OK</button>';
 
     layer.bindPopup(popupTxt);
+    if (type !== 'marker') {
+        layer.on('mouseover', function(){
+            layer.setStyle(hoverStyle);
+        });
+        layer.on('mouseout', function(){
+            layer.setStyle(defaultStyle);
+        });
+    }
 
     layer.gpxedit_id = gpxedit.id;
     layer.type = layerType;

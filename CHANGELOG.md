@@ -20,12 +20,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
 - symbol selects include icons
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
-- gpx route parsing
+- gpx route parsing, save it as route
 
 ### Changed
 - detach marker and tooltip styling option
 - every symbol can be default marker style choices
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
+- line style, control text
 
 ### Fixed
 - remove $.parseXML, apparently useless and producing errors
