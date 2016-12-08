@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.2 – 2016-12-08
 ### Added
 - ability to load kml and csv (unicsv format) files
   [#1](https://gitlab.com/eneiluj/gpxedit-oc/issues/1) @eneiluj

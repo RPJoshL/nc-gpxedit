@@ -28,7 +28,7 @@ p($_['gpxedit_version']);
     <div id="loaddiv" style="display:none;">
         <p>Select a gpx file to load it on the map</p>
         <div>
-            <input type="checkbox" id="clearbeforeload"></input>
+            <input type="checkbox" id="clearbeforeload" checked></input>
             <label for="clearbeforeload">Clear map before loading</label>
         </div>
         <br/>
