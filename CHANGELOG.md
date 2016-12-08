@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
 - symbol selects include icons
   [#6](https://gitlab.com/eneiluj/gpxedit-oc/issues/6) @eneiluj
+- gpx route parsing
 
 ### Changed
 - detach marker and tooltip styling option

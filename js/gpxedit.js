@@ -581,9 +581,9 @@ function parseGpx(xml){
     });
     dom.find('trk').each(function(){
         var latlngs = [];
-        var name = $(this).find('name').text();
-        var cmt = $(this).find('cmt').text();
-        var desc = $(this).find('desc').text();
+        var name = $(this).find('>name').text();
+        var cmt = $(this).find('>cmt').text();
+        var desc = $(this).find('>desc').text();
         $(this).find('trkseg').each(function(){
             $(this).find('trkpt').each(function(){
                 var lat = $(this).attr('lat');
@@ -596,6 +596,24 @@ function parseGpx(xml){
                     latlngs.push([lat,lon]);
                 }
             });
+        });
+        drawLine(latlngs, name, desc, cmt);
+    });
+    dom.find('rte').each(function(){
+        var latlngs = [];
+        var name = $(this).find('>name').text();
+        var cmt = $(this).find('>cmt').text();
+        var desc = $(this).find('>desc').text();
+        $(this).find('rtept').each(function(){
+            var lat = $(this).attr('lat');
+            var lon = $(this).attr('lon');
+            var ele = $(this).find('ele').text();
+            if (ele !== ''){
+                latlngs.push([lat,lon,ele]);
+            }
+            else{
+                latlngs.push([lat,lon]);
+            }
         });
         drawLine(latlngs, name, desc, cmt);
     });
