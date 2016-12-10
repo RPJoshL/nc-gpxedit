@@ -1122,8 +1122,9 @@ $(document).ready(function(){
     });
 
     // load a file if 'file' GET url parameter was given
-    var fileparam = decodeURI(getUrlParameter('file'));
-    if (fileparam){
+    var urlfileparam = getUrlParameter('file');
+    var fileparam = decodeURI(urlfileparam);
+    if (urlfileparam && urlfileparam !== undefined){
         loadAction(fileparam);
     }
 
