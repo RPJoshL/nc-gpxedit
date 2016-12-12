@@ -5,11 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-###
+### Added
 - file description field
+- 'destination' readonly field indicating full save path
 
 ### Changed
 - keep time information in loaded tracks/routes/waypoints, written in saved files
+- design : borders around file trees, button icons
 
 ## 0.0.2 – 2016-12-08
 ### Added

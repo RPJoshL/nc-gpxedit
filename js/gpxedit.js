@@ -6,6 +6,7 @@ var gpxedit = {
     baseLayers: null,
     drawControl: null,
     id: 0,
+    saveDirPath: '/',
     // indexed by gpxedit_id
     layersData: {}
 };
@@ -806,8 +807,9 @@ function loadAction(file){
     var spl = file.split('/');
     var basename = spl[spl.length-1];
     $('input#saveName').val(
-            basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
-            );
+        basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
+    );
+    updateSavePath();
 }
 
 function loadFile(file){
@@ -999,6 +1001,15 @@ function fillWaypointStyles(){
     $('select#markerstyleselect').val('marker');
 }
 
+function updateSavePath(){
+    var dir = gpxedit.saveDirPath;
+    if (dir === '/'){
+        dir = '';
+    }
+    var filename = $('#saveName').val();
+    $('#savePath').val(dir+'/'+filename);
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
@@ -1071,7 +1082,7 @@ $(document).ready(function(){
             var saveFilePath = '/'+$('input#saveName').val();
         }
         else{
-            var saveFilePath = gpxedit.savePath+'/'+$('input#saveName').val();
+            var saveFilePath = gpxedit.saveDirPath+'/'+$('input#saveName').val();
         }
         var req = {
             path: saveFilePath,
@@ -1114,15 +1125,20 @@ $(document).ready(function(){
     });
 
     $('#savetree').on('filetreeexpand', function(e, data){
-        gpxedit.savePath = data.rel;
+        gpxedit.saveDirPath = data.rel;
         $('#savetree a').removeClass('selectedFolder');
         data.li.find('>a').addClass('selectedFolder');
+        updateSavePath();
     });
     $('#savetree').on('filetreecollapse', function(e, data){
-        gpxedit.savePath = data.li.parent().parent().find('>a').attr('rel');
+        gpxedit.saveDirPath = data.li.parent().parent().find('>a').attr('rel') || '/';
         data.li.find('li.expanded').removeClass('expanded');
         data.li.find('>a').removeClass('selectedFolder');
         data.li.parent().parent().find('>a').addClass('selectedFolder');
+        updateSavePath();
+    });
+    $('#saveName').on('input',function(e){
+        updateSavePath();
     });
 
     $('body').on('click','h2#loadtitle', function(e) {
@@ -1166,6 +1182,7 @@ $(document).ready(function(){
     if (urlfileparam && urlfileparam !== undefined){
         loadAction(fileparam);
     }
+    updateSavePath();
 
 });
 

@@ -40,15 +40,25 @@ p($_['gpxedit_version']);
         <p>Select a folder, set a name and click "Save" button</p><br/>
         <div id="savetree"></div>
         <br/>
-        <input id="saveName"></input>
-        <button id="saveButton">Save</button>
-        <br/>
+        <div>
+            <label id="saveNameLabel">File name :</label>
+            <input id="saveName" type="text"></input>
+        </div>
+        <div style="clear:both"></div>
+        <div>
+            <label id="savePathLabel">Destination :</label>
+            <input id="savePath" type="text" readonly></input>
+        </div>
+        <br/><br/>
         <label>Description (optional) :</label><br/>
         <textarea id="desctext"></textarea>
+        <button id="saveButton"><i class="fa fa-save"></i> Save</button>
+        <br/>
     </div>
     <div style="clear:both"></div>
     <hr/>
-    <button id="clearButton">Clear map</button>
+    <br/>
+    <button id="clearButton"><i class="fa fa-bomb"></i> Clear map</button>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
         <b id="content"></b></p>

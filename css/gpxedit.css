@@ -782,11 +782,27 @@ h2.popupTitle{
     margin-right: auto;
     display:block;
 }
+#saveButton i{
+    color: blue;
+}
+#clearButton i{
+    color: red;
+}
 #saveButton{
     width:18%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
 }
-#saveName{
-    width:78%;
+#saveNameLabel, #savePathLabel{
+    float:left;
+}
+#saveName, #savePath{
+    width: 78%;
+    float: right;
+}
+#savePath{
+    background-color: #C9C9C9;
 }
 .selectimg{
     background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
@@ -795,4 +811,9 @@ h2.popupTitle{
 #desctext{
     width: 100%;
     height: 70px;
+}
+#loadtree, #savetree{
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 6px;
 }
