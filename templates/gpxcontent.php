@@ -39,8 +39,12 @@ p($_['gpxedit_version']);
     <div id="savediv" style="display:none;">
         <p>Select a folder, set a name and click "Save" button</p><br/>
         <div id="savetree"></div>
+        <br/>
         <input id="saveName"></input>
         <button id="saveButton">Save</button>
+        <br/>
+        <label>Description (optional) :</label><br/>
+        <textarea id="desctext"></textarea>
     </div>
     <div style="clear:both"></div>
     <hr/>

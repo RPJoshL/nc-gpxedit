@@ -512,7 +512,12 @@ function generateGpx(){
        ' http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd'+
        ' http://www.garmin.com/xmlschemas/TrackPointExtension/v1'+
        ' http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">\n';
-    gpxText = gpxText + '<metadata>\n<time>'+now_utc_str+'</time>\n</metadata>\n';
+    gpxText = gpxText + '<metadata>\n <time>'+now_utc_str+'</time>\n';
+    var fileDesc = $('#desctext').val();
+    if (fileDesc){
+        gpxText = gpxText + ' <desc>'+fileDesc+'</desc>\n';
+    }
+    gpxText = gpxText + '</metadata>\n';
 
     gpxedit.editableLayers.eachLayer(function(layer){
         var id = layer.gpxedit_id;
@@ -674,6 +679,8 @@ function drawLine(latlngs, name, desc, cmt, gpxtype, times){
 function parseGpx(xml){
     //var dom = $.parseXML(xml);
     var dom = $(xml);
+    var fileDesc = dom.find('>metadata>desc').text();
+    $('#desctext').val(fileDesc);
     dom.find('wpt').each(function(){
         var lat = $(this).attr('lat');
         var lon = $(this).attr('lon');
