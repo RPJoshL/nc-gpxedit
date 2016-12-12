@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- keep time information in loaded tracks/routes/waypoints, written in saved files
 
 ## 0.0.2 – 2016-12-08
 ### Added

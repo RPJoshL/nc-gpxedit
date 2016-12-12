@@ -1,8 +1,6 @@
 # GpxEdit owncloud/nextcloud application
 
-If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples.
-
-Simple Owncloud/Nextcloud app to load, edit and save GPX file on an interactive map.
+Simple Owncloud/Nextcloud app to load, edit and save GPX files on an interactive map.
 You can load/save files from your Owncloud/Nextcloud file storage.
 GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files will be loaded as waypoints.
 There is a file explorer inside the app interface to select a file to load and a folder to save what is currently on the map.
@@ -17,6 +15,7 @@ What's saved :
     - points
         - coordinates
         - elevation (just preserves loaded values)
+        - time (just preserves loaded values)
 - waypoint
     - coordinates
     - name
@@ -24,9 +23,10 @@ What's saved :
     - description
     - symbol
     - elevation (just preserves loaded value)
+    - time (just preserves loaded value)
 
-**WARNING** GpxEdit does not load/save any time data, even if you loaded a gpx file which has time information. Keep that in mind if you overwrite a file.
-Elevation data is loaded and saved but every new data added by user actions in GpxEdit will have neither elevation nor time data.
+GpxEdit does load/save time data.
+Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data.
 
 Tracks are saved with one segment.
 
@@ -41,7 +41,7 @@ GpxEdit :
 - works with shared files.
 - loads GPX, KML, unicsv CSV, geotagged JPG files
 - loads tracks, routes and waypoints
-- saves tracks and waypoints
+- saves tracks, routes and waypoints
 - supports waypoint symbols
 - uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) amazing plugin
 - uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl
@@ -49,3 +49,5 @@ GpxEdit :
 - uses [JQuery File Tree](https://github.com/jqueryfiletree/jqueryfiletree) amazing file tree library
 
 Any feedback will be appreciated.
+
+If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples.

@@ -460,7 +460,14 @@ function onCreated(type, layer){
 
     layer.gpxedit_id = gpxedit.id;
     layer.type = layerType;
-    gpxedit.layersData[gpxedit.id] = {name:'', description:'', comment:'', symbol:'', layer: layer};
+    gpxedit.layersData[gpxedit.id] = {
+        name:'',
+        description:'',
+        comment:'',
+        symbol:'',
+        time: '',
+        layer: layer
+    };
     gpxedit.editableLayers.addLayer(layer);
     gpxedit.id++;
     return layer;
@@ -512,6 +519,7 @@ function generateGpx(){
         var name = gpxedit.layersData[id].name;
         var comment = gpxedit.layersData[id].comment;
         var description = gpxedit.layersData[id].description;
+        var time = gpxedit.layersData[id].time;
         if (layer.type === 'marker'){
             var symbol = gpxedit.layersData[id].symbol;
             var lat = layer._latlng.lat;
@@ -536,6 +544,9 @@ function generateGpx(){
             if (description){
                 gpxText = gpxText + '  <desc>'+description+'</desc>\n';
             }
+            if (time){
+                gpxText = gpxText + '  <time>'+time+'</time>\n';
+            }
             gpxText = gpxText + ' </wpt>\n';
         }
         else if(layer.type === 'track'){
@@ -557,7 +568,11 @@ function generateGpx(){
                 var lat = layer._latlngs[i].lat;
                 var lng = layer._latlngs[i].lng;
                 var alt = layer._latlngs[i].alt;
+                var time = layer._latlngs[i].time;
                 gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n';
+                if (time !== undefined){
+                    gpxText = gpxText + '    <time>'+time+'</time>\n';
+                }
                 if (alt !== undefined){
                     gpxText = gpxText + '    <ele>'+alt+'</ele>\n';
                 }
@@ -583,7 +598,11 @@ function generateGpx(){
                 var lat = layer._latlngs[i].lat;
                 var lng = layer._latlngs[i].lng;
                 var alt = layer._latlngs[i].alt;
+                var time = layer._latlngs[i].time;
                 gpxText = gpxText + '  <rtept lat="'+lat+'" lon="'+lng+'">\n';
+                if (time !== undefined){
+                    gpxText = gpxText + '   <time>'+time+'</time>\n';
+                }
                 if (alt !== undefined){
                     gpxText = gpxText + '   <ele>'+alt+'</ele>\n';
                 }
@@ -597,7 +616,7 @@ function generateGpx(){
 }
 
 // adds a marker and initialize its data
-function drawMarker(latlng, name, desc, cmt, sym){
+function drawMarker(latlng, name, desc, cmt, sym, time){
     var wst = $('#markerstyleselect').val();
     var tst = $('#tooltipstyleselect').val();
     var symboo = $('#symboloverwrite').is(':checked');
@@ -621,16 +640,22 @@ function drawMarker(latlng, name, desc, cmt, sym){
     gpxedit.layersData[layer.gpxedit_id].comment = cmt;
     gpxedit.layersData[layer.gpxedit_id].description = desc;
     gpxedit.layersData[layer.gpxedit_id].symbol = sym;
+    gpxedit.layersData[layer.gpxedit_id].time = time;
 }
 
 // adds a polyline and initialize its data
-function drawLine(latlngs, name, desc, cmt, gpxtype){
+function drawLine(latlngs, name, desc, cmt, gpxtype, times){
     var wst = $('#markerstyleselect').val();
     var tst = $('#tooltipstyleselect').val();
     var p = L.polyline(latlngs, {
                   color: '#f357a1',
                   weight: 7
     });
+    if (times.length === p._latlngs.length){
+        for (var i=0; i<times.length; i++){
+            p._latlngs[i].time = times[i];
+        }
+    }
     var layer = onCreated(gpxtype, p);
     if (name !== ''){
         if (tst === 'p'){
@@ -657,11 +682,12 @@ function parseGpx(xml){
         var desc = $(this).find('desc').text();
         var sym = $(this).find('sym').text();
         var ele = $(this).find('ele').text();
+        var time = $(this).find('time').text();
         if (ele !== ''){
-            drawMarker([lat, lon, ele], name, desc, cmt, sym);
+            drawMarker([lat, lon, ele], name, desc, cmt, sym, time);
         }
         else{
-            drawMarker([lat, lon], name, desc, cmt, sym);
+            drawMarker([lat, lon], name, desc, cmt, sym, time);
         }
     });
     dom.find('trk').each(function(){
@@ -669,11 +695,14 @@ function parseGpx(xml){
         var name = $(this).find('>name').text();
         var cmt = $(this).find('>cmt').text();
         var desc = $(this).find('>desc').text();
+        var times = [];
         $(this).find('trkseg').each(function(){
             $(this).find('trkpt').each(function(){
                 var lat = $(this).attr('lat');
                 var lon = $(this).attr('lon');
                 var ele = $(this).find('ele').text();
+                var time = $(this).find('time').text();
+                times.push(time);
                 if (ele !== ''){
                     latlngs.push([lat,lon,ele]);
                 }
@@ -682,17 +711,20 @@ function parseGpx(xml){
                 }
             });
         });
-        drawLine(latlngs, name, desc, cmt, 'track');
+        drawLine(latlngs, name, desc, cmt, 'track', times);
     });
     dom.find('rte').each(function(){
         var latlngs = [];
         var name = $(this).find('>name').text();
         var cmt = $(this).find('>cmt').text();
         var desc = $(this).find('>desc').text();
+        var times = [];
         $(this).find('rtept').each(function(){
             var lat = $(this).attr('lat');
             var lon = $(this).attr('lon');
             var ele = $(this).find('ele').text();
+            var time = $(this).find('time').text();
+            times.push(time);
             if (ele !== ''){
                 latlngs.push([lat,lon,ele]);
             }
@@ -700,7 +732,7 @@ function parseGpx(xml){
                 latlngs.push([lat,lon]);
             }
         });
-        drawLine(latlngs, name, desc, cmt, 'route');
+        drawLine(latlngs, name, desc, cmt, 'route', times);
     });
 }
 
