@@ -1,0 +1,8 @@
+button#addExtraSymbol{
+    width: 33px;
+    height: 33px;
+}
+.extraSymbol img{
+    width: 28px;
+    height: 28px;
+}

@@ -23,6 +23,7 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 
 use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
 /**
@@ -111,6 +112,27 @@ class UtilsController extends Controller {
 
             $this->dbconnection = \OC::$server->getDatabaseConnection();
         }
+    }
+
+    /**
+     * Add one tile server to the DB for current user
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function getExtraSymbol() {
+        $filename = str_replace(array('../', '..\\'), '', $_GET['name']);
+        $filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename;
+        $filecontent = file_get_contents($filepath);
+        echo $filecontent;
+        $response = new Response(
+        );
+        $response->setHeaders(Array('Content-type'=>'image/png'));
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        return $response;
     }
 
     /**
