@@ -144,9 +144,11 @@ class PageController extends Controller {
         // extra symbols
         $dataDirPath = $this->config->getSystemValue('datadirectory').'/gpxedit';
         $extraSymbolList = Array();
-	    foreach(globRecursive($dataDirPath.'/symbols', '*.png', False) as $symbolfile){
-            $filename = basename($symbolfile);
-            array_push($extraSymbolList, Array('smallname'=>str_replace('.png', '', $filename), 'name'=>$filename));
+        if (is_dir($dataDirPath.'/symbols')){
+            foreach(globRecursive($dataDirPath.'/symbols', '*.png', False) as $symbolfile){
+                $filename = basename($symbolfile);
+                array_push($extraSymbolList, Array('smallname'=>str_replace('.png', '', $filename), 'name'=>$filename));
+            }
         }
 
         // PARAMS to view
