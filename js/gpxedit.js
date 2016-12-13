@@ -914,7 +914,7 @@ function updateLeafletDrawMarkerStyle(){
         $('#markerstyleselect').attr('style',
             'background: url(\''+fullurl+'\') no-repeat '+
             'right 8px center rgba(240, 240, 240, 0.90);'+
-            'background-size: 24px 24px;');
+            'background-size: 24px 24px contain;');
     }
     var tst = $('#tooltipstyleselect').val();
     var theicon = symbolIcons[wst];
@@ -1211,7 +1211,7 @@ $(document).ready(function(){
             $(this).attr('style',
                 'background: url(\''+fullurl+'\') no-repeat '+
                 'right 8px center rgba(240, 240, 240, 0.90);'+
-                'background-size: 24px 24px;');
+                'background-size: 24px 24px contain;');
         }
     });
 
