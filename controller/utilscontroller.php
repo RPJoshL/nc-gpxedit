@@ -82,9 +82,11 @@ class UtilsController extends Controller {
     private $dbconnection;
     private $dbtype;
     private $appPath;
+    //private $request;
 
     public function __construct($AppName, IRequest $request, $UserId, $userfolder, $config){
         parent::__construct($AppName, $request);
+		//$this->request = $request;
         $this->appPath = \OC_App::getAppPath('gpxedit');
         $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
@@ -115,7 +117,61 @@ class UtilsController extends Controller {
     }
 
     /**
-     * Add one tile server to the DB for current user
+     * @NoCSRFRequired
+     */
+    public function deleteExtraSymbol($name) {
+		$filename = str_replace(array('../', '..\\', '/'), '', $name);
+        $filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename;
+        if (file_exists($filepath)){
+            unlink($filepath);
+        }
+        return new DataResponse(
+            [
+                'data' =>
+                [
+                    'name' => $filename,
+                    'message' => 'Deleted'
+                ],
+                'status' => 'success'
+            ]
+        );
+    }
+
+    /**
+     * @NoCSRFRequired
+     */
+    public function uploadExtraSymbol($addExtraSymbolName) {
+		$newSymbol = $this->request->getUploadedFile('uploadsymbol');
+		$filename = str_replace(array('../', '..\\', '/'), '', $addExtraSymbolName);
+        if (empty($newSymbol)) {
+            return new DataResponse(
+                [
+                    'data' => [
+                        'message' => 'No file uploaded'
+                    ]
+                ],
+                Http::STATUS_UNPROCESSABLE_ENTITY
+            );
+        }
+        $name = '';
+        if(!empty($newSymbol)) {
+			$filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename.'.png';
+	        $content = file_get_contents($newSymbol['tmp_name']);
+            file_put_contents($filepath, $content);
+        }
+        return new DataResponse(
+            [
+                'data' =>
+                [
+                    'name' => $filename.'.png',
+                    'message' => 'Saved'
+                ],
+                'status' => 'success'
+            ]
+        );
+    }
+
+    /**
      * @NoAdminRequired
      * @NoCSRFRequired
      */

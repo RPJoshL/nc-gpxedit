@@ -7,6 +7,7 @@ use OCP\IRequest;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 use OCP\Util;
+use OCP\IURLGenerator;
 
 /**
  * Recursive find files from name pattern
@@ -40,8 +41,14 @@ class Admin implements ISettings {
     private $request;
     private $config;
     private $dataDirPath;
+	private $urlGenerator;
 
-    public function __construct(IniGetWrapper $iniWrapper, IRequest $request, IConfig $config) {
+    public function __construct(
+                        IniGetWrapper $iniWrapper,
+                        IRequest $request,
+                        IConfig $config,
+                        IURLGenerator $urlGenerator) {
+        $this->urlGenerator = $urlGenerator;
         $this->iniWrapper = $iniWrapper;
         $this->request = $request;
         $this->config = $config;
@@ -59,15 +66,17 @@ class Admin implements ISettings {
      * @return TemplateResponse
      */
     public function getForm() {
+        $uploadPath = $this->urlGenerator->linkToRoute('gpxedit.utils.uploadExtraSymbol');
         //$extraSymbolList = Array(Array('name'=>'plop', 'url'=>'huhu'), Array('name'=>'lll', 'url'=>'uuu'));
         $extraSymbolList = Array();
 	    foreach(globRecursive($this->dataDirPath.'/symbols', '*.png', False) as $symbolfile){
             $filename = basename($symbolfile);
-            array_push($extraSymbolList, Array('name'=>str_replace('.png', '', $filename), 'url'=>$filename));
+            array_push($extraSymbolList, Array('smallname'=>str_replace('.png', '', $filename), 'name'=>$filename));
         }    
 
         $parameters = [
-            'extraSymbolList' => $extraSymbolList
+            'extraSymbolList' => $extraSymbolList,
+            'uploadPath' => $uploadPath
         ];
 
         return new TemplateResponse('gpxedit', 'admin', $parameters, '');

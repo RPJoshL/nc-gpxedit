@@ -29,5 +29,7 @@ return [
         ['name' => 'utils#getOptionsValues', 'url' => '/getOptionsValues', 'verb' => 'POST'],
         ['name' => 'utils#saveOptionsValues', 'url' => '/saveOptionsValues', 'verb' => 'POST'],
         ['name' => 'utils#getExtraSymbol', 'url' => '/getExtraSymbol', 'verb' => 'GET'],
+        ['name' => 'utils#uploadExtraSymbol', 'url' => '/uploadExtraSymbol', 'verb' => 'POST'],
+        ['name' => 'utils#deleteExtraSymbol', 'url' => '/deleteExtraSymbol', 'verb' => 'POST'],
     ]
 ];

@@ -3,6 +3,19 @@ button#addExtraSymbol{
     height: 33px;
 }
 .extraSymbol img{
+    width: 25px;
+    height: 25px;
+}
+#gpxedit .upload-symbol-field{
+    display: none;
+}
+#gpxedit .icon-upload{
+    display: inline-flex;
+    padding: 8px;
+    margin: 2px 0px;
+}
+#gpxedit .icon-delete{
+    padding-top: 12px;
     width: 28px;
     height: 28px;
 }
