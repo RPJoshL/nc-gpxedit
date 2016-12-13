@@ -2,42 +2,15 @@
     if (!OCA.GpxEdit) {
         OCA.GpxEdit = {};
     }
-
-    OCA.GpxEdit.Admin = {
-        initialize: function() {
-            $('#submitMaxUpload').on('click', _.bind(this._onClickSubmitMaxUpload, this));
-        },
-
-        _onClickSubmitMaxUpload: function () {
-            OC.msg.startSaving('#maxUploadSizeSettingsMsg');
-
-            var request = $.ajax({
-                url: OC.generateUrl('/apps/files/settings/maxUpload'),
-                type: 'POST',
-                data: {
-                    maxUploadSize: $('#maxUploadSize').val()
-                }
-            });
-
-            request.done(function (data) {
-                $('#maxUploadSize').val(data.maxUploadSize);
-                OC.msg.finishedSuccess('#maxUploadSizeSettingsMsg', 'Saved');
-            });
-
-            request.fail(function () {
-                OC.msg.finishedError('#maxUploadSizeSettingsMsg', 'Error');
-            });
-        }
-    }
 })();
 
 function addLogoLine(name){
     var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
     var fullurl = url+'name='+encodeURI(name);
     var nameWe = name.replace(/\.png$/, '');
-    $('div#extraSymbols').append('<p class="extraSymbol" id="'+nameWe+'">'+
-            '<img src="'+fullurl+'"><label> '+nameWe+' </label>'+
-            '<button class="delExtraSymbol icon-delete icon" name="'+name+'" title="Remove"></button></p>');
+    $('div#extraSymbols table').append('<tr class="extraSymbol" id="'+nameWe+'">'+
+            '<td><img src="'+fullurl+'"></td><td><label> '+nameWe+' </label></td>'+
+            '<td><button class="delExtraSymbol icon-delete icon" name="'+name+'" title="Remove"></button></td></tr>');
 }
 
 function deleteLogo(button){
@@ -48,7 +21,7 @@ function deleteLogo(button){
     }
     var url = OC.generateUrl('/apps/gpxedit/deleteExtraSymbol');
     $.post(url, req).done(function (response) {
-        button.parent().remove();
+        button.parent().parent().remove();
         OC.msg.finishedSuccess('#extraSymbolsSettingsMsg', response.data.message);
     }).fail(function(){
         OC.msg.finishedError('#extraSymbolsSettingsMsg', 'Failed');
@@ -57,9 +30,8 @@ function deleteLogo(button){
 }
 
 $(document).ready(function() {
-    OCA.GpxEdit.Admin.initialize();
     var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
-    $('p.extraSymbol img').each(function(){
+    $('tr.extraSymbol img').each(function(){
         var filename = $(this).attr('src');
         var fullurl = url+'name='+encodeURI(filename);
         $(this).attr('src', fullurl);
@@ -70,6 +42,7 @@ $(document).ready(function() {
         dropZone: null,
         done: function (e, response) {
             //preview('logoMime', response.result.data.name);
+            //alert('success '+response.result.data.name);
             addLogoLine(response.result.data.name);
             OC.msg.finishedSaving('#extraSymbolsSettingsMsg', response.result);
             $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
@@ -77,9 +50,12 @@ $(document).ready(function() {
         submit: function(e, response) {
             OC.msg.startSaving('#extraSymbolsSettingsMsg');
             $('label#uploadsymbol').removeClass('icon-upload').addClass('icon-loading-small');
+            //alert(Object.keys(e.target));
+            //alert('submit '+e.target);
         },
         fail: function (e, response){
-            OC.msg.finishedError('#extraSymbolsSettingsMsg', response.data.message);
+            //alert('fail '+Object.keys(response));
+            OC.msg.finishedError('#extraSymbolsSettingsMsg', 'failed');
             $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
         }
     };

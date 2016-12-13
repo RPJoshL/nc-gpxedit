@@ -153,7 +153,6 @@ class UtilsController extends Controller {
                 Http::STATUS_UNPROCESSABLE_ENTITY
             );
         }
-        $name = '';
         if(!empty($newSymbol)) {
 			$filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename.'.png';
 	        $content = file_get_contents($newSymbol['tmp_name']);

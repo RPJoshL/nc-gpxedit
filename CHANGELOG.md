@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### TODO
+- check if name is valid in admin settings
+- explain things in admin settings
+- compat jpg
 ### Added
 - file description field
 - 'destination' readonly field indicating full save path
