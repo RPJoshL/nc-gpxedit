@@ -5,7 +5,9 @@ OCP\Util::addstyle('gpxedit', 'admin');
 
     <div class="section" id="gpxedit">
         <h2><?php p($l->t('GpxEdit additional settings')); ?></h2>
-        <label><?php p($l->t( 'Extra symbols' )); ?> </label>
+        <h3><?php p($l->t('Extra symbols')); ?> </h3>
+        <label><?php p($l->t('Those symbols will be available in GpxEdit.')); ?></label><br/>
+        <label><?php p($l->t('Keep in mind that only symbol names are saved in the gpx files. Other programs will display default symbol if they do not know a symbol name.')); ?></label><br/>
         <br />
 		<div id="extraSymbols">
         <table id="extraSymbolsTable">
@@ -28,8 +30,9 @@ OCP\Util::addstyle('gpxedit', 'admin');
 		?>
         </table>
 		</div>
-		<!--button id="addExtraSymbol" class="inlineblock button icon-upload" title="Upload new symbol image"></button-->
 
+        <label><?php p($l->t('Recommended image ratio : 1:1')); ?></label><br/>
+        <label><?php p($l->t('Recommended image resolution : between 24x24 and 50x50')); ?></label><br/>
 		<form class="uploadButton" method="post" action="<?php p($_['uploadPath']) ?>">
             <label for="addExtraSymbolName">New symbol name :</label>
             <input type="text" name="addExtraSymbolName" id="addExtraSymbolName"></input>

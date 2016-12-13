@@ -41,8 +41,6 @@ $(document).ready(function() {
         pasteZone: null,
         dropZone: null,
         done: function (e, response) {
-            //preview('logoMime', response.result.data.name);
-            //alert('success '+response.result.data.name);
             addLogoLine(response.result.data.name);
             OC.msg.finishedSaving('#extraSymbolsSettingsMsg', response.result);
             $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
@@ -50,12 +48,14 @@ $(document).ready(function() {
         submit: function(e, response) {
             OC.msg.startSaving('#extraSymbolsSettingsMsg');
             $('label#uploadsymbol').removeClass('icon-upload').addClass('icon-loading-small');
-            //alert(Object.keys(e.target));
-            //alert('submit '+e.target);
+            if ($('input#addExtraSymbolName').val() === ''){
+                OC.msg.finishedError('#extraSymbolsSettingsMsg', 'Empty symbol name');
+                e.preventDefault();
+                $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
+            }
         },
         fail: function (e, response){
-            //alert('fail '+Object.keys(response));
-            OC.msg.finishedError('#extraSymbolsSettingsMsg', 'failed');
+            OC.msg.finishedError('#extraSymbolsSettingsMsg', response._response.jqXHR.responseJSON.data.message);
             $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
         }
     };

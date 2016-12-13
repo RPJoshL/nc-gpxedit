@@ -6,12 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### TODO
-- check if name is valid in admin settings
-- explain things in admin settings
 - compat jpg
 ### Added
 - file description field
 - 'destination' readonly field indicating full save path
+- admin setting section to add extra symbols
 
 ### Changed
 - keep time information in loaded tracks/routes/waypoints, written in saved files

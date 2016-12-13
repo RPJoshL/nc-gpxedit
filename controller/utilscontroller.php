@@ -143,6 +143,18 @@ class UtilsController extends Controller {
     public function uploadExtraSymbol($addExtraSymbolName) {
 		$newSymbol = $this->request->getUploadedFile('uploadsymbol');
 		$filename = str_replace(array('../', '..\\', '/'), '', $addExtraSymbolName);
+        if (!endswith($newSymbol['name'], '.png')){
+            return new DataResponse(
+                [
+                    'data' =>
+                    [
+                        'message' => 'File has to be a png'
+                    ],
+                    'status' => 'fail'
+                ],
+                Http::STATUS_UNPROCESSABLE_ENTITY
+            );
+        }
         if (empty($newSymbol)) {
             return new DataResponse(
                 [

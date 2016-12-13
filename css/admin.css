@@ -2,6 +2,9 @@ button#addExtraSymbol{
     width: 33px;
     height: 33px;
 }
+table#extraSymbolsTable{
+    width: 330px;
+}
 table#extraSymbolsTable td{
     text-align: center !important;
 }
