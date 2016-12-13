@@ -904,7 +904,18 @@ function updateLeafletDrawMarkerStyle(){
     var wst = $('#markerstyleselect').val();
     var theclass = symbolSelectClasses[wst];
     $('#markerstyleselect').removeClass($('#markerstyleselect').attr('class'));
-    $('#markerstyleselect').addClass(theclass);
+    $('#markerstyleselect').attr('style','');
+    if (theclass){
+        $('#markerstyleselect').addClass(theclass);
+    }
+    else if (wst !== ''){
+        var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
+        var fullurl = url+'name='+encodeURI(wst+'.png');
+        $('#markerstyleselect').attr('style',
+            'background: url(\''+fullurl+'\') no-repeat '+
+            'right 8px center rgba(240, 240, 240, 0.90);'+
+            'background-size: 24px 24px;');
+    }
     var tst = $('#tooltipstyleselect').val();
     var theicon = symbolIcons[wst];
 
@@ -956,7 +967,8 @@ function restoreOptions(){
         alert('failed to restore options values');
     });
     optionsValues = $.parseJSON(optionsValues);
-    if (optionsValues.markerstyle !== undefined){
+    if (optionsValues.markerstyle !== undefined &&
+            symbolIcons.hasOwnProperty(optionsValues.markerstyle)){
         $('#markerstyleselect').val(optionsValues.markerstyle);
     }
     if (optionsValues.tooltipstyle !== undefined){
@@ -1010,10 +1022,26 @@ function updateSavePath(){
     $('#savePath').val(dir+'/'+filename);
 }
 
+function addExtraSymbols(){
+    var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
+    $('ul#extrasymbols li').each(function(){
+        var name = $(this).attr('name');
+        var smallname = $(this).html();
+        var fullurl = url+'name='+encodeURI(name);
+        var d = L.icon({
+            iconUrl: fullurl,
+            iconSize: L.point(24, 24),
+            iconAnchor: [12, 12]
+        });
+        symbolIcons[smallname] = d;
+    });
+}
+
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
     load_map();
 	document.onkeydown = checkKey;
+    addExtraSymbols();
     fillWaypointStyles();
     restoreOptions();
 
@@ -1173,7 +1201,18 @@ $(document).ready(function(){
 
 	$('body').on('change', 'select[role=symbol]', function() {
         $(this).removeClass($(this).attr('class'));
-        $(this).addClass(symbolSelectClasses[$(this).val()]);
+        $(this).attr('style','');
+        if (symbolSelectClasses.hasOwnProperty($(this).val())){
+            $(this).addClass(symbolSelectClasses[$(this).val()]);
+        }
+        else if ($(this).val() !== ''){
+            var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
+            var fullurl = url+'name='+encodeURI($(this).val()+'.png');
+            $(this).attr('style',
+                'background: url(\''+fullurl+'\') no-repeat '+
+                'right 8px center rgba(240, 240, 240, 0.90);'+
+                'background-size: 24px 24px;');
+        }
     });
 
     // load a file if 'file' GET url parameter was given

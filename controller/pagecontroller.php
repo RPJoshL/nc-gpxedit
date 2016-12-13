@@ -139,36 +139,22 @@ class PageController extends Controller {
         $userFolder = \OC::$server->getUserFolder();
         $userfolder_path = $userFolder->getPath();
 
-        // DIRS array population
-        $all = $userFolder->search(".gpx");
-        $alldirs = Array();
-        foreach($all as $file){
-            if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE and
-                (
-                    endswith($file->getName(), '.gpx') or
-                    endswith($file->getName(), '.GPX')
-                )
-            ){
-                $rel_dir = str_replace($userfolder_path, '', dirname($file->getPath()));
-                $rel_dir = str_replace('//', '/', $rel_dir);
-                if ($rel_dir === ''){
-                    $rel_dir = '/';
-                }
-                if (!in_array($rel_dir, $alldirs)){
-                    array_push($alldirs, $rel_dir);
-                }
-            }
-        }
-
         $tss = $this->getUserTileServers();
+
+        // extra symbols
+        $dataDirPath = $this->config->getSystemValue('datadirectory').'/gpxedit';
+        $extraSymbolList = Array();
+	    foreach(globRecursive($dataDirPath.'/symbols', '*.png', False) as $symbolfile){
+            $filename = basename($symbolfile);
+            array_push($extraSymbolList, Array('smallname'=>str_replace('.png', '', $filename), 'name'=>$filename));
+        }
 
         // PARAMS to view
 
-        sort($alldirs);
         $params = [
-            'dirs'=>$alldirs,
             'username'=>$this->userId,
 			'tileservers'=>$tss,
+            'extrasymbols'=>$extraSymbolList,
             'gpxedit_version'=>$this->appVersion
         ];
         $response = new TemplateResponse('gpxedit', 'main', $params);
