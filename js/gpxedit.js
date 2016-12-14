@@ -370,8 +370,29 @@ function load_map() {
       }
   };
 
-  L.drawLocal.draw.toolbar.buttons.polyline = 'Draw a track';
-  L.drawLocal.draw.toolbar.buttons.marker = 'Add a waypoint';
+  L.drawLocal.draw.toolbar.buttons.polyline = t('gpxedit','Draw a track');
+  L.drawLocal.draw.toolbar.buttons.marker = t('gpxedit','Add a waypoint');
+  L.drawLocal.edit.toolbar.buttons.edit = t('gpxedit','Edit');
+  L.drawLocal.edit.toolbar.buttons.editDisabled = t('gpxedit','Nothing to edit');
+  L.drawLocal.edit.toolbar.buttons.remove = t('gpxedit','Delete');
+  L.drawLocal.edit.toolbar.buttons.removeDisabled = t('gpxedit','Nothing to delete');
+  L.drawLocal.edit.toolbar.actions.save.title = t('gpxedit','Validate changes');
+  L.drawLocal.edit.toolbar.actions.save.text = t('gpxedit','Ok');
+  L.drawLocal.edit.toolbar.actions.cancel.title = t('gpxedit','Discard all changes');
+  L.drawLocal.edit.toolbar.actions.cancel.text = t('gpxedit','Cancel');
+  L.drawLocal.edit.handlers.edit.tooltip.text = t('gpxedit','Drag to move elements,<br/>click to remove a point');
+  L.drawLocal.edit.handlers.edit.tooltip.subtext = t('gpxedit','Click cancel to undo changes');
+  L.drawLocal.edit.handlers.remove.tooltip.text = t('gpxedit','Click on an element to delete it');
+  L.drawLocal.draw.handlers.marker.tooltip.start = t('gpxedit','Click map to add waypoint');
+  L.drawLocal.draw.handlers.polyline.tooltip.start = t('gpxedit','Click to start drawing track');
+  L.drawLocal.draw.handlers.polyline.tooltip.cont = t('gpxedit','Click to continue drawing track');
+  L.drawLocal.draw.handlers.polyline.tooltip.end = t('gpxedit','Click last point to finish track');
+  L.drawLocal.draw.toolbar.actions.text = t('gpxedit','Cancel');
+  L.drawLocal.draw.toolbar.actions.title = t('gpxedit','Cancel drawing');
+  L.drawLocal.draw.toolbar.finish.text = t('gpxedit','Finish');
+  L.drawLocal.draw.toolbar.finish.title = t('gpxedit','Finish drawing');
+  L.drawLocal.draw.toolbar.undo.text = t('gpxedit','Delete last point');
+  L.drawLocal.draw.toolbar.undo.title = t('gpxedit','Delete last point drawn');
   var drawControl = new L.Control.Draw(options);
   gpxedit.drawControl = drawControl;
   gpxedit.map.addControl(drawControl);

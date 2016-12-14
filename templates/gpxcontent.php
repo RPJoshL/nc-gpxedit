@@ -1,8 +1,8 @@
 <div id="sidebar" class="sidebar">
 <!-- Nav tabs -->
 <ul class="sidebar-tabs" role="tablist">
-<li class="active" title="<?php p($l->t('Folder and tracks selection')); ?>"><a href="#ho" role="tab"><i class="fa fa-bars"></i></a></li>
-<li title="<?php p($l->t('Settings and extra actions')); ?>"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+<li class="active" title="<?php p($l->t('Load and save files')); ?>"><a href="#ho" role="tab"><i class="fa fa-bars"></i></a></li>
+<li title="<?php p($l->t('Options')); ?>"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
 <li title="<?php p($l->t('About GpxEdit')); ?>"><a href="#help" role="tab"><i class="fa fa-question"></i></a></li>
 </ul>
 <!-- Tab panes -->
@@ -24,41 +24,41 @@ p($_['gpxedit_version']);
     <div style="clear:both"></div>
     </form>
     <hr/>
-    <h2 id="loadtitle">Load <b id="loadoptiontoggle"><i class="fa fa-expand"></i></b></h2>
+    <h2 id="loadtitle"><?php p($l->t('Load'));?> <b id="loadoptiontoggle"><i class="fa fa-expand"></i></b></h2>
     <div id="loaddiv" style="display:none;">
-        <p>Select a gpx file to load it on the map</p>
+        <p><?php p($l->t('Select a file to load it on the map'));?></p>
         <div>
             <input type="checkbox" id="clearbeforeload" checked></input>
-            <label for="clearbeforeload">Clear map before loading</label>
+            <label for="clearbeforeload"><?php p($l->t('Clear map before loading'));?></label>
         </div>
         <br/>
         <div id="loadtree"></div>
     </div>
     <hr/>
-    <h2 id="savetitle">Save <b id="saveoptiontoggle"><i class="fa fa-expand"></i></b></h2>
+    <h2 id="savetitle"><?php p($l->t('Save'));?> <b id="saveoptiontoggle"><i class="fa fa-expand"></i></b></h2>
     <div id="savediv" style="display:none;">
-        <p>Select a folder, set a name and click "Save" button</p><br/>
+        <p><?php p($l->t('Select a folder, set a name and click "Save" button'));?></p><br/>
         <div id="savetree"></div>
         <br/>
         <div>
-            <label id="saveNameLabel">File name :</label>
+            <label id="saveNameLabel"><?php p($l->t('File name'));?> :</label><br/>
             <input id="saveName" type="text"></input>
         </div>
         <div style="clear:both"></div>
         <div>
-            <label id="savePathLabel">Destination :</label>
+            <label id="savePathLabel">Destination :</label><br/>
             <input id="savePath" type="text" readonly></input>
         </div>
         <br/><br/>
-        <label>Description (optional) :</label><br/>
+        <label><?php p($l->t('Description (optional)'));?> :</label><br/>
         <textarea id="desctext"></textarea>
-        <button id="saveButton"><i class="fa fa-save"></i> Save</button>
+        <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Save'));?></button>
         <br/>
     </div>
     <div style="clear:both"></div>
     <hr/>
     <br/>
-    <button id="clearButton"><i class="fa fa-bomb"></i> Clear map</button>
+    <button id="clearButton"><i class="fa fa-bomb"></i> <?php p($l->t('Clear map'));?></button>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
         <b id="content"></b></p>
@@ -85,21 +85,25 @@ echo '</ul>'."\n";
 ?>
 </div>
 <div class="sidebar-pane" id="settings">
-<h1 class="sectiontitle"><?php p($l->t('Settings and extra actions')); ?></h1>
+<h1 class="sectiontitle"><?php p($l->t('Options')); ?></h1>
 <hr/>
 <br/>
-<label>Waypoint style:</label>
-<select id="markerstyleselect">
-</select>
-<br/>
-<label>Tooltip style:</label>
-<select id="tooltipstyleselect">
-	<option value="h"><?php p($l->t('on hover')); ?></option>
-	<option value="p"><?php p($l->t('permanent')); ?></option>
-</select>
-<br/>
-<input id="symboloverwrite" type="checkbox" checked></input>
-<label for="symboloverwrite">Use gpx symbol if set</label>
+<div title="<?php p($l->t('Default symbol for waypoints when value is not set'));?>">
+    <label><?php p($l->t('Waypoint style'));?>:</label>
+    <select id="markerstyleselect">
+    </select>
+</div>
+<div>
+    <label><?php p($l->t('Tooltip'));?>:</label>
+    <select id="tooltipstyleselect">
+        <option value="h"><?php p($l->t('on hover')); ?></option>
+        <option value="p"><?php p($l->t('permanent')); ?></option>
+    </select>
+</div>
+<div title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>">
+    <input id="symboloverwrite" type="checkbox" checked></input>
+    <label for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
+</div>
 <br/>
 <hr/>
 <br/>

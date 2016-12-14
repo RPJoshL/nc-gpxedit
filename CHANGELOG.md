@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - file description field
 - 'destination' readonly field indicating full save path
 - admin setting section to add extra symbols
+- french translation
 
 ### Changed
 - keep time information in loaded tracks/routes/waypoints, written in saved files
