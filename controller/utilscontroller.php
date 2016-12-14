@@ -90,6 +90,8 @@ class UtilsController extends Controller {
         $this->appPath = \OC_App::getAppPath('gpxedit');
         $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
+        // IConfig object
+        $this->config = $config;
         if ($this->dbtype === 'pgsql'){
             $this->dbdblquotes = '"';
         }
@@ -99,8 +101,6 @@ class UtilsController extends Controller {
         if ($UserId !== '' and $userfolder !== null){
             // path of user files folder relative to DATA folder
             $this->userfolder = $userfolder;
-            // IConfig object
-            $this->config = $config;
             // absolute path to user files folder
             $this->userAbsoluteDataPath =
                 $this->config->getSystemValue('datadirectory').
@@ -185,6 +185,7 @@ class UtilsController extends Controller {
     /**
      * @NoAdminRequired
      * @NoCSRFRequired
+     * @PublicPage
      */
     public function getExtraSymbol() {
         $filename = str_replace(array('../', '..\\'), '', $_GET['name']);
