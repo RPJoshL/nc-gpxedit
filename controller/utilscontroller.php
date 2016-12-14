@@ -23,6 +23,7 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 
 use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
@@ -188,13 +189,12 @@ class UtilsController extends Controller {
      * @PublicPage
      */
     public function getExtraSymbol() {
-        $filename = str_replace(array('../', '..\\'), '', $_GET['name']);
+        $filename = str_replace(array('../', '..\\', '/'), '', $_GET['name']);
         $filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename;
         $filecontent = file_get_contents($filepath);
-        echo $filecontent;
-        $response = new Response(
+        $response = new DataDisplayResponse(
+            $filecontent, \OCP\AppFramework\Http::STATUS_OK, Array('Content-type'=>'image/png')
         );
-        $response->setHeaders(Array('Content-type'=>'image/png'));
         $csp = new ContentSecurityPolicy();
         $csp->addAllowedImageDomain('*')
             ->addAllowedMediaDomain('*')
