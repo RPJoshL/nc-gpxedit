@@ -444,25 +444,25 @@ function onCreated(type, layer){
     var popupTitle;
     var layerType;
     if (type === 'polyline' || type === 'track'){
-        popupTitle = 'Track';
+        popupTitle = t('gpxedit', 'Track');
         layerType = 'track';
     }
     else if (type === 'route') {
-        popupTitle = 'Route';
+        popupTitle = t('gpxedit', 'Route');
         layerType = 'route';
     }
     else if (type === 'marker') {
-        popupTitle = 'Waypoint';
+        popupTitle = t('gpxedit', 'Waypoint');
         layerType = 'marker';
     }
 
     var popupTxt = '<h2 class="popupTitle">'+popupTitle+'</h2><table class="popupdatatable">'+
-        '<tr><td>Name</td><td><input class="layerName"></input></td></tr>'+
-        '<tr><td>Description</td><td><textarea class="layerDesc"></textarea></td></tr>'+
-        '<tr><td>Comment</td><td><textarea class="layerCmt"></textarea></td></tr>';
+        '<tr><td>'+t('gpxedit', 'Name')+'</td><td><input class="layerName"></input></td></tr>'+
+        '<tr><td>'+t('gpxedit', 'Description')+'</td><td><textarea class="layerDesc"></textarea></td></tr>'+
+        '<tr><td>'+t('gpxedit', 'Comment')+'</td><td><textarea class="layerCmt"></textarea></td></tr>';
     if (type === 'marker') {
-        popupTxt = popupTxt + '<tr><td>Symbol</td><td><select role="symbol">';
-        popupTxt = popupTxt + '<option value="">No symbol</option>';
+        popupTxt = popupTxt + '<tr><td>'+t('gpxedit', 'Symbol')+'</td><td><select role="symbol">';
+        popupTxt = popupTxt + '<option value="">'+t('gpxedit', 'No symbol')+'</option>';
         for (var cl in symbolIcons){
             if (cl !== 'marker'){
                 popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
@@ -804,18 +804,24 @@ function checkKey(e){
     }
 }
 
-function showFailedSuccessAnimation(path, message){
-    $('#failed').find('b#content').html('Failed to save file '+path+'<br/>'+message);
+function showSaveFailAnimation(path, message){
+    $('#failed').find('b#content').html(t('gpxedit', 'Failed to save file')+' '+path+'<br/>'+message);
     $('#failed').fadeIn();
-    setTimeout(hideFailedSuccessAnimation, 4000);
+    setTimeout(hideFailedAnimation, 4000);
 }
 
-function hideFailedSuccessAnimation(){
+function showFailAnimation(message){
+    $('#failed').find('b#content').html(message);
+    $('#failed').fadeIn();
+    setTimeout(hideFailedAnimation, 4000);
+}
+
+function hideFailedAnimation(){
     $('#failed').fadeOut();
 }
 
 function showSaveSuccessAnimation(path){
-    $('#saved').find('b#content').html('File successfully saved as<br/>'+path);
+    $('#saved').find('b#content').html(t('gpxedit', 'File successfully saved as')+'<br/>'+path);
     $('#saved').fadeIn();
     setTimeout(hideSaveSuccessAnimation, 4000);
 }
@@ -1069,16 +1075,16 @@ function saveAction(targetPath){
     var url = OC.generateUrl('/apps/gpxedit/savegpx');
     $.post(url, req).done(function (response) {
         if (response.status === 'fiw'){
-            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : write access denied');
+            showSaveFailAnimation(saveFilePath, t('gpxedit', 'Impossible to write file')+' : '+t('gpxedit', 'write access denied'));
         }
         else if (response.status === 'fu'){
-            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder does not exist');
+            showSaveFailAnimation(saveFilePath, t('gpxedit', 'Impossible to write file')+' : '+t('gpxedit', 'folder does not exist'));
         }
         else if (response.status === 'fw'){
-            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder write access denied');
+            showSaveFailAnimation(saveFilePath, t('gpxedit', 'Impossible to write file')+' : '+t('gpxedit', 'folder write access denied'));
         }
         else if (response.status === 'bfn'){
-            showFailedSuccessAnimation(saveFilePath, 'Bad file name, must end with ".gpx"');
+            showSaveFailAnimation(saveFilePath, t('gpxedit', 'Bad file name, must end with ".gpx"'));
         }
         else{
             showSaveSuccessAnimation(saveFilePath);
@@ -1158,10 +1164,15 @@ $(document).ready(function(){
     });
 
     $('button#saveButton').click(function(e){
-        var filename = $('#saveName').val();
-        OC.dialogs.filepicker(t('gpxedit', 'Where to save')+' <b>'+filename+'</b>', function(targetPath) {
-            saveAction(targetPath);
-        }, false, "httpd/unix-directory", true);
+        if (gpxedit.editableLayers.getLayers().length === 0){
+            showFailAnimation(t('gpxedit', 'There is nothing to save'));
+        }
+        else{
+            var filename = $('#saveName').val();
+            OC.dialogs.filepicker(t('gpxedit', 'Where to save')+' <b>'+filename+'</b>', function(targetPath) {
+                saveAction(targetPath);
+            }, false, "httpd/unix-directory", true);
+        }
     });
 
     // Custom tile server management
