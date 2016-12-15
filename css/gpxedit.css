@@ -823,3 +823,6 @@ h2.popupTitle{
     border: 1px solid black;
     border-radius: 6px;
 }
+.oc-dialog{
+    z-index: 10000;
+}
