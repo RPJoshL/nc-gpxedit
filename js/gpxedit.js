@@ -825,9 +825,9 @@ function hideSaveSuccessAnimation(){
 }
 
 function loadAction(file){
-    if (!endsWith(file, '.gpx') ||
-            !endsWith(file, '.kml') ||
-            !endsWith(file, '.jpg') ||
+    if (!endsWith(file, '.gpx') &&
+            !endsWith(file, '.kml') &&
+            !endsWith(file, '.jpg') &&
             !endsWith(file, '.csv')){
         OC.dialogs.alert(t('gpxedit', 'Impossible to load this file. ')+
             t('gpxedit', 'Supported formats are gpx, kml, csv (unicsv) and jpg.'),t('gpxedit', 'Load error'));
