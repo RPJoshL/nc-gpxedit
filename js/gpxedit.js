@@ -171,6 +171,10 @@ var defaultStyle = {
     weight: 7
 };
 
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
 function load_map() {
   var layer = getUrlParameter('layer');
   console.log('layer '+layer);
@@ -821,6 +825,14 @@ function hideSaveSuccessAnimation(){
 }
 
 function loadAction(file){
+    if (!endsWith(file, '.gpx') ||
+            !endsWith(file, '.kml') ||
+            !endsWith(file, '.jpg') ||
+            !endsWith(file, '.csv')){
+        OC.dialogs.alert(t('gpxedit', 'This file cannot be loaded'),t('gpxedit', 'Load error'));
+        return;
+    }
+
     loadFile(file);
     // set save name
     var spl = file.split('/');
