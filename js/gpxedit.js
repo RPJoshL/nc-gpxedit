@@ -829,7 +829,8 @@ function loadAction(file){
             !endsWith(file, '.kml') ||
             !endsWith(file, '.jpg') ||
             !endsWith(file, '.csv')){
-        OC.dialogs.alert(t('gpxedit', 'This file cannot be loaded'),t('gpxedit', 'Load error'));
+        OC.dialogs.alert(t('gpxedit', 'Impossible to load this file. ')+
+            t('gpxedit', 'Supported formats are gpx, kml, csv (unicsv) and jpg.'),t('gpxedit', 'Load error'));
         return;
     }
 

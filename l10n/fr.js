@@ -2,6 +2,9 @@ OC.L10N.register(
     "gpxedit",
     {
     "Where to save" : "Où enregistrer",
+    "Impossible to load this file. " : "Impossible de charger ce fichier. ",
+    "Supported formats are gpx, kml, csv (unicsv) and jpg." : "Les formats pris en charge sont gpx, kml, csv (unicsv) et jpg",
+    "Load error" : "Erreur de chargement",
     "Draw a track" : "Dessiner une trace",
     "Add a waypoint" : "Ajouter une étape",
     "Edit" : "Éditer",
