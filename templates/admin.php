@@ -24,7 +24,7 @@ OCP\Util::addstyle('gpxedit', 'admin');
             echo ' </label></td><td>';
             echo '<button class="delExtraSymbol icon-delete icon" name="';
             p($symbol['name']);
-            echo '" title="Remove"></button>';
+            echo '" title="'.$l->t('Delete').'"></button>';
 			echo '</td></tr>';
 		}
 		?>
@@ -33,9 +33,9 @@ OCP\Util::addstyle('gpxedit', 'admin');
 
         <label><?php p($l->t('Recommended image ratio : 1:1')); ?></label><br/>
         <label><?php p($l->t('Recommended image resolution : between 24x24 and 50x50')); ?></label><br/>
-        <label><?php p($l->t('Image format : png')); ?></label><br/>
+        <label><?php p($l->t('Accepted image format : png')); ?></label><br/>
 		<form class="uploadButton" method="post" action="<?php p($_['uploadPath']) ?>">
-            <label for="addExtraSymbolName">New symbol name :</label>
+        <label for="addExtraSymbolName"><?php p($l->t('New symbol name')); ?> :</label>
             <input type="text" name="addExtraSymbolName" id="addExtraSymbolName"></input>
 
 			<input id="uploadsymbol" class="upload-symbol-field" name="uploadsymbol" type="file"></input>

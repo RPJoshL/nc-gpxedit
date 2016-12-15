@@ -4,6 +4,7 @@ namespace OCA\GpxEdit\Settings;
 use bantu\IniGetWrapper\IniGetWrapper;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
+use OCP\IL10N;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 use OCP\Util;
@@ -42,15 +43,18 @@ class Admin implements ISettings {
     private $config;
     private $dataDirPath;
 	private $urlGenerator;
+	private $l;
 
     public function __construct(
                         IniGetWrapper $iniWrapper,
+                        IL10N $l,
                         IRequest $request,
                         IConfig $config,
                         IURLGenerator $urlGenerator) {
         $this->urlGenerator = $urlGenerator;
         $this->iniWrapper = $iniWrapper;
         $this->request = $request;
+        $this->l = $l;
         $this->config = $config;
         $this->dataDirPath = $this->config->getSystemValue('datadirectory').'/gpxedit';
         if (! is_dir($this->dataDirPath)){

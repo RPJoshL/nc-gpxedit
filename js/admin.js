@@ -10,7 +10,8 @@ function addLogoLine(name){
     var nameWe = name.replace(/\.png$/, '');
     $('div#extraSymbols table').append('<tr class="extraSymbol" id="'+nameWe+'">'+
             '<td><img src="'+fullurl+'"></td><td><label> '+nameWe+' </label></td>'+
-            '<td><button class="delExtraSymbol icon-delete icon" name="'+name+'" title="Remove"></button></td></tr>');
+            '<td><button class="delExtraSymbol icon-delete icon" name="'+name+
+            '" title="'+t('gpxedit','Delete')+'"></button></td></tr>');
 }
 
 function deleteLogo(button){
