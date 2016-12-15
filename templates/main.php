@@ -8,14 +8,11 @@ script('gpxedit', 'L.Control.Locate.min');
 script('gpxedit', 'leaflet-sidebar.min');
 script('gpxedit', 'jquery-ui.min');
 script('gpxedit', 'jquery.mousewheel');
-script('gpxedit', 'tablesorter/jquery.tablesorter');
 script('gpxedit', 'detect_timezone');
 script('gpxedit', 'jquery.detect_timezone');
 script('gpxedit', 'moment-timezone-with-data.min');
-script('gpxedit', 'jquery.colorbox-min');
 script('gpxedit', 'leaflet.draw');
 script('gpxedit', 'leaflet.measurecontrol');
-script('gpxedit', 'jQueryFileTree.min');
 script('gpxedit', 'gpxedit');
 
 style('gpxedit', 'style');
@@ -28,11 +25,8 @@ style('gpxedit', 'jquery-ui.min');
 style('gpxedit', 'font-awesome.min');
 style('gpxedit', 'gpxedit');
 style('gpxedit', 'L.Control.Locate.min');
-style('gpxedit', 'tablesorter/themes/blue/style');
 style('gpxedit', 'leaflet.draw');
 style('gpxedit', 'leaflet.measurecontrol');
-style('gpxedit', 'jQueryFileTree.min');
-style('gpxedit', 'colorbox');
 
 ?>
 

@@ -22,8 +22,6 @@ return [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
         ['name' => 'page#getgpx', 'url' => '/getgpx', 'verb' => 'POST'],
         ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
-        ['name' => 'page#getdircontent', 'url' => '/getdircontent', 'verb' => 'POST'],
-        ['name' => 'page#getdircontentdir', 'url' => '/getdircontentdir', 'verb' => 'POST'],
         ['name' => 'utils#addTileServer', 'url' => '/addTileServer', 'verb' => 'POST'],
         ['name' => 'utils#deleteTileServer', 'url' => '/deleteTileServer', 'verb' => 'POST'],
         ['name' => 'utils#getOptionsValues', 'url' => '/getOptionsValues', 'verb' => 'POST'],

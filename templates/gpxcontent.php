@@ -24,37 +24,17 @@ p($_['gpxedit_version']);
     <div style="clear:both"></div>
     </form>
     <hr/>
-    <h2 id="loadtitle"><?php p($l->t('Load'));?> <b id="loadoptiontoggle"><i class="fa fa-expand"></i></b></h2>
-    <div id="loaddiv" style="display:none;">
-        <p><?php p($l->t('Select a file to load it on the map'));?></p>
-        <div>
-            <input type="checkbox" id="clearbeforeload" checked></input>
-            <label for="clearbeforeload"><?php p($l->t('Clear map before loading'));?></label>
-        </div>
-        <br/>
-        <div id="loadtree"></div>
-    </div>
+    <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load'));?></button>
     <hr/>
-    <h2 id="savetitle"><?php p($l->t('Save'));?> <b id="saveoptiontoggle"><i class="fa fa-expand"></i></b></h2>
-    <div id="savediv" style="display:none;">
-        <p><?php p($l->t('Select a folder, set a name and click "Save" button'));?></p><br/>
-        <div id="savetree"></div>
-        <br/>
-        <div>
-            <label id="saveNameLabel"><?php p($l->t('File name'));?> :</label><br/>
-            <input id="saveName" type="text"></input>
-        </div>
-        <div style="clear:both"></div>
-        <div>
-            <label id="savePathLabel">Destination :</label><br/>
-            <input id="savePath" type="text" readonly></input>
-        </div>
-        <br/><br/>
-        <label><?php p($l->t('Description (optional)'));?> :</label><br/>
-        <textarea id="desctext"></textarea>
-        <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Save'));?></button>
-        <br/>
+    <h2 id="savetitle"><?php p($l->t('Save'));?></h2>
+    <div>
+        <label id="saveNameLabel"><?php p($l->t('File name'));?> :</label><br/>
+        <input id="saveName" type="text"></input>
     </div>
+    <div style="clear:both"></div>
+    <label><?php p($l->t('Description (optional)'));?> :</label><br/>
+    <textarea id="desctext"></textarea>
+    <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Choose directory and save'));?></button>
     <div style="clear:both"></div>
     <hr/>
     <br/>
@@ -103,6 +83,10 @@ echo '</ul>'."\n";
 <div title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>">
     <input id="symboloverwrite" type="checkbox" checked></input>
     <label for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
+</div>
+<div>
+    <input type="checkbox" id="clearbeforeload" checked></input>
+    <label for="clearbeforeload"><?php p($l->t('Clear map before loading'));?></label>
 </div>
 <br/>
 <hr/>

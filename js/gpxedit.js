@@ -6,7 +6,6 @@ var gpxedit = {
     baseLayers: null,
     drawControl: null,
     id: 0,
-    saveDirPath: '/',
     // indexed by gpxedit_id
     layersData: {}
 };
@@ -813,7 +812,6 @@ function hideFailedSuccessAnimation(){
 
 function showSaveSuccessAnimation(path){
     $('#saved').find('b#content').html('File successfully saved as<br/>'+path);
-    //$('#saved').show();
     $('#saved').fadeIn();
     setTimeout(hideSaveSuccessAnimation, 4000);
 }
@@ -830,7 +828,6 @@ function loadAction(file){
     $('input#saveName').val(
         basename.replace(/\.jpg$/, '.gpx').replace(/\.kml$/, '.gpx').replace(/\.csv$/, '.gpx')
     );
-    updateSavePath();
 }
 
 function loadFile(file){
@@ -1034,15 +1031,6 @@ function fillWaypointStyles(){
     $('select#markerstyleselect').val('marker');
 }
 
-function updateSavePath(){
-    var dir = gpxedit.saveDirPath;
-    if (dir === '/'){
-        dir = '';
-    }
-    var filename = $('#saveName').val();
-    $('#savePath').val(dir+'/'+filename);
-}
-
 function addExtraSymbols(){
     var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
     $('ul#extrasymbols li').each(function(){
@@ -1055,6 +1043,33 @@ function addExtraSymbols(){
             iconAnchor: [12, 12]
         });
         symbolIcons[smallname] = d;
+    });
+}
+
+function saveAction(targetPath){
+    var saveFilePath = targetPath+'/'+$('input#saveName').val();
+    var gpxText = generateGpx();
+    var req = {
+        path: saveFilePath,
+        content: gpxText 
+    }
+    var url = OC.generateUrl('/apps/gpxedit/savegpx');
+    $.post(url, req).done(function (response) {
+        if (response.status === 'fiw'){
+            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : write access denied');
+        }
+        else if (response.status === 'fu'){
+            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder does not exist');
+        }
+        else if (response.status === 'fw'){
+            showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder write access denied');
+        }
+        else if (response.status === 'bfn'){
+            showFailedSuccessAnimation(saveFilePath, 'Bad file name, must end with ".gpx"');
+        }
+        else{
+            showSaveSuccessAnimation(saveFilePath);
+        }
     });
 }
 
@@ -1123,93 +1138,17 @@ $(document).ready(function(){
     $('button#clearButton').click(function(e){
         clear();
     });
+    $('button#loadButton').click(function(e){
+        OC.dialogs.filepicker(t('gpxedit', 'Load file (gpx, kml, csv, png)'), function(targetPath) {
+            loadAction(targetPath);
+        }, false, null, true);
+    });
 
     $('button#saveButton').click(function(e){
-        var gpxText = generateGpx();
-        var nbExpanded = $('#savetree li.expanded').length;
-        if (nbExpanded == 0){
-            var saveFilePath = '/'+$('input#saveName').val();
-        }
-        else{
-            var saveFilePath = gpxedit.saveDirPath+'/'+$('input#saveName').val();
-        }
-        var req = {
-            path: saveFilePath,
-            content: gpxText 
-        }
-        var url = OC.generateUrl('/apps/gpxedit/savegpx');
-        $.post(url, req).done(function (response) {
-            if (response.status === 'fiw'){
-                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : write access denied');
-            }
-            else if (response.status === 'fu'){
-                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder does not exist');
-            }
-            else if (response.status === 'fw'){
-                showFailedSuccessAnimation(saveFilePath, 'Impossible to write file : folder write access denied');
-            }
-            else if (response.status === 'bfn'){
-                showFailedSuccessAnimation(saveFilePath, 'Bad file name, must end with ".gpx"');
-            }
-            else{
-                showSaveSuccessAnimation(saveFilePath);
-            }
-
-            // reload load tree root
-            var tree = $('#loadtree').data('fileTree');
-            $('#loadtree').empty();
-            tree.showTree($('#loadtree'), escape(tree.options.root), function () {
-            });
-
-        });
-    });
-
-    var treeurl = OC.generateUrl('/apps/gpxedit/getdircontent');
-    $('#loadtree').fileTree({root: '/', script: treeurl, multiFolder: false }, function(file) {
-        loadAction(file);
-    });
-
-    var savetreeurl = OC.generateUrl('/apps/gpxedit/getdircontentdir');
-    $('#savetree').fileTree({root: '/', script: savetreeurl, multiFolder: false, onlyFolders: true }, function(file) {
-    });
-
-    $('#savetree').on('filetreeexpand', function(e, data){
-        gpxedit.saveDirPath = data.rel;
-        $('#savetree a').removeClass('selectedFolder');
-        data.li.find('>a').addClass('selectedFolder');
-        updateSavePath();
-    });
-    $('#savetree').on('filetreecollapse', function(e, data){
-        gpxedit.saveDirPath = data.li.parent().parent().find('>a').attr('rel') || '/';
-        data.li.find('li.expanded').removeClass('expanded');
-        data.li.find('>a').removeClass('selectedFolder');
-        data.li.parent().parent().find('>a').addClass('selectedFolder');
-        updateSavePath();
-    });
-    $('#saveName').on('input',function(e){
-        updateSavePath();
-    });
-
-    $('body').on('click','h2#loadtitle', function(e) {
-        if ($('#loaddiv').is(':visible')){
-            $('#loaddiv').slideUp();
-            $('#loadoptiontoggle').html('<i class="fa fa-expand"></i>');
-        }
-        else{
-            $('#loaddiv').slideDown();
-            $('#loadoptiontoggle').html('<i class="fa fa-compress"></i>');
-        }
-    });
-
-    $('body').on('click','h2#savetitle', function(e) {
-        if ($('#savediv').is(':visible')){
-            $('#savediv').slideUp();
-            $('#saveoptiontoggle').html('<i class="fa fa-expand"></i>');
-        }
-        else{
-            $('#savediv').slideDown();
-            $('#saveoptiontoggle').html('<i class="fa fa-compress"></i>');
-        }
+        var filename = $('#saveName').val();
+        OC.dialogs.filepicker(t('gpxedit', 'Where to save')+' <b>'+filename+'</b>', function(targetPath) {
+            saveAction(targetPath);
+        }, false, "httpd/unix-directory", true);
     });
 
     // Custom tile server management
@@ -1242,7 +1181,6 @@ $(document).ready(function(){
     if (urlfileparam && urlfileparam !== undefined){
         loadAction(fileparam);
     }
-    updateSavePath();
 
 });
 
