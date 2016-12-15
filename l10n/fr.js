@@ -1,6 +1,7 @@
 OC.L10N.register(
     "gpxedit",
     {
+    "Where to save" : "Où enregistrer",
     "Draw a track" : "Dessiner une trace",
     "Add a waypoint" : "Ajouter une étape",
     "Edit" : "Éditer",
