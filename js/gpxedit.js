@@ -604,7 +604,7 @@ function generateGpx(){
                 var alt = layer._latlngs[i].alt;
                 var time = layer._latlngs[i].time;
                 gpxText = gpxText + '   <trkpt lat="'+lat+'" lon="'+lng+'">\n';
-                if (time !== undefined){
+                if (time){
                     gpxText = gpxText + '    <time>'+time+'</time>\n';
                 }
                 if (alt !== undefined){
@@ -687,7 +687,9 @@ function drawLine(latlngs, name, desc, cmt, gpxtype, times){
     });
     if (times.length === p._latlngs.length){
         for (var i=0; i<times.length; i++){
-            p._latlngs[i].time = times[i];
+            if (times[i]){
+                p._latlngs[i].time = times[i];
+            }
         }
     }
     var layer = onCreated(gpxtype, p);
