@@ -176,6 +176,10 @@ function endsWith(str, suffix) {
 }
 
 function load_map() {
+  // change meta to send referrer
+  // usefull for IGN tiles authentication !
+  $('meta[name=referrer]').attr('content', 'origin');
+
   var layer = getUrlParameter('layer');
   console.log('layer '+layer);
   var default_layer = 'OpenStreetMap';

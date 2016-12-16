@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - keep time information in loaded tracks/routes/waypoints, written in saved files
 - improve load and save : use OC dialogs instead of jqueryfiletree
 
+### Fixed
+- send referrer, IGN tiles work now
+
 ## 0.0.2 – 2016-12-08
 ### Added
 - ability to load kml and csv (unicsv format) files
