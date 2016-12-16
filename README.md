@@ -23,20 +23,21 @@ What's saved :
     - description
     - symbol
     - elevation (just preserves loaded value)
-    - time (just preserves loaded value)
+    - time (just preserves loaded values)
 
 GpxEdit does load/save time data.
 Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data.
 
-Tracks are saved with one segment.
+Tracks are saved with one segment (trkseg tag).
 
-If you want more powerfull GPX editors, take a look at :
+If you look for more powerfull GPX editors, take a look at :
 - [Viking](https://sourceforge.net/projects/viking/) which is the best IMHO
 - [QLandKarteGT](https://bitbucket.org/kiozen/qlandkarte-gt)
 - [QMapShack](https://bitbucket.org/maproom/qmapshack/wiki/Home)
 - [JOSM](https://josm.openstreetmap.de/)
 
 GpxEdit :
+- allow you to add extra symbols in admin settings (section : additional)
 - works with server-side encryption.
 - works with shared files.
 - loads GPX, KML, unicsv CSV, geotagged JPG files
@@ -46,7 +47,6 @@ GpxEdit :
 - uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) amazing plugin
 - uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl
 - uses JQuery
-- uses [JQuery File Tree](https://github.com/jqueryfiletree/jqueryfiletree) amazing file tree library
 
 Any feedback will be appreciated.
 
