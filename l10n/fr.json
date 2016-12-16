@@ -26,8 +26,8 @@
     "Extra symbols" : "Symboles supplémentaires",
     "Those symbols will be available in GpxEdit." : "Ces symboles seront disponibles dans GpxEdit",
     "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name." : "Gardez à l'esprit que seuls les noms de symboles sont sauvés dans les fichiers gpx. D'autres programmes afficheront un symbole par défaut s'ils ne connaissent pas un nom de symbole.",
-    "Recommended image ratio : 1:1" : "Ratio d'image recommendé : 1:1",
-    "Recommended image resolution : between 24x24 and 50x50" : "Résolution d'image recommendée : entre 24x24 et 50x50",
+    "Recommended image ratio : 1:1" : "Ratio d'image recommandé : 1:1",
+    "Recommended image resolution : between 24x24 and 50x50" : "Résolution d'image recommandée : entre 24x24 et 50x50",
     "Accepted image format : png" : "Format d'image accepté : png",
     "New symbol name" : "Nom du nouveau symbole",
     "Upload new symbol image" : "Téléverser une nouvelle image de symbole"
