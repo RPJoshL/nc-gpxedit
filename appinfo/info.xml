@@ -42,7 +42,7 @@ If you look for more powerfull GPX editors, take a look at :
 - [JOSM](https://josm.openstreetmap.de/)
 
 GpxEdit :
-- allow you to add extra symbols in admin settings (section : additional)
+- allow you to add extra symbols in Nextcloud(\*) admin settings (section : additional)
 - works with server-side encryption.
 - works with shared files.
 - loads GPX, KML, unicsv CSV, geotagged JPG files
@@ -57,6 +57,7 @@ Any feedback will be appreciated.
 
 If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples.
 
+(\*) : If you run Owncloud, you still can add extra symbols by putting png files in /path/to/owncloud/data/gpxedit/symbols/ folder.
     </description>
     <licence>AGPL</licence>
     <summary>Simple GPX file editor</summary>
