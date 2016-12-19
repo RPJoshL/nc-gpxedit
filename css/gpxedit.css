@@ -714,7 +714,7 @@ input[type=checkbox]
     background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
 }
 
-.contact-alien, .contact-bigears, .contact-female3, .contact-cat, .contact-dog{
+.contact-alien, .contact-bigears, .contact-female3, .contact-cat, .contact-dog, .unknown{
     background-size: 24px 24px !important;
     background-repeat: no-repeat !important;
     width: 24px !important;
@@ -722,6 +722,12 @@ input[type=checkbox]
 }
 .contact-alien{
     background-image: url('images/symbols/contact-alien.png') !important;
+}
+.unknown{
+    background-image: url('images/symbols/unknown.png') !important;
+}
+.unknown-select{
+    background: url('images/symbols/unknown.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
 }
 .contact-alien-select{
     background: url('images/symbols/contact-alien.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);

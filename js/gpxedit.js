@@ -11,6 +11,7 @@ var gpxedit = {
 };
 
 var symbolSelectClasses = {
+    'unknown': 'unknown-select',
     'marker': 'marker-select',
     'Dot, White': 'dot-select',
     'Pin, Blue': 'pin-blue-select',
@@ -434,7 +435,15 @@ function load_map() {
       buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
       buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
       if (gpxedit.layersData[id].layer.type === 'marker'){
-          buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+          if (symbolIcons.hasOwnProperty(gpxedit.layersData[id].symbol)){
+              buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+          }
+          else if(gpxedit.layersData[id].symbol === ''){
+              buttonParent.find('select[role=symbol]').val('');
+          }
+          else{
+              buttonParent.find('select[role=symbol]').val('unknown');
+          }
           buttonParent.find('select[role=symbol]').change();
       }
   });
@@ -467,6 +476,7 @@ function onCreated(type, layer){
     if (type === 'marker') {
         popupTxt = popupTxt + '<tr><td>'+t('gpxedit', 'Symbol')+'</td><td><select role="symbol">';
         popupTxt = popupTxt + '<option value="">'+t('gpxedit', 'No symbol')+'</option>';
+        popupTxt = popupTxt + '<option value="unknown">'+t('gpxedit', 'Unknown symbol')+'</option>';
         for (var cl in symbolIcons){
             if (cl !== 'marker'){
                 popupTxt = popupTxt + '<option value="'+cl+'">'+cl+'</option>';
@@ -657,6 +667,12 @@ function drawMarker(latlng, name, desc, cmt, sym, time){
     var m = L.marker(latlng);
     if (symboo && sym !== '' && symbolIcons.hasOwnProperty(sym)){
         m.setIcon(symbolIcons[sym]);
+    }
+    else if(symboo && sym !== ''){
+        m.setIcon(L.divIcon({
+            className: 'unknown',
+            iconAnchor: [12, 12]
+        }));
     }
     else{
         m.setIcon(symbolIcons[wst]);
@@ -1137,10 +1153,15 @@ $(document).ready(function(){
         gpxedit.layersData[id].name = name;
         gpxedit.layersData[id].description = description;
         gpxedit.layersData[id].comment = comment;
-        gpxedit.layersData[id].symbol = symbol;
+        if (symbol !== 'unknown'){
+            gpxedit.layersData[id].symbol = symbol;
+        }
         gpxedit.layersData[id].layer.unbindTooltip();
         if (type === 'marker'){
-            if (symboo && symbol !== '' && symbolIcons.hasOwnProperty(symbol)){
+            if (symbol === 'unknown'){
+                // pass
+            }
+            else if (symboo && symbol !== '' && symbolIcons.hasOwnProperty(symbol)){
                 gpxedit.layersData[id].layer.setIcon(symbolIcons[symbol])
             }
             else{
