@@ -812,10 +812,6 @@ function checkKey(e){
     var kc = e.keyCode;
     console.log(kc);
 
-    if (kc === 0 || kc === 176 || kc === 192){
-        e.preventDefault();
-        gpxedit.searchControl._toggle();
-    }
     if (kc === 161 || kc === 223){
         e.preventDefault();
         gpxedit.minimapControl._toggleDisplayButtonClicked();
