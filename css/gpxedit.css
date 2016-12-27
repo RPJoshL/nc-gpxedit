@@ -227,7 +227,7 @@ h3 {
     margin-left:20px;
     list-style-type:circle;
 }
-#saved, #failed {
+#saved, #failed, #loading {
     /*width: 330px;*/
     padding-left: 5px;
     /*height: 35px;*/
@@ -250,11 +250,11 @@ h3 {
 #failed{
     background-color: red;
 }
-#saved .fa, #failed .fa {
+#saved .fa, #failed .fa, #loading .fa {
     font-size: 22px;
 }
 
-#saved p, #failed p{
+#saved p, #failed p, #loading p{
     padding: 6px 6px 6px 6px;
 }
 .clear {

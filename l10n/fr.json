@@ -1,5 +1,6 @@
 { "translations": {
     "Load and save files" : "Charger et enregistrer des fichiers",
+	"loading file" : "chargement du fichier",
     "Choose directory and save" : "Choisir un dossier et sauver",
     "About GpxEdit" : "À propos de GpxEdit",
     "Load" : "Charger",

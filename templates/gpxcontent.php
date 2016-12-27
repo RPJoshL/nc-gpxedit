@@ -47,6 +47,10 @@ p($_['gpxedit_version']);
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>
         <b id="content"></b></p>
     </div>
+	<div id="loading"><p>
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<?php p($l->t('loading file')); ?>&nbsp;</p>
+	</div>
 <?php
 
 echo '<p id="username" style="display:none">';
@@ -130,7 +134,6 @@ if (count($_['tileservers']) > 0){
     <ul class="disclist">
         <li><b>&lt;</b> : <?php p($l->t('toggle sidebar')); ?></li>
         <li><b>!</b> : <?php p($l->t('toggle minimap')); ?></li>
-        <li><b>œ</b> or <b>²</b> : <?php p($l->t('toggle search')); ?></li>
     </ul>
     <br/><hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Features')); ?> :</h3>

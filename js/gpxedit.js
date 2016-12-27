@@ -7,7 +7,8 @@ var gpxedit = {
     drawControl: null,
     id: 0,
     // indexed by gpxedit_id
-    layersData: {}
+    layersData: {},
+    currentAjax : null
 };
 
 var symbolSelectClasses = {
@@ -848,6 +849,15 @@ function hideSaveSuccessAnimation(){
     $('#saved').fadeOut();
 }
 
+function showLoadingAnimation(){
+    $('#loading').show();
+}
+
+function hideLoadingAnimation(){
+    $('#loading').hide();
+}
+
+
 function loadAction(file){
     if (!endsWith(file, '.gpx') &&
             !endsWith(file, '.kml') &&
@@ -872,7 +882,8 @@ function loadFile(file){
         path : file
     }
     var url = OC.generateUrl('/apps/gpxedit/getgpx');
-    $.post(url, req).done(function (response) {
+    showLoadingAnimation();
+    gpxedit.currentAjax = $.post(url, req).done(function (response) {
         if ($('#clearbeforeload').is(':checked')){
             clear();
         }
@@ -885,6 +896,7 @@ function loadFile(file){
             gpxedit.map.fitBounds(bounds,
                     {animate:true, paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]}
                     );
+            hideLoadingAnimation();
         }
     });
 }
@@ -1181,6 +1193,10 @@ $(document).ready(function(){
         clear();
     });
     $('button#loadButton').click(function(e){
+        if (gpxedit.currentAjax !== null){
+            gpxedit.currentAjax.abort();
+            hideLoadingAnimation();
+        }
         OC.dialogs.filepicker(t('gpxedit', 'Load file (gpx, kml, csv, png)'), function(targetPath) {
             loadAction(targetPath);
         }, false, null, true);
