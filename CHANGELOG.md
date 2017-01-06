@@ -5,8 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- loading animation, interrupt current ajax if another one is launched
+  [#9](https://gitlab.com/eneiluj/gpxedit-oc/issues/9) @eneiluj
+
 ### Changed
 - display question mark if symbol is unknown
+- remove search key shortcut
+  [#8](https://gitlab.com/eneiluj/gpxedit-oc/issues/8) @eneiluj
 
 ## 0.0.3 – 2016-12-16
 ### Added
