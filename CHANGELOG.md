@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.4 – 2017-01-17
 ### Added
 - loading animation, interrupt current ajax if another one is launched
   [#9](https://gitlab.com/eneiluj/gpxedit-oc/issues/9) @eneiluj
