@@ -52,6 +52,10 @@ If you want to help to translate this app in your language, take the english=>fr
 
 I develop this app during my free time. You can make a donation to me on Paypal. [Click HERE to make a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account)
 
+## Releases
+
+[Here](https://gitlab.com/eneiluj/gpxedit-oc/wikis/home#releases) are the GpxEdit releases.
+
 ## Alternatives
 
 If you look for more powerfull GPX editors, take a look at :
