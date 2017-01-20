@@ -447,8 +447,8 @@ function load_map() {
           }
           buttonParent.find('select[role=symbol]').change();
           var latlng = gpxedit.layersData[id].layer.getLatLng();
-          buttonParent.find('input.layerLat').val(latlng.lat);
-          buttonParent.find('input.layerLon').val(latlng.lng);
+          buttonParent.find('input.layerLat').val(latlng.lat.toFixed(6));
+          buttonParent.find('input.layerLon').val(latlng.lng.toFixed(6));
       }
   });
 
