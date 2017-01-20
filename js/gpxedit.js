@@ -446,6 +446,9 @@ function load_map() {
               buttonParent.find('select[role=symbol]').val('unknown');
           }
           buttonParent.find('select[role=symbol]').change();
+          var latlng = gpxedit.layersData[id].layer.getLatLng();
+          buttonParent.find('input.layerLat').val(latlng.lat);
+          buttonParent.find('input.layerLon').val(latlng.lng);
       }
   });
 
@@ -475,6 +478,8 @@ function onCreated(type, layer){
         '<tr><td>'+t('gpxedit', 'Description')+'</td><td><textarea class="layerDesc"></textarea></td></tr>'+
         '<tr><td>'+t('gpxedit', 'Comment')+'</td><td><textarea class="layerCmt"></textarea></td></tr>';
     if (type === 'marker') {
+        popupTxt = popupTxt + '<tr><td>'+t('gpxedit', 'Lat')+'</td><td><input class="layerLat"></input></td></tr>';
+        popupTxt = popupTxt + '<tr><td>'+t('gpxedit', 'Lon')+'</td><td><input class="layerLon"></input></td></tr>';
         popupTxt = popupTxt + '<tr><td>'+t('gpxedit', 'Symbol')+'</td><td><select role="symbol">';
         popupTxt = popupTxt + '<option value="">'+t('gpxedit', 'No symbol')+'</option>';
         popupTxt = popupTxt + '<option value="unknown">'+t('gpxedit', 'Unknown symbol')+'</option>';
@@ -1176,6 +1181,10 @@ $(document).ready(function(){
                 var theicon = symbolIcons[wst];
                 gpxedit.layersData[id].layer.setIcon(theicon);
             }
+            var lat = $(this).parent().find('.layerLat').val();
+            var lon = $(this).parent().find('.layerLon').val();
+            var latlng = L.latLng(lat, lon);
+            gpxedit.layersData[id].layer.setLatLng(latlng);
         }
         if (name !== ''){
             if (tst === 'p'){
