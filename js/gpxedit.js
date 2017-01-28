@@ -862,6 +862,23 @@ function hideLoadingAnimation(){
     $('#loading').hide();
 }
 
+function showExportingAnimation(){
+    $('#exporting').show();
+}
+
+function hideExportingAnimation(){
+    $('#exporting').hide();
+}
+
+function showSavingAnimation(){
+    $('#saving').show();
+}
+
+function hideSavingAnimation(){
+    $('#saving').hide();
+}
+
+
 
 function loadAction(file){
     if (!endsWith(file, '.gpx') &&
@@ -1101,14 +1118,18 @@ function addExtraSymbols(){
 }
 
 function saveAction(targetPath){
+    showExportingAnimation();
     var saveFilePath = targetPath+'/'+$('input#saveName').val();
     var gpxText = generateGpx();
+    hideExportingAnimation();
+    showSavingAnimation();
     var req = {
         path: saveFilePath,
         content: gpxText 
     }
     var url = OC.generateUrl('/apps/gpxedit/savegpx');
     $.post(url, req).done(function (response) {
+        hideSavingAnimation();
         if (response.status === 'fiw'){
             showSaveFailAnimation(saveFilePath, t('gpxedit', 'Impossible to write file')+' : '+t('gpxedit', 'write access denied'));
         }

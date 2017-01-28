@@ -51,6 +51,14 @@ p($_['gpxedit_version']);
 		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 		<?php p($l->t('loading file')); ?>&nbsp;</p>
 	</div>
+	<div id="exporting"><p>
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<?php p($l->t('exporting file to gpx')); ?>&nbsp;</p>
+	</div>
+	<div id="saving"><p>
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<?php p($l->t('saving file')); ?>&nbsp;</p>
+	</div>
 <?php
 
 echo '<p id="username" style="display:none">';
