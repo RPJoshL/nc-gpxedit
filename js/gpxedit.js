@@ -904,8 +904,25 @@ function loadFile(file){
         path : file
     }
     var url = OC.generateUrl('/apps/gpxedit/getgpx');
+    $('#loadingpc').text('0 %');
     showLoadingAnimation();
-    gpxedit.currentAjax = $.post(url, req).done(function (response) {
+    gpxedit.currentAjax = $.ajax({
+        type: "POST",
+        async: true,
+        url: url,
+        data: req,
+        xhr: function(){
+            var xhr = new window.XMLHttpRequest();
+            xhr.addEventListener("progress", function(evt) {
+                if (evt.lengthComputable) {
+                    var percentComplete = evt.loaded / evt.total * 100;
+                    $('#loadingpc').text('('+parseInt(percentComplete)+' %)');
+                }
+            }, false);
+
+            return xhr;
+        }
+        }).done(function (response) {
         if ($('#clearbeforeload').is(':checked')){
             clear();
         }
@@ -1122,13 +1139,31 @@ function saveAction(targetPath){
     var saveFilePath = targetPath+'/'+$('input#saveName').val();
     var gpxText = generateGpx();
     hideExportingAnimation();
+    $('#savingpc').text('0 %');
     showSavingAnimation();
     var req = {
         path: saveFilePath,
         content: gpxText 
     }
     var url = OC.generateUrl('/apps/gpxedit/savegpx');
-    $.post(url, req).done(function (response) {
+    $.ajax({
+        type: 'POST',
+        async: true,
+        url: url,
+        data: req,
+        xhr: function(){
+            var xhr = new window.XMLHttpRequest();
+            xhr.upload.addEventListener("progress", function(evt) {
+                if (evt.lengthComputable) {
+                    var percentComplete = evt.loaded / evt.total * 100;
+                    //Do something with upload progress here
+                    $('#savingpc').text('('+parseInt(percentComplete)+' %)');
+                }
+            }, false);
+
+            return xhr;
+        }
+    }).done(function (response) {
         hideSavingAnimation();
         if (response.status === 'fiw'){
             showSaveFailAnimation(saveFilePath, t('gpxedit', 'Impossible to write file')+' : '+t('gpxedit', 'write access denied'));

@@ -49,7 +49,7 @@ p($_['gpxedit_version']);
     </div>
 	<div id="loading"><p>
 		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-		<?php p($l->t('loading file')); ?>&nbsp;</p>
+		<?php p($l->t('loading file')); ?>&nbsp;<i id="loadingpc"></i></p>
 	</div>
 	<div id="exporting"><p>
 		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
@@ -57,7 +57,7 @@ p($_['gpxedit_version']);
 	</div>
 	<div id="saving"><p>
 		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-		<?php p($l->t('saving file')); ?>&nbsp;</p>
+		<?php p($l->t('saving file')); ?>&nbsp;<i id="savingpc"></i></p>
 	</div>
 <?php
 
