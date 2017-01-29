@@ -904,7 +904,7 @@ function loadFile(file){
         path : file
     }
     var url = OC.generateUrl('/apps/gpxedit/getgpx');
-    $('#loadingpc').text('0 %');
+    $('#loadingpc').text('0');
     showLoadingAnimation();
     gpxedit.currentAjax = $.ajax({
         type: "POST",
@@ -916,7 +916,7 @@ function loadFile(file){
             xhr.addEventListener("progress", function(evt) {
                 if (evt.lengthComputable) {
                     var percentComplete = evt.loaded / evt.total * 100;
-                    $('#loadingpc').text('('+parseInt(percentComplete)+' %)');
+                    $('#loadingpc').text(parseInt(percentComplete));
                 }
             }, false);
 
@@ -1139,7 +1139,7 @@ function saveAction(targetPath){
     var saveFilePath = targetPath+'/'+$('input#saveName').val();
     var gpxText = generateGpx();
     hideExportingAnimation();
-    $('#savingpc').text('0 %');
+    $('#savingpc').text('0');
     showSavingAnimation();
     var req = {
         path: saveFilePath,
@@ -1157,7 +1157,7 @@ function saveAction(targetPath){
                 if (evt.lengthComputable) {
                     var percentComplete = evt.loaded / evt.total * 100;
                     //Do something with upload progress here
-                    $('#savingpc').text('('+parseInt(percentComplete)+' %)');
+                    $('#savingpc').text(parseInt(percentComplete));
                 }
             }, false);
 
