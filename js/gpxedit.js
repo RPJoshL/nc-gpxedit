@@ -4,6 +4,7 @@
 var gpxedit = {
     map: {},
     baseLayers: null,
+    restoredTileLayer: null,
     drawControl: null,
     id: 0,
     // indexed by gpxedit_id
@@ -183,9 +184,11 @@ function load_map() {
   $('meta[name=referrer]').attr('content', 'origin');
 
   var layer = getUrlParameter('layer');
-  console.log('layer '+layer);
   var default_layer = 'OpenStreetMap';
-  if (typeof layer !== 'undefined'){
+  if (gpxedit.restoredTileLayer !== null){
+      default_layer = gpxedit.restoredTileLayer;
+  }
+  else if (typeof layer !== 'undefined'){
       default_layer = decodeURI(layer);
   }
 
@@ -451,6 +454,8 @@ function load_map() {
           buttonParent.find('input.layerLon').val(latlng.lng.toFixed(6));
       }
   });
+
+  gpxedit.map.on('baselayerchange',saveOptions);
 
 }
 
@@ -922,7 +927,7 @@ function loadFile(file){
 
             return xhr;
         }
-        }).done(function (response) {
+    }).done(function (response) {
         if ($('#clearbeforeload').is(':checked')){
             clear();
         }
@@ -1086,6 +1091,9 @@ function restoreOptions(){
 	if (optionsValues.symboloverwrite !== undefined){
         $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
     }
+    if (optionsValues.tilelayer !== undefined){
+        gpxedit.restoredTileLayer = optionsValues.tilelayer;
+    }
 }
 
 function saveOptions(){
@@ -1094,6 +1102,7 @@ function saveOptions(){
     optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
 	optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
 	optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
+    optionsValues.tilelayer = gpxedit.activeLayers.getActiveBaseLayer().name;
     //alert('to save : '+JSON.stringify(optionsValues));
 
     var req = {
@@ -1185,11 +1194,11 @@ function saveAction(targetPath){
 
 $(document).ready(function(){
     gpxedit.username = $('p#username').html();
-    load_map();
-	document.onkeydown = checkKey;
+    document.onkeydown = checkKey;
     addExtraSymbols();
     fillWaypointStyles();
     restoreOptions();
+    load_map();
 
     $('select#markerstyleselect').change(function(e){
         updateLeafletDrawMarkerStyle();

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#10](https://gitlab.com/eneiluj/gpxedit-oc/issues/10) @eneiluj
 - show animation during exporting and saving
 - show saving/loading ajax percentage
+- save/restore tilelayer
 
 ### Changed
 
