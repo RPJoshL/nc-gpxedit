@@ -40,8 +40,13 @@ OC.L10N.register(
     "Finish" : "Terminer",
     "Finish drawing" : "Terminer le dessin",
     "Delete last point" : "Supprimer le dernier point",
-    "Delete last point drawn" : "Supprimer le dernier point dessiné"
-
+    "Delete last point drawn" : "Supprimer le dernier point dessiné",
+    "Server name or server url should not be empty" : "L'URL ou le nom du serveur doivent être non vides",
+    "A server with this name already exists" : "Un serveur avec ce nom existe déjà",
+    "Impossible to add tile server" : "Impossible d'ajouter le serveur de tuiles",
+    "Failed to restore options values" : "Echec du chargement des valeurs des options",
+    "Failed to save options values" : "Echec à la sauvegarde des valeurs des options",
+    "Error" : "Erreur"
     },
 "nplurals=2; plural=(n > 1);");
 

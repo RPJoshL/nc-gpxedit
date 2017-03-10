@@ -932,7 +932,7 @@ function loadFile(file){
             clear();
         }
         if (response.gpx === ''){
-            alert('The file does not exist or it is not a gpx');
+            OC.dialogs.alert('The file does not exist or it is not supported', 'Load error');
         }
         else{
             parseGpx(response.gpx);
@@ -959,7 +959,7 @@ function deleteTileServer(li){
     }).done(function (response) {
         //alert(response.done);
         if (response.done){
-            li.remove();
+            li.fadeOut('slow', function() { li.remove(); });
             var activeLayerName = gpxedit.activeLayers.getActiveBaseLayer().name;
             // if we delete the active layer, first select another
             if (activeLayerName === sname){
@@ -976,7 +976,11 @@ function addTileServer(){
     var sname = $('#tileservername').val();
     var surl = $('#tileserverurl').val();
     if (sname === '' || surl === ''){
-        alert('Server name or server url should not be empty');
+        OC.dialogs.alert(t('gpxedit','Server name or server url should not be empty'), t('gpxedit','Impossible to add tile server'));
+        return;
+    }
+    if ($('#tileserverlist ul li[name="'+sname+'"]').length > 0){
+        OC.dialogs.alert(t('gpxedit','A server with this name already exists'), t('gpxedit','Impossible to add tile server'));
         return;
     }
     $('#tileservername').val('');
@@ -996,10 +1000,12 @@ function addTileServer(){
         //alert(response.done);
         if (response.done){
             $('#tileserverlist ul').prepend(
-                '<li name="'+sname+'" title="'+surl+'">'+sname+' <button>'+
+                '<li style="display:none;" name="'+sname+'" title="'+surl+'">'+sname+' <button>'+
                 '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> '+
                 t('gpxedit','Delete')+'</button></li>'
             );
+            $('#tileserverlist ul li[name="'+sname+'"]').fadeIn('slow');
+
             // add tile server in leaflet control
             var newlayer = new L.TileLayer(surl,
                     {maxZoom: 18, attribution: 'custom tile server'});
@@ -1075,7 +1081,7 @@ function restoreOptions(){
         optionsValues = response.values;
         //alert('option values : '+optionsValues);
     }).fail(function(){
-        alert('failed to restore options values');
+        OC.dialogs.alert(t('gpxedit','failed to restore options values'), t('gpxedit','Error'));
     });
     optionsValues = $.parseJSON(optionsValues);
     if (optionsValues.markerstyle !== undefined &&
@@ -1117,7 +1123,7 @@ function saveOptions(){
     }).done(function (response) {
         //alert(response);
     }).fail(function(){
-        alert('failed to save options values');
+        OC.dialogs.alert(t('gpxedit','failed to save options values'), t('gpxedit','Error'));
     });
 }
 

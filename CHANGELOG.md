@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - show animation during exporting and saving
 - show saving/loading ajax percentage
 - save/restore tilelayer
+- animations when add/remove tile servers
+- few french translations
 
 ### Changed
 
