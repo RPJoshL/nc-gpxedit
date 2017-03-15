@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    if (OCA.Files && OCA.Files.fileActions) {
+    if (OCA.Files && OCA.Files.fileActions && !$('#sharingToken').val()) {
 
         function openFile(file, data){
             var url = OC.generateUrl('apps/gpxedit/?file={filepath}',{'filepath': data.dir+'/'+file});
