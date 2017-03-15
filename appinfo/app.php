@@ -13,6 +13,9 @@ namespace OCA\GpxEdit\AppInfo;
 
 use OCP\AppFramework\App;
 
+use OCP\Util;
+Util::addScript('gpxedit', 'filetypes');
+
 $app = new Application();
 $container = $app->getContainer();
 

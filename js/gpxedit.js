@@ -1322,7 +1322,7 @@ $(document).ready(function(){
     var urlfileparam = getUrlParameter('file');
     var fileparam = decodeURI(urlfileparam);
     if (urlfileparam && urlfileparam !== undefined){
-        loadAction(fileparam);
+        loadAction(fileparam.replace(/%2F/g, '/'));
     }
 
 });

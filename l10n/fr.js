@@ -46,6 +46,7 @@ OC.L10N.register(
     "Impossible to add tile server" : "Impossible d'ajouter le serveur de tuiles",
     "Failed to restore options values" : "Echec du chargement des valeurs des options",
     "Failed to save options values" : "Echec à la sauvegarde des valeurs des options",
+    "Edit in GpxEdit" : "Éditer dans GpxEdit",
     "Error" : "Erreur"
     },
 "nplurals=2; plural=(n > 1);");
