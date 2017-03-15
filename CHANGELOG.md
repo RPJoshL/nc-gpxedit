@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - save/restore tilelayer
 - animations when add/remove tile servers
 - few french translations
+- show exporting and saving animation
+- progress percentage for load/save
+- save/restore current tile layer
+- integration in "Files" and "File sharing" context menu for .gpx files
+  [#11](https://gitlab.com/eneiluj/gpxedit-oc/issues/11) @rugk
 
 ### Changed
 

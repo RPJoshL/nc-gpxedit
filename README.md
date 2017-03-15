@@ -41,6 +41,7 @@ GpxEdit :
 - uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) amazing plugin
 - uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl
 - uses JQuery
+- adds possibility to edit .gpx files directly from the "Files" app
 
 Any feedback will be appreciated.
 
@@ -51,6 +52,10 @@ If you want to help to translate this app in your language, take the english=>fr
 ## Donation
 
 I develop this app during my free time. You can make a donation to me on Paypal. [Click HERE to make a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account)
+
+## Installation
+
+Check the [AdminDoc](https://gitlab.com/eneiluj/gpxedit-oc/wikis/admindoc) for installation details, integration in "Files" app and GpxEdit admin settings.
 
 ## Releases
 
