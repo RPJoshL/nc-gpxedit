@@ -49,21 +49,8 @@ class Application extends App {
                     $c->query('UserId'),
                     $c->query('ServerContainer')->getUserFolder($c->query('UserId')),
                     $c->query('ServerContainer')->getConfig(),
-                    $c->getServer()->getShareManager()
-                );
-            }
-        );
-
-        $container->registerService(
-            'ComparisonController', function (IAppContainer $c) {
-                return new ComparisonController(
-                    $c->query('AppName'),
-                    $c->query('Request'),
-                    $c->query('UserId'),
-                    //$c->getServer()->getUserFolder($c->query('UserId')),
-                    //$c->query('OCP\IConfig'),
-                    $c->query('ServerContainer')->getUserFolder($c->query('UserId')),
-                    $c->query('ServerContainer')->getConfig()
+                    $c->getServer()->getShareManager(),
+                    $c->getServer()->getAppManager()
                 );
             }
         );
@@ -77,7 +64,8 @@ class Application extends App {
                     //$c->getServer()->getUserFolder($c->query('UserId')),
                     //$c->query('OCP\IConfig'),
                     $c->query('ServerContainer')->getUserFolder($c->query('UserId')),
-                    $c->query('ServerContainer')->getConfig()
+                    $c->query('ServerContainer')->getConfig(),
+                    $c->getServer()->getAppManager()
                 );
             }
         );

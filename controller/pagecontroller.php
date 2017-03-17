@@ -11,7 +11,7 @@
 
 namespace OCA\GpxEdit\Controller;
 
-use \OC_App;
+use OCP\App\IAppManager;
 
 use OCP\IURLGenerator;
 use OCP\IConfig;
@@ -95,10 +95,10 @@ class PageController extends Controller {
     private $appPath;
 
     public function __construct($AppName, IRequest $request, $UserId,
-                                $userfolder, $config, $shareManager){
+                                $userfolder, $config, $shareManager, IAppManager $appManager){
         parent::__construct($AppName, $request);
         $this->appVersion = $config->getAppValue('gpxedit', 'installed_version');
-        $this->appPath = \OC_App::getAppPath('gpxedit');
+        $this->appPath = $appManager->getAppPath('gpxedit');
         $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
         // IConfig object

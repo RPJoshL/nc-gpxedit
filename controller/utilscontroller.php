@@ -11,7 +11,7 @@
 
 namespace OCA\GpxEdit\Controller;
 
-use \OC_App;
+use OCP\App\IAppManager;
 
 use OCP\IURLGenerator;
 use OCP\IConfig;
@@ -85,10 +85,11 @@ class UtilsController extends Controller {
     private $appPath;
     //private $request;
 
-    public function __construct($AppName, IRequest $request, $UserId, $userfolder, $config){
+    public function __construct($AppName, IRequest $request, $UserId,
+        $userfolder, $config, IAppManager $appManager){
         parent::__construct($AppName, $request);
 		//$this->request = $request;
-        $this->appPath = \OC_App::getAppPath('gpxedit');
+        $this->appPath = $appManager->getAppPath('gpxedit');
         $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
         // IConfig object

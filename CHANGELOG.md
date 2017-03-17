@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 ### Fixed
+- app is now compliant to occ check-code
 
 ## 0.0.4 – 2017-01-17
 ### Added
