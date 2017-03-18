@@ -967,8 +967,14 @@ function deleteTileServer(li){
             }
             gpxedit.activeLayers.removeLayer(gpxedit.baseLayers[sname]);
             delete gpxedit.baseLayers[sname];
+            OC.Notification.showTemporary(t('gpxedit', 'Tile server "{ts}" has been deleted', {ts: sname}));
+        }
+        else{
+            OC.Notification.showTemporary(t('gpxedit', 'Failure on tile server "{ts}" deletion', {ts: sname}));
         }
     }).always(function(){
+    }).fail(function(){
+        OC.Notification.showTemporary(t('gpxedit', 'Failure on tile server "{ts}" deletion', {ts: sname}));
     });
 }
 
@@ -1011,8 +1017,14 @@ function addTileServer(){
                     {maxZoom: 18, attribution: 'custom tile server'});
             gpxedit.activeLayers.addBaseLayer(newlayer, sname);
             gpxedit.baseLayers[sname] = newlayer;
+            OC.Notification.showTemporary(t('gpxedit', 'Tile server "{ts}" has been added', {ts: sname}));
+        }
+        else{
+            OC.Notification.showTemporary(t('gpxedit', 'Failure on tile server "{ts}" addition', {ts: sname}));
         }
     }).always(function(){
+    }).fail(function(){
+        OC.Notification.showTemporary(t('gpxedit', 'Failure on tile server "{ts}" addition', {ts: sname}));
     });
 }
 
