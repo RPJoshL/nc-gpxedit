@@ -650,7 +650,7 @@
                     gpxText = gpxText + '  <name>' + name + '</name>\n';
                 }
                 else{
-                    gpxText = gpxText + '  <name>unnamed</name>\n';
+                    gpxText = gpxText + '  <name></name>\n';
                 }
                 if (alt !== undefined) {
                     gpxText = gpxText + '  <ele>' + alt + '</ele>\n';
@@ -675,7 +675,7 @@
                     gpxText = gpxText + '  <name>' + name + '</name>\n';
                 }
                 else{
-                    gpxText = gpxText + '  <name>unnamed</name>\n';
+                    gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
                     gpxText = gpxText + '  <cmt>' + comment + '</cmt>\n';
@@ -706,7 +706,7 @@
                     gpxText = gpxText + '  <name>' + name + '</name>\n';
                 }
                 else{
-                    gpxText = gpxText + '  <name>unnamed</name>\n';
+                    gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
                     gpxText = gpxText + '  <cmt>' + comment + '</cmt>\n';
