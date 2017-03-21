@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - numeric/alphabetic sort of layers by name in gpx file
 - layer without name are written with empty name
+- change favicon background color
 
 ### Fixed
 - app is now compliant to occ check-code
