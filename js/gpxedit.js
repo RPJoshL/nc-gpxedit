@@ -193,11 +193,11 @@
         }
 
         // get url from key and layer type
-        function geopUrl (key, layer, format)
-        { return 'http://wxs.ign.fr/' + key + '/wmts?LAYER=' + layer +
-            '&EXCEPTIONS=text/xml&FORMAT=' + (format?format:'image/jpeg') +
-            '&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal' +
-            '&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}' ;
+        function geopUrl(key, layer, format) {
+            return 'http://wxs.ign.fr/' + key + '/wmts?LAYER=' + layer +
+                '&EXCEPTIONS=text/xml&FORMAT=' + (format?format:'image/jpeg') +
+                '&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal' +
+                '&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}' ;
         }
         // change it if you deploy GPXEDIT
         var API_KEY = 'ljthe66m795pr2v2g8p7faxt';
@@ -544,7 +544,7 @@
 
     // generate gpx text from current map elements
     function generateGpx() {
-        var lat, lng, alt, time, i;
+        var lat, lng, alt, time, i, ia;
         var gpxText = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n';
         var now = new Date();
         var now_utc_str = now.getUTCFullYear() + '-' +
@@ -575,7 +575,66 @@
         }
         gpxText = gpxText + '</metadata>\n';
 
+        var layerArray = [];
         gpxedit.editableLayers.eachLayer(function(layer) {
+            layerArray.push(layer);
+        });
+        // sort
+        var sortedLayerArray = layerArray.sort(function (layer1, layer2) {
+            var res;
+            var id1 = layer1.gpxedit_id;
+            var id2 = layer2.gpxedit_id;
+            var name1 = gpxedit.layersData[id1].name;
+            var name2 = gpxedit.layersData[id2].name;
+            var numname1 = parseInt(name1);
+            var numname2 = parseInt(name2);
+
+            // special cases : at least one of them does not begin by a number
+            // number is always inferior than string
+            if (isNaN(numname1) && !isNaN(numname2)) {
+                res = 1;
+            }
+            else if (!isNaN(numname1) && isNaN(numname2)) {
+                res = -1;
+            }
+            // if both are not begining with a number : compare strings
+            else if (isNaN(numname1) && isNaN(numname2)) {
+                if (name1 < name2) {
+                    res = -1;
+                }
+                else if (name1 === name2) {
+                    res = 0;
+                }
+                else {
+                    res = 1;
+                }
+            }
+            // normal case : both begin with a number
+            else{
+                if (numname1 < numname2) {
+                    res = -1;
+                }
+                // if numbers are identical : compare strings
+                else if(numname1 === numname2) {
+                    if (name1 < name2) {
+                        res = -1;
+                    }
+                    else if (name1 === name2) {
+                        res = 0;
+                    }
+                    else {
+                        res = 1;
+                    }
+                }
+                else{
+                    res = 1;
+                }
+            }
+            return res;
+        });
+
+        for (ia = 0; ia < sortedLayerArray.length; ia++){
+            var layer = sortedLayerArray[ia];
             var id = layer.gpxedit_id;
             var name = gpxedit.layersData[id].name;
             var comment = gpxedit.layersData[id].comment;
@@ -671,7 +730,7 @@
                 }
                 gpxText = gpxText + ' </rte>\n';
             }
-        });
+        }
         gpxText = gpxText + ' <extensions/>\n</gpx>';
         return gpxText;
     }

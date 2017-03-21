@@ -19,8 +19,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - integration in "Files" and "File sharing" context menu for .gpx files
   [#11](https://gitlab.com/eneiluj/gpxedit-oc/issues/11) @rugk
 - notifications on tile layer add/remove
+- makefile signs the app code
 
 ### Changed
+- numeric/alphabetic sort of layers by name in gpx file
 
 ### Fixed
 - app is now compliant to occ check-code
