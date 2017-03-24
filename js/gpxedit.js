@@ -189,7 +189,7 @@
             default_layer = gpxedit.restoredTileLayer;
         }
         else if (typeof layer !== 'undefined') {
-            default_layer = decodeURI(layer);
+            default_layer = decodeURIComponent(layer);
         }
 
         // get url from key and layer type
@@ -537,7 +537,7 @@
         for (var i = 0; i < sURLVariables.length; i++) {
             var sParameterName = sURLVariables[i].split('=');
             if (sParameterName[0] === sParam) {
-                return sParameterName[1];
+                return decodeURIComponent(sParameterName[1]);
             }
         }
     }
@@ -1474,10 +1474,9 @@
         });
 
         // load a file if 'file' GET url parameter was given
-        var urlfileparam = getUrlParameter('file');
-        var fileparam = decodeURI(urlfileparam);
-        if (urlfileparam && urlfileparam !== undefined) {
-            loadAction(fileparam.replace(/%2F/g, '/'));
+        var fileparam = getUrlParameter('file');
+        if (fileparam && fileparam !== undefined) {
+            loadAction(fileparam);
         }
 
     });
