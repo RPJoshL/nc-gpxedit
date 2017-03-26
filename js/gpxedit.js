@@ -1009,18 +1009,27 @@
                 OC.dialogs.alert('The file does not exist or it is not supported',
                                  'Load error');
             }
-            else{
+            else {
                 parseGpx(response.gpx);
-                var bounds = gpxedit.editableLayers.getBounds();
-                gpxedit.map.fitBounds(
-                    bounds,
-                    {
-                        animate: true,
-                        paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]
-                    }
-                );
-                hideLoadingAnimation();
+                try {
+                    var bounds = gpxedit.editableLayers.getBounds();
+                    gpxedit.map.fitBounds(
+                        bounds,
+                        {
+                            animate: true,
+                            paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]
+                        }
+                    );
+                }
+                catch (err) {
+                    console.log('Impossible to fit to bounds \n'+err);
+                }
             }
+            hideLoadingAnimation();
+        }).fail(function (){
+            OC.dialogs.alert('Failed to communicate with the server',
+                             'Load error');
+            hideLoadingAnimation();
         });
     }
 
