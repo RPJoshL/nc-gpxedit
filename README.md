@@ -34,7 +34,7 @@ GpxEdit :
 - allows you to add extra symbols in Nextcloud(\*) admin settings (section : additional)
 - works with server-side encryption.
 - works with shared files.
-- loads GPX, KML, unicsv CSV, geotagged JPG files
+- loads GPX, KML, unicsv CSV, geotagged JPG files (requires Gpsbabel to convert files and python-pil to import pictures)
 - loads tracks, routes and waypoints
 - saves tracks, routes and waypoints
 - supports waypoint symbols
