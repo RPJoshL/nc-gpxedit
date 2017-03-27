@@ -962,8 +962,10 @@
     }
 
     function loadFolder(folder) {
+        var type = $('select#loadtypeselect').val();
         var req = {
-            path: folder
+            path: folder,
+            type: type
         };
         var url = OC.generateUrl('/apps/gpxedit/getfoldergpxs');
         $('#loadingpc').text('0');
@@ -989,8 +991,6 @@
             if ($('#clearbeforeload').is(':checked')) {
                 clear();
             }
-            console.log(Object.keys(response));
-            console.log('len : '+response.gpxs.length);
             if (response.gpxs.length === 0) {
                 OC.dialogs.alert('The folder does not exist or does not contain any compatible file',
                                  'Load folder error');
@@ -1514,8 +1514,9 @@
                 gpxedit.currentAjax.abort();
                 hideLoadingAnimation();
             }
+            var type = $('select#loadtypeselect').val();
             OC.dialogs.filepicker(
-                t('gpxedit', 'Load folder (all compatible file inside)'),
+                t('gpxedit', 'Load folder ('+type+')'),
                 function(targetPath) {
                     loadFolderAction(targetPath);
                 },

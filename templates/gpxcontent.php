@@ -25,7 +25,17 @@ p($_['gpxedit_version']);
     </form>
     <hr/>
     <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
+    <div id="divloadfolder">
     <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
+    <select id="loadtypeselect">
+        <option value="all">all</option>
+        <option value=".jpg">jpg</option>
+        <option value=".gpx">gpx</option>
+        <option value=".kml">kml</option>
+        <option value=".csv">csv</option>
+    </select>
+    </div>
+    <div style="clear:both"></div>
     <hr/>
     <h2 id="savetitle"><?php p($l->t('Save'));?></h2>
     <div>

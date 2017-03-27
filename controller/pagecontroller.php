@@ -268,7 +268,7 @@ class PageController extends Controller {
      * @NoAdminRequired
      * @NoCSRFRequired
      */
-    public function getfoldergpxs($path) {
+    public function getfoldergpxs($path, $type) {
         $userFolder = \OC::$server->getUserFolder();
         $cleanpath = str_replace(array('../', '..\\'), '',  $path);
         $gpxs = Array();
@@ -277,14 +277,26 @@ class PageController extends Controller {
             if ($folder->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
                 foreach ($folder->getDirectoryListing() as $file) {
                     if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE) {
-                        if (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx')){
+                        if (    ($type === 'all' or $type === '.gpx')
+                            and (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx'))
+                        ){
                             $gpxContent = $file->getContent();
                             array_push($gpxs, $gpxContent);
                         }
                         else if (getProgramPath('gpsbabel') !== null and
-                            (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml') or
-                            endswith($file->getName(), '.JPG') or endswith($file->getName(), '.jpg') or
-                            endswith($file->getName(), '.CSV') or endswith($file->getName(), '.csv'))
+                            (
+                                (    ($type === 'all' or $type === '.kml')
+                                 and (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml'))
+                                )
+                                or
+                                (    ($type === 'all' or $type === '.jpg')
+                                 and (endswith($file->getName(), '.JPG') or endswith($file->getName(), '.jpg'))
+                                )
+                                or
+                                (    ($type === 'all' or $type === '.csv')
+                                 and (endswith($file->getName(), '.CSV') or endswith($file->getName(), '.csv'))
+                                )
+                            )
                         ){
                             $gpxContent = $this->toGpx($file);
                             array_push($gpxs, $gpxContent);
