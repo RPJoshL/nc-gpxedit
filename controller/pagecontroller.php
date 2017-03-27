@@ -176,7 +176,7 @@ class PageController extends Controller {
     /**
      * convert the given file (csv or kml) to gpx and return its content
      */
-    public function toGpx($file){
+    private function toGpx($file){
         $gpsbabel_path = getProgramPath('gpsbabel');
         $data_folder = $this->userAbsoluteDataPath;
         $tempdir = $data_folder.'/../cache/'.rand();
@@ -253,6 +253,50 @@ class PageController extends Controller {
         $response = new DataResponse(
             [
                 'gpx'=>$gpxContent
+            ]
+        );
+        $csp = new ContentSecurityPolicy();
+        $csp->addAllowedImageDomain('*')
+            ->addAllowedMediaDomain('*')
+            ->addAllowedConnectDomain('*');
+        $response->setContentSecurityPolicy($csp);
+        return $response;
+    }
+
+    /**
+     * 
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
+    public function getfoldergpxs($path) {
+        $userFolder = \OC::$server->getUserFolder();
+        $cleanpath = str_replace(array('../', '..\\'), '',  $path);
+        $gpxs = Array();
+        if ($userFolder->nodeExists($cleanpath)){
+            $folder = $userFolder->get($cleanpath);
+            if ($folder->getType() === \OCP\Files\FileInfo::TYPE_FOLDER){
+                foreach ($folder->getDirectoryListing() as $file) {
+                    if ($file->getType() === \OCP\Files\FileInfo::TYPE_FILE) {
+                        if (endswith($file->getName(), '.GPX') or endswith($file->getName(), '.gpx')){
+                            $gpxContent = $file->getContent();
+                            array_push($gpxs, $gpxContent);
+                        }
+                        else if (getProgramPath('gpsbabel') !== null and
+                            (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml') or
+                            endswith($file->getName(), '.JPG') or endswith($file->getName(), '.jpg') or
+                            endswith($file->getName(), '.CSV') or endswith($file->getName(), '.csv'))
+                        ){
+                            $gpxContent = $this->toGpx($file);
+                            array_push($gpxs, $gpxContent);
+                        }
+                    }
+                }
+            }
+        }
+
+        $response = new DataResponse(
+            [
+                'gpxs'=>$gpxs
             ]
         );
         $csp = new ContentSecurityPolicy();

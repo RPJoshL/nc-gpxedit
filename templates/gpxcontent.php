@@ -24,7 +24,8 @@ p($_['gpxedit_version']);
     <div style="clear:both"></div>
     </form>
     <hr/>
-    <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load'));?></button>
+    <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
+    <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
     <hr/>
     <h2 id="savetitle"><?php p($l->t('Save'));?></h2>
     <div>

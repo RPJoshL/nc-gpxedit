@@ -21,6 +21,7 @@ return [
     'routes' => [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
         ['name' => 'page#getgpx', 'url' => '/getgpx', 'verb' => 'POST'],
+        ['name' => 'page#getfoldergpxs', 'url' => '/getfoldergpxs', 'verb' => 'POST'],
         ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
         ['name' => 'utils#addTileServer', 'url' => '/addTileServer', 'verb' => 'POST'],
         ['name' => 'utils#deleteTileServer', 'url' => '/deleteTileServer', 'verb' => 'POST'],

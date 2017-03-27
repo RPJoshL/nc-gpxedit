@@ -953,6 +953,74 @@
         $('#saving').hide();
     }
 
+    function loadFolderAction(folder) {
+        loadFolder(folder);
+        // set save name
+        var spl = folder.split('/');
+        var basename = spl[spl.length - 1];
+        $('input#saveName').val(basename);
+    }
+
+    function loadFolder(folder) {
+        var req = {
+            path: folder
+        };
+        var url = OC.generateUrl('/apps/gpxedit/getfoldergpxs');
+        $('#loadingpc').text('0');
+        showLoadingAnimation();
+        gpxedit.currentAjax = $.ajax({
+            type: 'POST',
+            async: true,
+            url: url,
+            data: req,
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.addEventListener('progress', function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total * 100;
+                        $('#loadingpc').text(parseInt(percentComplete));
+                    }
+                }, false);
+
+                return xhr;
+            }
+        }).done(function (response) {
+            var i;
+            if ($('#clearbeforeload').is(':checked')) {
+                clear();
+            }
+            console.log(Object.keys(response));
+            console.log('len : '+response.gpxs.length);
+            if (response.gpxs.length === 0) {
+                OC.dialogs.alert('The folder does not exist or does not contain any compatible file',
+                                 'Load folder error');
+            }
+            else {
+                for (i = 0; i < response.gpxs.length; i++) {
+                    parseGpx(response.gpxs[i]);
+                }
+                try {
+                    var bounds = gpxedit.editableLayers.getBounds();
+                    gpxedit.map.fitBounds(
+                        bounds,
+                        {
+                            animate: true,
+                            paddingTopLeft: [parseInt($('#sidebar').css('width')), 0]
+                        }
+                    );
+                }
+                catch (err) {
+                    console.log('Impossible to fit to bounds \n'+err);
+                }
+            }
+            hideLoadingAnimation();
+        }).fail(function (){
+            OC.dialogs.alert('Failed to communicate with the server',
+                             'Load folder error');
+            hideLoadingAnimation();
+        });
+    }
+
     function loadAction(file) {
         if (    !endsWith(file, '.gpx')
              && !endsWith(file, '.kml')
@@ -1438,6 +1506,20 @@
                 false,
                 null,
                 true
+            );
+        });
+
+        $('button#loadFolderButton').click(function(e) {
+            if (gpxedit.currentAjax !== null) {
+                gpxedit.currentAjax.abort();
+                hideLoadingAnimation();
+            }
+            OC.dialogs.filepicker(
+                t('gpxedit', 'Load folder (all compatible file inside)'),
+                function(targetPath) {
+                    loadFolderAction(targetPath);
+                },
+                false, "httpd/unix-directory", true
             );
         });
 

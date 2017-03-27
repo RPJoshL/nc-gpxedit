@@ -798,12 +798,12 @@ h2.popupTitle{
 #clearButton i{
     color: red;
 }
-#saveButton, #loadButton{
+#saveButton, #loadButton, #loadFolderButton{
     display:block;
     margin-left: auto;
     margin-right: auto;
 }
-#loadButton i{
+#loadButton i, #loadFolderButton i{
     color: blue;
 }
 #saveNameLabel, #savePathLabel{
