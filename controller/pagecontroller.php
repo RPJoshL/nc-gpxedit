@@ -206,9 +206,7 @@ class PageController extends Controller {
             $cmdparams .= " $shella";
         }
         exec(
-            escapeshellcmd(
-                $gpsbabel_path.' '.$cmdparams
-            ),
+            $gpsbabel_path.' '.$cmdparams,
             $output, $returnvar
         );
         if (file_exists($gpx_target_clear_path)){
