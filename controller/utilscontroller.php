@@ -56,6 +56,7 @@ function globRecursive($path, $find, $recursive=True) {
  */
 function getProgramPath($progname){
     $path_ar = explode(':',getenv('path'));
+    $path_ar = array_merge($path_ar, explode(':',getenv('PATH')));
     foreach ($path_ar as $path){
         $supposed_gpath = $path.'/'.$progname;
         if (file_exists($supposed_gpath) and
@@ -119,7 +120,6 @@ class UtilsController extends Controller {
     }
 
     /**
-     * @NoCSRFRequired
      */
     public function deleteExtraSymbol($name) {
 		$filename = str_replace(array('../', '..\\', '/'), '', $name);
@@ -140,7 +140,6 @@ class UtilsController extends Controller {
     }
 
     /**
-     * @NoCSRFRequired
      */
     public function uploadExtraSymbol($addExtraSymbolName) {
 		$newSymbol = $this->request->getUploadedFile('uploadsymbol');
@@ -207,7 +206,6 @@ class UtilsController extends Controller {
     /**
      * Add one tile server to the DB for current user
      * @NoAdminRequired
-     * @NoCSRFRequired
      */
     public function addTileServer($servername, $serverurl) {
         // first we check it does not already exist
@@ -255,7 +253,6 @@ class UtilsController extends Controller {
     /**
      * Delete one tile server entry from DB for current user
      * @NoAdminRequired
-     * @NoCSRFRequired
      */
     public function deleteTileServer($servername) {
         $sqldel = 'DELETE FROM *PREFIX*gpxedit_tile_servers ';
@@ -282,7 +279,6 @@ class UtilsController extends Controller {
     /**
      * Save options values to the DB for current user
      * @NoAdminRequired
-     * @NoCSRFRequired
      */
     public function saveOptionsValues($optionsValues) {
         // first we check if user already has options values in DB
@@ -333,7 +329,6 @@ class UtilsController extends Controller {
     /**
      * get options values to the DB for current user
      * @NoAdminRequired
-     * @NoCSRFRequired
      */
     public function getOptionsValues($optionsValues) {
         $sqlov = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options_values ';

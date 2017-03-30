@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - app is now compliant to occ check-code
 - jshint and jslint in da place
+- do not put @NoCSRFRequired everywhere in controllers
 
 ## 0.0.4 – 2017-01-17
 ### Added
