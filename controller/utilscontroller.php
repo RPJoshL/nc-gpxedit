@@ -83,14 +83,10 @@ class UtilsController extends Controller {
     private $userAbsoluteDataPath;
     private $dbconnection;
     private $dbtype;
-    private $appPath;
-    //private $request;
 
     public function __construct($AppName, IRequest $request, $UserId,
         $userfolder, $config, IAppManager $appManager){
         parent::__construct($AppName, $request);
-		//$this->request = $request;
-        $this->appPath = $appManager->getAppPath('gpxedit');
         $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
         // IConfig object
