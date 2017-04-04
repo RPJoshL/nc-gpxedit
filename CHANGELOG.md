@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - save/restore current tile layer
 - integration in "Files" and "File sharing" context menu for .gpx files
   [#11](https://gitlab.com/eneiluj/gpxedit-oc/issues/11) @rugk
+- add directory context menu option in files app : load in GpxEdit
 - notifications on tile layer add/remove
 - makefile signs the app code
 
@@ -30,6 +31,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - app is now compliant to occ check-code
 - jshint and jslint in da place
 - do not put @NoCSRFRequired everywhere in controllers
+- replace decodeURI by decodeURIComponent
+  [#12](https://gitlab.com/eneiluj/gpxedit-oc/issues/12) @gezgez
+- remove escapeshellcmd to avoid errors with special char in file name
 
 ## 0.0.4 – 2017-01-17
 ### Added

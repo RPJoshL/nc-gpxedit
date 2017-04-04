@@ -1570,6 +1570,11 @@
         if (fileparam && fileparam !== undefined) {
             loadAction(fileparam);
         }
+        // load a directory if 'dir' GET url parameter was given
+        var dirparam = getUrlParameter('dir');
+        if (dirparam && dirparam !== undefined) {
+            loadFolderAction(dirparam);
+        }
 
     });
 
