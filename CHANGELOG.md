@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.5 – 2017-04-05
 ### Added
 - add lat/lng fields in waypoint popup to view/edit coordinates with precise values
   [#10](https://gitlab.com/eneiluj/gpxedit-oc/issues/10) @eneiluj
