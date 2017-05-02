@@ -2,7 +2,7 @@
 <!-- Nav tabs -->
 <ul class="sidebar-tabs" role="tablist">
 <li class="active" title="<?php p($l->t('Load and save files')); ?>"><a href="#ho" role="tab"><i class="fa fa-bars"></i></a></li>
-<li title="<?php p($l->t('Options')); ?>"><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+<li title="<?php p($l->t('Options')); ?>"><a href="#gpxeditsettings" role="tab"><i class="fa fa-gear"></i></a></li>
 <li title="<?php p($l->t('About GpxEdit')); ?>"><a href="#help" role="tab"><i class="fa fa-question"></i></a></li>
 </ul>
 <!-- Tab panes -->
@@ -87,7 +87,7 @@ echo '</ul>'."\n";
 
 ?>
 </div>
-<div class="sidebar-pane" id="settings">
+<div class="sidebar-pane" id="gpxeditsettings">
 <h1 class="sectiontitle"><?php p($l->t('Options')); ?></h1>
 <hr/>
 <br/>

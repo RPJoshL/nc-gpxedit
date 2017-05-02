@@ -844,3 +844,9 @@ select#loadtypeselect{
 .oc-dialog{
     z-index: 10000;
 }
+.leaflet-control-layers-selector {
+    min-height: 0px;
+}
+.popupdatatable input {
+    min-height: 0px;
+}
