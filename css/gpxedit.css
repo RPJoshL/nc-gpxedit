@@ -847,6 +847,6 @@ select#loadtypeselect{
 .leaflet-control-layers-selector {
     min-height: 0px;
 }
-.popupdatatable input {
+.popupdatatable input, #gpxeditsettings input {
     min-height: 0px;
 }
