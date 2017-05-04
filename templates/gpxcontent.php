@@ -8,21 +8,19 @@
 <!-- Tab panes -->
 <div class="sidebar-content active">
 <div class="sidebar-pane active" id="ho">
-    <div id="logofolder">
-        <div id="logo">
-            <!--p align="center"><img src="gpxedit.png"/></p-->
-            <div>
-            <p id="versionnumber">v
-<?php
-p($_['gpxedit_version']);
-?>
-            </p>
+    <div id="loaddiv">
+        <div id="logofolder">
+            <div id="logo">
+                <!--p align="center"><img src="gpxedit.png"/></p-->
+                <div>
+                <p id="versionnumber">v
+    <?php
+    p($_['gpxedit_version']);
+    ?>
+                </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div style="clear:both"></div>
-    <hr/>
-    <div id="loaddiv">
         <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
         <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
         <select id="loadtypeselect">
