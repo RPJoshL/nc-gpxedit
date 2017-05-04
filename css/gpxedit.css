@@ -796,13 +796,6 @@ h2.popupTitle{
     color: red;
 }
 
-select#loadtypeselect{
-    float: right;
-}
-#loadFolderButton{
-    float: left;
-}
-
 #saveButton {
     width: 100%;
 }
@@ -860,4 +853,8 @@ select#loadtypeselect{
 div#logofolder{
     grid-column: 1;
     grid-row: 1/3;
+}
+div#ho button {
+    padding: 0px;
+    min-height: 32px;
 }
