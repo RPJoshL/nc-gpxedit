@@ -8,7 +8,6 @@
 <!-- Tab panes -->
 <div class="sidebar-content active">
 <div class="sidebar-pane active" id="ho">
-    <form name="choosedir" method="get" action="?">
     <div id="logofolder">
         <div id="logo">
             <!--p align="center"><img src="gpxedit.png"/></p-->
@@ -22,18 +21,17 @@ p($_['gpxedit_version']);
         </div>
     </div>
     <div style="clear:both"></div>
-    </form>
     <hr/>
-    <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
-    <div id="divloadfolder">
-    <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
-    <select id="loadtypeselect">
-        <option value="all">all</option>
-        <option value=".jpg">jpg</option>
-        <option value=".gpx">gpx</option>
-        <option value=".kml">kml</option>
-        <option value=".csv">csv</option>
-    </select>
+    <div id="loaddiv">
+        <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
+        <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
+        <select id="loadtypeselect">
+            <option value="all">all</option>
+            <option value=".jpg">jpg</option>
+            <option value=".gpx">gpx</option>
+            <option value=".kml">kml</option>
+            <option value=".csv">csv</option>
+        </select>
     </div>
     <div style="clear:both"></div>
     <hr/>
@@ -48,7 +46,6 @@ p($_['gpxedit_version']);
     <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Choose directory and save'));?></button>
     <div style="clear:both"></div>
     <hr/>
-    <br/>
     <button id="clearButton"><i class="fa fa-bomb"></i> <?php p($l->t('Clear map'));?></button>
     <div id="saved"><p>
         <i class="fa fa-save fa-spin fa-3x fa-fw"></i>

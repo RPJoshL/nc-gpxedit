@@ -787,10 +787,13 @@ h2#loadtitle, h2#savetitle{
 h2.popupTitle{
     text-align: center;
 }
-#clearButton, .popupOkButton{
+.popupOkButton{
     margin-left: auto;
     margin-right: auto;
     display:block;
+}
+#clearButton {
+    width: 100%;
 }
 #saveButton i{
     color: blue;
@@ -799,10 +802,6 @@ h2.popupTitle{
     color: red;
 }
 
-#divloadfolder{
-    width: 80%;
-    margin: 0 auto;
-}
 select#loadtypeselect{
     float: right;
 }
@@ -810,10 +809,8 @@ select#loadtypeselect{
     float: left;
 }
 
-#saveButton, #loadButton{
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
+#saveButton {
+    width: 100%;
 }
 #loadButton i, #loadFolderButton i{
     color: blue;
@@ -849,4 +846,21 @@ select#loadtypeselect{
 }
 .popupdatatable input, #gpxeditsettings input {
     min-height: 0px;
+}
+#loaddiv {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+#loadButton {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+#loadFolderButton {
+    grid-column: 1;
+    grid-row: 2;
+}
+#loadtypeselect {
+    grid-column: 2;
+    grid-row: 2;
 }
