@@ -508,6 +508,7 @@
         layer.bindPopup(popupTxt);
         if (type !== 'marker') {
             layer.on('mouseover', function() {
+                layer.bringToFront();
                 layer.setStyle(hoverStyle);
             });
             layer.on('mouseout', function() {
