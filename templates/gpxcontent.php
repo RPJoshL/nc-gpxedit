@@ -85,32 +85,26 @@ echo '</ul>'."\n";
 <div class="sidebar-pane" id="gpxeditsettings">
 <h1 class="sectiontitle"><?php p($l->t('Options')); ?></h1>
 <hr/>
-<br/>
-<div title="<?php p($l->t('Default symbol for waypoints when value is not set'));?>">
-    <label><?php p($l->t('Waypoint style'));?>:</label>
+<div id="optiontop">
+    <label for="markerstyleselect" title="<?php p($l->t('Default symbol for waypoints when value is not set'));?>">
+        <?php p($l->t('Waypoint style'));?>:
+    </label>
     <select id="markerstyleselect">
     </select>
-</div>
-<div>
-    <label><?php p($l->t('Tooltip'));?>:</label>
+    <label for="tooltipstyleselect"><?php p($l->t('Tooltip'));?>:</label>
     <select id="tooltipstyleselect">
         <option value="h"><?php p($l->t('on hover')); ?></option>
         <option value="p"><?php p($l->t('permanent')); ?></option>
     </select>
-</div>
-<div title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>">
-    <input id="symboloverwrite" type="checkbox" checked></input>
-    <label for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
-</div>
-<div>
+    <input title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
+    id="symboloverwrite" type="checkbox" checked></input>
+    <label title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
+    for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
     <input type="checkbox" id="clearbeforeload" checked></input>
     <label for="clearbeforeload"><?php p($l->t('Clear map before loading'));?></label>
 </div>
-<br/>
 <hr/>
-<br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom tile servers')); ?></h3>
-    <br/>
     <div id="tileserveradd">
         <?php p($l->t('Server name (for example \'my custom server\')')); ?> :
         <input type="text" id="tileservername"><br/>

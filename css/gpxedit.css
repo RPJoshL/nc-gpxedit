@@ -858,3 +858,47 @@ div#ho button {
     padding: 0px;
     min-height: 32px;
 }
+#optiontop {
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+    text-align: center;
+}
+#optiontop label, #optiontop input[type=checkbox] {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#optiontop input[type=checkbox] {
+    margin-right: auto;
+}
+label[for=markerstyleselect] {
+    grid-column: 1;
+    grid-row: 1;
+}
+#markerstyleselect {
+    grid-column: 2;
+    grid-row: 1;
+}
+label[for=tooltipstyleselect] {
+    grid-column: 1;
+    grid-row: 2;
+}
+#tooltipstyleselect {
+    grid-column: 2;
+    grid-row: 2;
+}
+#symboloverwrite {
+    grid-column: 2;
+    grid-row: 3;
+}
+label[for=symboloverwrite] {
+    grid-column: 1;
+    grid-row: 3;
+}
+#clearbeforeload {
+    grid-column: 2;
+    grid-row: 4;
+}
+label[for=clearbeforeload] {
+    grid-column: 1;
+    grid-row: 4;
+}
