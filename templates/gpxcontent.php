@@ -24,7 +24,7 @@
         <button id="loadButton"><i class="fa fa-file-o"></i> <?php p($l->t('Load file'));?></button>
         <button id="loadFolderButton"><i class="fa fa-folder-open-o"></i> <?php p($l->t('Load directory'));?></button>
         <select id="loadtypeselect">
-            <option value="all">all</option>
+            <option value="all"><?php p($l->t('all files'));?></option>
             <option value=".jpg">jpg</option>
             <option value=".gpx">gpx</option>
             <option value=".kml">kml</option>

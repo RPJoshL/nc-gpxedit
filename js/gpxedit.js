@@ -1176,7 +1176,8 @@
                     '<li style="display:none;" name="' + sname + '" title="' +
                     surl + '">' + sname + ' <button>' +
                     '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ' +
-                    t('gpxedit', 'Delete') + '</button></li>'
+                    t('gpxedit', 'Delete') +
+                    '</button></li>'
                 );
                 $('#tileserverlist ul li[name="' + sname + '"]').fadeIn('slow');
 
@@ -1275,7 +1276,7 @@
             optionsValues = response.values;
             //alert('option values: '+optionsValues);
         }).fail(function() {
-            OC.dialogs.alert(t('gpxedit', 'failed to restore options values'),
+            OC.dialogs.alert(t('gpxedit', 'Failed to restore options values'),
                              t('gpxedit', 'Error'));
         });
         optionsValues = $.parseJSON(optionsValues);
@@ -1319,7 +1320,7 @@
         }).done(function (response) {
             //alert(response);
         }).fail(function() {
-            OC.dialogs.alert(t('gpxedit', 'failed to save options values'),
+            OC.dialogs.alert(t('gpxedit', 'Failed to save options values'),
                              t('gpxedit', 'Error'));
         });
     }
@@ -1517,7 +1518,9 @@
             }
             var type = $('select#loadtypeselect').val();
             OC.dialogs.filepicker(
-                t('gpxedit', 'Load folder ('+type+')'),
+                t('gpxedit', 'Load folder') + ' (' +
+                t('gpxedit', type) +
+                ')',
                 function(targetPath) {
                     loadFolderAction(targetPath);
                 },
@@ -1532,7 +1535,8 @@
             else{
                 var filename = $('#saveName').val();
                 OC.dialogs.filepicker(
-                    t('gpxedit', 'Where to save') + ' <b>' + filename + '</b>',
+                    t('gpxedit', 'Where to save') +
+                    ' <b>' + filename + '</b>',
                     function(targetPath) {
                         saveAction(targetPath);
                     },

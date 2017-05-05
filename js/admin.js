@@ -11,7 +11,9 @@ function addLogoLine(name){
     $('div#extraSymbols table').append('<tr class="extraSymbol" id="'+nameWe+'">'+
             '<td><img src="'+fullurl+'"></td><td><label> '+nameWe+' </label></td>'+
             '<td><button class="delExtraSymbol icon-delete icon" name="'+name+
-            '" title="'+t('gpxedit','Delete')+'"></button></td></tr>');
+            '" title="' +
+            t('gpxedit','Delete') +
+            '"></button></td></tr>');
 }
 
 function deleteLogo(button){

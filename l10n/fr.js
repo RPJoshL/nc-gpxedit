@@ -1,6 +1,14 @@
 OC.L10N.register(
     "gpxedit",
     {
+    "Lat" : "Lat",
+    "Lon" : "Lon",
+    "all" : "tout",
+    "Description" : "Description",
+    "Ok" : "Ok",
+    "Route" : "Route",
+    "Load folder" : "Charger un dossier",
+    "Unknown symbol" : "Symbole inconnu",
     "Where to save" : "Où enregistrer",
     "Track" : "Trace",
     "Waypoint" : "Étape",
