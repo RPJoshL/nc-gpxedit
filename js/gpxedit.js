@@ -1280,22 +1280,24 @@
                              t('gpxedit', 'Error'));
         });
         optionsValues = $.parseJSON(optionsValues);
-        if (    optionsValues.markerstyle !== undefined
-             && symbolIcons.hasOwnProperty(optionsValues.markerstyle)
-        ) {
-            $('#markerstyleselect').val(optionsValues.markerstyle);
-        }
-        if (optionsValues.tooltipstyle !== undefined) {
-            $('#tooltipstyleselect').val(optionsValues.tooltipstyle);
-        }
-        if (optionsValues.clearbeforeload !== undefined) {
-            $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
-        }
-        if (optionsValues.symboloverwrite !== undefined) {
-            $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
-        }
-        if (optionsValues.tilelayer !== undefined) {
-            gpxedit.restoredTileLayer = optionsValues.tilelayer;
+        if (optionsValues) {
+            if (    optionsValues.markerstyle !== undefined
+                 && symbolIcons.hasOwnProperty(optionsValues.markerstyle)
+            ) {
+                $('#markerstyleselect').val(optionsValues.markerstyle);
+            }
+            if (optionsValues.tooltipstyle !== undefined) {
+                $('#tooltipstyleselect').val(optionsValues.tooltipstyle);
+            }
+            if (optionsValues.clearbeforeload !== undefined) {
+                $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
+            }
+            if (optionsValues.symboloverwrite !== undefined) {
+                $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
+            }
+            if (optionsValues.tilelayer !== undefined) {
+                gpxedit.restoredTileLayer = optionsValues.tilelayer;
+            }
         }
     }
 
