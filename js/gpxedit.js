@@ -358,18 +358,13 @@
         ).addTo(gpxedit.map);
         gpxedit.minimapControl._toggleDisplayButtonClicked();
 
-        gpxedit.editableLayers = new L.FeatureGroup();
-        gpxedit.map.addLayer(gpxedit.editableLayers);
+        //gpxedit.editableLayers = new L.FeatureGroup();
+        //gpxedit.map.addLayer(gpxedit.editableLayers);
 
         var options = {
             position: 'bottomleft',
             draw: {
-                polyline: {
-                    shapeOptions: {
-                        color: '#f357a1',
-                        weight: 7
-                    }
-                },
+                polyline:true,
                 polygon: false,
                 circle: false,
                 rectangle: false,
@@ -378,8 +373,11 @@
                 }
             },
             edit: {
-                featureGroup: gpxedit.editableLayers, //REQUIRED!!
-            }
+                edit: true,
+                remove: true,
+                //featureGroup: gpxedit.editableLayers,
+            },
+            entry: 'edit-json'
         };
 
         L.drawLocal.draw.toolbar.buttons.polyline = t('gpxedit', 'Draw a track');
@@ -405,7 +403,7 @@
         L.drawLocal.draw.toolbar.finish.title = t('gpxedit', 'Finish drawing');
         L.drawLocal.draw.toolbar.undo.text = t('gpxedit', 'Delete last point');
         L.drawLocal.draw.toolbar.undo.title = t('gpxedit', 'Delete last point drawn');
-        var drawControl = new L.Control.Draw(options);
+        var drawControl = new L.Control.Draw.Plus(options);
         gpxedit.drawControl = drawControl;
         gpxedit.map.addControl(drawControl);
 
@@ -526,7 +524,7 @@
             time: '',
             layer: layer
         };
-        gpxedit.editableLayers.addLayer(layer);
+        gpxedit.drawControl.editLayers.addLayer(layer);
         gpxedit.id++;
         return layer;
     }
@@ -577,7 +575,8 @@
         gpxText = gpxText + '</metadata>\n';
 
         var layerArray = [];
-        gpxedit.editableLayers.eachLayer(function(layer) {
+        gpxedit.drawControl.editLayers.eachLayer(function(layer) {
+            console.log(JSON.stringify(gpxedit.drawControl.editLayers.toGeoJSON()));
             layerArray.push(layer);
         });
         // sort
@@ -641,6 +640,7 @@
             var comment = gpxedit.layersData[id].comment;
             var description = gpxedit.layersData[id].description;
             var time = gpxedit.layersData[id].time;
+            console.log('aa '+layer.type);
             if (layer.type === 'marker') {
                 var symbol = gpxedit.layersData[id].symbol;
                 lat = layer._latlng.lat;
@@ -670,7 +670,7 @@
                 }
                 gpxText = gpxText + ' </wpt>\n';
             }
-            else if(layer.type === 'track') {
+            else if(!layer.type || layer.type === 'track') {
                 gpxText = gpxText + ' <trk>\n';
                 if (name) {
                     gpxText = gpxText + '  <name>' + name + '</name>\n';
@@ -871,14 +871,14 @@
     function clear() {
         var i;
         var layersToRemove = [];
-        gpxedit.editableLayers.eachLayer(function (layer) {
+        gpxedit.drawControl.editLayers.eachLayer(function (layer) {
               layer.unbindTooltip();
               delete gpxedit.layersData[layer.gpxedit_id];
               layersToRemove.push(layer);
         });
 
         for(i = 0; i < layersToRemove.length; i++) {
-            gpxedit.editableLayers.removeLayer(layersToRemove[i]);
+            gpxedit.drawControl.editLayers.removeLayer(layersToRemove[i]);
         }
     }
 
@@ -1001,7 +1001,7 @@
                     parseGpx(response.gpxs[i]);
                 }
                 try {
-                    var bounds = gpxedit.editableLayers.getBounds();
+                    var bounds = gpxedit.drawControl.editLayers.getBounds();
                     gpxedit.map.fitBounds(
                         bounds,
                         {
@@ -1081,7 +1081,7 @@
             else {
                 parseGpx(response.gpx);
                 try {
-                    var bounds = gpxedit.editableLayers.getBounds();
+                    var bounds = gpxedit.drawControl.editLayers.getBounds();
                     gpxedit.map.fitBounds(
                         bounds,
                         {
@@ -1236,7 +1236,7 @@
         });
 
         var symboo = $('#symboloverwrite').is(':checked');
-        gpxedit.editableLayers.eachLayer(function(layer) {
+        gpxedit.drawControl.editLayers.eachLayer(function(layer) {
             var id = layer.gpxedit_id;
             var name = gpxedit.layersData[id].name;
             var symbol = gpxedit.layersData[id].symbol;
@@ -1531,7 +1531,7 @@
         });
 
         $('button#saveButton').click(function(e) {
-            if (gpxedit.editableLayers.getLayers().length === 0) {
+            if (gpxedit.drawControl.editLayers.getLayers().length === 0) {
                 showFailAnimation(t('gpxedit', 'There is nothing to save'));
             }
             else{
