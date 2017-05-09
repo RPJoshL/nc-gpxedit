@@ -5,8 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- add checkTranslations.py script
+- new feature : cut a line in two with click on middle marker
+  [#14](https://gitlab.com/eneiluj/gpxedit-oc/issues/14) @klakla2
+
 ### Changed
 - bring layer to front on hover
+- use CSS grid
+- use L.draw.plus
+
+### Fixed
+- adapt CSS to Nextcloud 12, still works with Owncloud 9 and Nextcloud 11
+- update french translations
 
 ## 0.0.5 – 2017-04-05
 ### Added
