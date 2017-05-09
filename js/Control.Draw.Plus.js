@@ -261,6 +261,7 @@ L.Edit.PolyVerticesEdit.include({
 			for (f in lls) {
 				if (lls[f].length > 1) {
                     var p = new L.Polyline(lls[f]);
+                    p.gpxedit_id = this._poly.gpxedit_id;
                     if (times[f].length === p._latlngs.length) {
                         for (var i=0; i<times[f].length; i++) {
                             if (times[f][i]) {
@@ -269,7 +270,8 @@ L.Edit.PolyVerticesEdit.include({
                         }
                     }
 					this._map.fire('draw:created', { // Create a new Polyline with the splited summits if any
-						layer: p
+						layer: p,
+                        layerType: 'polyline'
 					});
                 }
             }

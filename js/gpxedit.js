@@ -461,15 +461,18 @@
     // it generates the popup content and initializes the layer's data
     // it returns the layer in case we want to set the layer's data manually (when loading a gpx)
     function onCreated(type, layer) {
+        var tst = $('#tooltipstyleselect').val();
         var popupTitle;
         var layerType;
         if (type === 'polyline' || type === 'track') {
             popupTitle = t('gpxedit', 'Track');
             layerType = 'track';
+            layer.setStyle(defaultStyle);
         }
         else if (type === 'route') {
             popupTitle = t('gpxedit', 'Route');
             layerType = 'route';
+            layer.setStyle(defaultStyle);
         }
         else if (type === 'marker') {
             popupTitle = t('gpxedit', 'Waypoint');
@@ -514,16 +517,43 @@
             });
         }
 
+        // get properties of the splited line
+        if (layer.hasOwnProperty('gpxedit_id')) {
+            gpxedit.layersData[gpxedit.id] = {
+                name: gpxedit.layersData[layer.gpxedit_id].name,
+                description: gpxedit.layersData[layer.gpxedit_id].description,
+                comment: gpxedit.layersData[layer.gpxedit_id].comment,
+                symbol: gpxedit.layersData[layer.gpxedit_id].symbol,
+                time: gpxedit.layersData[layer.gpxedit_id].time,
+                layer: layer
+            };
+            if (gpxedit.layersData[layer.gpxedit_id].name !== '') {
+                if (tst === 'p') {
+                    layer.bindTooltip(
+                        gpxedit.layersData[layer.gpxedit_id].name,
+                        {permanent: true}
+                    );
+                }
+                else{
+                    layer.bindTooltip(
+                        gpxedit.layersData[layer.gpxedit_id].name,
+                        {sticky: true}
+                    );
+                }
+            }
+        }
+        else {
+            gpxedit.layersData[gpxedit.id] = {
+                name: '',
+                description: '',
+                comment: '',
+                symbol: '',
+                time: '',
+                layer: layer
+            };
+        }
         layer.gpxedit_id = gpxedit.id;
         layer.type = layerType;
-        gpxedit.layersData[gpxedit.id] = {
-            name: '',
-            description: '',
-            comment: '',
-            symbol: '',
-            time: '',
-            layer: layer
-        };
         gpxedit.drawControl.editLayers.addLayer(layer);
         gpxedit.id++;
         return layer;
@@ -774,7 +804,6 @@
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
         var p = L.polyline(latlngs);
-        p.setStyle(defaultStyle);
         if (times.length === p._latlngs.length) {
             for (var i=0; i<times.length; i++) {
                 if (times[i]) {
