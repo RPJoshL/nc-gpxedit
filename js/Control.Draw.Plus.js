@@ -50,7 +50,7 @@ L.Control.Draw.Plus = L.Control.Draw.extend({
 
 		// Add new features to the editor
 		map.on('draw:created', function(e) {
-			this.addLayer(e.layer);
+			//this.addLayer(e.layer);
 		}, this);
 
 		// Remove deleted features from the editor
@@ -74,8 +74,8 @@ L.Control.Draw.Plus = L.Control.Draw.extend({
 		}
 
 		// Clean features & rewrite json field
-		map.on('draw:created draw:editvertex', this._optimSavGeom, this); // When something has changed
-		this._optimSavGeom(false); // At the init
+		//map.on('draw:created draw:editvertex', this._optimSavGeom, this); // When something has changed
+		//this._optimSavGeom(false); // At the init
 
 		return L.Control.Draw.prototype.onAdd.call(this, map);
 	},
@@ -138,13 +138,13 @@ L.Control.Draw.Plus = L.Control.Draw.extend({
 
 		layer.snapediting.addGuideLayer(this.snapLayers);
 		layer.snapediting.enable();
-		this._optimSavGeom(); // Optimize & write full json on output element
+		//this._optimSavGeom(); // Optimize & write full json on output element
 
 		// Close enables edit toolbar handlers & save changes
 		layer.on('deleted', function() {
 			for (m in this._toolbars['edit']._modes)
 				this._toolbars['edit']._modes[m].handler.disable();
-			this._optimSavGeom();
+			//this._optimSavGeom();
 		}, this);
 	},
 
@@ -223,10 +223,26 @@ L.Edit.PolyVerticesEdit.prototype.options.touchIcon.options.iconSize = new L.Poi
 L.Edit.PolyVerticesEdit.include({
 	_cut: function(e) {
 		// Split markers on each side of the cut
+        var alt;
 		var found = 0,
-			lls = [[],[]];
+			lls = [[],[]],
+            times = [[],[]];
 		for (m in this._markers) {
-			lls[found].push(this._markers[m]._latlng);
+            if (this._markers[m]._latlng.alt) {
+                lls[found].push(
+                    [
+                        this._markers[m]._latlng.lat,
+                        this._markers[m]._latlng.lng,
+                        this._markers[m]._latlng.alt
+                    ]
+                );
+            }
+            else {
+                lls[found].push(this._markers[m]._latlng);
+            }
+            if (this._markers[m]._latlng.time) {
+                times[found].push(this._markers[m]._latlng.time);
+            }
 			if (this._markers[m]._middleRight && this._markers[m]._middleRight._leaflet_id == e.target._leaflet_id)
 				found = 1; // We find the cut point
 		}
@@ -242,11 +258,21 @@ L.Edit.PolyVerticesEdit.include({
 
 		// This is a polyline
 		else
-			for (f in lls)
-				if (lls[f].length > 1)
+			for (f in lls) {
+				if (lls[f].length > 1) {
+                    var p = new L.Polyline(lls[f]);
+                    if (times[f].length === p._latlngs.length) {
+                        for (var i=0; i<times[f].length; i++) {
+                            if (times[f][i]) {
+                                p._latlngs[i].time = times[f][i];
+                            }
+                        }
+                    }
 					this._map.fire('draw:created', { // Create a new Polyline with the splited summits if any
-						layer: new L.Polyline(lls[f])
+						layer: p
 					});
+                }
+            }
 
 		// Optimize
 		this._map.fire('draw:editvertex');

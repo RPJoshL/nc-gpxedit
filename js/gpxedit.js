@@ -164,13 +164,13 @@
     };
 
     var hoverStyle = {
-        weight: 12,
+        weight: 10,
         opacity: 0.7,
         color: 'black'
     };
     var defaultStyle = {
         opacity: 0.9,
-        color: '#f357a1',
+        color: '#1196DA',
         weight: 7
     };
 
@@ -640,7 +640,6 @@
             var comment = gpxedit.layersData[id].comment;
             var description = gpxedit.layersData[id].description;
             var time = gpxedit.layersData[id].time;
-            console.log('aa '+layer.type);
             if (layer.type === 'marker') {
                 var symbol = gpxedit.layersData[id].symbol;
                 lat = layer._latlng.lat;
@@ -774,10 +773,8 @@
     function drawLine(latlngs, name, desc, cmt, gpxtype, times) {
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
-        var p = L.polyline(latlngs, {
-            color: '#f357a1',
-            weight: 7
-        });
+        var p = L.polyline(latlngs);
+        p.setStyle(defaultStyle);
         if (times.length === p._latlngs.length) {
             for (var i=0; i<times.length; i++) {
                 if (times[i]) {
