@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Lat" : "Lat",
     "Lon" : "Lon",
-    "all" : "tout",
     "Description" : "Description",
     "Ok" : "Ok",
     "Route" : "Route",

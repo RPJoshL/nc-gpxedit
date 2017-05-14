@@ -138,26 +138,31 @@ if (count($_['tileservers']) > 0){
 <div class="sidebar-pane" id="help">
     <h1 class="sectiontitle"><?php p($l->t('About GpxEdit')); ?></h1>
     <hr/><br/>
+    <h3 class="sectiontitle"><?php p($l->t('Features overview')); ?> :</h3>
+<?php
+    p($l->t('Draw, edition and deletion buttons are in the map\'s bottom-left corner.'));
+    p(' ');
+    p($l->t('You can draw a line or add a marker.'));
+    p(' ');
+    p($l->t('If you click on a line or a marker, a popup pops and let you set the object properties.'));
+    p(' ');
+?>
+    <br/>
+ <?php
+    p($l->t('After a click on "edition" button, in edition mode, you can'));
+?> :
+    <ul class="disclist">
+        <li><?php p($l->t('move markers')); ?></li>
+        <li><?php p($l->t('move line points')); ?></li>
+        <li><?php p($l->t('click on a line point to remove it')); ?></li>
+        <li><?php p($l->t('click on a "middle marker" (between two line points) to cut the line in two')); ?></li>
+    </ul>
+    <br/><hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Shortcuts')); ?> :</h3>
     <ul class="disclist">
         <li><b>&lt;</b> : <?php p($l->t('toggle sidebar')); ?></li>
         <li><b>!</b> : <?php p($l->t('toggle minimap')); ?></li>
     </ul>
-    <br/><hr/><br/>
-    <h3 class="sectiontitle"><?php p($l->t('Features')); ?> :</h3>
-    <ul class="disclist">
-        <li>Many leaflet plugins are active :
-            <ul class="circlist">
-                <li>Sidebar-v2</li>
-                <li>Control Geocoder (search in nominatim DB)</li>
-                <li>Minimap (bottom-left corner of map)</li>
-                <li>MousePosition</li>
-                <li>Draw</li>
-                <li>MeasureControl</li>
-            </ul>
-        </li>
-    </ul>
-
     <br/><hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Documentation')); ?></h3>
     <a class="toplink" target="_blank" href="https://gitlab.com/eneiluj/gpxedit-oc/wikis/home">
