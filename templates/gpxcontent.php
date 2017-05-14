@@ -79,6 +79,23 @@ foreach($_['extrasymbols'] as $symbol){
     echo '</li>';
 }
 echo '</ul>'."\n";
+echo '<ul id="basetileservers" style="display:none">';
+foreach($_['basetileservers'] as $ts){
+    echo '<li name="';
+    p($ts['name']);
+    echo '" type="';
+    p($ts['type']);
+    echo '" url="';
+    p($ts['url']);
+    echo '" minzoom="';
+    p($ts['minzoom']);
+    echo '" maxzoom="';
+    p($ts['maxzoom']);
+    echo '" attribution="';
+    p($ts['attribution']);
+    echo '"></li>';
+}
+echo '</ul>'."\n";
 
 ?>
 </div>
@@ -119,6 +136,36 @@ echo '</ul>'."\n";
 <?php
 if (count($_['tileservers']) > 0){
     foreach($_['tileservers'] as $name=>$url){
+        echo '<li name="';
+        p($name);
+        echo '" title="';
+        p($url);
+        echo '">';
+        p($name);
+        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        p($l->t('Delete'));
+        echo '</button></li>';
+    }
+}
+?>
+        </ul>
+    </div>
+<hr/>
+    <h3 class="sectiontitle"><?php p($l->t('Custom overlay servers')); ?></h3>
+    <div id="overlayserveradd">
+        <?php p($l->t('Server name (for example \'my custom server\')')); ?> :
+        <input type="text" id="overlayservername"><br/>
+        <?php p($l->t('Server url (\'http://overlay.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :
+        <input type="text" id="overlayserverurl"><br/>
+        <button id="addoverlayserver"><i class="fa fa-plus-circle" aria-hidden="true" style="color:green;"></i> <?php p($l->t('Add')); ?></button>
+    </div>
+    <br/>
+    <div id="overlayserverlist">
+        <h2><?php p($l->t('Your servers')); ?></h2>
+        <ul class="disclist">
+<?php
+if (count($_['overlayservers']) > 0){
+    foreach($_['overlayservers'] as $name=>$url){
         echo '<li name="';
         p($name);
         echo '" title="';

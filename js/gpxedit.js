@@ -192,116 +192,23 @@
             default_layer = decodeURIComponent(layer);
         }
 
-        // get url from key and layer type
-        function geopUrl(key, layer, format) {
-            return 'http://wxs.ign.fr/' + key + '/wmts?LAYER=' + layer +
-                '&EXCEPTIONS=text/xml&FORMAT=' + (format?format:'image/jpeg') +
-                '&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal' +
-                '&TILEMATRIXSET=PM&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}' ;
-        }
-        // change it if you deploy GPXEDIT
-        var API_KEY = 'ljthe66m795pr2v2g8p7faxt';
-        var ign = new L.tileLayer ( geopUrl(API_KEY,'GEOGRAPHICALGRIDSYSTEMS.MAPS'),
-                { attribution: '&copy; <a href="http://www.ign.fr/">IGN-France</a>',
-                    maxZoom: 18
-                });
+        var osmfr2 = new L.TileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            minZoom: 0,
+            maxZoom: 13,
+            attribution: 'Map data &copy; 2013 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        });
 
-        var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmAttribution = 'Map data &copy; 2013 <a href="http://openstreetmap' +
-                             '.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
+        var baseLayers = {};
 
-        var osmfrUrl = 'http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
-        var osmfr = new L.TileLayer(osmfrUrl,
-                    {maxZoom: 20, attribution: osmAttribution});
-        var osmfr2 = new L.TileLayer(osmfrUrl,
-                     {minZoom: 0, maxZoom: 13, attribution: osmAttribution});
-
-        var openmapsurferUrl = 'http://openmapsurfer.uni-hd.de/tiles/roads/' +
-                               'x={x}&y={y}&z={z}';
-        var openmapsurferAttribution = 'Imagery from <a href="http://giscience.uni' +
-        '-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; ' +
-        'Map data &copy; <a href="http://www.openstreetmap.org/copyright">' +
-        'OpenStreetMap</a>';
-        var openmapsurfer = new L.TileLayer(openmapsurferUrl,
-                            {maxZoom: 18, attribution: openmapsurferAttribution});
-
-        var transportUrl = 'http://a.tile2.opencyclemap.org/transport/{z}/{x}/{y}.' +
-                           'png';
-        var transport = new L.TileLayer(transportUrl,
-                        {maxZoom: 18, attribution: osmAttribution});
-
-        var pisteUrl = 'http://tiles.openpistemap.org/nocontours/{z}/{x}/{y}.png';
-        var piste = new L.TileLayer(pisteUrl,
-                    {maxZoom: 18, attribution: osmAttribution});
-
-        var hikebikeUrl = 'http://toolserver.org/tiles/hikebike/{z}/{x}/{y}.png';
-        var hikebike = new L.TileLayer(hikebikeUrl,
-                       {maxZoom: 18, attribution: osmAttribution});
-
-        var osmCycleUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png';
-        var osmCycleAttrib = '&copy; <a href="http://www.opencyclemap.org">' +
-        'OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">' +
-        'OpenStreetMap</a>';
-        var osmCycle = new L.TileLayer(osmCycleUrl,
-                       {maxZoom: 18, attribution: osmCycleAttrib});
-
-        var darkUrl = 'http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
-        var darkAttrib = '&copy; Map tiles by CartoDB, under CC BY 3.0. Data by' +
-                         ' OpenStreetMap, under ODbL.';
-        var dark = new L.TileLayer(darkUrl, {maxZoom: 18, attribution: darkAttrib});
-
-        var esriTopoUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World' +
-                          '_Topo_Map/MapServer/tile/{z}/{y}/{x}';
-        var esriTopoAttrib = 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, ' +
-        'TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ord' +
-        'nance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User' +
-        ' Community';
-        var esriTopo = new L.TileLayer(esriTopoUrl,
-                       {maxZoom: 18, attribution: esriTopoAttrib});
-
-        var esriAerialUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services' +
-                            '/World_Imagery/MapServer/tile/{z}/{y}/{x}';
-        var esriAerialAttrib = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, ' +
-        'USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the' +
-        ' GIS User Community';
-        var esriAerial = new L.TileLayer(esriAerialUrl,
-                         {maxZoom: 18, attribution: esriAerialAttrib});
-
-        var tonerUrl = 'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg';
-        var stamenAttribution = '<a href="http://leafletjs.com" title="A JS library' +
-        ' for interactive maps">Leaflet</a> | © Map tiles by <a href="http://stamen' +
-        '.com">Stamen Design</a>, under <a href="http://creativecommons.org/license' +
-        's/by/3.0">CC BY 3.0</a>, Data by <a href="http://openstreetmap.org">OpenSt' +
-        'reetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0"' +
-        '>CC BY SA</a>.';
-        var toner = new L.TileLayer(tonerUrl,
-                    {maxZoom: 18, attribution: stamenAttribution});
-
-        var watercolorUrl = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg';
-        var watercolor = new L.TileLayer(watercolorUrl,
-                         {maxZoom: 18, attribution: stamenAttribution});
-
-        var routeUrl = 'http://{s}.tile.openstreetmap.fr/route500/{z}/{x}/{y}.png';
-        var routeAttrib = '&copy, Tiles © <a href="http://www.openstreetmap.fr">O' +
-        'penStreetMap France</a>';
-        var route = new L.TileLayer(routeUrl,
-                    {minZoom: 1, maxZoom: 20, attribution: routeAttrib});
-
-        var baseLayers = {
-              'OpenStreetMap': osm,
-              'OpenCycleMap': osmCycle,
-              'IGN France': ign,
-              'OpenMapSurfer Roads': openmapsurfer,
-              'Hike & bike': hikebike,
-              'OSM Transport': transport,
-              'ESRI Aerial': esriAerial,
-              'ESRI Topo with relief': esriTopo,
-              'Dark': dark,
-              'Toner': toner,
-              'Watercolor': watercolor,
-              'OpenStreetMap France': osmfr
-        };
+        // add base layers
+        $('#basetileservers li[type=tile]').each(function() {
+            var sname = $(this).attr('name');
+            var surl = $(this).attr('url');
+            var minz = parseInt($(this).attr('minzoom'));
+            var maxz = parseInt($(this).attr('maxzoom'));
+            var sattrib = $(this).attr('attribution');
+            baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
+        });
         // add custom layers
         $('#tileserverlist li').each(function() {
             var sname = $(this).attr('name');
@@ -310,25 +217,29 @@
                     {maxZoom: 18, attribution: 'custom tile server'});
         });
         gpxedit.baseLayers = baseLayers;
-        var baseOverlays = {
-            'OsmFr Route500': route,
-            'OpenPisteMap Relief':
-              L.tileLayer('http://tiles2.openpistemap.org/landshaded/{z}/{x}/{y}.png',
-                          {
-                          attribution: '&copy, Tiles © <a href="http://www.o' +
-                          'penstreetmap.fr">OpenStreetMap France</a>',
-                          minZoom: 1,
-                          maxZoom: 15
-                          }
-              ),
-            'OpenPisteMap pistes': piste
-        };
 
-        var layerlist = [];
+        var baseOverlays = {};
+
+        // add base overlays
+        $('#basetileservers li[type=overlay]').each(function() {
+            var sname = $(this).attr('name');
+            var surl = $(this).attr('url');
+            var minz = parseInt($(this).attr('minzoom'));
+            var maxz = parseInt($(this).attr('maxzoom'));
+            var sattrib = $(this).attr('attribution');
+            baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
+        });
+        // add custom overlays
+        $('#overlayserverlist li').each(function() {
+            var sname = $(this).attr('name');
+            var surl = $(this).attr('title');
+            baseOverlays[sname] = new L.TileLayer(surl,
+                    {maxZoom: 18, attribution: 'custom overlay server'});
+        });
+        gpxedit.overlayLayers = baseOverlays;
 
         gpxedit.map = new L.Map('map', {
             zoomControl: true,
-            layers: layerlist,
         });
 
         L.control.scale({metric: true, imperial: true, position: 'topleft'})
@@ -347,6 +258,7 @@
         if (! baseLayers.hasOwnProperty(default_layer)) {
             default_layer = 'OpenStreetMap';
         }
+console.log(baseLayers);
         gpxedit.map.addLayer(baseLayers[default_layer]);
 
         gpxedit.activeLayers = L.control.activeLayers(baseLayers, baseOverlays);
@@ -1128,10 +1040,11 @@
         });
     }
 
-    function deleteTileServer(li) {
+    function deleteTileServer(li, type) {
         var sname = li.attr('name');
         var req = {
-            servername: sname
+            servername: sname,
+            type: type
         };
         var url = OC.generateUrl('/apps/gpxedit/deleteTileServer');
         $.ajax({
@@ -1140,54 +1053,54 @@
             data: req,
             async: true
         }).done(function (response) {
-            //alert(response.done);
             if (response.done) {
                 li.fadeOut('slow', function() {
                     li.remove();
                 });
-                var activeLayerName = gpxedit.activeLayers.getActiveBaseLayer().name;
-                // if we delete the active layer, first select another
-                if (activeLayerName === sname) {
-                    $('input.leaflet-control-layers-selector').first().click();
+                if (type === 'tile') {
+                    var activeLayerName = gpxedit.activeLayers.getActiveBaseLayer().name;
+                    // if we delete the active layer, first select another
+                    if (activeLayerName === sname) {
+                        $('input.leaflet-control-layers-selector').first().click();
+                    }
+                    gpxedit.activeLayers.removeLayer(gpxedit.baseLayers[sname]);
+                    delete gpxedit.baseLayers[sname];
                 }
-                gpxedit.activeLayers.removeLayer(gpxedit.baseLayers[sname]);
-                delete gpxedit.baseLayers[sname];
-                OC.Notification.showTemporary(
-                    t('gpxedit', 'Tile server "{ts}" has been deleted', {ts: sname})
-                );
+                else {
+                    gpxedit.activeLayers.removeLayer(gpxedit.overlayLayers[sname]);
+                    delete gpxedit.overlayLayers[sname];
+                }
+                OC.Notification.showTemporary(t('gpxedit', 'Tile server "{ts}" has been deleted', {ts: sname}));
             }
             else{
-                OC.Notification.showTemporary(
-                    t('gpxedit', 'Failure on tile server "{ts}" deletion', {ts: sname})
-                );
+                OC.Notification.showTemporary(t('gpxedit', 'Failed to delete tile server "{ts}"', {ts: sname}));
             }
         }).always(function() {
         }).fail(function() {
-            OC.Notification.showTemporary(
-                t('gpxedit', 'Failure on tile server "{ts}" deletion', {ts: sname})
-            );
+            OC.Notification.showTemporary(t('gpxedit', 'Failed to delete tile server "{ts}"', {ts: sname}));
         });
     }
 
-    function addTileServer() {
-        var sname = $('#tileservername').val();
-        var surl = $('#tileserverurl').val();
+    function addTileServer(type) {
+        var sname = $('#'+type+'servername').val();
+        var surl = $('#'+type+'serverurl').val();
         if (sname === '' || surl === '') {
             OC.dialogs.alert(t('gpxedit', 'Server name or server url should not be empty'),
                              t('gpxedit', 'Impossible to add tile server'));
             return;
         }
-        if ($('#tileserverlist ul li[name="' + sname + '"]').length > 0) {
+        if ($('#'+type+'serverlist ul li[name="' + sname + '"]').length > 0) {
             OC.dialogs.alert(t('gpxedit', 'A server with this name already exists'),
                              t('gpxedit', 'Impossible to add tile server'));
             return;
         }
-        $('#tileservername').val('');
-        $('#tileserverurl').val('');
+        $('#'+type+'servername').val('');
+        $('#'+type+'serverurl').val('');
 
         var req = {
             servername: sname,
-            serverurl: surl
+            serverurl: surl,
+			type: type
         };
         var url = OC.generateUrl('/apps/gpxedit/addTileServer');
         $.ajax({
@@ -1196,41 +1109,39 @@
             data: req,
             async: true
         }).done(function (response) {
-            //alert(response.done);
             if (response.done) {
-                $('#tileserverlist ul').prepend(
-                    '<li style="display:none;" name="' + sname + '" title="' +
-                    surl + '">' + sname + ' <button>' +
+                $('#'+type+'serverlist ul').prepend(
+                    '<li style="display:none;" name="' + escapeHTML(sname) +
+                    '" title="' + escapeHTML(surl) + '">' +
+                    escapeHTML(sname) + ' <button>' +
                     '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ' +
                     t('gpxedit', 'Delete') +
                     '</button></li>'
                 );
-                $('#tileserverlist ul li[name="' + sname + '"]').fadeIn('slow');
+                $('#'+type+'serverlist ul li[name="' + sname + '"]').fadeIn('slow');
 
-                // add tile server in leaflet control
-                var newlayer = new L.TileLayer(
-                    surl,
-                    {
-                        maxZoom: 18,
-                        attribution: 'custom tile server'
-                    }
-                );
-                gpxedit.activeLayers.addBaseLayer(newlayer, sname);
-                gpxedit.baseLayers[sname] = newlayer;
-                OC.Notification.showTemporary(
-                    t('gpxedit', 'Tile server "{ts}" has been added', {ts: sname})
-                );
+                if (type === 'tile') {
+                    // add tile server in leaflet control
+                    var newlayer = new L.TileLayer(surl,
+                            {maxZoom: 18, attribution: 'custom '+type+' server'});
+                    gpxedit.activeLayers.addBaseLayer(newlayer, sname);
+                    gpxedit.baseLayers[sname] = newlayer;
+                }
+                else {
+                    // add tile server in leaflet control
+                    var newlayer = new L.TileLayer(surl,
+                            {maxZoom: 18, attribution: 'custom '+type+' server'});
+                    gpxedit.activeLayers.addOverlay(newlayer, sname);
+                    gpxedit.overlayLayers[sname] = newlayer;
+                }
+                OC.Notification.showTemporary(t('gpxedit', 'Tile server "{ts}" has been added', {ts: sname}));
             }
             else{
-                OC.Notification.showTemporary(
-                    t('gpxedit', 'Failure on tile server "{ts}" addition', {ts: sname})
-                );
+                OC.Notification.showTemporary(t('gpxedit', 'Failed to add tile server "{ts}"', {ts: sname}));
             }
         }).always(function() {
         }).fail(function() {
-            OC.Notification.showTemporary(
-                t('gpxedit', 'Failure on tile server "{ts}" addition', {ts: sname})
-            );
+            OC.Notification.showTemporary(t('gpxedit', 'Failed to add tile server "{ts}"', {ts: sname}));
         });
     }
 
@@ -1575,10 +1486,16 @@
 
         // Custom tile server management
         $('body').on('click', '#tileserverlist button', function(e) {
-            deleteTileServer($(this).parent());
+            deleteTileServer($(this).parent(), 'tile');
         });
         $('#addtileserver').click(function() {
-            addTileServer();
+            addTileServer('tile');
+        });
+        $('body').on('click', '#overlayserverlist button', function(e) {
+            deleteTileServer($(this).parent(), 'overlay');
+        });
+        $('#addoverlayserver').click(function() {
+            addTileServer('overlay');
         });
 
         $('body').on('change', 'select[role=symbol]', function() {

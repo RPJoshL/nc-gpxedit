@@ -78,7 +78,7 @@ If you look for more powerfull GPX editors, take a look at :
     <licence>AGPL</licence>
     <summary>Simple GPX file editor</summary>
     <author>Julien Veyssier</author>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <namespace>GpxEdit</namespace>
     <documentation>
         <user>https://gitlab.com/eneiluj/gpxedit-oc/wikis/userdoc</user>

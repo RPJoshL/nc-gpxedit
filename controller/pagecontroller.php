@@ -138,7 +138,8 @@ class PageController extends Controller {
         $userFolder = \OC::$server->getUserFolder();
         $userfolder_path = $userFolder->getPath();
 
-        $tss = $this->getUserTileServers();
+        $tss = $this->getUserTileServers('tile');
+        $oss = $this->getUserTileServers('overlay');
 
         // extra symbols
         $dataDirPath = $this->config->getSystemValue('datadirectory').'/gpxedit';
@@ -152,9 +153,12 @@ class PageController extends Controller {
 
         // PARAMS to view
 
+		require_once('tileservers.php');
         $params = [
             'username'=>$this->userId,
+			'basetileservers'=>$baseTileServers,
 			'tileservers'=>$tss,
+			'overlayservers'=>$oss,
             'extrasymbols'=>$extraSymbolList,
             'gpxedit_version'=>$this->appVersion
         ];
@@ -368,10 +372,18 @@ class PageController extends Controller {
         return $response;
     }
 
-    private function getUserTileServers(){
+    /*
+     * quote and choose string escape function depending on database used
+     */
+    private function db_quote_escape_string($str){
+        return $this->dbconnection->quote($str);
+    }
+
+    private function getUserTileServers($type){
         // custom tile servers management
         $sqlts = 'SELECT servername, url FROM *PREFIX*gpxedit_tile_servers ';
-        $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\';';
+        $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' ';
+        $sqlts .= 'AND type='.$this->db_quote_escape_string($type).';';
         $req = $this->dbconnection->prepare($sqlts);
         $req->execute();
         $tss = Array();

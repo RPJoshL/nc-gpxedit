@@ -22,6 +22,13 @@
       <length>64</length>
     </field>
     <field>
+      <name>type</name>
+      <type>text</type>
+      <default>tile</default>
+      <notnull>true</notnull>
+      <length>20</length>
+    </field>
+    <field>
       <name>servername</name>
       <type>text</type>
       <notnull>true</notnull>

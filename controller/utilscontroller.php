@@ -203,11 +203,11 @@ class UtilsController extends Controller {
      * Add one tile server to the DB for current user
      * @NoAdminRequired
      */
-    public function addTileServer($servername, $serverurl) {
+    public function addTileServer($servername, $serverurl, $type) {
         // first we check it does not already exist
         $sqlts = 'SELECT servername FROM *PREFIX*gpxedit_tile_servers ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
-        $sqlts .= 'AND servername=\''.$servername.'\' ';
+        $sqlts .= 'AND servername='.$this->db_quote_escape_string($servername).' AND type='.$this->db_quote_escape_string($type).' ';
         $req = $this->dbconnection->prepare($sqlts);
         $req->execute();
         $ts = null;
@@ -220,10 +220,11 @@ class UtilsController extends Controller {
         // then if not, we insert it
         if ($ts === null){
             $sql = 'INSERT INTO *PREFIX*gpxedit_tile_servers';
-            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', servername, url) ';
+            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', type, servername, url) ';
             $sql .= 'VALUES (\''.$this->userId.'\',';
-            $sql .= '\''.$servername.'\',';
-            $sql .= '\''.$serverurl.'\');';
+            $sql .= ''.$this->db_quote_escape_string($type).',';
+            $sql .= ''.$this->db_quote_escape_string($servername).',';
+            $sql .= ''.$this->db_quote_escape_string($serverurl).');';
             $req = $this->dbconnection->prepare($sql);
             $req->execute();
             $req->closeCursor();
@@ -250,11 +251,10 @@ class UtilsController extends Controller {
      * Delete one tile server entry from DB for current user
      * @NoAdminRequired
      */
-    public function deleteTileServer($servername) {
+    public function deleteTileServer($servername, $type) {
         $sqldel = 'DELETE FROM *PREFIX*gpxedit_tile_servers ';
-        $sqldel .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' AND servername=\'';
-        $sqldel .= $servername.'\';';
-        //$sqldel .= 'WHERE user=\''.$this->userId.'\';';
+        $sqldel .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' AND servername=';
+        $sqldel .= $this->db_quote_escape_string($servername).' AND type='.$this->db_quote_escape_string($type).';';
         $req = $this->dbconnection->prepare($sqldel);
         $req->execute();
         $req->closeCursor();
@@ -328,7 +328,7 @@ class UtilsController extends Controller {
      */
     public function getOptionsValues($optionsValues) {
         $sqlov = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options_values ';
-        $sqlov .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ;';
+        $sqlov .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' ;';
         $req = $this->dbconnection->prepare($sqlov);
         $req->execute();
         $ov = '{}';
@@ -348,6 +348,13 @@ class UtilsController extends Controller {
             ->addAllowedConnectDomain('*');
         $response->setContentSecurityPolicy($csp);
         return $response;
+    }
+
+    /*
+     * quote and choose string escape function depending on database used
+     */
+    private function db_quote_escape_string($str){
+        return $this->dbconnection->quote($str);
     }
 
 }
