@@ -3,10 +3,13 @@
     <id>gpxedit</id>
     <name>GpxEdit</name>
     <description>
-# GpxEdit owncloud/nextcloud application
+# GpxEdit Nextcloud application
+# GpxEdit Owncloud application
 
-Simple Owncloud/Nextcloud app to load, edit and save GPX files on an interactive map.
-You can load/save files from your Owncloud/Nextcloud file storage.
+Simple Nextcloud app to load, edit and save GPX files on an interactive map.
+Simple Owncloud app to load, edit and save GPX files on an interactive map.
+You can load/save files from your Nextcloud file storage.
+You can load/save files from your Owncloud file storage.
 GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints.
 There is a file explorer inside the app interface to select a file to load and a folder to save what is currently on the map.
 
