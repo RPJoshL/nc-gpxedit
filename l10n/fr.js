@@ -57,8 +57,8 @@ OC.L10N.register(
     "Load in GpxEdit" : "Charger dans GpxEdit",
     "Tile server \"{ts}\" has been deleted" : "Le serveur de tuiles \"{ts}\" a été supprimé",
     "Tile server \"{ts}\" has been added" : "Le serveur de tuiles \"{ts}\" a été ajouté",
-    "Failure on tile server \"{ts}\" addition" : "Erreur à l'ajout du serveur de tuiles \"{ts}\"",
-    "Failure on tile server \"{ts}\" deletion" : "Erreur à la suppression du serveur de tuiles \"{ts}\"",
+    "Failed to add tile server \"{ts}\"" : "Échec de l'ajout du serveur de tuiles \"{ts}\"",
+    "Failed to delete tile server \"{ts}\"" : "Échec de la suppression du serveur de tuiles \"{ts}\"",
     "Error" : "Erreur"
     },
 "nplurals=2; plural=(n > 1);");

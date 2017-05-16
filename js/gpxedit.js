@@ -258,7 +258,6 @@
         if (! baseLayers.hasOwnProperty(default_layer)) {
             default_layer = 'OpenStreetMap';
         }
-console.log(baseLayers);
         gpxedit.map.addLayer(baseLayers[default_layer]);
 
         gpxedit.activeLayers = L.control.activeLayers(baseLayers, baseOverlays);
@@ -518,7 +517,6 @@ console.log(baseLayers);
 
         var layerArray = [];
         gpxedit.drawControl.editLayers.eachLayer(function(layer) {
-            console.log(JSON.stringify(gpxedit.drawControl.editLayers.toGeoJSON()));
             layerArray.push(layer);
         });
         // sort
@@ -826,7 +824,7 @@ console.log(baseLayers);
     function checkKey(e) {
         e = e || window.event;
         var kc = e.keyCode;
-        console.log(kc);
+        //console.log(kc);
 
         if (kc === 161 || kc === 223) {
             e.preventDefault();

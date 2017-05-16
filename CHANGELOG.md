@@ -5,15 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.6 – 2017-05-16
 ### Added
 - add checkTranslations.py script
 - new feature : cut a line in two with click on middle marker
   [#14](https://gitlab.com/eneiluj/gpxedit-oc/issues/14) @klakla2
+- add personal overlay server management
 
 ### Changed
 - bring layer to front on hover
 - use CSS grid
 - use L.draw.plus
+- put all base tile servers in a php file
 
 ### Fixed
 - adapt CSS to Nextcloud 12, still works with Owncloud 9 and Nextcloud 11
