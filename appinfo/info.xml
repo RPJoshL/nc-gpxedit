@@ -93,8 +93,8 @@ If you look for more powerfull GPX editors, take a look at :
     <website>https://gitlab.com/eneiluj/gpxedit-oc</website>
     <bugs>https://gitlab.com/eneiluj/gpxedit-oc/issues</bugs>
     <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/01955c60c4605a92c68dd5617b0703c0/gpxedit.gif</screenshot>
-    <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/c062d8bcf995a9192f5e11702aa03710/two.png</screenshot>
-    <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/c3aa82fe2cb18aa44eef9207c790838c/three.png</screenshot>
+    <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/428415bd2cd22b8e74230730786e9551/ed1.png</screenshot>
+    <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/c01709a10880a64815ca783fcf574169/ed2.png</screenshot>
     <dependencies>
         <php min-version="5.6"/>
         <owncloud min-version="9.0" max-version="10.9" />
