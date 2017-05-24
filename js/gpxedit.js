@@ -1430,9 +1430,17 @@
         });
 
         $('button#clearButton').click(function(e) {
+            var cancelButton = $('.leaflet-draw .leaflet-draw-section:nth-child(2) li:nth-child(2) a');
+            if (cancelButton.is(':visible')) {
+                cancelButton[0].click();
+            }
             clear();
         });
         $('button#loadButton').click(function(e) {
+            var cancelButton = $('.leaflet-draw .leaflet-draw-section:nth-child(2) li:nth-child(2) a');
+            if (cancelButton.is(':visible')) {
+                cancelButton[0].click();
+            }
             if (gpxedit.currentAjax !== null) {
                 gpxedit.currentAjax.abort();
                 hideLoadingAnimation();
