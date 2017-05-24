@@ -243,6 +243,9 @@ L.Edit.PolyVerticesEdit.include({
             if (this._markers[m]._latlng.time) {
                 times[found].push(this._markers[m]._latlng.time);
             }
+            else {
+                times[found].push(null);
+            }
 			if (this._markers[m]._middleRight && this._markers[m]._middleRight._leaflet_id == e.target._leaflet_id)
 				found = 1; // We find the cut point
 		}
