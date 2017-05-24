@@ -2829,14 +2829,7 @@ L.LatLngUtil = {
 	// @method cloneLatLng(LatLng): L.LatLng
 	// Clone the latLng and return a new LatLng object.
 	cloneLatLng: function (latlng) {
-        var ll = L.latLng(latlng.lat, latlng.lng);
-        if (latlng.alt) {
-            ll.alt = latlng.alt;
-        }
-        if (latlng.time) {
-            ll.time = latlng.time;
-        }
-        return ll;
+		return L.latLng(latlng.lat, latlng.lng);
 	}
 };
 
