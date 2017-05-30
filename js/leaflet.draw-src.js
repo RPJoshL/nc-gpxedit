@@ -1996,6 +1996,14 @@ L.Edit.PolyVerticesEdit = L.Handler.extend({
 
 		marker.setOpacity(0.6);
 
+        marker.on('mouseover', function() {
+            this._map.fire('middlehover', marker);
+        });
+
+        marker.on('mouseout', function() {
+            this._map.fire('middlehoverout');
+        });
+
 		marker1._middleRight = marker2._middleLeft = marker;
 
 		onDragStart = function () {

@@ -45,7 +45,7 @@
     "move markers" : "déplacer les marqueurs",
     "move line points" : "déplacer les points des lignes",
     "click on a line point to remove it" : "cliquer sur un point d'une ligne pour le supprimer",
-    "click on a \"middle marker\" (between two line points) to cut the line in two" : "cliquer sur un \"middle marker\" (entre deux points d'une ligne) pour couper la ligne en deux",
+    "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)" : "survoler un \"middle marker\" (entre deux points d'une ligne) et presser la touche \"Suppr\" pour couper la ligne en deux (cette action ne peut pas être annulée)",
     "Extra symbols" : "Symboles supplémentaires",
     "Those symbols will be available in GpxEdit." : "Ces symboles seront disponibles dans GpxEdit",
     "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name." : "Gardez à l'esprit que seuls les noms de symboles sont sauvés dans les fichiers gpx. D'autres programmes afficheront un symbole par défaut s'ils ne connaissent pas un nom de symbole.",

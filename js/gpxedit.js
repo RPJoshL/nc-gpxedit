@@ -301,7 +301,7 @@
         L.drawLocal.edit.toolbar.actions.save.text = t('gpxedit', 'Ok');
         L.drawLocal.edit.toolbar.actions.cancel.title = t('gpxedit', 'Discard all changes');
         L.drawLocal.edit.toolbar.actions.cancel.text = t('gpxedit', 'Cancel');
-        L.drawLocal.edit.handlers.edit.tooltip.text = t('gpxedit', 'Drag to move elements,<br/>click to remove a point');
+        L.drawLocal.edit.handlers.edit.tooltip.text = t('gpxedit', 'Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press "Del" to cut the line');
         L.drawLocal.edit.handlers.edit.tooltip.subtext = t('gpxedit', 'Click cancel to undo changes');
         L.drawLocal.edit.handlers.remove.tooltip.text = t('gpxedit', 'Click on an element to delete it');
         L.drawLocal.draw.handlers.marker.tooltip.start = t('gpxedit', 'Click map to add waypoint');
@@ -833,6 +833,11 @@
         if (kc === 60 || kc === 220) {
             e.preventDefault();
             $('#sidebar').toggleClass('collapsed');
+        }
+        if (kc === 46) {
+            if (gpxedit.hovermiddlemarker) {
+                gpxedit.hovermiddlemarker.fire('cut', gpxedit.hovermiddlemarker);
+            }
         }
     }
 
@@ -1542,6 +1547,13 @@
             }
             return ll;
         };
+
+        gpxedit.map.on('middlehover', function(m) {
+            gpxedit.hovermiddlemarker = m;
+        });
+        gpxedit.map.on('middlehoverout', function() {
+            gpxedit.hovermiddlemarker = null;
+        });
 
     });
 

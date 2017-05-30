@@ -36,7 +36,7 @@ OC.L10N.register(
     "Cancel" : "Annuler",
     "Discard all changes" : "Annuler tous les changements",
     "Validate changes" : "Valider les changements",
-    "Drag to move elements,<br/>click to remove a point" : "Déplacer par glisser-déposer,<br/>cliquer sur un point pour le supprimer",
+    "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line" : "Déplacer par glisser-déposer,<br/>cliquer sur un point pour le supprimer<br/>survoler un \"middle marker\" et presser la touche \"Suppr\" pour couper la ligne",
     "Click cancel to undo changes": "Cliquer sur annuler pour défaire les changements",
     "Click on an element to delete it" : "Cliquer sur un élément pour l'effacer",
     "Click map to add waypoint" : "Cliquer sur la carte pour ajouter une étape",

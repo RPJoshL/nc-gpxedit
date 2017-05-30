@@ -202,7 +202,7 @@ if (count($_['overlayservers']) > 0){
         <li><?php p($l->t('move markers')); ?></li>
         <li><?php p($l->t('move line points')); ?></li>
         <li><?php p($l->t('click on a line point to remove it')); ?></li>
-        <li><?php p($l->t('click on a "middle marker" (between two line points) to cut the line in two')); ?></li>
+        <li><?php p($l->t('hover a "middle marker" (between two line points) and press "Del" to cut the line in two (this action cannot be canceled)')); ?></li>
     </ul>
     <br/><hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Shortcuts')); ?> :</h3>

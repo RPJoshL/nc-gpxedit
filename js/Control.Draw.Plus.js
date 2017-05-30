@@ -214,7 +214,7 @@ L.Control.Draw.Plus = L.Control.Draw.extend({
 // Horrible hack : modify onClick action on MiddleMarkers Leaflet.draw/Edit.Poly.js & generated files
 eval('L.Edit.PolyVerticesEdit.prototype._createMiddleMarker = ' +
 	L.Edit.PolyVerticesEdit.prototype._createMiddleMarker.toString()
-	.replace(/'click', onClick, this|'click',[a-z],this/g, "'click',this._cut,this")
+	.replace(/'click', onClick, this|'click',[a-z],this/g, "'cut',this._cut,this")
 );
 
 // Resize the too big summits markers
