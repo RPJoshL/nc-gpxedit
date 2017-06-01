@@ -1235,6 +1235,10 @@
             if (optionsValues.symboloverwrite !== undefined) {
                 $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
             }
+            if (optionsValues.approximateele !== undefined) {
+                $('#approximateele').prop('checked', optionsValues.approximateele);
+                L.drawLocal.edit.approximateElevations = $('#approximateele').is(':checked');
+            }
             if (optionsValues.tilelayer !== undefined) {
                 gpxedit.restoredTileLayer = optionsValues.tilelayer;
             }
@@ -1247,6 +1251,7 @@
         optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
         optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
         optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
+        optionsValues.approximateele = $('#approximateele').is(':checked');
         optionsValues.tilelayer = gpxedit.activeLayers.getActiveBaseLayer().name;
         //alert('to save: '+JSON.stringify(optionsValues));
 
@@ -1378,6 +1383,10 @@
         // to set the draw style
         updateLeafletDrawMarkerStyle();
         $('body').on('change', '#clearbeforeload', function() {
+            saveOptions();
+        });
+        $('body').on('change', '#approximateele', function() {
+            L.drawLocal.edit.approximateElevations = $(this).is(':checked');
             saveOptions();
         });
         $('body').on('click', 'button.popupOkButton', function(e) {

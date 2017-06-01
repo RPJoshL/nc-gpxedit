@@ -113,12 +113,14 @@ echo '</ul>'."\n";
         <option value="h"><?php p($l->t('on hover')); ?></option>
         <option value="p"><?php p($l->t('permanent')); ?></option>
     </select>
-    <input title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
-    id="symboloverwrite" type="checkbox" checked></input>
     <label title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
     for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
-    <input type="checkbox" id="clearbeforeload" checked></input>
+    <input title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
+    id="symboloverwrite" type="checkbox" checked></input>
     <label for="clearbeforeload"><?php p($l->t('Clear map before loading'));?></label>
+    <input type="checkbox" id="clearbeforeload" checked></input>
+    <label for="approximateele"><?php p($l->t('Approximate new points elevations'));?></label>
+    <input type="checkbox" id="approximateele"></input>
 </div>
 <hr/>
     <h3 class="sectiontitle"><?php p($l->t('Custom tile servers')); ?></h3>
