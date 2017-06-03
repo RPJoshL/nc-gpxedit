@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- add option to approximate elevation of new point
+  [#18](https://gitlab.com/eneiluj/gpxedit-oc/issues/18) @TheTiPi
+
+### Changed
+- change way to cut lines, hover the middle marker and press Del
+  [#17](https://gitlab.com/eneiluj/gpxedit-oc/issues/17) @TheTiPi
+
+### Fixed
+- modify cloneLatLng to avoid alt and time loss when L.draw makes layer backups
+  [#16](https://gitlab.com/eneiluj/gpxedit-oc/issues/16) @TheTiPi
 
 ## 0.0.6 – 2017-05-16
 ### Added
