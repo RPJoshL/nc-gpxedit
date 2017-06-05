@@ -53,7 +53,7 @@ OC.L10N.register(
     "Impossible to add tile server" : "Impossible d'ajouter le serveur de tuiles",
     "Failed to restore options values" : "Echec du chargement des valeurs des options",
     "Failed to save options values" : "Echec à la sauvegarde des valeurs des options",
-    "Edit in GpxEdit" : "Éditer dans GpxEdit",
+    "Edit with GpxEdit" : "Éditer avec GpxEdit",
     "Load in GpxEdit" : "Charger dans GpxEdit",
     "Tile server \"{ts}\" has been deleted" : "Le serveur de tuiles \"{ts}\" a été supprimé",
     "Tile server \"{ts}\" has been added" : "Le serveur de tuiles \"{ts}\" a été ajouté",

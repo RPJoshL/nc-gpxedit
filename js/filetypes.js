@@ -33,7 +33,7 @@ $(document).ready(function() {
 
         OCA.Files.fileActions.registerAction({
             name: 'editFileGpxEdit',
-            displayName: t('gpxedit', 'Edit in GpxEdit'),
+            displayName: t('gpxedit', 'Edit with GpxEdit'),
             mime: 'application/gpx+xml',
             permissions: OC.PERMISSION_READ,
             icon: function () {return OC.imagePath('gpxedit', 'app_black');},
