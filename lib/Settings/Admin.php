@@ -104,4 +104,33 @@ class Admin implements ISettings {
         return 5;
     }
 
+    /**
+     * @return TemplateResponse
+     * for ownCloud 10+
+     */
+    public function getPanel() {
+        $uploadPath = $this->urlGenerator->linkToRoute('gpxedit.utils.uploadExtraSymbol');
+        //$extraSymbolList = Array(Array('name'=>'plop', 'url'=>'huhu'), Array('name'=>'lll', 'url'=>'uuu'));
+        $extraSymbolList = Array();
+	    foreach(globRecursive($this->dataDirPath.'/symbols', '*.png', False) as $symbolfile){
+            $filename = basename($symbolfile);
+            array_push($extraSymbolList, Array('smallname'=>str_replace('.png', '', $filename), 'name'=>$filename));
+        }    
+
+        $parameters = [
+            'extraSymbolList' => $extraSymbolList,
+            'uploadPath' => $uploadPath
+        ];
+
+        return new TemplateResponse('gpxedit', 'admin', $parameters, '');
+    }
+
+    /**
+     * @return string the section ID, e.g. 'sharing'
+     * for ownCloud 10+
+     */
+    public function getSectionID() {
+        return 'additional';
+    }
+
 }

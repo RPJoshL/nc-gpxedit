@@ -39,7 +39,7 @@ Elevation data is loaded and saved but every new waypoint/track/trackpoint added
 Tracks are saved with one segment (trkseg tag).
 
 GpxEdit :
-- allows you to add extra symbols in Nextcloud(\*) admin settings (section : additional)
+- allows you to add extra symbols in admin settings (section : additional)
 - works with server-side encryption.
 - works with shared files.
 - loads GPX, KML, unicsv CSV, geotagged JPG files (requires Gpsbabel to convert files and import pictures)
@@ -52,14 +52,12 @@ GpxEdit :
 - adds possibility to edit .gpx files directly from the "Files" app
 - is able to cut lines in two
 
-This app is tested on Owncloud 9 with Firefox and Chromium.
+This app is tested on Owncloud 10 with Firefox and Chromium.
 This app is tested on Nextcloud 11 and 12 with Firefox and Chromium.
 
 Any feedback will be appreciated.
 
 If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples.
-
-(\*) : If you run Owncloud, you still can add extra symbols by putting png files in /path/to/owncloud/data/gpxedit/symbols/ folder.
 
 ## Donation
 
