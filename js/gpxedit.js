@@ -258,7 +258,7 @@
                 sopacity = parseFloat(sopacity);
             }
             else {
-                sopacity = 1;
+                sopacity = 0.4;
             }
             baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent});
         });
@@ -274,7 +274,7 @@
                 sopacity = parseFloat(sopacity);
             }
             else {
-                sopacity = 1;
+                sopacity = 0.4;
             }
             var sattrib = $(this).attr('attribution') || '';
             baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
