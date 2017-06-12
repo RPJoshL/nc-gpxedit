@@ -53,6 +53,7 @@
     "Recommended image resolution : between 24x24 and 50x50" : "Résolution d'image recommandée : entre 24x24 et 50x50",
     "Accepted image format : png" : "Format d'image accepté : png",
     "New symbol name" : "Nom du nouveau symbole",
+    "Approximate new points elevations" : "Approximer l'altitude des nouveaux points",
     "Upload new symbol image" : "Téléverser une nouvelle image de symbole"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
