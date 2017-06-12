@@ -209,6 +209,17 @@
             var sattrib = $(this).attr('attribution');
             baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
         });
+        $('#basetileservers li[type=tilewms]').each(function() {
+            var sname = $(this).attr('name');
+            var surl = $(this).attr('url');
+            var slayers = $(this).attr('layers') || '';
+            var sversion = $(this).attr('version') || '1.1.1';
+            var stransparent = ($(this).attr('transparent') === 'true');
+            var sformat = $(this).attr('format') || 'image/png';
+            var sopacity = $(this).attr('opacity') || 1;
+            var sattrib = $(this).attr('attribution') || '';
+            baseLayers[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
+        });
         // add custom layers
         $('#tileserverlist li').each(function() {
             var sname = $(this).attr('name');
@@ -228,6 +239,17 @@
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
             baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
+        });
+        $('#basetileservers li[type=overlaywms]').each(function() {
+            var sname = $(this).attr('name');
+            var surl = $(this).attr('url');
+            var slayers = $(this).attr('layers') || '';
+            var sversion = $(this).attr('version') || '1.1.1';
+            var stransparent = ($(this).attr('transparent') === 'true');
+            var sformat = $(this).attr('format') || 'image/png';
+            var sopacity = $(this).attr('opacity') || 1;
+            var sattrib = $(this).attr('attribution') || '';
+            baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
         });
         // add custom overlays
         $('#overlayserverlist li').each(function() {

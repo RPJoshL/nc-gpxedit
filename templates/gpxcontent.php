@@ -87,6 +87,16 @@ foreach($_['basetileservers'] as $ts){
     p($ts['type']);
     echo '" url="';
     p($ts['url']);
+    echo '" layers="';
+    p($ts['layers']);
+    echo '" version="';
+    p($ts['version']);
+    echo '" format="';
+    p($ts['format']);
+    echo '" opacity="';
+    p($ts['opacity']);
+    echo '" transparent="';
+    p($ts['transparent']);
     echo '" minzoom="';
     p($ts['minzoom']);
     echo '" maxzoom="';

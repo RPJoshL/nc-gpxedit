@@ -9,6 +9,17 @@ $baseTileServers = [
     //    'minzoom' => '',
     //    'maxzoom' => ''
     //),
+    //Array(
+    //    'name' => 'tilewms',
+    //    'type' => 'tilewms|overlaywms',
+    //    'url' => '',
+    //    'layers' => '',
+    //    'version' => '',
+    //    'attribution' => '',
+    //    'format' => '',
+    //    'opacity' => '0-1',
+    //    'transparent' => 'true|false'
+    //),
     Array(
         'name' => 'OpenStreetMap',
         'type' => 'tile',
