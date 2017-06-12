@@ -207,7 +207,15 @@
             var minz = parseInt($(this).attr('minzoom'));
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
-            baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
+            var stransparent = ($(this).attr('transparent') === 'true');
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 1;
+            }
+            baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent});
         });
         $('#basetileservers li[type=tilewms]').each(function() {
             var sname = $(this).attr('name');
@@ -216,7 +224,13 @@
             var sversion = $(this).attr('version') || '1.1.1';
             var stransparent = ($(this).attr('transparent') === 'true');
             var sformat = $(this).attr('format') || 'image/png';
-            var sopacity = $(this).attr('opacity') || 1;
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 1;
+            }
             var sattrib = $(this).attr('attribution') || '';
             baseLayers[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
         });
@@ -238,7 +252,15 @@
             var minz = parseInt($(this).attr('minzoom'));
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
-            baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib});
+            var stransparent = ($(this).attr('transparent') === 'true');
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 1;
+            }
+            baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent});
         });
         $('#basetileservers li[type=overlaywms]').each(function() {
             var sname = $(this).attr('name');
@@ -247,7 +269,13 @@
             var sversion = $(this).attr('version') || '1.1.1';
             var stransparent = ($(this).attr('transparent') === 'true');
             var sformat = $(this).attr('format') || 'image/png';
-            var sopacity = $(this).attr('opacity') || 1;
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 1;
+            }
             var sattrib = $(this).attr('attribution') || '';
             baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
         });

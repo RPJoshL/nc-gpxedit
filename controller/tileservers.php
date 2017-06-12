@@ -7,7 +7,9 @@ $baseTileServers = [
     //    'url' => '',
     //    'attribution' => '',
     //    'minzoom' => '',
-    //    'maxzoom' => ''
+    //    'maxzoom' => '',
+    //    'opacity' => '0-1',
+    //    'transparent' => 'true|false'
     //),
     //Array(
     //    'name' => 'tilewms',
@@ -135,7 +137,9 @@ $baseTileServers = [
         'url' => 'http://{s}.tile.openstreetmap.fr/route500/{z}/{x}/{y}.png',
         'attribution' => '&copy, Tiles © <a href="http://www.openstreetmap.fr">OpenStreetMap France</a>',
         'minzoom' => '1',
-        'maxzoom' => '20'
+        'maxzoom' => '20',
+        'transparent' => 'true',
+        'opacity' => '0.5'
     ),
 ];
 ?>

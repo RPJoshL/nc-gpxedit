@@ -81,29 +81,15 @@ foreach($_['extrasymbols'] as $symbol){
 echo '</ul>'."\n";
 echo '<ul id="basetileservers" style="display:none">';
 foreach($_['basetileservers'] as $ts){
-    echo '<li name="';
-    p($ts['name']);
-    echo '" type="';
-    p($ts['type']);
-    echo '" url="';
-    p($ts['url']);
-    echo '" layers="';
-    p($ts['layers']);
-    echo '" version="';
-    p($ts['version']);
-    echo '" format="';
-    p($ts['format']);
-    echo '" opacity="';
-    p($ts['opacity']);
-    echo '" transparent="';
-    p($ts['transparent']);
-    echo '" minzoom="';
-    p($ts['minzoom']);
-    echo '" maxzoom="';
-    p($ts['maxzoom']);
-    echo '" attribution="';
-    p($ts['attribution']);
-    echo '"></li>';
+    echo '<li';
+    foreach (Array('name', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
+        if (array_key_exists($field, $ts)) {
+            echo ' '.$field.'="';
+            p($ts[$field]);
+            echo '"';
+        }
+    }
+    echo '></li>';
 }
 echo '</ul>'."\n";
 
