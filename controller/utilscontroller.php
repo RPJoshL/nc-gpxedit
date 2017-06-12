@@ -203,7 +203,9 @@ class UtilsController extends Controller {
      * Add one tile server to the DB for current user
      * @NoAdminRequired
      */
-    public function addTileServer($servername, $serverurl, $type) {
+    public function addTileServer($servername, $serverurl, $type,
+                    $layers, $version, $tformat, $opacity, $transparent,
+                    $minzoom, $maxzoom, $attribution) {
         // first we check it does not already exist
         $sqlts = 'SELECT servername FROM *PREFIX*gpxedit_tile_servers ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
@@ -220,11 +222,19 @@ class UtilsController extends Controller {
         // then if not, we insert it
         if ($ts === null){
             $sql = 'INSERT INTO *PREFIX*gpxedit_tile_servers';
-            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', type, servername, url) ';
+            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', type, servername, url, layers, version, format, opacity, transparent, minzoom, maxzoom, attribution) ';
             $sql .= 'VALUES (\''.$this->userId.'\',';
-            $sql .= ''.$this->db_quote_escape_string($type).',';
-            $sql .= ''.$this->db_quote_escape_string($servername).',';
-            $sql .= ''.$this->db_quote_escape_string($serverurl).');';
+            $sql .= $this->db_quote_escape_string($type).',';
+            $sql .= $this->db_quote_escape_string($servername).',';
+            $sql .= $this->db_quote_escape_string($serverurl).',';
+            $sql .= $this->db_quote_escape_string($layers).',';
+            $sql .= $this->db_quote_escape_string($version).',';
+            $sql .= $this->db_quote_escape_string($tformat).',';
+            $sql .= $this->db_quote_escape_string($opacity).',';
+            $sql .= $this->db_quote_escape_string($transparent).',';
+            $sql .= $this->db_quote_escape_string($minzoom).',';
+            $sql .= $this->db_quote_escape_string($maxzoom).',';
+            $sql .= $this->db_quote_escape_string($attribution).');';
             $req = $this->dbconnection->prepare($sql);
             $req->execute();
             $req->closeCursor();

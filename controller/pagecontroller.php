@@ -140,6 +140,8 @@ class PageController extends Controller {
 
         $tss = $this->getUserTileServers('tile');
         $oss = $this->getUserTileServers('overlay');
+        $tssw = $this->getUserTileServers('tilewms');
+        $ossw = $this->getUserTileServers('overlaywms');
 
         // extra symbols
         $dataDirPath = $this->config->getSystemValue('datadirectory').'/gpxedit';
@@ -157,8 +159,10 @@ class PageController extends Controller {
         $params = [
             'username'=>$this->userId,
 			'basetileservers'=>$baseTileServers,
-			'tileservers'=>$tss,
-			'overlayservers'=>$oss,
+			'usertileservers'=>$tss,
+			'useroverlayservers'=>$oss,
+			'usertileserverswms'=>$tssw,
+			'useroverlayserverswms'=>$ossw,
             'extrasymbols'=>$extraSymbolList,
             'gpxedit_version'=>$this->appVersion
         ];
@@ -381,14 +385,17 @@ class PageController extends Controller {
 
     private function getUserTileServers($type){
         // custom tile servers management
-        $sqlts = 'SELECT servername, url FROM *PREFIX*gpxedit_tile_servers ';
+        $sqlts = 'SELECT servername, type, url, layers, version, format, opacity, transparent, minzoom, maxzoom, attribution FROM *PREFIX*gpxedit_tile_servers ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' ';
         $sqlts .= 'AND type='.$this->db_quote_escape_string($type).';';
         $req = $this->dbconnection->prepare($sqlts);
         $req->execute();
         $tss = Array();
         while ($row = $req->fetch()){
-            $tss[$row["servername"]] = $row["url"];
+            $tss[$row["servername"]] = Array();
+            foreach (Array('servername', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
+                $tss[$row['servername']][$field] = $row[$field];
+            }
         }
         $req->closeCursor();
         return $tss;

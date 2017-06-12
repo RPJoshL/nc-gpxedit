@@ -236,10 +236,25 @@
         });
         // add custom layers
         $('#tileserverlist li').each(function() {
-            var sname = $(this).attr('name');
+            var sname = $(this).attr('servername');
             var surl = $(this).attr('title');
+            var sminzoom = $(this).attr('minzoom') || '1';
+            var smaxzoom = $(this).attr('maxzoom') || '20';
+            var sattrib = $(this).attr('attribution') || '';
             baseLayers[sname] = new L.TileLayer(surl,
-                    {maxZoom: 18, attribution: 'custom tile server'});
+                    {minZoom: sminzoom, maxZoom: smaxzoom, attribution: sattrib});
+        });
+        $('#tileserverwmslist li').each(function() {
+            var sname = $(this).attr('servername');
+            var surl = $(this).attr('title');
+            var sminzoom = $(this).attr('minzoom') || '1';
+            var smaxzoom = $(this).attr('maxzoom') || '20';
+            var slayers = $(this).attr('layers') || '';
+            var sversion = $(this).attr('version') || '1.1.1';
+            var sformat = $(this).attr('format') || 'image/png';
+            var sattrib = $(this).attr('attribution') || '';
+            baseLayers[sname] = new L.tilelayer.wms(surl,
+                    {format: sformat, version: sversion, layers: slayers, minZoom: sminzoom, maxZoom: smaxzoom, attribution: sattrib});
         });
         gpxedit.baseLayers = baseLayers;
 
@@ -252,7 +267,13 @@
             var minz = parseInt($(this).attr('minzoom'));
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
-            var stransparent = ($(this).attr('transparent') === 'true');
+            var stransparent;
+            if ($(this).attr('transparent') !== '') {
+                stransparent = ($(this).attr('transparent') === 'true');
+            }
+            else {
+                stransparent = true;
+            }
             var sopacity = $(this).attr('opacity');
             if (sopacity !== '') {
                 sopacity = parseFloat(sopacity);
@@ -267,7 +288,13 @@
             var surl = $(this).attr('url');
             var slayers = $(this).attr('layers') || '';
             var sversion = $(this).attr('version') || '1.1.1';
-            var stransparent = ($(this).attr('transparent') === 'true');
+            var stransparent;
+            if ($(this).attr('transparent') !== '') {
+                stransparent = ($(this).attr('transparent') === 'true');
+            }
+            else {
+                stransparent = true;
+            }
             var sformat = $(this).attr('format') || 'image/png';
             var sopacity = $(this).attr('opacity');
             if (sopacity !== '') {
@@ -281,10 +308,52 @@
         });
         // add custom overlays
         $('#overlayserverlist li').each(function() {
-            var sname = $(this).attr('name');
+            var sname = $(this).attr('servername');
             var surl = $(this).attr('title');
+            var sminzoom = $(this).attr('minzoom') || '1';
+            var smaxzoom = $(this).attr('maxzoom') || '20';
+            var stransparent;
+            if ($(this).attr('transparent') !== '') {
+                stransparent = ($(this).attr('transparent') === 'true');
+            }
+            else {
+                stransparent = true;
+            }
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 0.4;
+            }
+            var sattrib = $(this).attr('attribution') || '';
             baseOverlays[sname] = new L.TileLayer(surl,
-                    {maxZoom: 18, attribution: 'custom overlay server'});
+                    {minZoom: sminzoom, maxZoom: smaxzoom, transparent: stransparent, opcacity: sopacity, attribution: sattrib});
+        });
+        $('#overlayserverwmslist li').each(function() {
+            var sname = $(this).attr('servername');
+            var surl = $(this).attr('title');
+            var sminzoom = $(this).attr('minzoom') || '1';
+            var smaxzoom = $(this).attr('maxzoom') || '20';
+            var slayers = $(this).attr('layers') || '';
+            var sversion = $(this).attr('version') || '1.1.1';
+            var stransparent;
+            if ($(this).attr('transparent') !== '') {
+                stransparent = ($(this).attr('transparent') === 'true');
+            }
+            else {
+                stransparent = true;
+            }
+            var sformat = $(this).attr('format') || 'image/png';
+            var sopacity = $(this).attr('opacity');
+            if (sopacity !== '') {
+                sopacity = parseFloat(sopacity);
+            }
+            else {
+                sopacity = 0.4;
+            }
+            var sattrib = $(this).attr('attribution') || '';
+            baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib, minZoom: sminzoom, maxZoom: smaxzoom});
         });
         gpxedit.overlayLayers = baseOverlays;
 
@@ -1094,7 +1163,7 @@
     }
 
     function deleteTileServer(li, type) {
-        var sname = li.attr('name');
+        var sname = li.attr('servername');
         var req = {
             servername: sname,
             type: type
@@ -1137,12 +1206,19 @@
     function addTileServer(type) {
         var sname = $('#'+type+'servername').val();
         var surl = $('#'+type+'serverurl').val();
+        var sminzoom = $('#'+type+'minzoom').val();
+        var smaxzoom = $('#'+type+'maxzoom').val();
+        var stransparent = $('#'+type+'transparent').val() || '';
+        var sopacity = $('#'+type+'opacity').val() || '';
+        var sformat = $('#'+type+'format').val() || '';
+        var sversion = $('#'+type+'version').val() || '';
+        var slayers = $('#'+type+'layers').val() || '';
         if (sname === '' || surl === '') {
             OC.dialogs.alert(t('gpxedit', 'Server name or server url should not be empty'),
                              t('gpxedit', 'Impossible to add tile server'));
             return;
         }
-        if ($('#'+type+'serverlist ul li[name="' + sname + '"]').length > 0) {
+        if ($('#'+type+'serverlist ul li[servername="' + sname + '"]').length > 0) {
             OC.dialogs.alert(t('gpxedit', 'A server with this name already exists'),
                              t('gpxedit', 'Impossible to add tile server'));
             return;
@@ -1153,7 +1229,15 @@
         var req = {
             servername: sname,
             serverurl: surl,
-			type: type
+            type: type,
+            layers: slayers,
+            version: sversion,
+            tformat: sformat,
+            opacity: sopacity,
+            transparent: stransparent,
+            minzoom: sminzoom,
+            maxzoom: smaxzoom,
+            attribution: ''
         };
         var url = OC.generateUrl('/apps/gpxedit/addTileServer');
         $.ajax({
@@ -1164,14 +1248,14 @@
         }).done(function (response) {
             if (response.done) {
                 $('#'+type+'serverlist ul').prepend(
-                    '<li style="display:none;" name="' + escapeHTML(sname) +
+                    '<li style="display:none;" servername="' + escapeHTML(sname) +
                     '" title="' + escapeHTML(surl) + '">' +
                     escapeHTML(sname) + ' <button>' +
                     '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ' +
                     t('gpxedit', 'Delete') +
                     '</button></li>'
                 );
-                $('#'+type+'serverlist ul li[name="' + sname + '"]').fadeIn('slow');
+                $('#'+type+'serverlist ul li[servername="' + sname + '"]').fadeIn('slow');
 
                 if (type === 'tile') {
                     // add tile server in leaflet control
@@ -1566,6 +1650,19 @@
         });
         $('#addoverlayserver').click(function() {
             addTileServer('overlay');
+        });
+
+        $('body').on('click', '#tileserverwmslist button', function(e) {
+            deleteTileServer($(this).parent(), 'tilewms');
+        });
+        $('#addtileserverwms').click(function() {
+            addTileServer('tilewms');
+        });
+        $('body').on('click', '#overlayserverwmslist button', function(e) {
+            deleteTileServer($(this).parent(), 'overlaywms');
+        });
+        $('#addoverlayserverwms').click(function() {
+            addTileServer('overlaywms');
         });
 
         $('body').on('change', 'select[role=symbol]', function() {
