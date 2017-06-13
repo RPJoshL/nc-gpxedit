@@ -237,23 +237,23 @@
         // add custom layers
         $('#tileserverlist li').each(function() {
             var sname = $(this).attr('servername');
-            var surl = $(this).attr('title');
+            var surl = $(this).attr('url');
             var sminzoom = $(this).attr('minzoom') || '1';
             var smaxzoom = $(this).attr('maxzoom') || '20';
             var sattrib = $(this).attr('attribution') || '';
             baseLayers[sname] = new L.TileLayer(surl,
                     {minZoom: sminzoom, maxZoom: smaxzoom, attribution: sattrib});
         });
-        $('#tileserverwmslist li').each(function() {
+        $('#tilewmsserverlist li').each(function() {
             var sname = $(this).attr('servername');
-            var surl = $(this).attr('title');
+            var surl = $(this).attr('url');
             var sminzoom = $(this).attr('minzoom') || '1';
             var smaxzoom = $(this).attr('maxzoom') || '20';
             var slayers = $(this).attr('layers') || '';
             var sversion = $(this).attr('version') || '1.1.1';
             var sformat = $(this).attr('format') || 'image/png';
             var sattrib = $(this).attr('attribution') || '';
-            baseLayers[sname] = new L.tilelayer.wms(surl,
+            baseLayers[sname] = new L.tileLayer.wms(surl,
                     {format: sformat, version: sversion, layers: slayers, minZoom: sminzoom, maxZoom: smaxzoom, attribution: sattrib});
         });
         gpxedit.baseLayers = baseLayers;
@@ -309,7 +309,7 @@
         // add custom overlays
         $('#overlayserverlist li').each(function() {
             var sname = $(this).attr('servername');
-            var surl = $(this).attr('title');
+            var surl = $(this).attr('url');
             var sminzoom = $(this).attr('minzoom') || '1';
             var smaxzoom = $(this).attr('maxzoom') || '20';
             var stransparent;
@@ -330,9 +330,9 @@
             baseOverlays[sname] = new L.TileLayer(surl,
                     {minZoom: sminzoom, maxZoom: smaxzoom, transparent: stransparent, opcacity: sopacity, attribution: sattrib});
         });
-        $('#overlayserverwmslist li').each(function() {
+        $('#overlaywmsserverlist li').each(function() {
             var sname = $(this).attr('servername');
-            var surl = $(this).attr('title');
+            var surl = $(this).attr('url');
             var sminzoom = $(this).attr('minzoom') || '1';
             var smaxzoom = $(this).attr('maxzoom') || '20';
             var slayers = $(this).attr('layers') || '';
@@ -461,25 +461,27 @@
         // so, the content is lost when it's closed
         gpxedit.map.on('popupopen', function(e) {
             var id = e.popup._source.gpxedit_id;
-            //var id = parseInt(e.popup.getContent().match(/layerid="(\d+)"/)[1]);
-            var buttonParent = $('button.popupOkButton[layerid=' + id + ']').parent();
-            buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
-            buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
-            buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
-            if (gpxedit.layersData[id].layer.type === 'marker') {
-                if (symbolIcons.hasOwnProperty(gpxedit.layersData[id].symbol)) {
-                    buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+            if (id !== undefined && gpxedit.layersData.hasOwnProperty(id)) {
+                //var id = parseInt(e.popup.getContent().match(/layerid="(\d+)"/)[1]);
+                var buttonParent = $('button.popupOkButton[layerid=' + id + ']').parent();
+                buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
+                buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
+                buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
+                if (gpxedit.layersData[id].layer.type === 'marker') {
+                    if (symbolIcons.hasOwnProperty(gpxedit.layersData[id].symbol)) {
+                        buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
+                    }
+                    else if(gpxedit.layersData[id].symbol === '') {
+                        buttonParent.find('select[role=symbol]').val('');
+                    }
+                    else{
+                        buttonParent.find('select[role=symbol]').val('unknown');
+                    }
+                    buttonParent.find('select[role=symbol]').change();
+                    var latlng = gpxedit.layersData[id].layer.getLatLng();
+                    buttonParent.find('input.layerLat').val(latlng.lat.toFixed(6));
+                    buttonParent.find('input.layerLon').val(latlng.lng.toFixed(6));
                 }
-                else if(gpxedit.layersData[id].symbol === '') {
-                    buttonParent.find('select[role=symbol]').val('');
-                }
-                else{
-                    buttonParent.find('select[role=symbol]').val('unknown');
-                }
-                buttonParent.find('select[role=symbol]').change();
-                var latlng = gpxedit.layersData[id].layer.getLatLng();
-                buttonParent.find('input.layerLat').val(latlng.lat.toFixed(6));
-                buttonParent.find('input.layerLon').val(latlng.lng.toFixed(6));
             }
         });
 
@@ -1208,7 +1210,7 @@
         var surl = $('#'+type+'serverurl').val();
         var sminzoom = $('#'+type+'minzoom').val();
         var smaxzoom = $('#'+type+'maxzoom').val();
-        var stransparent = $('#'+type+'transparent').val() || '';
+        var stransparent = $('#'+type+'transparent').is(':checked');
         var sopacity = $('#'+type+'opacity').val() || '';
         var sformat = $('#'+type+'format').val() || '';
         var sversion = $('#'+type+'version').val() || '';
@@ -1260,14 +1262,28 @@
                 if (type === 'tile') {
                     // add tile server in leaflet control
                     var newlayer = new L.TileLayer(surl,
-                            {maxZoom: 18, attribution: 'custom '+type+' server'});
+                        {minZoom: sminzoom, maxZoom: smaxzoom, attribution: ''});
                     gpxedit.activeLayers.addBaseLayer(newlayer, sname);
                     gpxedit.baseLayers[sname] = newlayer;
                 }
-                else {
+                else if (type === 'tilewms'){
+                    // add tile server in leaflet control
+                    var newlayer = new L.tileLayer.wms(surl,
+                        {format: sformat, version: sversion, layers: slayers, minZoom: sminzoom, maxZoom: smaxzoom, attribution: ''});
+                    gpxedit.activeLayers.addBaseLayer(newlayer, sname);
+                    gpxedit.overlayLayers[sname] = newlayer;
+                }
+                if (type === 'overlay') {
                     // add tile server in leaflet control
                     var newlayer = new L.TileLayer(surl,
-                            {maxZoom: 18, attribution: 'custom '+type+' server'});
+                        {minZoom: sminzoom, maxZoom: smaxzoom, transparent: stransparent, opcacity: sopacity, attribution: ''});
+                    gpxedit.activeLayers.addOverlay(newlayer, sname);
+                    gpxedit.baseLayers[sname] = newlayer;
+                }
+                else if (type === 'overlaywms'){
+                    // add tile server in leaflet control
+                    var newlayer = new L.tileLayer.wms(surl,
+                        {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: '', minZoom: sminzoom, maxZoom: smaxzoom});
                     gpxedit.activeLayers.addOverlay(newlayer, sname);
                     gpxedit.overlayLayers[sname] = newlayer;
                 }
@@ -1652,13 +1668,13 @@
             addTileServer('overlay');
         });
 
-        $('body').on('click', '#tileserverwmslist button', function(e) {
+        $('body').on('click', '#tilewmsserverlist button', function(e) {
             deleteTileServer($(this).parent(), 'tilewms');
         });
         $('#addtileserverwms').click(function() {
             addTileServer('tilewms');
         });
-        $('body').on('click', '#overlayserverwmslist button', function(e) {
+        $('body').on('click', '#overlaywmsserverlist button', function(e) {
             deleteTileServer($(this).parent(), 'overlaywms');
         });
         $('#addoverlayserverwms').click(function() {

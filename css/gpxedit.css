@@ -872,26 +872,26 @@ div#ho button {
     margin-top: 3px;
     margin-bottom: 3px;
 }
-#overlayserveradd, #tileserveradd, #tileserverwmsadd, #overlayserverwmsadd {
+#overlayserveradd, #tileserveradd, #tilewmsserveradd, #overlaywmsserveradd {
     display: grid;
     grid-template-columns: 35% 65%;
 }
 #tileserveradd       p,
-#tileserverwmsadd    p,
-#overlayserverwmsadd p,
+#tilewmsserveradd    p,
+#overlaywmsserveradd p,
 #overlayserveradd    p{
     margin-top: auto;
     margin-bottom: auto;
 }
 #tileserveradd input[type=checkbox],
-#tileserverwmsadd input[type=checkbox],
-#overlayserverwmsadd input[type=checkbox],
+#tilewmsserveradd input[type=checkbox],
+#overlaywmsserveradd input[type=checkbox],
 #overlayserveradd input[type=checkbox]{
     margin-right: auto;
 }
 #tileserveradd input[type=text],
-#tileserverwmsadd input[type=text],
-#overlayserverwmsadd input[type=text],
+#tilewmsserveradd input[type=text],
+#overlaywmsserveradd input[type=text],
 #overlayserveradd input[type=text]{
     width:100%;
 }

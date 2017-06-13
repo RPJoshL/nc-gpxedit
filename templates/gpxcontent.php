@@ -121,10 +121,10 @@ echo '</ul>'."\n";
 <hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom tile servers')); ?></h3>
     <div id="tileserveradd">
-        <p><?php p($l->t('Server name (for example \'my custom server\')')); ?> :</p>
-        <input type="text" id="tileservername"/>
-        <p><?php p($l->t('Server url (\'http://tile.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :</p>
-        <input type="text" id="tileserverurl"/>
+        <p><?php p($l->t('Server name')); ?> :</p>
+        <input type="text" id="tileservername" title="<?php p($l->t('For example : my custom server')); ?>"/>
+        <p><?php p($l->t('Server url')); ?> :</p>
+        <input type="text" id="tileserverurl" title="<?php p($l->t('For example : http://tile.server.org/cycle/{z}/{x}/{y}.png')); ?>"/>
         <p><?php p($l->t('Min zoom (1-20)')); ?> :</p>
         <input type="text" id="tileminzoom" value="1"/>
         <p><?php p($l->t('Max zoom (1-20)')); ?> :</p>
@@ -137,7 +137,7 @@ echo '</ul>'."\n";
 <?php
 if (count($_['usertileservers']) > 0){
     foreach($_['usertileservers'] as $ts){
-        echo '<li';
+        echo '<li title="'.$ts['url'].'"';
         foreach (Array('servername', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
             if (array_key_exists($field, $ts)) {
                 echo ' '.$field.'="';
@@ -158,18 +158,18 @@ if (count($_['usertileservers']) > 0){
 <hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom overlay tile servers')); ?></h3>
     <div id="overlayserveradd">
-        <p><?php p($l->t('Server name (for example \'my custom server\')')); ?> :</p>
-        <input type="text" id="overlayservername">
-        <p><?php p($l->t('Server url (\'http://overlay.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :</p>
-        <input type="text" id="overlayserverurl">
+        <p><?php p($l->t('Server name')); ?> :</p>
+        <input type="text" id="overlayservername" title="<?php p($l->t('For example : my custom server')); ?>"/>
+        <p><?php p($l->t('Server url')); ?> :</p>
+        <input type="text" id="overlayserverurl" title="<?php p($l->t('For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png')); ?>"/>
         <p><?php p($l->t('Min zoom (1-20)')); ?> :</p>
-        <input type="text" id="overlayminzoom" value="1">
+        <input type="text" id="overlayminzoom" value="1"/>
         <p><?php p($l->t('Max zoom (1-20)')); ?> :</p>
-        <input type="text" id="overlaymaxzoom" value="18">
+        <input type="text" id="overlaymaxzoom" value="18"/>
         <label for="overlaytransparent"><?php p($l->t('Transparent')); ?> :</label>
-        <input type="checkbox" id="overlaytransparent" checked>
-        <p><?php p($l->t('Opacity (0.0-1.1)')); ?> :</p>
-        <input type="text" id="overlayopacity" value="0.4">
+        <input type="checkbox" id="overlaytransparent" checked/>
+        <p><?php p($l->t('Opacity (0.0-1.0)')); ?> :</p>
+        <input type="text" id="overlayopacity" value="0.4"/>
         <button id="addoverlayserver"><i class="fa fa-plus-circle" aria-hidden="true" style="color:green;"></i> <?php p($l->t('Add')); ?></button>
     </div>
     <div id="overlayserverlist">
@@ -178,7 +178,7 @@ if (count($_['usertileservers']) > 0){
 <?php
 if (count($_['useroverlayservers']) > 0){
     foreach($_['useroverlayservers'] as $ts){
-        echo '<li';
+        echo '<li title="'.$ts['url'].'"';
         foreach (Array('servername', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
             if (array_key_exists($field, $ts)) {
                 echo ' '.$field.'="';
@@ -198,30 +198,30 @@ if (count($_['useroverlayservers']) > 0){
     </div>
 <hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom WMS tile servers')); ?></h3>
-    <div id="tileserverwmsadd">
-        <p><?php p($l->t('Server name (for example \'my custom server\')')); ?> :</p>
-        <input type="text" id="tilewmsservername">
-        <p><?php p($l->t('Server url (\'http://tile.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :</p>
-        <input type="text" id="tilewmsserverurl">
+    <div id="tilewmsserveradd">
+        <p><?php p($l->t('Server name')); ?> :</p>
+        <input type="text" id="tilewmsservername" title="<?php p($l->t('For example : my custom server')); ?>"/>
+        <p><?php p($l->t('Server url')); ?> :</p>
+        <input type="text" id="tilewmsserverurl" title="<?php p($l->t('For example : http://tile.server.org/cycle/{z}/{x}/{y}.png')); ?>"/>
         <p><?php p($l->t('Min zoom (1-20)')); ?> :</p>
-        <input type="text" id="tilewmsminzoom" value="1">
+        <input type="text" id="tilewmsminzoom" value="1"/>
         <p><?php p($l->t('Max zoom (1-20)')); ?> :</p>
-        <input type="text" id="tilewmsmaxzoom" value="18">
+        <input type="text" id="tilewmsmaxzoom" value="18"/>
         <p><?php p($l->t('Format')); ?> :</p>
-        <input type="text" id="tilewmsformat" value="image/jpeg">
+        <input type="text" id="tilewmsformat" value="image/jpeg"/>
         <p><?php p($l->t('WMS version')); ?> :</p>
-        <input type="text" id="tilewmsversion" value="1.1.1">
+        <input type="text" id="tilewmsversion" value="1.1.1"/>
         <p><?php p($l->t('Layers to display')); ?> :</p>
-        <input type="text" id="tilewmslayers" value="">
+        <input type="text" id="tilewmslayers" value=""/>
         <button id="addtileserverwms"><i class="fa fa-plus-circle" aria-hidden="true" style="color:green;"></i> <?php p($l->t('Add')); ?></button>
     </div>
-    <div id="tileserverwmslist">
+    <div id="tilewmsserverlist">
         <h3><?php p($l->t('Your WMS tile servers')); ?></h3>
         <ul class="disclist">
 <?php
 if (count($_['usertileserverswms']) > 0){
     foreach($_['usertileserverswms'] as $ts){
-        echo '<li';
+        echo '<li title="'.$ts['url'].'"';
         foreach (Array('servername', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
             if (array_key_exists($field, $ts)) {
                 echo ' '.$field.'="';
@@ -241,34 +241,34 @@ if (count($_['usertileserverswms']) > 0){
     </div>
 <hr/><br/>
     <h3 class="sectiontitle"><?php p($l->t('Custom WMS overlay servers')); ?></h3>
-    <div id="overlayserverwmsadd">
-        <p><?php p($l->t('Server name (for example \'my custom server\')')); ?> :</p>
-        <input type="text" id="overlaywmsservername">
-        <p><?php p($l->t('Server url (\'http://overlay.server.org/cycle/{z}/{x}/{y}.png\')')); ?> :</p>
-        <input type="text" id="overlaywmsserverurl">
+    <div id="overlaywmsserveradd">
+        <p><?php p($l->t('Server name')); ?> :</p>
+        <input type="text" id="overlaywmsservername" title="<?php p($l->t('For example : my custom server')); ?>"/>
+        <p><?php p($l->t('Server url')); ?> :</p>
+        <input type="text" id="overlaywmsserverurl" title="<?php p($l->t('For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png')); ?>"/>
         <p><?php p($l->t('Min zoom (1-20)')); ?> :</p>
-        <input type="text" id="overlaywmsminzoom" value="1">
+        <input type="text" id="overlaywmsminzoom" value="1"/>
         <p><?php p($l->t('Max zoom (1-20)')); ?> :</p>
-        <input type="text" id="overlaywmsmaxzoom" value="18">
+        <input type="text" id="overlaywmsmaxzoom" value="18"/>
         <label for="overlaywmstransparent"><?php p($l->t('Transparent')); ?> :</label>
-        <input type="checkbox" id="overlaywmstransparent" checked>
-        <p><?php p($l->t('Opacity (0.0-1.1)')); ?> :</p>
-        <input type="text" id="overlaywmsopacity" value="0.4">
+        <input type="checkbox" id="overlaywmstransparent" checked/>
+        <p><?php p($l->t('Opacity (0.0-1.0)')); ?> :</p>
+        <input type="text" id="overlaywmsopacity" value="0.4"/>
         <p><?php p($l->t('Format')); ?> :</p>
-        <input type="text" id="overlaywmsformat" value="image/jpeg">
+        <input type="text" id="overlaywmsformat" value="image/jpeg"/>
         <p><?php p($l->t('WMS version')); ?> :</p>
-        <input type="text" id="overlaywmsversion" value="1.1.1">
+        <input type="text" id="overlaywmsversion" value="1.1.1"/>
         <p><?php p($l->t('Layers to display')); ?> :</p>
-        <input type="text" id="overlaywmslayers" value="">
+        <input type="text" id="overlaywmslayers" value=""/>
         <button id="addoverlayserverwms"><i class="fa fa-plus-circle" aria-hidden="true" style="color:green;"></i> <?php p($l->t('Add')); ?></button>
     </div>
-    <div id="overlayserverwmslist">
+    <div id="overlaywmsserverlist">
         <h3><?php p($l->t('Your WMS overlay tile servers')); ?></h3>
         <ul class="disclist">
 <?php
 if (count($_['useroverlayserverswms']) > 0){
     foreach($_['useroverlayserverswms'] as $ts){
-        echo '<li';
+        echo '<li title="'.$ts['url'].'"';
         foreach (Array('servername', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
             if (array_key_exists($field, $ts)) {
                 echo ' '.$field.'="';
