@@ -1872,8 +1872,12 @@ L.Edit.PolyVerticesEdit = L.Handler.extend({
 	_onMarkerDrag: function (e) {
 		var marker = e.target;
 		var poly = this._poly;
+        var origElevation = marker._origLatLng.alt;
 
 		L.extend(marker._origLatLng, marker._latlng);
+        if (origElevation) {
+            marker._latlng.alt = origElevation;
+        }
 
 		if (marker._middleLeft) {
 			marker._middleLeft.setLatLng(this._getMiddleLatLng(marker._prev, marker));
@@ -2032,6 +2036,7 @@ L.Edit.PolyVerticesEdit = L.Handler.extend({
             if (L.drawLocal.edit.approximateElevations) {
                 if (marker1._latlng.alt && marker2._latlng.alt) {
                     marker._latlng.alt = (marker1._latlng.alt + marker2._latlng.alt) / 2;
+                    marker._origLatLng.alt = marker._latlng.alt;
                 }
             }
 		};
@@ -2046,6 +2051,7 @@ L.Edit.PolyVerticesEdit = L.Handler.extend({
             if (L.drawLocal.edit.approximateElevations) {
                 if (marker1._latlng.alt && marker2._latlng.alt) {
                     marker._latlng.alt = (marker1._latlng.alt + marker2._latlng.alt) / 2;
+                    marker._origLatLng.alt = marker._latlng.alt;
                 }
             }
 		};
