@@ -147,7 +147,7 @@ if (count($_['usertileservers']) > 0){
         }
         echo '>';
         p($ts['servername']);
-        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        echo '&nbsp <button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
         p($l->t('Delete'));
         echo '</button></li>';
     }
@@ -188,7 +188,7 @@ if (count($_['useroverlayservers']) > 0){
         }
         echo '>';
         p($ts['servername']);
-        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        echo '&nbsp <button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
         p($l->t('Delete'));
         echo '</button></li>';
     }
@@ -231,7 +231,7 @@ if (count($_['usertileserverswms']) > 0){
         }
         echo '>';
         p($ts['servername']);
-        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        echo '&nbsp <button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
         p($l->t('Delete'));
         echo '</button></li>';
     }
@@ -278,7 +278,7 @@ if (count($_['useroverlayserverswms']) > 0){
         }
         echo '>';
         p($ts['servername']);
-        echo '<button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
+        echo '&nbsp <button><i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ';
         p($l->t('Delete'));
         echo '</button></li>';
     }
