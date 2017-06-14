@@ -136,6 +136,7 @@ $baseTileServers = [
         'type' => 'overlay',
         'url' => 'http://{s}.tile.openstreetmap.fr/route500/{z}/{x}/{y}.png',
         'attribution' => '&copy, Tiles © <a href="http://www.openstreetmap.fr">OpenStreetMap France</a>',
+        'opacity' => '0.5',
         'minzoom' => '1',
         'maxzoom' => '20',
     ),

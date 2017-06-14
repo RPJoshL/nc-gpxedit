@@ -209,7 +209,7 @@
             var sattrib = $(this).attr('attribution');
             var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
@@ -225,7 +225,7 @@
             var stransparent = ($(this).attr('transparent') === 'true');
             var sformat = $(this).attr('format') || 'image/png';
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
@@ -267,15 +267,9 @@
             var minz = parseInt($(this).attr('minzoom'));
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
-            var stransparent;
-            if ($(this).attr('transparent') !== '') {
-                stransparent = ($(this).attr('transparent') === 'true');
-            }
-            else {
-                stransparent = true;
-            }
+            var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
@@ -288,21 +282,15 @@
             var surl = $(this).attr('url');
             var slayers = $(this).attr('layers') || '';
             var sversion = $(this).attr('version') || '1.1.1';
-            var stransparent;
-            if ($(this).attr('transparent') !== '') {
-                stransparent = ($(this).attr('transparent') === 'true');
-            }
-            else {
-                stransparent = true;
-            }
-            var sformat = $(this).attr('format') || 'image/png';
+            var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
                 sopacity = 0.4;
             }
+            var sformat = $(this).attr('format') || 'image/png';
             var sattrib = $(this).attr('attribution') || '';
             baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
         });
@@ -312,15 +300,9 @@
             var surl = $(this).attr('url');
             var sminzoom = $(this).attr('minzoom') || '1';
             var smaxzoom = $(this).attr('maxzoom') || '20';
-            var stransparent;
-            if ($(this).attr('transparent') !== '') {
-                stransparent = ($(this).attr('transparent') === 'true');
-            }
-            else {
-                stransparent = true;
-            }
+            var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
@@ -337,16 +319,10 @@
             var smaxzoom = $(this).attr('maxzoom') || '20';
             var slayers = $(this).attr('layers') || '';
             var sversion = $(this).attr('version') || '1.1.1';
-            var stransparent;
-            if ($(this).attr('transparent') !== '') {
-                stransparent = ($(this).attr('transparent') === 'true');
-            }
-            else {
-                stransparent = true;
-            }
             var sformat = $(this).attr('format') || 'image/png';
+            var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
-            if (sopacity !== '') {
+            if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
             }
             else {
