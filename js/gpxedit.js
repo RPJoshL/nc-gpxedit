@@ -1051,6 +1051,8 @@
                 catch (err) {
                     console.log('Impossible to fit to bounds \n'+err);
                 }
+                document.title = 'GpxEdit - ' + folder;
+                window.history.pushState({'html': '', 'pageTitle': ''},'', '?dir='+encodeURIComponent(folder));
             }
             hideLoadingAnimation();
         }).fail(function (){
@@ -1131,6 +1133,8 @@
                 catch (err) {
                     console.log('Impossible to fit to bounds \n'+err);
                 }
+                document.title = 'GpxEdit - ' + file;
+                window.history.pushState({'html': '', 'pageTitle': ''},'', '?file='+encodeURIComponent(file));
             }
             hideLoadingAnimation();
         }).fail(function (){
