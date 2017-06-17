@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#18](https://gitlab.com/eneiluj/gpxedit-oc/issues/18) @TheTiPi
 - support for ownCloud admin settings
 - dynamic URL and page title change after loading file or folder
+- support for WMS tile and overlay servers. base and user servers
+  [#22](https://gitlab.com/eneiluj/gpxedit-oc/issues/22) @a15n
 
 ### Changed
 - change way to cut lines, hover the middle marker and press Del

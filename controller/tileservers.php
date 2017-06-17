@@ -138,7 +138,7 @@ $baseTileServers = [
         'attribution' => '&copy, Tiles © <a href="http://www.openstreetmap.fr">OpenStreetMap France</a>',
         'opacity' => '0.5',
         'minzoom' => '1',
-        'maxzoom' => '20',
+        'maxzoom' => '20'
     ),
 ];
 ?>
