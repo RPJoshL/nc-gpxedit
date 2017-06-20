@@ -610,6 +610,16 @@
         if (fileDesc) {
             gpxText = gpxText + ' <desc>' + fileDesc + '</desc>\n';
         }
+        var linkurl = $('#linkurlinput').val();
+        if (linkurl) {
+            gpxText = gpxText + ' <link href="' + linkurl + '">\n';
+
+            var linktext = $('#linktextinput').val();
+            if (linktext) {
+                gpxText = gpxText + '  <text>' + escapeHTML(linktext) + '</text>\n';
+            }
+            gpxText = gpxText + ' </link>\n';
+        }
         gpxText = gpxText + '</metadata>\n';
 
         var layerArray = [];
@@ -834,10 +844,16 @@
 
     // parse gpx xml text to draw it on the map
     function parseGpx(xml) {
-        //var dom = $.parseXML(xml);
-        var dom = $(xml);
-        var fileDesc = dom.find('>metadata>desc').text();
+        var parseddom = $.parseXML(xml);
+        var dom = $(parseddom);
+
+        var fileDesc = dom.find('gpx>metadata>desc').text();
         $('#desctext').val(fileDesc);
+        var linktext = dom.find('gpx>metadata>link>text').html();
+        $('#linktextinput').val(linktext);
+        var linkurl = dom.find('gpx>metadata>link').attr('href');
+        $('#linkurlinput').val(linkurl);
+
         dom.find('wpt').each(function() {
             var lat = $(this).attr('lat');
             var lon = $(this).attr('lon');

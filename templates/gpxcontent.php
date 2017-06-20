@@ -41,6 +41,10 @@
     <div style="clear:both"></div>
     <label><?php p($l->t('Description (optional)'));?> :</label><br/>
     <textarea id="desctext"></textarea>
+    <label><?php p($l->t('Link text (optional)'));?> :</label><br/>
+    <input id="linktextinput"/><br/>
+    <label><?php p($l->t('Link URL (optional)'));?> :</label><br/>
+    <input id="linkurlinput"/>
     <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Choose directory and save'));?></button>
     <div style="clear:both"></div>
     <hr/>

@@ -68,6 +68,8 @@
     "Your overlay tile servers" : "Vos serveurs de revêtements personnels",
     "Your WMS overlay tile servers" : "Vos serveurs de revêtements WMS personnels",
     "Transparent" : "Transparent",
+    "Link URL (optional)" : "URL du lien (facultatif)",
+    "Link text (optional)" : "Texte du lien (facultatif)",
     "Upload new symbol image" : "Téléverser une nouvelle image de symbole"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
