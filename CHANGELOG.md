@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - change way to cut lines, hover the middle marker and press Del
   [#17](https://gitlab.com/eneiluj/gpxedit-oc/issues/17) @TheTiPi
+- update moment timezone js
 
 ### Fixed
 - modify cloneLatLng to avoid alt and time loss when L.draw makes layer backups
