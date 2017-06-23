@@ -902,3 +902,6 @@ div#ho button {
 #overlayserverdiv, #overlaywmsserverdiv {
     display: none;
 }
+.customtiletitle {
+    cursor: pointer;
+}
