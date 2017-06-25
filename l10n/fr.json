@@ -69,6 +69,8 @@
     "Transparent" : "Transparent",
     "Link URL (optional)" : "URL du lien (facultatif)",
     "Link text (optional)" : "Texte du lien (facultatif)",
+    "Track name (optional)" : "Nom de la trace (facultatif)",
+    "Metadata" : "Métadonnées",
     "Upload new symbol image" : "Téléverser une nouvelle image de symbole"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

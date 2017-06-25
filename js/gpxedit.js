@@ -606,6 +606,10 @@
            ' http://www.garmin.com/xmlschemas/TrackPointExtension/v1' +
            ' http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">\n';
         gpxText = gpxText + '<metadata>\n <time>' + now_utc_str + '</time>\n';
+        var trackName = $('#tracknameinput').val();
+        if (trackName) {
+            gpxText = gpxText + ' <name>' + trackName + '</name>\n';
+        }
         var fileDesc = $('#desctext').val();
         if (fileDesc) {
             gpxText = gpxText + ' <desc>' + fileDesc + '</desc>\n';
@@ -847,6 +851,8 @@
         var parseddom = $.parseXML(xml);
         var dom = $(parseddom);
 
+        var trackName = dom.find('gpx>metadata>name').text();
+        $('#tracknameinput').val(trackName);
         var fileDesc = dom.find('gpx>metadata>desc').text();
         $('#desctext').val(fileDesc);
         var linktext = dom.find('gpx>metadata>link>text').html();
@@ -1731,6 +1737,17 @@
             }
             else{
                 $('#'+forAttr).slideDown();
+                $(this).find('i').removeClass('fa-angle-double-down').addClass('fa-angle-double-up');
+            }
+        });
+
+        $('body').on('click','#metadatalabel', function(e) {
+            if ($('div#metadata').is(':visible')) {
+                $('#metadata').slideUp();
+                $(this).find('i').removeClass('fa-angle-double-up').addClass('fa-angle-double-down');
+            }
+            else{
+                $('div#metadata').slideDown();
                 $(this).find('i').removeClass('fa-angle-double-down').addClass('fa-angle-double-up');
             }
         });

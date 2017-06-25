@@ -31,20 +31,23 @@
             <option value=".csv">csv</option>
         </select>
     </div>
-    <div style="clear:both"></div>
     <hr/>
     <h2 id="savetitle"><?php p($l->t('Save'));?></h2>
     <div>
-        <label id="saveNameLabel"><?php p($l->t('File name'));?> :</label><br/>
+        <label id="saveNameLabel"><?php p($l->t('File name'));?> :</label>
         <input id="saveName" type="text"></input>
     </div>
-    <div style="clear:both"></div>
-    <label><?php p($l->t('Description (optional)'));?> :</label><br/>
-    <textarea id="desctext"></textarea>
-    <label><?php p($l->t('Link text (optional)'));?> :</label><br/>
-    <input id="linktextinput"/><br/>
-    <label><?php p($l->t('Link URL (optional)'));?> :</label><br/>
-    <input id="linkurlinput"/>
+    <p id="metadatalabel"><b><?php p($l->t('Metadata'));?> </b> <i class="fa fa-angle-double-down"></i></p>
+    <div id="metadata">
+        <label><?php p($l->t('Track name (optional)'));?> :</label><br/>
+        <input id="tracknameinput"/><br/>
+        <label><?php p($l->t('Description (optional)'));?> :</label><br/>
+        <textarea id="desctext"></textarea>
+        <label><?php p($l->t('Link text (optional)'));?> :</label><br/>
+        <input id="linktextinput"/><br/>
+        <label><?php p($l->t('Link URL (optional)'));?> :</label><br/>
+        <input id="linkurlinput"/>
+    </div>
     <button id="saveButton"><i class="fa fa-save"></i> <?php p($l->t('Choose directory and save'));?></button>
     <div style="clear:both"></div>
     <hr/>

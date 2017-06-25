@@ -792,27 +792,17 @@ h2.popupTitle{
     color: red;
 }
 
-#saveButton {
+#saveButton, #saveName {
     width: 100%;
 }
 #loadButton i, #loadFolderButton i{
     color: blue;
 }
-#saveNameLabel, #savePathLabel{
-    float:left;
-}
-#saveName, #savePath{
-    width: 100%;
-    float: right;
-}
-#savePath{
-    background-color: #C9C9C9;
-}
 .selectimg{
     background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
     background-size: 20px 20px;
 }
-#linktextinput, #linkurlinput {
+#linktextinput, #linkurlinput, #tracknameinput {
     width: 100%;
 }
 #desctext{
@@ -903,4 +893,15 @@ div#ho button {
 }
 .customtiletitle {
     cursor: pointer;
+}
+#metadata {
+    display: none;
+}
+#metadatalabel {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #F7F7F7;
+    border: solid 1px lightgrey;
 }
