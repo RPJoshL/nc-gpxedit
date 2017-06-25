@@ -771,9 +771,8 @@ input[type=checkbox]
     color: blue !important;
     font-weight: bold !important;
 }
-h2#loadtitle, h2#savetitle{
+h2#savetitle{
     text-align: center;
-    cursor: pointer;
 }
 h2.popupTitle{
     text-align: center;
