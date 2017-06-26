@@ -12,11 +12,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - dynamic URL and page title change after loading file or folder
 - support for WMS tile and overlay servers. base and user servers
   [#22](https://gitlab.com/eneiluj/gpxedit-oc/issues/22) @a15n
+- add new metadata fields : track name, link url, link text
+  [#26](https://gitlab.com/eneiluj/gpxedit-oc/issues/26) @manudinovi
 
 ### Changed
 - change way to cut lines, hover the middle marker and press Del
   [#17](https://gitlab.com/eneiluj/gpxedit-oc/issues/17) @TheTiPi
 - update moment timezone js
+- no more GpsBabel dependency, conversion is now done in Php
+  [#29](https://gitlab.com/eneiluj/gpxedit-oc/issues/29) @poVoq
+- make custom tile server blocks foldable
+  [#27](https://gitlab.com/eneiluj/gpxedit-oc/issues/27) @a15n
 
 ### Fixed
 - modify cloneLatLng to avoid alt and time loss when L.draw makes layer backups

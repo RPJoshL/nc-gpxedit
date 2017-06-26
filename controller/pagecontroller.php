@@ -27,6 +27,8 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
+require_once('conversion.php');
+
 function delTree($dir) {
     $files = array_diff(scandir($dir), array('.','..'));
     foreach ($files as $file) {
@@ -184,6 +186,7 @@ class PageController extends Controller {
      * convert the given file (csv or kml) to gpx and return its content
      */
     private function toGpx($file){
+        $gpxContent = '';
         $gpsbabel_path = getProgramPath('gpsbabel');
         $data_folder = $this->userAbsoluteDataPath;
         $tempdir = $data_folder.'/../cache/'.rand();
@@ -192,39 +195,21 @@ class PageController extends Controller {
         $filename = $file->getName();
         $filecontent = $file->getContent();
         $file_clear_path = $tempdir.'/'.$filename;
-        $gpx_target_clear_path = $tempdir.'/'.$filename.'.gpx';
         file_put_contents($file_clear_path, $filecontent);
 
         if (endswith($file->getName(), '.KML') or endswith($file->getName(), '.kml')){
-            $fmt = 'kml';
+            $gpxContent = kmlToGpx($file_clear_path);
         }
         else if (endswith($file->getName(), '.csv') or endswith($file->getName(), '.CSV')){
-            $fmt = 'unicsv';
+            $gpxContent = unicsvToGpx($file_clear_path);
         }
         else if (endswith($file->getName(), '.jpg') or endswith($file->getName(), '.JPG')){
-            $fmt = 'exif';
-        }
-        $args = Array('-i', $fmt, '-f', $file_clear_path, '-o',
-            'gpx', '-F', $gpx_target_clear_path);
-        $cmdparams = '';
-        foreach($args as $arg){
-            $shella = escapeshellarg($arg);
-            $cmdparams .= " $shella";
-        }
-        exec(
-            $gpsbabel_path.' '.$cmdparams,
-            $output, $returnvar
-        );
-        if (file_exists($gpx_target_clear_path)){
-            $gpx_clear_content = file_get_contents($gpx_target_clear_path);
-        }
-        else{
-            $gpx_clear_content = '';
+            $gpxContent = jpgToGpx($file_clear_path, $filename);
         }
 
         delTree($tempdir);
 
-        return $gpx_clear_content;
+        return $gpxContent;
     }
 
     /**
