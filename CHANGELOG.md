@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.7 – 2017-06-27
 ### Added
 - add option to approximate elevation of new point
   [#18](https://gitlab.com/eneiluj/gpxedit-oc/issues/18) @TheTiPi
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   [#22](https://gitlab.com/eneiluj/gpxedit-oc/issues/22) @a15n
 - add new metadata fields : track name, link url, link text
   [#26](https://gitlab.com/eneiluj/gpxedit-oc/issues/26) @manudinovi
+  [#30](https://gitlab.com/eneiluj/gpxedit-oc/issues/30) @manudinovi
 
 ### Changed
 - change way to cut lines, hover the middle marker and press Del

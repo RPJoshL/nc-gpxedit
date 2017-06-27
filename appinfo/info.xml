@@ -11,11 +11,15 @@ Simple Owncloud app to load, edit and save GPX files on an interactive map.
 You can load/save files from your Nextcloud file storage.
 You can load/save files from your Owncloud file storage.
 GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints.
-There is a file explorer inside the app interface to select a file to load and a folder to save what is currently on the map.
+Files can be loaded in GpxEdit interface or in Files app.
 
 This is not a perfect GPX editor.
 
 What's saved :
+- metadata
+    - name
+    - link url
+    - link text
 - tracks
     - name
     - comment
@@ -35,6 +39,7 @@ What's saved :
 
 GpxEdit does load/save time data.
 Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data.
+There is an "approximate" option to set elevation to new points if surrounding points have elevation data.
 
 Tracks are saved with one segment (trkseg tag).
 
@@ -57,7 +62,13 @@ This app is tested on Nextcloud 11 and 12 with Firefox and Chromium.
 
 Any feedback will be appreciated.
 
-If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples.
+If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples
+or launch a little python tool i wrote :
+
+```
+cd /path/to/gpxedit
+./tools/checkTranslations.py LANGUAGE ./ gpxedit
+```
 
 ## Donation
 
