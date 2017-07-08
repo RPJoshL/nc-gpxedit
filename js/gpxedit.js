@@ -1450,7 +1450,11 @@
 
     function saveAction(targetPath) {
         showExportingAnimation();
-        var saveFilePath = targetPath + '/' + $('input#saveName').val();
+        var saveName = $('input#saveName').val();
+        if (!endsWith(saveName, '.gpx')) {
+            saveName = saveName + '.gpx';
+        }
+        var saveFilePath = targetPath + '/' + saveName;
         var gpxText = generateGpx();
         hideExportingAnimation();
         $('#savingpc').text('0');
