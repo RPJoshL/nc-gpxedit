@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- update leaflet to 1.2.0
+
+### Fixed
+- automatically add .gpx extension to save name
+  [#33](https://gitlab.com/eneiluj/gpxedit-oc/issues/33) @klakla2
 
 ## 0.0.7 – 2017-06-27
 ### Added
