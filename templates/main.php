@@ -15,7 +15,7 @@ script('gpxedit', 'leaflet.draw-src');
 script('gpxedit', 'leaflet.geometryutil');
 script('gpxedit', 'leaflet.snap');
 script('gpxedit', 'Control.Draw.Plus');
-script('gpxedit', 'leaflet.measurecontrol');
+script('gpxedit', 'Leaflet.LinearMeasurement');
 script('gpxedit', 'gpxedit');
 
 style('gpxedit', 'style');
@@ -29,7 +29,7 @@ style('gpxedit', 'font-awesome.min');
 style('gpxedit', 'gpxedit');
 style('gpxedit', 'L.Control.Locate.min');
 style('gpxedit', 'leaflet.draw');
-style('gpxedit', 'leaflet.measurecontrol');
+style('gpxedit', 'Leaflet.LinearMeasurement');
 
 ?>
 

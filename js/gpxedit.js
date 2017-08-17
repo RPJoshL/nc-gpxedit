@@ -345,7 +345,11 @@
         gpxedit.searchControl.addTo(gpxedit.map);
         gpxedit.locateControl = L.control.locate({follow: true});
         gpxedit.locateControl.addTo(gpxedit.map);
-        L.Control.measureControl().addTo(gpxedit.map);
+        gpxedit.map.addControl(new L.Control.LinearMeasurement({
+            unitSystem: 'metric',
+            color: '#FF0080',
+            type: 'line'
+        }));
         L.control.sidebar('sidebar').addTo(gpxedit.map);
 
         gpxedit.map.setView(new L.LatLng(27, 5), 3);
