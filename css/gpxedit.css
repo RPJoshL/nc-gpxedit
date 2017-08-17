@@ -905,3 +905,9 @@ div#ho button {
     background-color: #F7F7F7;
     border: solid 1px lightgrey;
 }
+.leaflet-editing-icon {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: -4px !important;
+    margin-top: -4px !important;
+}
