@@ -99,7 +99,7 @@
   </declaration>
 </table>
  <table>
-  <name>*dbprefix*gpxedit_options_values</name>
+  <name>*dbprefix*gpxedit_options</name>
   <declaration>
     <field>
       <name>id</name>

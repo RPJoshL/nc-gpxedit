@@ -288,7 +288,7 @@ class UtilsController extends Controller {
      */
     public function saveOptionsValues($optionsValues) {
         // first we check if user already has options values in DB
-        $sqlts = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options_values ';
+        $sqlts = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
         $req = $this->dbconnection->prepare($sqlts);
         $req->execute();
@@ -301,7 +301,7 @@ class UtilsController extends Controller {
 
         // if nothing is there, we insert
         if ($check === null){
-            $sql = 'INSERT INTO *PREFIX*gpxedit_options_values';
+            $sql = 'INSERT INTO *PREFIX*gpxedit_options';
             $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', jsonvalues) ';
             $sql .= 'VALUES (\''.$this->userId.'\',';
             $sql .= '\''.$optionsValues.'\');';
@@ -311,7 +311,7 @@ class UtilsController extends Controller {
         }
         // else we update the values
         else{
-            $sqlupd = 'UPDATE *PREFIX*gpxedit_options_values ';
+            $sqlupd = 'UPDATE *PREFIX*gpxedit_options ';
             $sqlupd .= 'SET jsonvalues=\''.$optionsValues.'\' ';
             $sqlupd .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ; ';
             $req = $this->dbconnection->prepare($sqlupd);
@@ -337,7 +337,7 @@ class UtilsController extends Controller {
      * @NoAdminRequired
      */
     public function getOptionsValues($optionsValues) {
-        $sqlov = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options_values ';
+        $sqlov = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
         $sqlov .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' ;';
         $req = $this->dbconnection->prepare($sqlov);
         $req->execute();
