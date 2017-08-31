@@ -71,6 +71,10 @@
     "Link text (optional)" : "Texte du lien (facultatif)",
     "Track name (optional)" : "Nom de la trace (facultatif)",
     "Metadata" : "Métadonnées",
+    "Units (needs page reload to take effect)" : "Unités (effectif après rechargement de la page)",
+    "English" : "Anglaises",
+    "Metric" : "Métriques",
+    "Nautical" : "Nautiques",
     "Upload new symbol image" : "Téléverser une nouvelle image de symbole"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
