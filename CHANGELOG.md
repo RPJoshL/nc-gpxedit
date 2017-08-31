@@ -5,12 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- display line total distance during drawing
+  [#34](https://gitlab.com/eneiluj/gpxedit-oc/issues/34) @stevenhorner
+
 ### Changed
 - update leaflet to 1.2.0
 
 ### Fixed
 - automatically add .gpx extension to save name
   [#33](https://gitlab.com/eneiluj/gpxedit-oc/issues/33) @klakla2
+- reduce DB table name size to pass NC check
+- fix white square size when drawing a polyline under firefox 57
 
 ## 0.0.7 – 2017-06-27
 ### Added
