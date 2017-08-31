@@ -2944,7 +2944,13 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
 			break;
 		case 'feet':
 			distance *= 1.09361 * 3;
-			distanceStr = Math.ceil(distance) + ' ft';
+            if (distance > 1000) {
+                distance *= 0.00018939;
+                distanceStr = distance.toFixed(2) + ' mi';
+            }
+            else {
+                distanceStr = Math.ceil(distance) + ' ft';
+            }
 
 			break;
 		case 'nauticalMile':

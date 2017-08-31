@@ -376,7 +376,6 @@
         metric = (unit === 'metric') ? true : false;
         feet = (unit === 'feet') ? true : false;
         nautic = (unit === 'nautic') ? true : false;
-        console.log(metric + ' ' + feet + ' ' + nautic);
 
         var options = {
             position: 'bottomleft',
