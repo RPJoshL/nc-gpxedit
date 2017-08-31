@@ -116,6 +116,12 @@ echo '</ul>'."\n";
         <option value="h"><?php p($l->t('on hover')); ?></option>
         <option value="p"><?php p($l->t('permanent')); ?></option>
     </select>
+    <label for="unitselect"><?php p($l->t('Units (needs page reload to take effect)'));?>:</label>
+    <select id="unitselect">
+        <option value="metric"><?php p($l->t('Metric')); ?></option>
+        <option value="feet"><?php p($l->t('English')); ?></option>
+        <option value="nautic"><?php p($l->t('Nautical')); ?></option>
+    </select>
     <label title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
     for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
     <input title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"

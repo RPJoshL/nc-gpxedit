@@ -35,10 +35,10 @@ L.Control.Draw.Plus = L.Control.Draw.extend({
 		options.edit = L.extend(this.options.edit, options.edit); // Init false non chosen options
 		options.draw = L.extend(this.options.draw, options.draw);
 		for (var o in options.draw)
-			if (options.draw[o])
-				options.draw[o] = {
-					guideLayers: [this.snapLayers] // Allow snap on creating elements
-				};
+			//if (options.draw[o])
+			//	options.draw[o] = {
+			//		guideLayers: [this.snapLayers] // Allow snap on creating elements
+			//	};
 
 		L.Control.Draw.prototype.initialize.call(this, options);
 	},

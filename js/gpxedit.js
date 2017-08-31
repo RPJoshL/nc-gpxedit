@@ -371,10 +371,17 @@
         //gpxedit.editableLayers = new L.FeatureGroup();
         //gpxedit.map.addLayer(gpxedit.editableLayers);
 
+        var metric, feet, nautic;
+        var unit = $('#unitselect').val();
+        metric = (unit === 'metric') ? true : false;
+        feet = (unit === 'feet') ? true : false;
+        nautic = (unit === 'nautic') ? true : false;
+        console.log(metric + ' ' + feet + ' ' + nautic);
+
         var options = {
             position: 'bottomleft',
             draw: {
-                polyline:true,
+                polyline: {metric: metric, feet: feet, nautic: nautic},
                 polygon: false,
                 circle: false,
                 rectangle: false,
@@ -1385,6 +1392,9 @@
             if (optionsValues.tooltipstyle !== undefined) {
                 $('#tooltipstyleselect').val(optionsValues.tooltipstyle);
             }
+            if (optionsValues.unit !== undefined) {
+                $('#unitselect').val(optionsValues.unit);
+            }
             if (optionsValues.clearbeforeload !== undefined) {
                 $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
             }
@@ -1405,6 +1415,7 @@
         var optionsValues = {};
         optionsValues.markerstyle = $('#markerstyleselect').val();
         optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
+        optionsValues.unit = $('#unitselect').val();
         optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
         optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
         optionsValues.approximateele = $('#approximateele').is(':checked');
@@ -1528,6 +1539,9 @@
         restoreOptions();
         load_map();
 
+        $('select#unitselect').change(function(e) {
+            saveOptions();
+        });
         $('select#markerstyleselect').change(function(e) {
             updateLeafletDrawMarkerStyle();
             saveOptions();

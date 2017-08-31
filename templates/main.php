@@ -12,7 +12,7 @@ script('gpxedit', 'detect_timezone');
 script('gpxedit', 'jquery.detect_timezone');
 script('gpxedit', 'moment-timezone-with-data.min');
 script('gpxedit', 'leaflet.draw-src');
-script('gpxedit', 'leaflet.geometryutil');
+//script('gpxedit', 'leaflet.geometryutil');
 script('gpxedit', 'leaflet.snap');
 script('gpxedit', 'Control.Draw.Plus');
 script('gpxedit', 'Leaflet.LinearMeasurement');
