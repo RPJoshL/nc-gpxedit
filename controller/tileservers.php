@@ -33,7 +33,7 @@ $baseTileServers = [
     Array(
         'name' => 'OpenCycleMap',
         'type' => 'tile',
-        'url' => 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+        'url' => 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',
         'attribution' => '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         'minzoom' => '1',
         'maxzoom' => '18'
@@ -41,7 +41,7 @@ $baseTileServers = [
     Array(
         'name' => 'OpenStreetMap Transport',
         'type' => 'tile',
-        'url' => 'http://a.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png',
+        'url' => 'https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
         'attribution' => 'Map data &copy; 2013 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
         'minzoom' => '1',
         'maxzoom' => '18'
