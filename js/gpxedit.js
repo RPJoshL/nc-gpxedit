@@ -618,11 +618,11 @@
         gpxText = gpxText + '<metadata>\n <time>' + now_utc_str + '</time>\n';
         var trackName = $('#tracknameinput').val();
         if (trackName) {
-            gpxText = gpxText + ' <name>' + trackName + '</name>\n';
+            gpxText = gpxText + ' <name>' + escapeHTML(trackName) + '</name>\n';
         }
         var fileDesc = $('#desctext').val();
         if (fileDesc) {
-            gpxText = gpxText + ' <desc>' + fileDesc + '</desc>\n';
+            gpxText = gpxText + ' <desc>' + escapeHTML(fileDesc) + '</desc>\n';
         }
         var linkurl = $('#linkurlinput').val();
         if (linkurl) {
@@ -708,7 +708,7 @@
                 alt = layer._latlng.alt;
                 gpxText = gpxText + ' <wpt lat="' + lat + '" lon="' + lng + '">\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + name + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
@@ -717,13 +717,13 @@
                     gpxText = gpxText + '  <ele>' + alt + '</ele>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + comment + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
                 }
                 if (symbol) {
                     gpxText = gpxText + '  <sym>' + symbol + '</sym>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + description + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
                 }
                 if (time) {
                     gpxText = gpxText + '  <time>' + time + '</time>\n';
@@ -733,16 +733,16 @@
             else if(!layer.type || layer.type === 'track') {
                 gpxText = gpxText + ' <trk>\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + name + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + comment + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + description + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
                 }
                 gpxText = gpxText + '  <trkseg>\n';
                 for (i = 0; i < layer._latlngs.length; i++) {
@@ -764,16 +764,16 @@
             else if(layer.type === 'route') {
                 gpxText = gpxText + ' <rte>\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + name + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + comment + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + description + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
                 }
                 for (i = 0; i < layer._latlngs.length; i++) {
                     lat = layer._latlngs[i].lat;
