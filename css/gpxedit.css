@@ -785,18 +785,12 @@ h2.popupTitle{
 #clearButton {
     width: 100%;
 }
-#saveButton i{
-    color: blue;
-}
 #clearButton i{
     color: red;
 }
 
 #saveButton, #saveName {
     width: 100%;
-}
-#loadButton i, #loadFolderButton i{
-    color: blue;
 }
 .selectimg{
     background: url('images/symbols/geocache-open.png') no-repeat right 8px center rgba(240, 240, 240, 0.90);
@@ -910,4 +904,13 @@ div#ho button {
     height: 8px !important;
     margin-left: -4px !important;
     margin-top: -4px !important;
+}
+.sidebar-tabs > li.active {          
+    background-color: #E8E8E8;       
+}                                    
+.leaflet-control-locate.active .fa { 
+    color: #2074B6;                  
+}                                    
+.leaflet-control-locate .fa {        
+    color: black;                    
 }
