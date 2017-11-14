@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-10 10:28-0500\n"
+"PO-Revision-Date: 2017-11-14 01:23-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,56 +18,56 @@ msgstr ""
 
 #: app.php:42 admin.php:7
 msgid "GpxEdit"
-msgstr ""
+msgstr "GpxEdit"
 
 #: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: filetypes.js:11
 msgid "Load in GpxEdit"
-msgstr ""
+msgstr "Загрузить в GpxEdit"
 
 #: filetypes.js:36
 msgid "Edit with GpxEdit"
-msgstr ""
+msgstr "Редактировать с GpxEdit"
 
 #: gpxedit.js:399
 msgid "Draw a track"
-msgstr ""
+msgstr "Отобразить трек"
 
 #: gpxedit.js:400
 msgid "Add a waypoint"
-msgstr ""
+msgstr "Добавить путевую точку"
 
 #: gpxedit.js:401
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr ""
+msgstr "Нечего изменять"
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
-msgstr ""
+msgstr "Нечего удалять"
 
 #: gpxedit.js:405
 msgid "Validate changes"
-msgstr ""
+msgstr "Проверка изменений"
 
 #: gpxedit.js:406
 msgid "Ok"
-msgstr ""
+msgstr "Ок"
 
 #: gpxedit.js:407
 msgid "Discard all changes"
-msgstr ""
+msgstr "Отменить все изменения"
 
 #: gpxedit.js:408 gpxedit.js:416
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
@@ -75,43 +75,43 @@ msgstr ""
 
 #: gpxedit.js:410
 msgid "Click cancel to undo changes"
-msgstr ""
+msgstr "Нажмите Отмена для отмены изменений"
 
 #: gpxedit.js:411
 msgid "Click on an element to delete it"
-msgstr ""
+msgstr "Щёлкните на элемент для его удаления"
 
 #: gpxedit.js:412
 msgid "Click map to add waypoint"
-msgstr ""
+msgstr "Щёлкните на карте для добавления путевой точки"
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Щёлкните, чтобы начать рисовать трек"
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Щёлкните, чтобы продолжить рисовать трек"
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
-msgstr ""
+msgstr "Щелкните на последней точке, чтобы закончить трек"
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Отменить рисование"
 
 #: gpxedit.js:418
 msgid "Finish"
-msgstr ""
+msgstr "Завершить"
 
 #: gpxedit.js:419
 msgid "Finish drawing"
-msgstr ""
+msgstr "Закончить рисование"
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Удалить последнюю точку"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
@@ -215,7 +215,7 @@ msgstr ""
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: gpxedit.js:1436
 msgid "Failed to save options values"
