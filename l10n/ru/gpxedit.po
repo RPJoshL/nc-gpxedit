@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-14 01:23-0500\n"
+"PO-Revision-Date: 2017-11-14 01:32-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -115,103 +115,103 @@ msgstr "Удалить последнюю точку"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
-msgstr ""
+msgstr "Удалить последнюю нарисованную точку"
 
 #: gpxedit.js:486
 msgid "Track"
-msgstr ""
+msgstr "Трек"
 
 #: gpxedit.js:491
 msgid "Route"
-msgstr ""
+msgstr "Маршрут"
 
 #: gpxedit.js:496
 msgid "Waypoint"
-msgstr ""
+msgstr "Путевая точка"
 
 #: gpxedit.js:501
 msgid "Name"
-msgstr ""
+msgstr "Название"
 
 #: gpxedit.js:502
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: gpxedit.js:503
 msgid "Comment"
-msgstr ""
+msgstr "Комментарий"
 
 #: gpxedit.js:505
 msgid "Lat"
-msgstr ""
+msgstr "Шир"
 
 #: gpxedit.js:507
 msgid "Lon"
-msgstr ""
+msgstr "Долг"
 
 #: gpxedit.js:509
 msgid "Symbol"
-msgstr ""
+msgstr "Символ"
 
 #: gpxedit.js:512
 msgid "No symbol"
-msgstr ""
+msgstr "Без символа"
 
 #: gpxedit.js:514
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Неизвестный символ"
 
 #: gpxedit.js:975
 msgid "Failed to save file"
-msgstr ""
+msgstr "Не удалось сохранить файл"
 
 #: gpxedit.js:993
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Файл сохранён как"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
-msgstr ""
+msgstr "Невозможно загрузить файл. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Поддерживаются форматы gpx, kml, csv (unicsv) и jpg."
 
 #: gpxedit.js:1106
 msgid "Load error"
-msgstr ""
+msgstr "Ошибка загрузки"
 
 #: gpxedit.js:1209
 msgid "Tile server \"{ts}\" has been deleted"
-msgstr ""
+msgstr "Сервер тайлов \"{ts}\" был удалён"
 
 #: gpxedit.js:1212 gpxedit.js:1216
 msgid "Failed to delete tile server \"{ts}\""
-msgstr ""
+msgstr "Ошибка удаления сервера тайлов \"{ts}\""
 
 #: gpxedit.js:1231
 msgid "Server name or server url should not be empty"
-msgstr ""
+msgstr "Имя и адрес сервера не могут быть пустыми"
 
 #: gpxedit.js:1232 gpxedit.js:1237
 msgid "Impossible to add tile server"
-msgstr ""
+msgstr "Невозможно добавить сервер"
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
-msgstr ""
+msgstr "Сервер с таким именем уже существует"
 
 #: gpxedit.js:1302
 msgid "Tile server \"{ts}\" has been added"
-msgstr ""
+msgstr "Тайловый сервер \"{ts}\" добавлен"
 
 #: gpxedit.js:1305 gpxedit.js:1309
 msgid "Failed to add tile server \"{ts}\""
-msgstr ""
+msgstr "Ошибка добавления тайлового сервера \"{ts}\""
 
 #: gpxedit.js:1381
 msgid "Failed to restore options values"
-msgstr ""
+msgstr "Ошибка восстановления настроек"
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
@@ -219,59 +219,59 @@ msgstr "Ошибка"
 
 #: gpxedit.js:1436
 msgid "Failed to save options values"
-msgstr ""
+msgstr "Ошибка сохранения настроек"
 
 #: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
 msgid "Impossible to write file"
-msgstr ""
+msgstr "Невозможно записать файл"
 
 #: gpxedit.js:1504
 msgid "write access denied"
-msgstr ""
+msgstr "отсутствует доступ на запись"
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr ""
+msgstr "папка не существует"
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
-msgstr ""
+msgstr "отсутствует доступ на запись в папку"
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
-msgstr ""
+msgstr "Файл должен иметь расширение \".gpx\""
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
-msgstr ""
+msgstr "Загрузить файл (gpx, kml, csv, png)"
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr ""
+msgstr "Открыть папку"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Нечего сохранять"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr ""
+msgstr "Куда сохранять"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "влево"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "вправо"
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Дополнительные символы"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Эти символы будут доступны в GpxEdit."
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
@@ -471,51 +471,51 @@ msgstr ""
 
 #: gpxcontent.php:188 gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
-msgstr ""
+msgstr "Прозрачность (0.0-1.0)"
 
 #: gpxcontent.php:193
 msgid "Your overlay tile servers"
-msgstr ""
+msgstr "Сервера тайлов оверлея"
 
 #: gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr ""
+msgstr "Сервера тайлов WMS"
 
 #: gpxcontent.php:230 gpxcontent.php:280
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: gpxcontent.php:232 gpxcontent.php:282
 msgid "WMS version"
-msgstr ""
+msgstr "Версия WMS"
 
 #: gpxcontent.php:234 gpxcontent.php:284
 msgid "Layers to display"
-msgstr ""
+msgstr "Отображать слои"
 
 #: gpxcontent.php:239
 msgid "Your WMS tile servers"
-msgstr ""
+msgstr "Сервера тайлов WMS"
 
 #: gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr ""
+msgstr "Сервера тайлов оверлея WMS"
 
 #: gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr ""
+msgstr "Сервера тайлов оверлея WMS"
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr ""
+msgstr "Обзор функций"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr ""
+msgstr "Кнопки рисования, редактирования и удаления находятся в левом нижнем углу карты."
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr ""
+msgstr "Вы можете нарисовать линию или добавить маркер."
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
@@ -527,41 +527,41 @@ msgstr ""
 
 #: gpxcontent.php:332
 msgid "move markers"
-msgstr ""
+msgstr "перемещение маркеров"
 
 #: gpxcontent.php:333
 msgid "move line points"
-msgstr ""
+msgstr "перемещение точек линии"
 
 #: gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr ""
+msgstr "щёлкните на точку линии, чтобы удалить её"
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr ""
+msgstr "наведите курсор между двумя точками линии и нажмите кнопку «Удалить» чтобы разрезать линию на две части (это действие не может быть отменено)"
 
 #: gpxcontent.php:338
 msgid "Shortcuts"
-msgstr ""
+msgstr "Ярлыки"
 
 #: gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr ""
+msgstr "переключить панель"
 
 #: gpxcontent.php:341
 msgid "toggle minimap"
-msgstr ""
+msgstr "переключить миникарту"
 
 #: gpxcontent.php:344
 msgid "Documentation"
-msgstr ""
+msgstr "Документация"
 
 #: gpxcontent.php:352
 msgid "Source management"
-msgstr ""
+msgstr "Управление источниками"
 
 #: gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Авторы"
 
