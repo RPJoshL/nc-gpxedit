@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:32-0500\n"
+"PO-Revision-Date: 2017-11-20 15:44-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -279,103 +279,103 @@ msgstr "Houd in gedachten dat alleen symbool namen in gpx-bestanden worden opges
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr ""
+msgstr "Aanbevolen beeldverhouding: 1:1"
 
 #: admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
-msgstr ""
+msgstr "Aanbevolen afbeeldingsresolutie: 24 x 24 à 50 x 50"
 
 #: admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Geaccepteerd beeldformaat: png"
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Nieuwe symboolnaam"
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Upload nieuwe afbeelding van het symbool"
 
 #: gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Laden en opslaan van bestanden"
 
 #: gpxcontent.php:5 gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Opties"
 
 #: gpxcontent.php:6 gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "Over GpxEdit"
 
 #: gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Bestand laden"
 
 #: gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Laad map"
 
 #: gpxcontent.php:27
 msgid "all files"
-msgstr ""
+msgstr "alle bestanden"
 
 #: gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Bestandsnaam"
 
 #: gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #: gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Tracknaam (optioneel)"
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Omschrijving (optioneel)"
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Link tekst (optioneel)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "Link URL (optioneel)"
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Kies map en sla op"
 
 #: gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Wis kaart"
 
 #: gpxcontent.php:65
 msgid "loading file"
-msgstr ""
+msgstr "bestand laden"
 
 #: gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr ""
+msgstr "bestand exporteren naar gpx"
 
 #: gpxcontent.php:73
 msgid "saving file"
-msgstr ""
+msgstr "bestand opslaan"
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr ""
+msgstr "Standaard symbool voor waypoints als de waarde niet ingesteld is"
 
 #: gpxcontent.php:110
 msgid "Waypoint style"
-msgstr ""
+msgstr "Waypoint stijl"
 
 #: gpxcontent.php:114
 msgid "Tooltip"
