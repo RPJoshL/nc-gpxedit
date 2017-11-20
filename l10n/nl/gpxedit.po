@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:19-0500\n"
+"PO-Revision-Date: 2017-11-20 15:23-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -219,27 +219,27 @@ msgstr "Fout"
 
 #: gpxedit.js:1436
 msgid "Failed to save options values"
-msgstr ""
+msgstr "Opties konden niet opgeslagen worden"
 
 #: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
 msgid "Impossible to write file"
-msgstr ""
+msgstr "Opslaan van bestand niet mogelijk"
 
 #: gpxedit.js:1504
 msgid "write access denied"
-msgstr ""
+msgstr "schrijftoegang geweigerd"
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr ""
+msgstr "map bestaat niet"
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
-msgstr ""
+msgstr "schrijftoegang op map geweigerd"
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
-msgstr ""
+msgstr "Onjuiste bestandsnaam, moet eindigen op \".gpx\""
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
