@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:46-0500\n"
+"PO-Revision-Date: 2017-11-20 16:02-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -391,31 +391,31 @@ msgstr "permanent"
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
-msgstr ""
+msgstr "Eenheden (herlaad pagina om te activeren)"
 
 #: gpxcontent.php:121
 msgid "Metric"
-msgstr ""
+msgstr "Metrisch"
 
 #: gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Engels"
 
 #: gpxcontent.php:123
 msgid "Nautical"
-msgstr ""
+msgstr "Nautisch"
 
 #: gpxcontent.php:125 gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
-msgstr ""
+msgstr "Gebruik gedefinieerde symbolen in plaats van standaard symbool"
 
 #: gpxcontent.php:126
 msgid "Use defined symbols"
-msgstr ""
+msgstr "Gedefinieerde symbolen gebruiken"
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr ""
+msgstr "Kaart wissen voor het laden"
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
