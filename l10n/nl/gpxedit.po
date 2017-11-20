@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:23-0500\n"
+"PO-Revision-Date: 2017-11-20 15:32-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -243,39 +243,39 @@ msgstr "Onjuiste bestandsnaam, moet eindigen op \".gpx\""
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
-msgstr ""
+msgstr "Laad bestand (gpx, kml, csv, png)"
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr ""
+msgstr "Laad map"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Er is niets op te slaan"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr ""
+msgstr "Waar opslaan"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "links"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "rechts"
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Extra symbolen"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Deze symbolen zullen beschikbaar zijn in GpxEdit."
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr ""
+msgstr "Houd in gedachten dat alleen symbool namen in gpx-bestanden worden opgeslagen. In andere programma's wordt standaard symbool weergegeven als ze niet de naam van een symbool weten."
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
