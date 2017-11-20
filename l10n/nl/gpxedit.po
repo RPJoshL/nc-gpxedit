@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:14-0500\n"
+"PO-Revision-Date: 2017-11-20 15:19-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -539,29 +539,29 @@ msgstr "klik op een punt van de lijn om deze te verwijderen"
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr ""
+msgstr "zweef boven een \"middenmarkering\" (tussen twee punten van de lijn) en druk op \"Del\" om de lijn in tweeën te snijden (deze actie kan niet worden geannuleerd)"
 
 #: gpxcontent.php:338
 msgid "Shortcuts"
-msgstr ""
+msgstr "Sneltoetsen"
 
 #: gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr ""
+msgstr "zijbalk tonen/verbergen"
 
 #: gpxcontent.php:341
 msgid "toggle minimap"
-msgstr ""
+msgstr "minimap tonen/verbergen"
 
 #: gpxcontent.php:344
 msgid "Documentation"
-msgstr ""
+msgstr "Documentatie"
 
 #: gpxcontent.php:352
 msgid "Source management"
-msgstr ""
+msgstr "Bron beheer"
 
 #: gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Auteurs"
 
