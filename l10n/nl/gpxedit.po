@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:44-0500\n"
+"PO-Revision-Date: 2017-11-20 15:46-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -379,15 +379,15 @@ msgstr "Waypoint stijl"
 
 #: gpxcontent.php:114
 msgid "Tooltip"
-msgstr ""
+msgstr "Tooltip"
 
 #: gpxcontent.php:116
 msgid "on hover"
-msgstr ""
+msgstr "bij zweven"
 
 #: gpxcontent.php:117
 msgid "permanent"
-msgstr ""
+msgstr "permanent"
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
