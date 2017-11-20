@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-10 10:29-0500\n"
+"PO-Revision-Date: 2017-11-20 15:03-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -87,11 +87,11 @@ msgstr ""
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Anuluj rysowanie"
 
 #: gpxedit.js:418
 msgid "Finish"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Usuń ostatni punkt"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
@@ -163,11 +163,11 @@ msgstr ""
 
 #: gpxedit.js:975
 msgid "Failed to save file"
-msgstr ""
+msgstr "Nie udało się zapisać pliku"
 
 #: gpxedit.js:993
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Plik zapisany pomyślnie jako"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
