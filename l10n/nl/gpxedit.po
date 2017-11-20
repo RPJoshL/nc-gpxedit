@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-20 15:02-0500\n"
+"PO-Revision-Date: 2017-11-20 15:14-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -507,35 +507,35 @@ msgstr "Jouw WMS overlay tile servers"
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr ""
+msgstr "Features overzicht"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr ""
+msgstr "Knoppen voor tekenen, bewerken en verwijderen zijn in de linkerbenedenhoek van de kaart."
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr ""
+msgstr "Je kunt een lijn tekenen of een markering toevoegen."
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr ""
+msgstr "Als je op een lijn of markering klikt, verschijnt een popup waarin je de objecteigenschappen kunt instellen."
 
 #: gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr ""
+msgstr "Na het klikken op de knop \"bewerken\", kun je in bewerkmodus"
 
 #: gpxcontent.php:332
 msgid "move markers"
-msgstr ""
+msgstr "markeringen verplaatsen"
 
 #: gpxcontent.php:333
 msgid "move line points"
-msgstr ""
+msgstr "lijn punten verplaatsen"
 
 #: gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr ""
+msgstr "klik op een punt van de lijn om deze te verwijderen"
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
