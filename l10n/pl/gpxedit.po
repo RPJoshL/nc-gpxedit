@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-10 10:29-0500\n"
+"PO-Revision-Date: 2017-11-20 15:19-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -87,11 +87,11 @@ msgstr ""
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Anuluj rysowanie"
 
 #: gpxedit.js:418
 msgid "Finish"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Usuń ostatni punkt"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
@@ -163,11 +163,11 @@ msgstr ""
 
 #: gpxedit.js:975
 msgid "Failed to save file"
-msgstr ""
+msgstr "Nie udało się zapisać pliku"
 
 #: gpxedit.js:993
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Plik zapisany pomyślnie jako"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
@@ -175,7 +175,7 @@ msgstr ""
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Obsługiwane formaty: gpx, kml, csv (unicsv) i jpg."
 
 #: gpxedit.js:1106
 msgid "Load error"
@@ -199,7 +199,7 @@ msgstr ""
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
-msgstr ""
+msgstr "Serwer o tej nazwie już istnieje"
 
 #: gpxedit.js:1302
 msgid "Tile server \"{ts}\" has been added"
@@ -251,31 +251,31 @@ msgstr ""
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Nic do zapisania"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr ""
+msgstr "Gdzie zapisać"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "w lewo"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "w prawo"
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Dodatkowe symbole"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Symbole te będą dostępne w GpxEdit."
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr ""
+msgstr "Należy pamiętać, że tylko nazwy symboli są zapisywane w plikach gpx. Inne programy będą wyświetlać domyślne symbole, jeśli nie będę znać nazwy symbolu."
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
@@ -287,47 +287,47 @@ msgstr ""
 
 #: admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Akceptowany format obrazu: png"
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Nowa nazwa symbolu"
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Prześlij nowy obraz symbolu"
 
 #: gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Załaduj i zapisz pliki"
 
 #: gpxcontent.php:5 gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Opcje"
 
 #: gpxcontent.php:6 gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "O GpxEdit"
 
 #: gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Załaduj plik"
 
 #: gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Załaduj katalog"
 
 #: gpxcontent.php:27
 msgid "all files"
-msgstr ""
+msgstr "wszystkie pliki"
 
 #: gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Nazwa pliku"
 
 #: gpxcontent.php:40
 msgid "Metadata"
@@ -335,31 +335,31 @@ msgstr ""
 
 #: gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Nazwa utworu (opcjonalnie)"
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Opis (opcjonalnie)"
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Link do tekstu (opcjonalnie)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "Link URL (opcjonalnie)"
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Wybierz katalog i zapisz"
 
 #: gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Wyczyść mapę"
 
 #: gpxcontent.php:65
 msgid "loading file"
-msgstr ""
+msgstr "ładowanie pliku"
 
 #: gpxcontent.php:69
 msgid "exporting file to gpx"
@@ -367,7 +367,7 @@ msgstr ""
 
 #: gpxcontent.php:73
 msgid "saving file"
-msgstr ""
+msgstr "zapisywanie pliku"
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr ""
+msgstr "Wyczyść mapę przed załadowaniem"
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
@@ -427,7 +427,7 @@ msgstr ""
 
 #: gpxcontent.php:138 gpxcontent.php:178 gpxcontent.php:222 gpxcontent.php:268
 msgid "Server name"
-msgstr ""
+msgstr "Nazwa servera"
 
 #: gpxcontent.php:139 gpxcontent.php:179 gpxcontent.php:223 gpxcontent.php:269
 msgid "For example : my custom server"
@@ -443,7 +443,7 @@ msgstr ""
 
 #: gpxcontent.php:142 gpxcontent.php:182 gpxcontent.php:226 gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr ""
+msgstr "Mini zoom (1-20)"
 
 #: gpxcontent.php:144 gpxcontent.php:184 gpxcontent.php:228 gpxcontent.php:274
 msgid "Max zoom (1-20)"
