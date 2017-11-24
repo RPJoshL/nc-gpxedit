@@ -11,12 +11,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - update leaflet to 1.2.0
+- update opencyclemap and transport map URLs
+- adapt style to NC theme
 
 ### Fixed
 - automatically add .gpx extension to save name
   [#33](https://gitlab.com/eneiluj/gpxedit-oc/issues/33) @klakla2
 - reduce DB table name size to pass NC check
 - fix white square size when drawing a polyline under firefox 57
+- correct osm france options
+- escape HTML chars in all fields to save
 
 ## 0.0.7 – 2017-06-27
 ### Added
