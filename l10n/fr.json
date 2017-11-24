@@ -59,6 +59,8 @@
     "Load folder" : "Charger un dossier",
     "There is nothing to save" : "Il n'y a rien à sauver",
     "Where to save" : "Où enregistrer",
+    "left" : "gauche",
+    "right" : "droite",
     "Extra symbols" : "Symboles supplémentaires",
     "Those symbols will be available in GpxEdit." : "Ces symboles seront disponibles dans GpxEdit",
     "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name." : "Gardez à l'esprit que seuls les noms de symboles sont sauvés dans les fichiers gpx. D'autres programmes afficheront un symbole par défaut s'ils ne connaissent pas un nom de symbole.",
