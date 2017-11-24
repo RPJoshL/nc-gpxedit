@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-10 10:50-0500\n"
+"PO-Revision-Date: 2017-11-22 04:35-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -259,11 +259,11 @@ msgstr "Où enregistrer"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "gauche"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "droite"
 
 #: admin.php:8
 msgid "Extra symbols"
