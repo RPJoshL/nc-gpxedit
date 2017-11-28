@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-27 17:03-0500\n"
+"PO-Revision-Date: 2017-11-28 16:20-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -259,11 +259,11 @@ msgstr "Wo speichern"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "Links"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "Rechts"
 
 #: admin.php:8
 msgid "Extra symbols"
@@ -331,11 +331,11 @@ msgstr "Dateiname"
 
 #: gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metadaten"
 
 #: gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Streckenbezeichnung (optional)"
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
@@ -391,19 +391,19 @@ msgstr "permanent"
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
-msgstr ""
+msgstr "Maßeinheiten (Neuladen der Seite erforderlich, um Änderung zu übernehmen)"
 
 #: gpxcontent.php:121
 msgid "Metric"
-msgstr ""
+msgstr "Metrisches Maßsystem"
 
 #: gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Englisch"
 
 #: gpxcontent.php:123
 msgid "Nautical"
-msgstr ""
+msgstr "Nautisches Maßsystem"
 
 #: gpxcontent.php:125 gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
