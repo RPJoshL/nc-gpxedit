@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-28 16:20-0500\n"
+"PO-Revision-Date: 2017-11-28 16:23-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -399,7 +399,7 @@ msgstr "Metrisches Maßsystem"
 
 #: gpxcontent.php:122
 msgid "English"
-msgstr "Englisch"
+msgstr "Angloamerikanischen Maßsysteme"
 
 #: gpxcontent.php:123
 msgid "Nautical"
