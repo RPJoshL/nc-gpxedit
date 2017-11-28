@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-28 16:23-0500\n"
+"PO-Revision-Date: 2017-11-28 16:42-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -35,11 +35,11 @@ msgstr "Mit GpxEdit bearbeiten"
 
 #: gpxedit.js:399
 msgid "Draw a track"
-msgstr "Einen Track zeichnen"
+msgstr "Strecke zeichnen"
 
 #: gpxedit.js:400
 msgid "Add a waypoint"
-msgstr "Eine Markierung hinzufügen"
+msgstr "Wegpunkt hinzufügen"
 
 #: gpxedit.js:401
 msgid "Edit"
@@ -47,7 +47,7 @@ msgstr "Bearbeiten"
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr "Nichts zu bearbeiten"
+msgstr "Keine Änderungen erforderlich"
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
