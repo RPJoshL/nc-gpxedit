@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-28 16:42-0500\n"
+"PO-Revision-Date: 2017-11-30 08:32-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -75,27 +75,27 @@ msgstr "Ziehen verschiebt Elemente,<br/>Klick entfernt einen Punkt<br/>Über ein
 
 #: gpxedit.js:410
 msgid "Click cancel to undo changes"
-msgstr "Auf Abbrechen klicken um die Änderungen zu verwerfen"
+msgstr "Auf Abbrechen klicken, um die Änderungen zu verwerfen"
 
 #: gpxedit.js:411
 msgid "Click on an element to delete it"
-msgstr "Auf ein Element klicken um es zu löschen"
+msgstr "Auf ein Element klicken, um es zu löschen"
 
 #: gpxedit.js:412
 msgid "Click map to add waypoint"
-msgstr "In die Karte klicken um eine Markierung hinzuzufügen"
+msgstr "In die Karte klicken, um eine Wegpunkt hinzuzufügen"
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr "Klicken, um einen neuen Weg zu zeichnen"
+msgstr "Klicken, um eine neue Strecke zu zeichnen"
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr "Klicken, um das Zeichnen eines Weges fortzuführen"
+msgstr "Klicken, um mit dem Zeichnen der Strecke fortzusetzen"
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
-msgstr "Klick auf den letzen Punkt beendet den Weg"
+msgstr "Klicken Sie auf den letzten Datenpunkt, um die Steckenzeichnung zu beenden"
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
@@ -111,23 +111,23 @@ msgstr "Zeichnen beenden"
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr "Letzten Punkt löschen"
+msgstr "Letzten Datenpunkt löschen"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
-msgstr "Letzten gezeichneten Punkt löschen"
+msgstr "Letzten gezeichneten Datenpunkt löschen"
 
 #: gpxedit.js:486
 msgid "Track"
-msgstr "Track"
+msgstr "Strecke"
 
 #: gpxedit.js:491
 msgid "Route"
-msgstr "Route"
+msgstr "Wegstrecke"
 
 #: gpxedit.js:496
 msgid "Waypoint"
-msgstr "Markierung"
+msgstr "Wegpunkt"
 
 #: gpxedit.js:501
 msgid "Name"
@@ -143,11 +143,11 @@ msgstr "Kommentar"
 
 #: gpxedit.js:505
 msgid "Lat"
-msgstr "Lat"
+msgstr "Breitengrad"
 
 #: gpxedit.js:507
 msgid "Lon"
-msgstr "Lon"
+msgstr "Längengrad"
 
 #: gpxedit.js:509
 msgid "Symbol"
@@ -155,7 +155,7 @@ msgstr "Symbol"
 
 #: gpxedit.js:512
 msgid "No symbol"
-msgstr "kein Symbol"
+msgstr "Kein Symbol"
 
 #: gpxedit.js:514
 msgid "Unknown symbol"
@@ -171,7 +171,7 @@ msgstr "Datei erfolgreich gespeichert als:"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
-msgstr "Datei kann nicht geladen werden. "
+msgstr "Datei konnte nicht geladen werden. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
@@ -179,15 +179,15 @@ msgstr "Unterstützte Formate sind gpx, kml, csv (unicsv) und jpg"
 
 #: gpxedit.js:1106
 msgid "Load error"
-msgstr "Fehler beim Laden"
+msgstr "Ladefehler"
 
 #: gpxedit.js:1209
 msgid "Tile server \"{ts}\" has been deleted"
-msgstr "Tile-Server \"{ts}\" wurde gelöscht"
+msgstr "Der Kachelserver „{ts}” wurde gelöscht"
 
 #: gpxedit.js:1212 gpxedit.js:1216
 msgid "Failed to delete tile server \"{ts}\""
-msgstr "Kann Tile-Server \"{ts}\" nicht löschen"
+msgstr "Kachelserver „{ts}” konnte nicht gelöscht werden"
 
 #: gpxedit.js:1231
 msgid "Server name or server url should not be empty"
@@ -195,7 +195,7 @@ msgstr "Servername oder Server-URL dürfen nicht leer sein"
 
 #: gpxedit.js:1232 gpxedit.js:1237
 msgid "Impossible to add tile server"
-msgstr "Tile-Server kann nicht hinzugefügt werden"
+msgstr "Kachelserver konnte nicht hinzugefügt werden"
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
@@ -203,15 +203,15 @@ msgstr "Ein Server mit diesem Namen existiert bereits"
 
 #: gpxedit.js:1302
 msgid "Tile server \"{ts}\" has been added"
-msgstr "Tile-Server \"{ts}\" wurde hinzugefügt"
+msgstr "Kachelserver „{ts}” wurde hinzugefügt"
 
 #: gpxedit.js:1305 gpxedit.js:1309
 msgid "Failed to add tile server \"{ts}\""
-msgstr "Kann Tile-Server \"{ts}\" nicht hinzufügen"
+msgstr "Kachelserver „{ts}” konnte nicht hinzugefügt werden"
 
 #: gpxedit.js:1381
 msgid "Failed to restore options values"
-msgstr "Wiederherstellen der Einstellungen fehlgeschlagen"
+msgstr "Einstellungen konnten nicht wiederhergestellt werden"
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
@@ -223,7 +223,7 @@ msgstr "Speichern der Einstellungen fehlgeschlagen"
 
 #: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
 msgid "Impossible to write file"
-msgstr "Kann Datei nicht schreiben"
+msgstr "Datei konnte nicht geschrieben werden"
 
 #: gpxedit.js:1504
 msgid "write access denied"
@@ -239,23 +239,23 @@ msgstr "Schreibzugriff auf Verzeichnis verweigert"
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
-msgstr "Falscher Dateiname, er muss auf \".gpx\" enden"
+msgstr "Ungültiger Dateiname: Dateiendung GPX erforderlich"
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
-msgstr "Datei laden (gpx, kml, csv, png)"
+msgstr "Datei laden (GPX, KML, CSV, PNG)"
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr "Lade Verzeichnis"
+msgstr "Ordner laden"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr "Es gibt nichts zu speichern"
+msgstr "Keine Daten die gespeichert werden müssen"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr "Wo speichern"
+msgstr "Speicherort angeben"
 
 #: leaflet.js:5
 msgid "left"
@@ -275,27 +275,27 @@ msgstr "Diese Symbole sind in GpxEdit verfügbar"
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr "Nur die Namen der Symbole werden in der GPX-Datei abgelegt. Andere Programme stellen ein Standard-Symbol dar, wenn sie diesen Namen nicht kennen."
+msgstr "Beachten Sie, dass nur die Symbolnamen in GPX-Dateien gespeichert werden. Andere Anwendungen zeigen das Standardsymbol an, wenn diese keinen Symbolnamen erkennen."
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr "Empfohlenes Bildverhältnis : 1:1"
+msgstr "Empfohlenes Seitenverhältnis: 1:1"
 
 #: admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
-msgstr "Empfohlene Bildgröße: zwischen 24x24 und 50x50"
+msgstr "Empfohlene Grafikgröße: zwischen 24x24px und 50x50px"
 
 #: admin.php:36
 msgid "Accepted image format : png"
-msgstr "Erlaubtes Bildformat: png"
+msgstr "Zulässiges Grafikformat: PNG"
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr "Name für das neue Symbol"
+msgstr "Neuer Symbolname"
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr "Neues Symbol hochladen"
+msgstr "Neues Symboldatei hochladen"
 
 #: gpxcontent.php:4
 msgid "Load and save files"
@@ -315,7 +315,7 @@ msgstr "Datei laden"
 
 #: gpxcontent.php:25
 msgid "Load directory"
-msgstr "Verzeichnis laden"
+msgstr "Ordner laden"
 
 #: gpxcontent.php:27
 msgid "all files"
@@ -343,39 +343,39 @@ msgstr "Beschreibung (optional)"
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr "Link-Text (optional)"
+msgstr "Link-Beschreibung (optional)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr "Link-URL (optional)"
+msgstr "Link-Adresse (optional)"
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr "Verzeichnis wählen und speichern"
+msgstr "Ordner wählen und speichern"
 
 #: gpxcontent.php:54
 msgid "Clear map"
-msgstr "Karte löschen"
+msgstr "Karte leeren"
 
 #: gpxcontent.php:65
 msgid "loading file"
-msgstr "lade Datei"
+msgstr "Datei wird geladen"
 
 #: gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr "Datei als gpx exportieren"
+msgstr "Datei als GPX exportieren"
 
 #: gpxcontent.php:73
 msgid "saving file"
-msgstr "speichere Datei"
+msgstr "Datei speichern"
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr "Standardsymbol für Markierungen"
+msgstr "Standardsymbol für Wegpunkte, wenn kein Werte festgelegt ist."
 
 #: gpxcontent.php:110
 msgid "Waypoint style"
-msgstr "Markierungstyp"
+msgstr "Stil der Wegpunkte"
 
 #: gpxcontent.php:114
 msgid "Tooltip"
@@ -383,11 +383,11 @@ msgstr "Tooltip"
 
 #: gpxcontent.php:116
 msgid "on hover"
-msgstr "beim Überfahren"
+msgstr "Beim darauf zeigen"
 
 #: gpxcontent.php:117
 msgid "permanent"
-msgstr "permanent"
+msgstr "Dauerhaft"
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
@@ -407,11 +407,11 @@ msgstr "Nautisches Maßsystem"
 
 #: gpxcontent.php:125 gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
-msgstr "Benutze definierte Symbole anstatt dem Standardsymbol"
+msgstr "Festgelegte Symbole anstelle von Standardsymbolen verwenden"
 
 #: gpxcontent.php:126
 msgid "Use defined symbols"
-msgstr "Benutze definierte Symbole"
+msgstr "Festgelegte Symbole verwenden"
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
@@ -419,11 +419,11 @@ msgstr "Lösche Karte vor dem Laden"
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
-msgstr "Höhe für neue Punkte mitteln"
+msgstr "Neue ungefähre Höhenangaben des Datenpunkts"
 
 #: gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr "Eigene Kachel-Server"
+msgstr "Benutzerdefinierter Kachelserver"
 
 #: gpxcontent.php:138 gpxcontent.php:178 gpxcontent.php:222 gpxcontent.php:268
 msgid "Server name"
@@ -435,7 +435,7 @@ msgstr "Zum Beispiel: Mein XY-Server"
 
 #: gpxcontent.php:140 gpxcontent.php:180 gpxcontent.php:224 gpxcontent.php:270
 msgid "Server url"
-msgstr "Server-URL"
+msgstr "Serveradresse"
 
 #: gpxcontent.php:141 gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
@@ -443,11 +443,11 @@ msgstr "Zum Beispiel: http://tile.server.org/cycle/{z}/{x}/{y}.png"
 
 #: gpxcontent.php:142 gpxcontent.php:182 gpxcontent.php:226 gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr "min. Zoom (1-20)"
+msgstr "Vergrößerung mind. (1-20)"
 
 #: gpxcontent.php:144 gpxcontent.php:184 gpxcontent.php:228 gpxcontent.php:274
 msgid "Max zoom (1-20)"
-msgstr "max. Zoom (1-20)"
+msgstr "Vergrößerung max. (1-20)"
 
 #: gpxcontent.php:146 gpxcontent.php:190 gpxcontent.php:236 gpxcontent.php:286
 msgid "Add"
@@ -455,11 +455,11 @@ msgstr "Hinzufügen"
 
 #: gpxcontent.php:149
 msgid "Your tile servers"
-msgstr "Eigene Kachel-Server"
+msgstr "Eigene Kachelserver"
 
 #: gpxcontent.php:175
 msgid "Custom overlay tile servers"
-msgstr "Eigene Overlay-Kachel-Server"
+msgstr "Benutzerdefinierte Überlagerungs-Kachel-Server"
 
 #: gpxcontent.php:181 gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
@@ -475,11 +475,11 @@ msgstr "Deckkraft (0.0-1.0)"
 
 #: gpxcontent.php:193
 msgid "Your overlay tile servers"
-msgstr "Eigene Overlay-Kachel-Server"
+msgstr "Eigener Überlagerungs-Kachelserver"
 
 #: gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr "Eigene WMS-Server"
+msgstr "Benutzerdefinierter WMS-Kachelserver"
 
 #: gpxcontent.php:230 gpxcontent.php:280
 msgid "Format"
@@ -491,19 +491,19 @@ msgstr "WMS-Version"
 
 #: gpxcontent.php:234 gpxcontent.php:284
 msgid "Layers to display"
-msgstr "anzuzeigende Layer"
+msgstr "Anzuzeigende Ebenen"
 
 #: gpxcontent.php:239
 msgid "Your WMS tile servers"
-msgstr "Eigene WMS-Server"
+msgstr "Ihr WMS-Kachelserver"
 
 #: gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr "Eigene WMS-Overlay-Server"
+msgstr "Benutzerdefinierte WMS-Überlagerungs-Kachelserver"
 
 #: gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr "Eigene WMS-Overlay-Server"
+msgstr "Ihr WMS-Überlagerungs-Kachelserver"
 
 #: gpxcontent.php:318
 msgid "Features overview"
@@ -511,19 +511,19 @@ msgstr "Feature-Überblick"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr "Buttons zum Zeichnen, Bearbeiten und Löschen sind in der linken unteren Ecke der Karte."
+msgstr "Die Schaltflächen zum Zeichnen, Bearbeiten und Löschen befinden sich in der linken unteren Ecke der Karte."
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr "Sie können einen Weg zeichnen oder eine Markierung hinzufügen."
+msgstr "Sie können eine Linie zeichnen oder eine Markierung hinzufügen."
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr "Mit einem Klick auf einen Weg oder eine Markierung können Sie die Eigenschaften des Objekts in einem Popup-Fenster bearbeiten."
+msgstr "Wenn Sie auf eine Linie oder eine Markierung klicken, öffnet sich ein Popup-Fenster, in dem Sie die Objekteigenschaften einstellen können."
 
 #: gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr "Nach einem Klick auf \"bearbeiten\" können Sie im Bearbeiten-Modus"
+msgstr "Nach einem Klick auf die Schaltfläche „Bearbeiten” können Sie im Bearbeitungsmodus:"
 
 #: gpxcontent.php:332
 msgid "move markers"
@@ -531,27 +531,27 @@ msgstr "Markierungen verschieben"
 
 #: gpxcontent.php:333
 msgid "move line points"
-msgstr "Punkte eines Weges verschieben"
+msgstr "Datenpunkte einer Steckenführung verschieben"
 
 #: gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr "auf einen Punkt eines Weges klicken, um ihn zu löschen"
+msgstr "Auf einen Datenpunkt einer Streckenführung klicken, um diesen zu löschen"
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr "über der Mitten-Markierung zwischen zwei Punkten eines Weges auf \"Entf\" drücken, um den Weg in zwei Teile zu spalten (diese Aktion kann nicht rückgängig gemacht werden)"
+msgstr "Bewegen Sie einen „Mittelmarkierung” (zwischen zwei Linienpunkten) und drücken Sie die „Entf”-Taste, um die Steckenführung in zwei Teile aufzubrechen (diese Aktion kann nicht rückgängig gemacht werden)."
 
 #: gpxcontent.php:338
 msgid "Shortcuts"
-msgstr "Shortcuts"
+msgstr "Tastaturkürzel"
 
 #: gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr "Sidebar umschalten"
+msgstr "Seitenleiste ein-/ausblenden"
 
 #: gpxcontent.php:341
 msgid "toggle minimap"
-msgstr "kleine Karte umschalten"
+msgstr "Miniaturkarte ein-/ausblenden"
 
 #: gpxcontent.php:344
 msgid "Documentation"
