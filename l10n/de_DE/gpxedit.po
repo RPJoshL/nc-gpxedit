@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-30 09:52-0500\n"
+"PO-Revision-Date: 2017-11-30 10:09-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -71,7 +71,7 @@ msgstr "Abbrechen"
 
 #: gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
-msgstr "Ziehen verschiebt Elemente,<br/>Klick entfernt einen Punkt<br/>Über einen \"middle marker\" bewegen und  \"Entf\" drücken zerschneidet einen Weg."
+msgstr "Ziehen, um Elemente zu verschieben,<br/>Klicken, um einen Datenpunkt zu entfernen<br/>Bewegen Sie den Mauszeiger über eine Mittelmarkierung und drücken Sie die Taste „Entf”, um die Linie abzuschneiden."
 
 #: gpxedit.js:410
 msgid "Click cancel to undo changes"
@@ -175,7 +175,7 @@ msgstr "Datei konnte nicht geladen werden. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr "Unterstützte Formate sind gpx, kml, csv (unicsv) und jpg"
+msgstr "Unterstützte Formate sind GPX, KML, CSV (Unicsv) und JPG."
 
 #: gpxedit.js:1106
 msgid "Load error"
@@ -231,7 +231,7 @@ msgstr "Schreibzugriff verweigert"
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr "Verzeichnis existiert nicht"
+msgstr "Ordner nicht vorhanden"
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
@@ -371,7 +371,7 @@ msgstr "Datei speichern"
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr "Standardsymbol für Wegpunkte, wenn kein Werte festgelegt ist."
+msgstr "Standardsymbol für Wegpunkte, wenn kein Wert festgelegt ist."
 
 #: gpxcontent.php:110
 msgid "Waypoint style"
@@ -383,7 +383,7 @@ msgstr "Tooltip"
 
 #: gpxcontent.php:116
 msgid "on hover"
-msgstr "Beim darauf zeigen"
+msgstr "Beim Daraufzeigen"
 
 #: gpxcontent.php:117
 msgid "permanent"
@@ -415,7 +415,7 @@ msgstr "Festgelegte Symbole verwenden"
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr "Lösche Karte vor dem Laden"
+msgstr "Karte vor dem Laden leeren"
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
@@ -507,7 +507,7 @@ msgstr "Ihr WMS-Überlagerungs-Kachelserver"
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr "Feature-Überblick"
+msgstr "Funktionsübersicht"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
