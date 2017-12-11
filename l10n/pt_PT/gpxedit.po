@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-27 17:02-0500\n"
+"PO-Revision-Date: 2017-12-16 13:10-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -18,550 +18,550 @@ msgstr ""
 
 #: app.php:42 admin.php:7
 msgid "GpxEdit"
-msgstr ""
+msgstr "GpxEdit"
 
 #: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: filetypes.js:11
 msgid "Load in GpxEdit"
-msgstr ""
+msgstr "Carregar em GpxEdit"
 
 #: filetypes.js:36
 msgid "Edit with GpxEdit"
-msgstr ""
+msgstr "Editar com GpxEdit"
 
 #: gpxedit.js:399
 msgid "Draw a track"
-msgstr ""
+msgstr "Desenhar uma faixa"
 
 #: gpxedit.js:400
 msgid "Add a waypoint"
-msgstr ""
+msgstr "Adicionar um ponto de referência"
 
 #: gpxedit.js:401
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr ""
+msgstr "Nada para editar"
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
-msgstr ""
+msgstr "Nada para eliminar"
 
 #: gpxedit.js:405
 msgid "Validate changes"
-msgstr ""
+msgstr "Validar as alterações"
 
 #: gpxedit.js:406
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: gpxedit.js:407
 msgid "Discard all changes"
-msgstr ""
+msgstr "Descartar todas as Alterações"
 
 #: gpxedit.js:408 gpxedit.js:416
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
-msgstr ""
+msgstr "Arrastar para mover elementos. <br/> clique para remover um ponto <br/> passe um marcador do meio e pressione \"Del\" para cortar a linha"
 
 #: gpxedit.js:410
 msgid "Click cancel to undo changes"
-msgstr ""
+msgstr "Clique em cancelar para desfazer as alteraçôes"
 
 #: gpxedit.js:411
 msgid "Click on an element to delete it"
-msgstr ""
+msgstr "Cliwue em um elemento para excluir-lo"
 
 #: gpxedit.js:412
 msgid "Click map to add waypoint"
-msgstr ""
+msgstr "Clique no mapa para adicionar um ponto de referência"
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Clique para começar a desenhar faixa"
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Clique para continuar a desenhar faixa"
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
-msgstr ""
+msgstr "Clique o último ponto para terminar a faixa"
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Cancelar o desenho"
 
 #: gpxedit.js:418
 msgid "Finish"
-msgstr ""
+msgstr "Concluido"
 
 #: gpxedit.js:419
 msgid "Finish drawing"
-msgstr ""
+msgstr "Terminar o desenho"
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Eliminar o último ponto"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
-msgstr ""
+msgstr "Eliminar o último ponto desenhado"
 
 #: gpxedit.js:486
 msgid "Track"
-msgstr ""
+msgstr "Faixa"
 
 #: gpxedit.js:491
 msgid "Route"
-msgstr ""
+msgstr "Rota"
 
 #: gpxedit.js:496
 msgid "Waypoint"
-msgstr ""
+msgstr "Ponto de referência"
 
 #: gpxedit.js:501
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: gpxedit.js:502
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: gpxedit.js:503
 msgid "Comment"
-msgstr ""
+msgstr "Comentário"
 
 #: gpxedit.js:505
 msgid "Lat"
-msgstr ""
+msgstr "Lat"
 
 #: gpxedit.js:507
 msgid "Lon"
-msgstr ""
+msgstr "Lon"
 
 #: gpxedit.js:509
 msgid "Symbol"
-msgstr ""
+msgstr "Simbolo"
 
 #: gpxedit.js:512
 msgid "No symbol"
-msgstr ""
+msgstr "Nenhum simbolo"
 
 #: gpxedit.js:514
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Simbolo desconhecido"
 
 #: gpxedit.js:975
 msgid "Failed to save file"
-msgstr ""
+msgstr "Falha a gravar o ficheiro"
 
 #: gpxedit.js:993
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Ficheiro gravado com sucesso como"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
-msgstr ""
+msgstr "Não é possivel carregar este arquivo. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Os formatos suportados são gpx, kml, csv (unicsv) e jpg."
 
 #: gpxedit.js:1106
 msgid "Load error"
-msgstr ""
+msgstr "Erro de carregamento"
 
 #: gpxedit.js:1209
 msgid "Tile server \"{ts}\" has been deleted"
-msgstr ""
+msgstr "Servidor de telha \"{ts}\" foi excluido"
 
 #: gpxedit.js:1212 gpxedit.js:1216
 msgid "Failed to delete tile server \"{ts}\""
-msgstr ""
+msgstr "Falha ao excluir telha servidor \"{ts}\""
 
 #: gpxedit.js:1231
 msgid "Server name or server url should not be empty"
-msgstr ""
+msgstr "Nome do servidor ou url do servidor não debe estar vazio"
 
 #: gpxedit.js:1232 gpxedit.js:1237
 msgid "Impossible to add tile server"
-msgstr ""
+msgstr "Impossível adiciononar servidor de telha"
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
-msgstr ""
+msgstr "Um servidor com este nome já existe"
 
 #: gpxedit.js:1302
 msgid "Tile server \"{ts}\" has been added"
-msgstr ""
+msgstr "Servidor de telha \"{ts}\" foi excluido"
 
 #: gpxedit.js:1305 gpxedit.js:1309
 msgid "Failed to add tile server \"{ts}\""
-msgstr ""
+msgstr "Falha ao ao adicionar servidor de telha \"{ts}\""
 
 #: gpxedit.js:1381
 msgid "Failed to restore options values"
-msgstr ""
+msgstr "Falha ao restaurar os valores de opções"
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: gpxedit.js:1436
 msgid "Failed to save options values"
-msgstr ""
+msgstr "Falha ao salvar valores de opções"
 
 #: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
 msgid "Impossible to write file"
-msgstr ""
+msgstr "Não é possivel escrever arquivo"
 
 #: gpxedit.js:1504
 msgid "write access denied"
-msgstr ""
+msgstr "acesso de gravação negado"
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr ""
+msgstr "pasta inexistente"
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
-msgstr ""
+msgstr "acesso de gravação de pasta negado"
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
-msgstr ""
+msgstr "Nome de arquivo inválido, debe terminar com \".gpx\""
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
-msgstr ""
+msgstr "Carregar arquivo (gpx, kml, csv, png)"
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr ""
+msgstr "Carregar pasta"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Não há nada para guardar"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr ""
+msgstr "Onde guardar"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "esquerda"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "direita"
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Simbolos extras"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Esses símbolos estarão disponíveis no GpxEdit."
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr ""
+msgstr "Tenha em mente que somente nomes de símbolos são salvos em arquivos gpx. Outros programas exibirão o símbolo padrão se não conhecerem o símbolo."
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr ""
+msgstr "Recomandado a relação da imagem: 1:1"
 
 #: admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
-msgstr ""
+msgstr "Resolução de imagen recomendada: entre 24x24 e 50x50"
 
 #: admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Formato de imagem aceito: png"
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Novo nome do simbolo"
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Carregar a nova imagem do simbolo"
 
 #: gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Carregar e salvar arquivos"
 
 #: gpxcontent.php:5 gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Opções"
 
 #: gpxcontent.php:6 gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "Sobre GpxEdit"
 
 #: gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Carregar ficheiro"
 
 #: gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Diretório de carga"
 
 #: gpxcontent.php:27
 msgid "all files"
-msgstr ""
+msgstr "todos os ficheiros"
 
 #: gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Nome do ficheiro"
 
 #: gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metadados"
 
 #: gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Nome da faixa (opcional)"
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Descrição (opcional)"
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Texto do link (opcional)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "Hiperligações (opcional)"
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Escolha o diretório e salvar"
 
 #: gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Limpar mapa"
 
 #: gpxcontent.php:65
 msgid "loading file"
-msgstr ""
+msgstr "carregar arquivo"
 
 #: gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr ""
+msgstr "exportar arquivo para gpx"
 
 #: gpxcontent.php:73
 msgid "saving file"
-msgstr ""
+msgstr "salvar arquivo"
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr ""
+msgstr "Simbolo padrão para pontos de rota quando o valor não está definido"
 
 #: gpxcontent.php:110
 msgid "Waypoint style"
-msgstr ""
+msgstr "Estilo de pontos de rota"
 
 #: gpxcontent.php:114
 msgid "Tooltip"
-msgstr ""
+msgstr "Ferramentas"
 
 #: gpxcontent.php:116
 msgid "on hover"
-msgstr ""
+msgstr "em hover"
 
 #: gpxcontent.php:117
 msgid "permanent"
-msgstr ""
+msgstr "permanente"
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
-msgstr ""
+msgstr "Unidadaeas (Precisa recarregar para levar a efeito de página)"
 
 #: gpxcontent.php:121
 msgid "Metric"
-msgstr ""
+msgstr "Métrico"
 
 #: gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Inglês"
 
 #: gpxcontent.php:123
 msgid "Nautical"
-msgstr ""
+msgstr "Náutico"
 
 #: gpxcontent.php:125 gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
-msgstr ""
+msgstr "Usar simbolos definidos em vez de simbolo padrão"
 
 #: gpxcontent.php:126
 msgid "Use defined symbols"
-msgstr ""
+msgstr "Usar simbolos definidos"
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr ""
+msgstr "Limpar o mapa antes de carregar"
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
-msgstr ""
+msgstr "Aproximado novas elevações de pontos"
 
 #: gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr ""
+msgstr "Extras para os botões personalizados"
 
 #: gpxcontent.php:138 gpxcontent.php:178 gpxcontent.php:222 gpxcontent.php:268
 msgid "Server name"
-msgstr ""
+msgstr "Nome do servidor"
 
 #: gpxcontent.php:139 gpxcontent.php:179 gpxcontent.php:223 gpxcontent.php:269
 msgid "For example : my custom server"
-msgstr ""
+msgstr "Por exemplo: meu servidor personalizado"
 
 #: gpxcontent.php:140 gpxcontent.php:180 gpxcontent.php:224 gpxcontent.php:270
 msgid "Server url"
-msgstr ""
+msgstr "Url do servidor"
 
 #: gpxcontent.php:141 gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Por exemplo: http://tile.server.org/cycle/{z}/{x}/{y}.png"
 
 #: gpxcontent.php:142 gpxcontent.php:182 gpxcontent.php:226 gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr ""
+msgstr "Zoom min (1-20)"
 
 #: gpxcontent.php:144 gpxcontent.php:184 gpxcontent.php:228 gpxcontent.php:274
 msgid "Max zoom (1-20)"
-msgstr ""
+msgstr "Zoom max (1-20)"
 
 #: gpxcontent.php:146 gpxcontent.php:190 gpxcontent.php:236 gpxcontent.php:286
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: gpxcontent.php:149
 msgid "Your tile servers"
-msgstr ""
+msgstr "Seus servidores de telha"
 
 #: gpxcontent.php:175
 msgid "Custom overlay tile servers"
-msgstr ""
+msgstr "Servidores de telas de sobreposição personalizadas"
 
 #: gpxcontent.php:181 gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Por exemplo: http://overlay.server.org/cycle/{z}/{x}/{y}.png"
 
 #: gpxcontent.php:186 gpxcontent.php:276
 msgid "Transparent"
-msgstr ""
+msgstr "Transparente"
 
 #: gpxcontent.php:188 gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
-msgstr ""
+msgstr "Opacidade (0,0-1,0)"
 
 #: gpxcontent.php:193
 msgid "Your overlay tile servers"
-msgstr ""
+msgstr "Seus servidores de telha de sobreposição"
 
 #: gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr ""
+msgstr "Servidores personalizados de telhas WMS"
 
 #: gpxcontent.php:230 gpxcontent.php:280
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #: gpxcontent.php:232 gpxcontent.php:282
 msgid "WMS version"
-msgstr ""
+msgstr "Versão do WMS"
 
 #: gpxcontent.php:234 gpxcontent.php:284
 msgid "Layers to display"
-msgstr ""
+msgstr "Camadas para exibir"
 
 #: gpxcontent.php:239
 msgid "Your WMS tile servers"
-msgstr ""
+msgstr "Seus Servidores de telha WMS"
 
 #: gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr ""
+msgstr "Servidores personalizados de sobreposição WMS"
 
 #: gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr ""
+msgstr "Seus servidores de telha de sobreposição WMS"
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr ""
+msgstr "Visão geral das características"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr ""
+msgstr "Botões de desenho, edição e exclusão no canto de inferior esquerdo do mapa."
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr ""
+msgstr "Você pode desenhar uma linha ou adicionar um marcador."
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr ""
+msgstr "Se você clicar em uma linha ou um marcador, um pop-up aparece e permitem que você defina as propiedades do objeto."
 
 #: gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr ""
+msgstr "Despois de um clique no botão de \"edição\", no modo de edição, você pode"
 
 #: gpxcontent.php:332
 msgid "move markers"
-msgstr ""
+msgstr "mover marcadores"
 
 #: gpxcontent.php:333
 msgid "move line points"
-msgstr ""
+msgstr "mova os pontos de linha"
 
 #: gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr ""
+msgstr "clique em um ponto da linha para removê-lo"
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr ""
+msgstr "passe um \"marcador do meio\" (entre dois pontos de linha) e pressione \"Del\" para cortar a linha em dois (esta ação não pode ser cancelada)"
 
 #: gpxcontent.php:338
 msgid "Shortcuts"
-msgstr ""
+msgstr "Atalhos"
 
 #: gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr ""
+msgstr "alternar barra lateral"
 
 #: gpxcontent.php:341
 msgid "toggle minimap"
-msgstr ""
+msgstr "alternar minimapa"
 
 #: gpxcontent.php:344
 msgid "Documentation"
-msgstr ""
+msgstr "Documentação"
 
 #: gpxcontent.php:352
 msgid "Source management"
-msgstr ""
+msgstr "Gerenciamento de fonte"
 
 #: gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Autores"
 

@@ -3,565 +3,565 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-12-11 08:47-0500\n"
+"PO-Revision-Date: 2018-01-09 16:10-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
-"Language-Team: Turkish\n"
-"Language: tr_TR\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: gpxedit\n"
-"X-Crowdin-Language: tr\n"
+"X-Crowdin-Language: id\n"
 "X-Crowdin-File: /master/l10n/templates/gpxedit.pot\n"
 
 #: app.php:42 admin.php:7
 msgid "GpxEdit"
-msgstr "GpxEdit"
+msgstr ""
 
 #: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
-msgstr "Sil"
+msgstr ""
 
 #: filetypes.js:11
 msgid "Load in GpxEdit"
-msgstr "GpxEdit ile yükle"
+msgstr ""
 
 #: filetypes.js:36
 msgid "Edit with GpxEdit"
-msgstr "GpxEdit ile düzenle"
+msgstr ""
 
 #: gpxedit.js:399
 msgid "Draw a track"
-msgstr "Bir alan çiz"
+msgstr ""
 
 #: gpxedit.js:400
 msgid "Add a waypoint"
-msgstr "Geçiş noktası ekle"
+msgstr ""
 
 #: gpxedit.js:401
 msgid "Edit"
-msgstr "Düzenle"
+msgstr "Mengedit"
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr "Düzenlenecek birşey yok"
+msgstr ""
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
-msgstr "Silecek birşey yok"
+msgstr ""
 
 #: gpxedit.js:405
 msgid "Validate changes"
-msgstr "Değişikleri doğrula"
+msgstr "Memvalidasi perubahan"
 
 #: gpxedit.js:406
 msgid "Ok"
-msgstr "Tamam"
+msgstr ""
 
 #: gpxedit.js:407
 msgid "Discard all changes"
-msgstr "Bütün değişiklikleri iptal et"
+msgstr ""
 
 #: gpxedit.js:408 gpxedit.js:416
 msgid "Cancel"
-msgstr "İptal"
+msgstr ""
 
 #: gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
-msgstr "Öğeleri taşımak için sürükle,<br/> işaretçiyi kaldırmak için tıkla<br/>bir ara işaretçi koyun ve kesmek için \"del\" tuşuna basın"
+msgstr ""
 
 #: gpxedit.js:410
 msgid "Click cancel to undo changes"
-msgstr "Değişiklikleri geri almak için iptal butonuna tıklayın"
+msgstr ""
 
 #: gpxedit.js:411
 msgid "Click on an element to delete it"
-msgstr "Öğenin üstüne tıklayarak silin"
+msgstr ""
 
 #: gpxedit.js:412
 msgid "Click map to add waypoint"
-msgstr "Haritaya tıklayarak geçiş noktası ekleyin"
+msgstr ""
 
 #: gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr "Rota çizmek için tıklayın"
+msgstr ""
 
 #: gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr "Rotaya devam etmek için tıklayın"
+msgstr ""
 
 #: gpxedit.js:415
 msgid "Click last point to finish track"
-msgstr "Rotayı bitirmek için son noktaya tıklayın"
+msgstr ""
 
 #: gpxedit.js:417
 msgid "Cancel drawing"
-msgstr "Çizimi iptal et"
+msgstr ""
 
 #: gpxedit.js:418
 msgid "Finish"
-msgstr "Bitir"
+msgstr ""
 
 #: gpxedit.js:419
 msgid "Finish drawing"
-msgstr "Çizimi bitir"
+msgstr "Selesai menggambar"
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr "Son noktayı sil"
+msgstr ""
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
-msgstr "Çizilmiş son noktayı sil"
+msgstr ""
 
 #: gpxedit.js:486
 msgid "Track"
-msgstr "Rota"
+msgstr ""
 
 #: gpxedit.js:491
 msgid "Route"
-msgstr "Güzergah"
+msgstr ""
 
 #: gpxedit.js:496
 msgid "Waypoint"
-msgstr "Geçiş noktası"
+msgstr "Waypoint"
 
 #: gpxedit.js:501
 msgid "Name"
-msgstr "Ad"
+msgstr ""
 
 #: gpxedit.js:502
 msgid "Description"
-msgstr "Açıklama"
+msgstr ""
 
 #: gpxedit.js:503
 msgid "Comment"
-msgstr "Yorum"
+msgstr ""
 
 #: gpxedit.js:505
 msgid "Lat"
-msgstr "Enlem"
+msgstr "Tahun"
 
 #: gpxedit.js:507
 msgid "Lon"
-msgstr "Boylam"
+msgstr "Bisa"
 
 #: gpxedit.js:509
 msgid "Symbol"
-msgstr "Sembol"
+msgstr ""
 
 #: gpxedit.js:512
 msgid "No symbol"
-msgstr "Sembol yok"
+msgstr ""
 
 #: gpxedit.js:514
 msgid "Unknown symbol"
-msgstr "Bilinmeyen sembol"
+msgstr "Simbol yang tidak diketahui"
 
 #: gpxedit.js:975
 msgid "Failed to save file"
-msgstr "Dosya kaydetme başarısız oldu"
+msgstr ""
 
 #: gpxedit.js:993
 msgid "File successfully saved as"
-msgstr "Dosya başarılı bir şekilde kaydedildi"
+msgstr ""
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
-msgstr "Bu dosyayı yüklemek imkansız. "
+msgstr ""
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr "Desteklenen uzantılar gpx, kml, csv(unicsv) ve jpg."
+msgstr ""
 
 #: gpxedit.js:1106
 msgid "Load error"
-msgstr "Yükleme hatası"
+msgstr "Kesalahan beban"
 
 #: gpxedit.js:1209
 msgid "Tile server \"{ts}\" has been deleted"
-msgstr "Kiremit sunucu \"{ts}\" silindi"
+msgstr ""
 
 #: gpxedit.js:1212 gpxedit.js:1216
 msgid "Failed to delete tile server \"{ts}\""
-msgstr "Kiremit sunucu silinirken hata oluştu \"{ts}\""
+msgstr ""
 
 #: gpxedit.js:1231
 msgid "Server name or server url should not be empty"
-msgstr "Sunucu ismi veya adresi boş olmamalı"
+msgstr ""
 
 #: gpxedit.js:1232 gpxedit.js:1237
 msgid "Impossible to add tile server"
-msgstr "Kiremit sunucu eklemek imkansız"
+msgstr ""
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
-msgstr "Bu sunucu ismi zaten var"
+msgstr ""
 
 #: gpxedit.js:1302
 msgid "Tile server \"{ts}\" has been added"
-msgstr "Kiremit sunucu \"{ts}\" eklendi"
+msgstr ""
 
 #: gpxedit.js:1305 gpxedit.js:1309
 msgid "Failed to add tile server \"{ts}\""
-msgstr "Kiremit sunucu eklenirken hata oluştu \"{ts}\""
+msgstr ""
 
 #: gpxedit.js:1381
 msgid "Failed to restore options values"
-msgstr "Seçenek değerlerini geri yüklerken başarısız olundu"
+msgstr ""
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
-msgstr "Hata"
+msgstr ""
 
 #: gpxedit.js:1436
 msgid "Failed to save options values"
-msgstr "Seçenek değerlerini kaydederken hata oluştu"
+msgstr ""
 
 #: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
 msgid "Impossible to write file"
-msgstr "Dosyayı yazmak imkansız"
+msgstr ""
 
 #: gpxedit.js:1504
 msgid "write access denied"
-msgstr "yazma erişimi reddedildi"
+msgstr ""
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr "klasör mevcut değil"
+msgstr ""
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
-msgstr "klasöre yazma izni reddedildi"
+msgstr ""
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
-msgstr "Geçersiz dosya adı, \".gpx\" ile sonlanmalı"
+msgstr ""
 
 #: gpxedit.js:1636
 msgid "Load file (gpx, kml, csv, png)"
-msgstr "Dosya yükle (gpx, kml, csv, png)"
+msgstr "Memuat file (gpx, kml, csv, png)"
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr "Klasörü yükle"
+msgstr "Muat berkas"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr "Kaydedilecek birşey yok"
+msgstr ""
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr "Nereye kaydolsun"
+msgstr ""
 
 #: leaflet.js:5
 msgid "left"
-msgstr "sol"
+msgstr ""
 
 #: leaflet.js:5
 msgid "right"
-msgstr "sağ"
+msgstr ""
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr "İlave semboller"
+msgstr "Simbol tambahan"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr "Bu semboller GpxEditte kullanılabilir hale gelecektir."
+msgstr ""
 
 #: admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr "Yalnızca sembol isimlerinin gpx dosyalarında kayıt olduğunu unutmayın. Eğer başka programlar sembol ismini bilmiyorsa, varsayılan olarak görüntülecektir."
+msgstr ""
 
 #: admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr "Önerilen görüntü oranı : 1:1"
+msgstr "Rasio gambar direkomendasikan: 1: 1"
 
 #: admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
-msgstr "Önerilen görüntü çözünürlüğü : 24x24 ve 50x50 arasında"
+msgstr ""
 
 #: admin.php:36
 msgid "Accepted image format : png"
-msgstr "Kabul edilen görüntü biçimi : png"
+msgstr ""
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr "Yeni sembol ismi"
+msgstr ""
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr "Yeni sembol resmini yükle"
+msgstr ""
 
 #: gpxcontent.php:4
 msgid "Load and save files"
-msgstr "Dosyaları yükle ve kaydet"
+msgstr ""
 
 #: gpxcontent.php:5 gpxcontent.php:106
 msgid "Options"
-msgstr "Seçenekler"
+msgstr ""
 
 #: gpxcontent.php:6 gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr "GpxEdit hakkında"
+msgstr ""
 
 #: gpxcontent.php:24
 msgid "Load file"
-msgstr "Dosyaları yükle"
+msgstr "Luat berkas"
 
 #: gpxcontent.php:25
 msgid "Load directory"
-msgstr "Klasör yükle"
+msgstr "Direktori beban"
 
 #: gpxcontent.php:27
 msgid "all files"
-msgstr "tüm dosyalar"
+msgstr ""
 
 #: gpxcontent.php:35
 msgid "Save"
-msgstr "Kaydet"
+msgstr ""
 
 #: gpxcontent.php:37
 msgid "File name"
-msgstr "Dosya adı"
+msgstr "Nama file"
 
 #: gpxcontent.php:40
 msgid "Metadata"
-msgstr "Metaveri"
+msgstr "Metadata"
 
 #: gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr "Yol ismi (opsiyonel)"
+msgstr "Nama lagu (opsional)"
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
-msgstr "Açıklama(opsiyonel)"
+msgstr ""
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr "Adres metni(opsiyonel)"
+msgstr "Tautan teks (opsional)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr "Adres (opsiyonel)"
+msgstr ""
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr "Klasör seç ve kaydet"
+msgstr ""
 
 #: gpxcontent.php:54
 msgid "Clear map"
-msgstr "Haritayı temizle"
+msgstr "Jelas peta"
 
 #: gpxcontent.php:65
 msgid "loading file"
-msgstr "dosyalar yükleniyor"
+msgstr ""
 
 #: gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr "dosya gpx olarak dışa aktarılıyor"
+msgstr "mengekspor file gpx"
 
 #: gpxcontent.php:73
 msgid "saving file"
-msgstr "dosya kaydediliyor"
+msgstr ""
 
 #: gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr "Değer atanmadığında geçiş noktası için varsayılan sembol"
+msgstr "Simbol default untuk waypoints ketika nilai tidak diatur"
 
 #: gpxcontent.php:110
 msgid "Waypoint style"
-msgstr "Geçiş noktası tarzı"
+msgstr "Gaya waypoint"
 
 #: gpxcontent.php:114
 msgid "Tooltip"
-msgstr "Araç ipucu"
+msgstr "Keterangan alat"
 
 #: gpxcontent.php:116
 msgid "on hover"
-msgstr "üzerinde gezinme"
+msgstr ""
 
 #: gpxcontent.php:117
 msgid "permanent"
-msgstr "kalıcı"
+msgstr ""
 
 #: gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
-msgstr "Birimler(Etkili olması için sayfanın yenilenmesi gerekiyor)"
+msgstr ""
 
 #: gpxcontent.php:121
 msgid "Metric"
-msgstr "Metrik"
+msgstr ""
 
 #: gpxcontent.php:122
 msgid "English"
-msgstr "İngilizce"
+msgstr "Bahasa Inggris"
 
 #: gpxcontent.php:123
 msgid "Nautical"
-msgstr "Denizcilik"
+msgstr ""
 
 #: gpxcontent.php:125 gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
-msgstr "Varsayılan sembol yerine atanmış sembolleri kullan"
+msgstr ""
 
 #: gpxcontent.php:126
 msgid "Use defined symbols"
-msgstr "Atanmış sembolleri kullan"
+msgstr ""
 
 #: gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr "Yüklemeden önce haritayı temizle"
+msgstr ""
 
 #: gpxcontent.php:131
 msgid "Approximate new points elevations"
-msgstr "Tahmini puan yükseltmeleri"
+msgstr ""
 
 #: gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr "Özel kiremit sunucular"
+msgstr "Server kustom ubin"
 
 #: gpxcontent.php:138 gpxcontent.php:178 gpxcontent.php:222 gpxcontent.php:268
 msgid "Server name"
-msgstr "Sunucu adı"
+msgstr ""
 
 #: gpxcontent.php:139 gpxcontent.php:179 gpxcontent.php:223 gpxcontent.php:269
 msgid "For example : my custom server"
-msgstr "Örneğin : benim özel sunucum"
+msgstr ""
 
 #: gpxcontent.php:140 gpxcontent.php:180 gpxcontent.php:224 gpxcontent.php:270
 msgid "Server url"
-msgstr "Sunucu adresi"
+msgstr ""
 
 #: gpxcontent.php:141 gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
-msgstr "Örneğin : http://tile.server.org/cycle/{z}/{x}/{y}.png"
+msgstr ""
 
 #: gpxcontent.php:142 gpxcontent.php:182 gpxcontent.php:226 gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr "Minimum yakınlaştırma (1-20)"
+msgstr ""
 
 #: gpxcontent.php:144 gpxcontent.php:184 gpxcontent.php:228 gpxcontent.php:274
 msgid "Max zoom (1-20)"
-msgstr "Maksimum yakınlaştırma (1-20)"
+msgstr ""
 
 #: gpxcontent.php:146 gpxcontent.php:190 gpxcontent.php:236 gpxcontent.php:286
 msgid "Add"
-msgstr "Ekle"
+msgstr ""
 
 #: gpxcontent.php:149
 msgid "Your tile servers"
-msgstr "Kiremit sunucuların"
+msgstr "Server ubin Anda"
 
 #: gpxcontent.php:175
 msgid "Custom overlay tile servers"
-msgstr "Özel kiremit sunucular"
+msgstr ""
 
 #: gpxcontent.php:181 gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
-msgstr "Örneğin : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
+msgstr ""
 
 #: gpxcontent.php:186 gpxcontent.php:276
 msgid "Transparent"
-msgstr "Şeffaf"
+msgstr "Jelas"
 
 #: gpxcontent.php:188 gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
-msgstr "Opaklık (0.0-1.0)"
+msgstr ""
 
 #: gpxcontent.php:193
 msgid "Your overlay tile servers"
-msgstr "Kaplanmış kiremit sunucularınız"
+msgstr ""
 
 #: gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr "Özel WMS kiremit sunucular"
+msgstr "Server ubin kustom WMS"
 
 #: gpxcontent.php:230 gpxcontent.php:280
 msgid "Format"
-msgstr "Biçim"
+msgstr ""
 
 #: gpxcontent.php:232 gpxcontent.php:282
 msgid "WMS version"
-msgstr "WMS versiyonu"
+msgstr ""
 
 #: gpxcontent.php:234 gpxcontent.php:284
 msgid "Layers to display"
-msgstr "Görüntülenecek katmanlar"
+msgstr ""
 
 #: gpxcontent.php:239
 msgid "Your WMS tile servers"
-msgstr "WMS kiremit sunucuların"
+msgstr ""
 
 #: gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr "Özel kaplanmış WMS sunucuların"
+msgstr "Server overlay kustom WMS"
 
 #: gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr "WMS kaplanmış kiremit sunucuların"
+msgstr ""
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr "Özelliklere genel bakış"
+msgstr ""
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr "Haritanın sol alt köşesinde çizim, baskı ve silme düğmelerini bulabilirsiniz."
+msgstr ""
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr "Bir çizgi çizebilir veya işaretçi ekleyebilirsiniz."
+msgstr ""
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr "Eğer bir çizgiye veya işaretleyiciye tıklarsanız, bir açılır pencere açılır ve nesne özelliklerini ayarlamanıza izin verir."
+msgstr ""
 
 #: gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr "\"baskı\" butonuna tıklaktan sonra, baskı modunda görebilirsiniz"
+msgstr ""
 
 #: gpxcontent.php:332
 msgid "move markers"
-msgstr "işaretçileri taşı"
+msgstr ""
 
 #: gpxcontent.php:333
 msgid "move line points"
-msgstr "satır noktalarını taşı"
+msgstr ""
 
 #: gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr "silmek için bir çizgi noktasına tıklayın"
+msgstr ""
 
 #: gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr "\"orta işaret\" (iki çizgi noktası arasında)'e getirin ve çizgiyi ikiye bölmek için \"Del\" tuşuna basın (bu işlem iptal edilemez)"
+msgstr ""
 
 #: gpxcontent.php:338
 msgid "Shortcuts"
-msgstr "Kısayollar"
+msgstr "Pintasan"
 
 #: gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr "kenar çubuğunu değiştir"
+msgstr ""
 
 #: gpxcontent.php:341
 msgid "toggle minimap"
-msgstr "küçük haritayı değiştir"
+msgstr ""
 
 #: gpxcontent.php:344
 msgid "Documentation"
-msgstr "Dökümantasyon"
+msgstr ""
 
 #: gpxcontent.php:352
 msgid "Source management"
-msgstr "Kaynak yönetimi"
+msgstr "Sumber manajemen"
 
 #: gpxcontent.php:363
 msgid "Authors"
-msgstr "Yazarlar"
+msgstr "Penulis"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-27 17:03-0500\n"
+"PO-Revision-Date: 2017-12-22 07:31-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Norwegian\n"
 "Language: no_NO\n"
@@ -18,40 +18,40 @@ msgstr ""
 
 #: app.php:42 admin.php:7
 msgid "GpxEdit"
-msgstr "GpxEdit"
+msgstr ""
 
 #: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
-msgstr "Slett"
+msgstr ""
 
 #: filetypes.js:11
 msgid "Load in GpxEdit"
-msgstr "Last inn GpxEdit"
+msgstr ""
 
 #: filetypes.js:36
 msgid "Edit with GpxEdit"
-msgstr "Redigér med GpxEdit"
+msgstr ""
 
 #: gpxedit.js:399
 msgid "Draw a track"
-msgstr "Lag et spor"
+msgstr ""
 
 #: gpxedit.js:400
 msgid "Add a waypoint"
-msgstr "Legg til et veipunkt"
+msgstr ""
 
 #: gpxedit.js:401
 msgid "Edit"
-msgstr "Redigér"
+msgstr ""
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr "Ingenting å redigere"
+msgstr ""
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
-msgstr "Ingenting å slette"
+msgstr ""
 
 #: gpxedit.js:405
 msgid "Validate changes"
