@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-12-10 21:50-0500\n"
+"PO-Revision-Date: 2017-12-10 21:53-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -47,7 +47,7 @@ msgstr "Editar"
 
 #: gpxedit.js:402
 msgid "Nothing to edit"
-msgstr ""
+msgstr "Nada para editar"
 
 #: gpxedit.js:404
 msgid "Nothing to delete"
@@ -111,11 +111,11 @@ msgstr "Terminar dibujo"
 
 #: gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Borrar el último punto"
 
 #: gpxedit.js:421
 msgid "Delete last point drawn"
-msgstr ""
+msgstr "Borrar el último punto dibujado"
 
 #: gpxedit.js:486
 msgid "Track"
@@ -155,11 +155,11 @@ msgstr "Símbolo"
 
 #: gpxedit.js:512
 msgid "No symbol"
-msgstr ""
+msgstr "Ningún símbolo"
 
 #: gpxedit.js:514
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Símbolo desconocido"
 
 #: gpxedit.js:975
 msgid "Failed to save file"
@@ -171,7 +171,7 @@ msgstr "Archivo guardado con éxito como"
 
 #: gpxedit.js:1104
 msgid "Impossible to load this file. "
-msgstr ""
+msgstr "Imposible cargar este archivo. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
@@ -247,27 +247,27 @@ msgstr ""
 
 #: gpxedit.js:1653
 msgid "Load folder"
-msgstr ""
+msgstr "Cargar carpeta"
 
 #: gpxedit.js:1665
 msgid "There is nothing to save"
-msgstr ""
+msgstr "No hay nada para guardar"
 
 #: gpxedit.js:1670
 msgid "Where to save"
-msgstr ""
+msgstr "Donde guardar"
 
 #: leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "izquierda"
 
 #: leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "derecha"
 
 #: admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Símbolos adicionales"
 
 #: admin.php:9
 msgid "Those symbols will be available in GpxEdit."
@@ -339,19 +339,19 @@ msgstr ""
 
 #: gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Descripción (opcional)"
 
 #: gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Texto del Enlace (opcional)"
 
 #: gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "URL del Enlace (opcional)"
 
 #: gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Elegir directorio y guardar"
 
 #: gpxcontent.php:54
 msgid "Clear map"
@@ -463,7 +463,7 @@ msgstr ""
 
 #: gpxcontent.php:181 gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Por ejemplo: http://overlay.server.org/cycle/{z}/{x}/{y}.png"
 
 #: gpxcontent.php:186 gpxcontent.php:276
 msgid "Transparent"
@@ -471,7 +471,7 @@ msgstr "Transparente"
 
 #: gpxcontent.php:188 gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
-msgstr ""
+msgstr "Opacidad (0.0-1.0)"
 
 #: gpxcontent.php:193
 msgid "Your overlay tile servers"
@@ -487,11 +487,11 @@ msgstr "Formato"
 
 #: gpxcontent.php:232 gpxcontent.php:282
 msgid "WMS version"
-msgstr ""
+msgstr "Versión de WMS"
 
 #: gpxcontent.php:234 gpxcontent.php:284
 msgid "Layers to display"
-msgstr ""
+msgstr "Capas para mostrar"
 
 #: gpxcontent.php:239
 msgid "Your WMS tile servers"
