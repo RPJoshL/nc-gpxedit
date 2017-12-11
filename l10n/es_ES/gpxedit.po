@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-12-10 21:53-0500\n"
+"PO-Revision-Date: 2017-12-10 21:58-0500\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -143,11 +143,11 @@ msgstr "Comentario"
 
 #: gpxedit.js:505
 msgid "Lat"
-msgstr ""
+msgstr "Latitud"
 
 #: gpxedit.js:507
 msgid "Lon"
-msgstr ""
+msgstr "Longitud"
 
 #: gpxedit.js:509
 msgid "Symbol"
@@ -175,11 +175,11 @@ msgstr "Imposible cargar este archivo. "
 
 #: gpxedit.js:1105
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Formatos admitidos son gpx, kml, csv (unicsv) y jpg."
 
 #: gpxedit.js:1106
 msgid "Load error"
-msgstr ""
+msgstr "Error al cargar"
 
 #: gpxedit.js:1209
 msgid "Tile server \"{ts}\" has been deleted"
@@ -195,7 +195,7 @@ msgstr ""
 
 #: gpxedit.js:1232 gpxedit.js:1237
 msgid "Impossible to add tile server"
-msgstr ""
+msgstr "Imposible añadir servidor de mosaico"
 
 #: gpxedit.js:1236
 msgid "A server with this name already exists"
@@ -231,11 +231,11 @@ msgstr ""
 
 #: gpxedit.js:1511
 msgid "folder does not exist"
-msgstr ""
+msgstr "la carpeta no existe"
 
 #: gpxedit.js:1518
 msgid "folder write access denied"
-msgstr ""
+msgstr "carpeta acceso de escritura denegado"
 
 #: gpxedit.js:1524
 msgid "Bad file name, must end with \".gpx\""
@@ -291,15 +291,15 @@ msgstr ""
 
 #: admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Nuevo nombre de símbolo"
 
 #: admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Subir nueva imagen de símbolo"
 
 #: gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Cargar y guardar archivos"
 
 #: gpxcontent.php:5 gpxcontent.php:106
 msgid "Options"
@@ -507,27 +507,27 @@ msgstr ""
 
 #: gpxcontent.php:318
 msgid "Features overview"
-msgstr ""
+msgstr "Resumen de características"
 
 #: gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr ""
+msgstr "Botones de dibujo, edición y eliminación están en la esquina inferior izquierda del mapa."
 
 #: gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr ""
+msgstr "Puede dibujar una línea o agregar un marcador."
 
 #: gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr ""
+msgstr "Si haces clic en una línea o un marcador, una ventana emergente aparece y le permite establecer las propiedades del objeto."
 
 #: gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr ""
+msgstr "Después de un clic en el botón \"edición\", en el modo de edición, puedes"
 
 #: gpxcontent.php:332
 msgid "move markers"
-msgstr ""
+msgstr "marcadores de movimiento"
 
 #: gpxcontent.php:333
 msgid "move line points"
