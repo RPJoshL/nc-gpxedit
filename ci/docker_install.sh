@@ -11,6 +11,11 @@ apt-get install git -yqq
 curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.phar
 chmod +x /usr/local/bin/phpunit
 
+mkdir /data/apps -p
+
+sudo -u nextcloud occ upgrade
+sudo -u nextcloud occ maintenance:mode --off
+
 cd /data/apps/
 git clone https://gitlab.com/eneiluj/gpxedit-oc gpxedit
 
