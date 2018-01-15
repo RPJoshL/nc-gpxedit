@@ -13,11 +13,11 @@ chmod +x /usr/local/bin/phpunit
 
 mkdir /data/apps -p
 
-sudo -u nextcloud occ upgrade
-sudo -u nextcloud occ maintenance:mode --off
-
 cd /data/apps/
 git clone https://gitlab.com/eneiluj/gpxedit-oc gpxedit
+
+occ upgrade
+occ maintenance:mode --off
 
 ls /data
 ls /data/apps
