@@ -19,7 +19,8 @@ namespace OCA\GpxEdit\Controller;
 
 use \OCA\GpxEdit\AppInfo\Application;
 
-class PageControllerTest extends \PHPUnit_Framework_TestCase {
+//class PageControllerTest extends \PHPUnit_Framework_TestCase {
+class PageControllerTest extends \PHPUnit\Framework\TestCase {
 
 	private $appName;
 	private $request;
@@ -44,14 +45,14 @@ class PageControllerTest extends \PHPUnit_Framework_TestCase {
         $c = $this->container;
 
         // CREATE DUMMY USERS
-        $c->getServer()->getUserManager()->createUser('test', 'T0T0T0');
-        $c->getServer()->getUserManager()->createUser('test2', 'T0T0T0');
+        $c->getServer()->getUserManager()->createUser('testUser', 'T0T0T0');
+        $c->getServer()->getUserManager()->createUser('testUser2', 'T0T0T0');
 
         $this->controller = new UtilsController(
             $this->appName,
             $this->request,
             'test',
-            $c->query('ServerContainer')->getUserFolder($c->query('UserId')),
+            $c->query('ServerContainer')->getUserFolder('testUser'),
             $c->query('ServerContainer')->getConfig(),
             //$c->getServer()->getShareManager(),
             $c->getServer()->getAppManager()
@@ -59,14 +60,14 @@ class PageControllerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function tearDown() {
-        $user = $this->container->getServer()->getUserManager()->get('test');
+        $user = $this->container->getServer()->getUserManager()->get('testUser');
         $user->delete();
-        $user = $this->container->getServer()->getUserManager()->get('test2');
+        $user = $this->container->getServer()->getUserManager()->get('testUser2');
         $user->delete();
     }
 
 	public function testSession() {
-        $resp = $this->controller->addTileServer('plop', 'http://plop.org', 'type',
+        $resp = $this->controller->addTileServer('superserver', 'http://plop.org', 'type',
                     'layers', 'version', 'tformat', '0.5', 'true',
                     '13', '16', 'attr');
 

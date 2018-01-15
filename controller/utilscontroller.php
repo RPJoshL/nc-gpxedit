@@ -209,7 +209,8 @@ class UtilsController extends Controller {
         // first we check it does not already exist
         $sqlts = 'SELECT servername FROM *PREFIX*gpxedit_tile_servers ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
-        $sqlts .= 'AND servername='.$this->db_quote_escape_string($servername).' AND type='.$this->db_quote_escape_string($type).' ';
+        $sqlts .= 'AND servername='.$this->db_quote_escape_string($servername).' ';
+        $sqlts .= 'AND type='.$this->db_quote_escape_string($type).' ';
         $req = $this->dbconnection->prepare($sqlts);
         $req->execute();
         $ts = null;
