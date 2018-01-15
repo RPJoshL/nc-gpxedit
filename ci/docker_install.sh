@@ -16,7 +16,9 @@ chmod +x /usr/local/bin/phpunit
 cd /var/www/html/custom_apps/
 git clone https://gitlab.com/eneiluj/gpxedit-oc gpxedit
 
-sudo -u www-data php /var/www/html/occ upgrade
-sudo -u www-data php /var/www/html/occ maintenance:mode --off
+sudo -u www-data php /var/www/html/occ
+#sudo -u www-data php /var/www/html/occ app:enable gpxedit
+#sudo -u www-data php /var/www/html/occ upgrade
+#sudo -u www-data php /var/www/html/occ maintenance:mode --off
 
 ls /var/www/html/custom_apps/
