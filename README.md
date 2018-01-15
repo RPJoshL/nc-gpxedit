@@ -1,6 +1,7 @@
 # GpxEdit owncloud/nextcloud application
 
 [![Build status](https://gitlab.com/eneiluj/gpxedit-oc/badges/master/build.svg)](https://gitlab.com/eneiluj/gpxedit-oc/commits/master)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/gpxedit/localized.svg)](https://crowdin.com/project/gpxedit)
 
 Simple Owncloud/Nextcloud app to load, edit and save GPX files on an interactive map.
 You can load/save files from your Owncloud/Nextcloud file storage.
