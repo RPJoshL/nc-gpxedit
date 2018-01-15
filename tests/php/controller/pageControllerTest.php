@@ -51,7 +51,7 @@ class PageControllerTest extends \PHPUnit\Framework\TestCase {
         $this->controller = new UtilsController(
             $this->appName,
             $this->request,
-            'test',
+            'testUser',
             $c->query('ServerContainer')->getUserFolder('testUser'),
             $c->query('ServerContainer')->getConfig(),
             //$c->getServer()->getShareManager(),
