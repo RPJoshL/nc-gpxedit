@@ -6,7 +6,7 @@
 set -xe
 
 apt-get update -yqq
-apt-get install git -yqq
+apt-get install git sudo -yqq
 
 curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.phar
 chmod +x /usr/local/bin/phpunit
@@ -16,8 +16,8 @@ mkdir /data/apps -p
 cd /data/apps/
 git clone https://gitlab.com/eneiluj/gpxedit-oc gpxedit
 
-occ upgrade
-occ maintenance:mode --off
+sudo -u www-data php occ upgrade
+sudo -u www-data php occ maintenance:mode --off
 
 ls /data
 ls /data/apps
