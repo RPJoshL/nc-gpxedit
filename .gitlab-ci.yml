@@ -1,5 +1,4 @@
-# Select image from https://hub.docker.com/
-image: nextcloud:latest
+image: maco
 
 before_script:
 # Install dependencies
