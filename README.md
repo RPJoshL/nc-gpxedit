@@ -8,6 +8,8 @@ You can load/save files from your Owncloud/Nextcloud file storage.
 GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints.
 Files can be loaded in GpxEdit interface or in Files app.
 
+Go to [GpxEdit Crowdin project](https://crowdin.com/project/gpxedit) if you want to help to translate this app in your language.
+
 This is not a perfect GPX editor.
 
 What's saved :
@@ -48,7 +50,6 @@ GpxEdit :
 - supports waypoint symbols
 - uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) and [Leaflet.draw.plus](https://github.com/Dominique92/Leaflet.draw.plus) amazing plugins
 - uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl
-- uses JQuery
 - adds possibility to edit .gpx files directly from the "Files" app
 - is able to cut lines in two
 
@@ -56,14 +57,6 @@ This app is tested on Owncloud 10 with Firefox and Chromium.
 This app is tested on Nextcloud 11 and 12 with Firefox and Chromium.
 
 Any feedback will be appreciated.
-
-If you want to help to translate this app in your language, take the english=>french files in "l10n" directory as examples
-or launch a little python tool i wrote :
-
-```
-cd /path/to/gpxedit
-./tools/checkTranslations.py LANGUAGE ./ gpxedit
-```
 
 ## Donation
 

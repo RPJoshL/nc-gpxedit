@@ -5,9 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## 0.0.8 – 2018-02-10
 ### Added
 - display line total distance during drawing
   [#34](https://gitlab.com/eneiluj/gpxedit-oc/issues/34) @stevenhorner
+- compat with NC13
+  [#38](https://gitlab.com/eneiluj/gpxedit-oc/issues/38) @poVoq
 
 ### Changed
 - update leaflet to 1.2.0
