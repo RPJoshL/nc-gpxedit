@@ -782,6 +782,14 @@ h2.popupTitle{
     margin-right: auto;
     display:block;
 }
+.popupOkButton, .layerLinkText, .layerLinkUrl, .layerLon, .layerLat, .layerName, select[role=symbol] {
+    min-height: 17px;
+    height: 17px;
+}
+.popupdatatable textarea {
+    min-height: 16px;
+    height: 20px;
+}
 #clearButton {
     width: 100%;
 }

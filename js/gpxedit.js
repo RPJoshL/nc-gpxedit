@@ -453,6 +453,8 @@
                 buttonParent.find('input.layerName').val(gpxedit.layersData[id].name);
                 buttonParent.find('textarea.layerDesc').val(gpxedit.layersData[id].description);
                 buttonParent.find('textarea.layerCmt').val(gpxedit.layersData[id].comment);
+                buttonParent.find('input.layerLinkText').val(gpxedit.layersData[id].linkText);
+                buttonParent.find('input.layerLinkUrl').val(gpxedit.layersData[id].linkUrl);
                 if (gpxedit.layersData[id].layer.type === 'marker') {
                     if (symbolIcons.hasOwnProperty(gpxedit.layersData[id].symbol)) {
                         buttonParent.find('select[role=symbol]').val(gpxedit.layersData[id].symbol);
@@ -501,6 +503,10 @@
             '<tr><td>' + t('gpxedit', 'Name') + '</td><td><input class="layerName"></input></td></tr>' +
             '<tr><td>' + t('gpxedit', 'Description') + '</td><td><textarea class="layerDesc"></textarea></td></tr>' +
             '<tr><td>' + t('gpxedit', 'Comment') + '</td><td><textarea class="layerCmt"></textarea></td></tr>';
+        popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Link text') +
+                   '</td><td><input class="layerLinkText"></input></td></tr>';
+        popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Link URL') +
+                   '</td><td><input class="layerLinkUrl"></input></td></tr>';
         if (type === 'marker') {
             popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Lat') +
                        '</td><td><input class="layerLat"></input></td></tr>';
@@ -541,6 +547,8 @@
                 name: gpxedit.layersData[layer.gpxedit_id].name,
                 description: gpxedit.layersData[layer.gpxedit_id].description,
                 comment: gpxedit.layersData[layer.gpxedit_id].comment,
+                linkUrl: gpxedit.layersData[layer.gpxedit_id].linkUrl,
+                linkText: gpxedit.layersData[layer.gpxedit_id].linkText,
                 symbol: gpxedit.layersData[layer.gpxedit_id].symbol,
                 time: gpxedit.layersData[layer.gpxedit_id].time,
                 layer: layer
@@ -565,6 +573,8 @@
                 name: '',
                 description: '',
                 comment: '',
+                linkUrl: '',
+                linkText: '',
                 symbol: '',
                 time: '',
                 layer: layer
@@ -699,6 +709,8 @@
             var id = layer.gpxedit_id;
             var name = gpxedit.layersData[id].name;
             var comment = gpxedit.layersData[id].comment;
+            var linkText = gpxedit.layersData[id].linkText;
+            var linkUrl = gpxedit.layersData[id].linkUrl;
             var description = gpxedit.layersData[id].description;
             var time = gpxedit.layersData[id].time;
             if (layer.type === 'marker') {
@@ -715,6 +727,9 @@
                 }
                 if (alt !== undefined) {
                     gpxText = gpxText + '  <ele>' + alt + '</ele>\n';
+                }
+                if (linkText && linkUrl) {
+                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
                 }
                 if (comment) {
                     gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
@@ -740,6 +755,9 @@
                 }
                 if (comment) {
                     gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
+                }
+                if (linkText && linkUrl) {
+                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
                 }
                 if (description) {
                     gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
@@ -772,6 +790,9 @@
                 if (comment) {
                     gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
                 }
+                if (linkText && linkUrl) {
+                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
+                }
                 if (description) {
                     gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
                 }
@@ -797,7 +818,7 @@
     }
 
     // adds a marker and initialize its data
-    function drawMarker(latlng, name, desc, cmt, sym, time) {
+    function drawMarker(latlng, name, desc, cmt, sym, time, linkText, linkUrl) {
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
         var symboo = $('#symboloverwrite').is(':checked');
@@ -825,13 +846,15 @@
         }
         gpxedit.layersData[layer.gpxedit_id].name = name;
         gpxedit.layersData[layer.gpxedit_id].comment = cmt;
+        gpxedit.layersData[layer.gpxedit_id].linkText = linkText;
+        gpxedit.layersData[layer.gpxedit_id].linkUrl = linkUrl;
         gpxedit.layersData[layer.gpxedit_id].description = desc;
         gpxedit.layersData[layer.gpxedit_id].symbol = sym;
         gpxedit.layersData[layer.gpxedit_id].time = time;
     }
 
     // adds a polyline and initialize its data
-    function drawLine(latlngs, name, desc, cmt, gpxtype, times) {
+    function drawLine(latlngs, name, desc, cmt, gpxtype, times, linkText, linkUrl) {
         var wst = $('#markerstyleselect').val();
         var tst = $('#tooltipstyleselect').val();
         var p = L.polyline(latlngs);
@@ -853,6 +876,8 @@
         }
         gpxedit.layersData[layer.gpxedit_id].name = name;
         gpxedit.layersData[layer.gpxedit_id].comment = cmt;
+        gpxedit.layersData[layer.gpxedit_id].linkText = linkText;
+        gpxedit.layersData[layer.gpxedit_id].linkUrl = linkUrl;
         gpxedit.layersData[layer.gpxedit_id].description = desc;
     }
 
@@ -879,11 +904,13 @@
             var sym = $(this).find('sym').text();
             var ele = $(this).find('ele').text();
             var time = $(this).find('time').text();
+            var linkUrl = $(this).find('link').attr('href');
+            var linkText = $(this).find('link text').text();
             if (ele !== '') {
-                drawMarker([lat, lon, ele], name, desc, cmt, sym, time);
+                drawMarker([lat, lon, ele], name, desc, cmt, sym, time, linkText, linkUrl);
             }
             else{
-                drawMarker([lat, lon], name, desc, cmt, sym, time);
+                drawMarker([lat, lon], name, desc, cmt, sym, time, linkText, linkUrl);
             }
         });
         dom.find('trk').each(function() {
@@ -891,6 +918,8 @@
             var name = $(this).find('>name').text();
             var cmt = $(this).find('>cmt').text();
             var desc = $(this).find('>desc').text();
+            var linkUrl = $(this).find('link').attr('href');
+            var linkText = $(this).find('link text').text();
             var times = [];
             $(this).find('trkseg').each(function() {
                 $(this).find('trkpt').each(function() {
@@ -907,13 +936,15 @@
                     }
                 });
             });
-            drawLine(latlngs, name, desc, cmt, 'track', times);
+            drawLine(latlngs, name, desc, cmt, 'track', times, linkText, linkUrl);
         });
         dom.find('rte').each(function() {
             var latlngs = [];
             var name = $(this).find('>name').text();
             var cmt = $(this).find('>cmt').text();
             var desc = $(this).find('>desc').text();
+            var linkUrl = $(this).find('link').attr('href');
+            var linkText = $(this).find('link text').text();
             var times = [];
             $(this).find('rtept').each(function() {
                 var lat = $(this).attr('lat');
@@ -928,7 +959,7 @@
                     latlngs.push([lat, lon]);
                 }
             });
-            drawLine(latlngs, name, desc, cmt, 'route', times);
+            drawLine(latlngs, name, desc, cmt, 'route', times, linkText, linkUrl);
         });
     }
 
@@ -1565,6 +1596,8 @@
         $('body').on('click', 'button.popupOkButton', function(e) {
             var id = parseInt($(this).attr('layerid'));
             var name = $(this).parent().find('.layerName').val();
+            var linkText = $(this).parent().find('.layerLinkText').val();
+            var linkUrl = $(this).parent().find('.layerLinkUrl').val();
             var description = $(this).parent().find('.layerDesc').val();
             var comment = $(this).parent().find('.layerCmt').val();
             var symbol = $(this).parent().find('select[role=symbol]').val();
@@ -1576,6 +1609,8 @@
             gpxedit.layersData[id].name = name;
             gpxedit.layersData[id].description = description;
             gpxedit.layersData[id].comment = comment;
+            gpxedit.layersData[id].linkText = linkText;
+            gpxedit.layersData[id].linkUrl = linkUrl;
             if (symbol !== 'unknown') {
                 gpxedit.layersData[id].symbol = symbol;
             }
