@@ -10,12 +10,9 @@ body {
 }
 
 div#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width:100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
     /*width: calc(100% - 300px);*/
 }
 
@@ -913,12 +910,18 @@ div#ho button {
     margin-left: -4px !important;
     margin-top: -4px !important;
 }
-.sidebar-tabs > li.active {          
-    background-color: #E8E8E8;       
-}                                    
-.leaflet-control-locate.active .fa { 
-    color: #2074B6;                  
-}                                    
-.leaflet-control-locate .fa {        
-    color: black;                    
+.sidebar-tabs > li.active {
+    background-color: #E8E8E8;
+}
+.leaflet-control-locate.active .fa {
+    color: #2074B6;
+}
+.leaflet-control-locate .fa {
+    color: black;
+}
+.leaflet-bottom {
+    position: fixed;
+}
+input[type=checkbox] {
+    cursor: pointer;
 }

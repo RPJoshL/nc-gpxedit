@@ -2,6 +2,7 @@
 <info>
     <id>gpxedit</id>
     <name>GpxEdit</name>
+    <summary lang="en">Simple GPX file editor</summary>
     <description>
 # GpxEdit Nextcloud application
 # GpxEdit Owncloud application
@@ -80,10 +81,9 @@ If you look for more powerfull GPX editors, take a look at :
 - [JOSM](https://josm.openstreetmap.de/)
 
     </description>
-    <licence>AGPL</licence>
-    <summary>Simple GPX file editor</summary>
-    <author>Julien Veyssier</author>
     <version>0.0.8</version>
+    <licence>agpl</licence>
+    <author>Julien Veyssier</author>
     <namespace>GpxEdit</namespace>
     <documentation>
         <user>https://gitlab.com/eneiluj/gpxedit-oc/wikis/userdoc</user>
@@ -98,9 +98,10 @@ If you look for more powerfull GPX editors, take a look at :
     <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/428415bd2cd22b8e74230730786e9551/ed1.png</screenshot>
     <screenshot>https://gitlab.com/eneiluj/gpxedit-oc/uploads/c01709a10880a64815ca783fcf574169/ed2.png</screenshot>
     <dependencies>
-        <php min-version="5.6"/>
-        <owncloud min-version="9.0" max-version="10.9" />
-        <nextcloud min-version="9.0" max-version="13.9"/>
+        <database min-version="9.4">pgsql</database>
+        <database>sqlite</database>
+        <database min-version="5.5">mysql</database>
+        <nextcloud min-version="14.0" max-version="14.9"/>
     </dependencies>
     <settings>
         <admin>OCA\GpxEdit\Settings\Admin</admin>
