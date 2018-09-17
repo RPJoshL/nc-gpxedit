@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     if (OCA.Files && OCA.Files.fileActions && !$('#sharingToken').val()) {
 
-		var token = $('#sharingToken').val();
+        var token = $('#sharingToken').val();
 
         // file action for directories
         if (!token) {
@@ -11,7 +11,7 @@ $(document).ready(function() {
                 displayName: t('gpxedit','Load in GpxEdit'),
                 mime: 'httpd/unix-directory',
                 permissions: OC.PERMISSION_READ,
-                icon: function () {return OC.imagePath('gpxedit', 'app_black');},
+                iconClass: 'icon-gpxedit-black',
                 actionHandler: function(file, data){
                     var dir;
                     if (data.dir === '/'){
@@ -36,7 +36,7 @@ $(document).ready(function() {
             displayName: t('gpxedit', 'Edit with GpxEdit'),
             mime: 'application/gpx+xml',
             permissions: OC.PERMISSION_READ,
-            icon: function () {return OC.imagePath('gpxedit', 'app_black');},
+            iconClass: 'icon-gpxedit-black',
             actionHandler: openFile
         });
     }

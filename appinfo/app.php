@@ -15,6 +15,7 @@ use OCP\AppFramework\App;
 
 use OCP\Util;
 Util::addScript('gpxedit', 'filetypes');
+Util::addStyle('gpxedit', 'style');
 
 $app = new Application();
 $container = $app->getContainer();

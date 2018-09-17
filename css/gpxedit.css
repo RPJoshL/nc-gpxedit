@@ -925,3 +925,7 @@ div#ho button {
 input[type=checkbox] {
     cursor: pointer;
 }
+/* jquery dialog */
+.ui-dialog{
+    z-index: 2001 !important ;
+}
