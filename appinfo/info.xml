@@ -5,12 +5,9 @@
     <summary lang="en">Simple GPX file editor</summary>
     <description>
 # GpxEdit Nextcloud application
-# GpxEdit Owncloud application
 
 Simple Nextcloud app to load, edit and save GPX files on an interactive map.
-Simple Owncloud app to load, edit and save GPX files on an interactive map.
 You can load/save files from your Nextcloud file storage.
-You can load/save files from your Owncloud file storage.
 GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints.
 Files can be loaded in GpxEdit interface or in Files app.
 
@@ -59,8 +56,7 @@ GpxEdit :
 - adds possibility to edit .gpx files directly from the "Files" app
 - is able to cut lines in two
 
-This app is tested on Owncloud 10 with Firefox and Chromium.
-This app is tested on Nextcloud 11 and 12 with Firefox and Chromium.
+This app is tested on Nextcloud 14 with Firefox and Chromium.
 
 Any feedback will be appreciated.
 
@@ -81,7 +77,7 @@ If you look for more powerfull GPX editors, take a look at :
 - [JOSM](https://josm.openstreetmap.de/)
 
     </description>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>GpxEdit</namespace>

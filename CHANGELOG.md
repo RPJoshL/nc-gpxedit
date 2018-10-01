@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.9 – 2018-10-01
+### Added
+- compat with NC14
+- support for `<link>` in waypoints and tracks
+
+### Changed
+- update svg icons
+
+### Fixed
+- filetypes icons for Files app
+
 ## 0.0.8 – 2018-02-10
 ### Added
 - display line total distance during drawing
