@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-12-10 22:19-0500\n"
+"PO-Revision-Date: 2018-10-16 17:23\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -211,7 +211,7 @@ msgstr "No se pudo agregar el servidor de mosaico \"{ts}\""
 
 #: gpxedit.js:1381
 msgid "Failed to restore options values"
-msgstr "No se pudo guardar los valores de las opciones"
+msgstr "No se pudo guardar valores de opciones"
 
 #: gpxedit.js:1382 gpxedit.js:1437
 msgid "Error"
