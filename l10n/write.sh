@@ -22,3 +22,5 @@ rename 's/sk_SK/sk/g' *.js*
 rename 's/fa_IR/fa/g' *.js*
 rename 's/hi_IN/hi/g' *.js*
 rename 's/id_ID/id/g' *.js*
+rename 's/bg_BG/bg/g' *.js*
+rename 's/en_US/en/g' *.js*
