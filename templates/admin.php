@@ -9,10 +9,10 @@ OCP\Util::addstyle('gpxedit', 'admin');
         <label><?php p($l->t('Those symbols will be available in GpxEdit.')); ?></label><br/>
         <label><?php p($l->t('Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name.')); ?></label><br/>
         <br />
-		<div id="extraSymbols">
+        <div id="extraSymbols">
         <table id="extraSymbolsTable">
-		<?php
-		foreach($_['extraSymbolList'] as $symbol){
+<?php
+        foreach($_['extraSymbolList'] as $symbol){
             echo '<tr class="extraSymbol" id="';
             p($symbol['smallname']);
             echo '"><td>';
@@ -25,21 +25,21 @@ OCP\Util::addstyle('gpxedit', 'admin');
             echo '<button class="delExtraSymbol icon-delete icon" name="';
             p($symbol['name']);
             echo '" title="'.$l->t('Delete').'"></button>';
-			echo '</td></tr>';
-		}
-		?>
+            echo '</td></tr>';
+        }
+?>
         </table>
-		</div>
+        </div>
 
         <label><?php p($l->t('Recommended image ratio : 1:1')); ?></label><br/>
         <label><?php p($l->t('Recommended image resolution : between 24x24 and 50x50')); ?></label><br/>
         <label><?php p($l->t('Accepted image format : png')); ?></label><br/>
-		<form class="uploadButton" method="post" action="<?php p($_['uploadPath']) ?>">
+        <form class="uploadButton" method="post" action="<?php p($_['uploadPath']) ?>">
         <label for="addExtraSymbolName"><?php p($l->t('New symbol name')); ?> :</label>
             <input type="text" name="addExtraSymbolName" id="addExtraSymbolName"></input>
 
-			<input id="uploadsymbol" class="upload-symbol-field" name="uploadsymbol" type="file"></input>
-			<label for="uploadsymbol" class="button icon-upload svg" id="uploadsymbol" title="<?php p($l->t('Upload new symbol image')) ?>"></label>
+            <input id="uploadsymbol" class="upload-symbol-field" name="uploadsymbol" type="file"></input>
+            <label for="uploadsymbol" class="button icon-upload svg" id="uploadsymbol" title="<?php p($l->t('Upload new symbol image')) ?>"></label>
             <span id="extraSymbolsSettingsMsg" class="msg"></span>
-		</form>
+        </form>
     </div>
