@@ -49,7 +49,7 @@ OC.L10N.register(
     "A server with this name already exists" : "Un servidor con este nombre ya existe",
     "Tile server \"{ts}\" has been added" : "Se ha agregado el servidor de mosaico \"{ts}\"",
     "Failed to add tile server \"{ts}\"" : "No se pudo agregar el servidor de mosaico \"{ts}\"",
-    "Failed to restore options values" : "No se pudo guardar los valores de las opciones",
+    "Failed to restore options values" : "No se pudo guardar valores de opciones",
     "Error" : "Error",
     "Failed to save options values" : "No se pudo guardar valores de opciones",
     "Impossible to write file" : "Imposible escribir este archivo",
