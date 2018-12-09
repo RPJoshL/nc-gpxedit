@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.10 – 2018-12-09
+### Changed
+- bump to NC 15
+
 ## 0.0.9 – 2018-10-01
 ### Added
 - compat with NC14

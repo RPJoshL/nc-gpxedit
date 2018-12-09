@@ -59,7 +59,10 @@ Any feedback will be appreciated.
 
 ## Donation
 
-I develop this app during my free time. You can make a donation to me on Paypal. [Click HERE to make a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account)
+I develop this app during my free time.
+
+* [Donate with Paypal : <img src="https://gitlab.com/eneiluj/gpxpod-oc/wikis/uploads/6e360ae31aa5730bfc1362e88ae791f9/paypal-donate-button.png" width="80"/>](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account).
+* [Donate with Liberapay : ![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/eneiluj/donate)
 
 ## Installation
 

@@ -62,7 +62,10 @@ Any feedback will be appreciated.
 
 ## Donation
 
-I develop this app during my free time. You can make a donation to me on Paypal. [There is a donation link HERE](https://gitlab.com/eneiluj/gpxedit-oc#donation) (you don't need a paypal account)
+I develop this app during my free time.
+
+* [Donate with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account).
+* [Donate with Liberapay : ![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/eneiluj/donate)
 
 ## Installation
 
@@ -77,7 +80,7 @@ If you look for more powerfull GPX editors, take a look at :
 - [JOSM](https://josm.openstreetmap.de/)
 
     </description>
-    <version>0.0.9</version>
+    <version>0.0.10</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>GpxEdit</namespace>
@@ -97,7 +100,7 @@ If you look for more powerfull GPX editors, take a look at :
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>
         <database min-version="5.5">mysql</database>
-        <nextcloud min-version="14.0" max-version="14.9"/>
+        <nextcloud min-version="14.0" max-version="15.9"/>
     </dependencies>
     <settings>
         <admin>OCA\GpxEdit\Settings\Admin</admin>
