@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2018-10-16 17:10\n"
+"POT-Creation-Date: 2018-12-09 20:31+0100\n"
+"PO-Revision-Date: 2019-04-09 15:06\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Crowdin-Language: en-US\n"
 "X-Crowdin-File: /master/l10n/templates/gpxedit.pot\n"
 
-#: app.php:42 admin.php:7
+#: app.php:43 admin.php:7
 msgid "GpxEdit"
 msgstr "GpxEdit"
 
-#: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
+#: admin.js:15 gpxedit.js:403 gpxedit.js:1300 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
 msgstr ""
@@ -117,143 +117,151 @@ msgstr ""
 msgid "Delete last point drawn"
 msgstr ""
 
-#: gpxedit.js:486
+#: gpxedit.js:488
 msgid "Track"
 msgstr ""
 
-#: gpxedit.js:491
+#: gpxedit.js:493
 msgid "Route"
 msgstr ""
 
-#: gpxedit.js:496
+#: gpxedit.js:498
 msgid "Waypoint"
 msgstr ""
 
-#: gpxedit.js:501
+#: gpxedit.js:503
 msgid "Name"
 msgstr ""
 
-#: gpxedit.js:502
+#: gpxedit.js:504
 msgid "Description"
 msgstr ""
 
-#: gpxedit.js:503
+#: gpxedit.js:505
 msgid "Comment"
 msgstr ""
 
-#: gpxedit.js:505
+#: gpxedit.js:506
+msgid "Link text"
+msgstr ""
+
+#: gpxedit.js:508
+msgid "Link URL"
+msgstr ""
+
+#: gpxedit.js:511
 msgid "Lat"
 msgstr ""
 
-#: gpxedit.js:507
+#: gpxedit.js:513
 msgid "Lon"
 msgstr ""
 
-#: gpxedit.js:509
+#: gpxedit.js:515
 msgid "Symbol"
 msgstr ""
 
-#: gpxedit.js:512
+#: gpxedit.js:518
 msgid "No symbol"
 msgstr ""
 
-#: gpxedit.js:514
+#: gpxedit.js:520
 msgid "Unknown symbol"
 msgstr ""
 
-#: gpxedit.js:975
+#: gpxedit.js:1006
 msgid "Failed to save file"
 msgstr ""
 
-#: gpxedit.js:993
+#: gpxedit.js:1024
 msgid "File successfully saved as"
 msgstr ""
 
-#: gpxedit.js:1104
+#: gpxedit.js:1135
 msgid "Impossible to load this file. "
 msgstr ""
 
-#: gpxedit.js:1105
+#: gpxedit.js:1136
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
 msgstr ""
 
-#: gpxedit.js:1106
+#: gpxedit.js:1137
 msgid "Load error"
 msgstr ""
 
-#: gpxedit.js:1209
+#: gpxedit.js:1240
 msgid "Tile server \"{ts}\" has been deleted"
 msgstr ""
 
-#: gpxedit.js:1212 gpxedit.js:1216
+#: gpxedit.js:1243 gpxedit.js:1247
 msgid "Failed to delete tile server \"{ts}\""
 msgstr ""
 
-#: gpxedit.js:1231
+#: gpxedit.js:1262
 msgid "Server name or server url should not be empty"
 msgstr ""
 
-#: gpxedit.js:1232 gpxedit.js:1237
+#: gpxedit.js:1263 gpxedit.js:1268
 msgid "Impossible to add tile server"
 msgstr ""
 
-#: gpxedit.js:1236
+#: gpxedit.js:1267
 msgid "A server with this name already exists"
 msgstr ""
 
-#: gpxedit.js:1302
+#: gpxedit.js:1333
 msgid "Tile server \"{ts}\" has been added"
 msgstr ""
 
-#: gpxedit.js:1305 gpxedit.js:1309
+#: gpxedit.js:1336 gpxedit.js:1340
 msgid "Failed to add tile server \"{ts}\""
 msgstr ""
 
-#: gpxedit.js:1381
+#: gpxedit.js:1412
 msgid "Failed to restore options values"
 msgstr ""
 
-#: gpxedit.js:1382 gpxedit.js:1437
+#: gpxedit.js:1413 gpxedit.js:1468
 msgid "Error"
 msgstr ""
 
-#: gpxedit.js:1436
+#: gpxedit.js:1467
 msgid "Failed to save options values"
 msgstr ""
 
-#: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
+#: gpxedit.js:1534 gpxedit.js:1541 gpxedit.js:1548
 msgid "Impossible to write file"
 msgstr ""
 
-#: gpxedit.js:1504
+#: gpxedit.js:1535
 msgid "write access denied"
 msgstr ""
 
-#: gpxedit.js:1511
+#: gpxedit.js:1542
 msgid "folder does not exist"
 msgstr ""
 
-#: gpxedit.js:1518
+#: gpxedit.js:1549
 msgid "folder write access denied"
 msgstr ""
 
-#: gpxedit.js:1524
+#: gpxedit.js:1555
 msgid "Bad file name, must end with \".gpx\""
 msgstr ""
 
-#: gpxedit.js:1636
+#: gpxedit.js:1671
 msgid "Load file (gpx, kml, csv, png)"
 msgstr ""
 
-#: gpxedit.js:1653
+#: gpxedit.js:1688
 msgid "Load folder"
 msgstr ""
 
-#: gpxedit.js:1665
+#: gpxedit.js:1700
 msgid "There is nothing to save"
 msgstr ""
 
-#: gpxedit.js:1670
+#: gpxedit.js:1705
 msgid "Where to save"
 msgstr ""
 

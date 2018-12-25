@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2017-11-10 16:14+0100\n"
-"PO-Revision-Date: 2017-11-30 10:09-0500\n"
+"POT-Creation-Date: 2018-12-09 20:31+0100\n"
+"PO-Revision-Date: 2019-03-17 17:53\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/l10n/templates/gpxedit.pot\n"
 
-#: app.php:42 admin.php:7
+#: app.php:43 admin.php:7
 msgid "GpxEdit"
 msgstr "GpxEdit"
 
-#: admin.js:15 gpxedit.js:403 gpxedit.js:1269 admin.php:27 gpxcontent.php:165
+#: admin.js:15 gpxedit.js:403 gpxedit.js:1300 admin.php:27 gpxcontent.php:165
 #: gpxcontent.php:209 gpxcontent.php:255 gpxcontent.php:305
 msgid "Delete"
 msgstr "Löschen"
@@ -117,143 +117,151 @@ msgstr "Letzten Datenpunkt löschen"
 msgid "Delete last point drawn"
 msgstr "Letzten gezeichneten Datenpunkt löschen"
 
-#: gpxedit.js:486
+#: gpxedit.js:488
 msgid "Track"
 msgstr "Strecke"
 
-#: gpxedit.js:491
+#: gpxedit.js:493
 msgid "Route"
 msgstr "Wegstrecke"
 
-#: gpxedit.js:496
+#: gpxedit.js:498
 msgid "Waypoint"
 msgstr "Wegpunkt"
 
-#: gpxedit.js:501
+#: gpxedit.js:503
 msgid "Name"
 msgstr "Name"
 
-#: gpxedit.js:502
+#: gpxedit.js:504
 msgid "Description"
 msgstr "Beschreibung"
 
-#: gpxedit.js:503
+#: gpxedit.js:505
 msgid "Comment"
 msgstr "Kommentar"
 
-#: gpxedit.js:505
+#: gpxedit.js:506
+msgid "Link text"
+msgstr "Link Text"
+
+#: gpxedit.js:508
+msgid "Link URL"
+msgstr "Link URL"
+
+#: gpxedit.js:511
 msgid "Lat"
 msgstr "Breitengrad"
 
-#: gpxedit.js:507
+#: gpxedit.js:513
 msgid "Lon"
 msgstr "Längengrad"
 
-#: gpxedit.js:509
+#: gpxedit.js:515
 msgid "Symbol"
 msgstr "Symbol"
 
-#: gpxedit.js:512
+#: gpxedit.js:518
 msgid "No symbol"
 msgstr "Kein Symbol"
 
-#: gpxedit.js:514
+#: gpxedit.js:520
 msgid "Unknown symbol"
 msgstr "Unbekanntes Symbol"
 
-#: gpxedit.js:975
+#: gpxedit.js:1006
 msgid "Failed to save file"
 msgstr "Speichern der Datei fehlgeschlagen"
 
-#: gpxedit.js:993
+#: gpxedit.js:1024
 msgid "File successfully saved as"
 msgstr "Datei erfolgreich gespeichert als:"
 
-#: gpxedit.js:1104
+#: gpxedit.js:1135
 msgid "Impossible to load this file. "
 msgstr "Datei konnte nicht geladen werden. "
 
-#: gpxedit.js:1105
+#: gpxedit.js:1136
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
 msgstr "Unterstützte Formate sind GPX, KML, CSV (Unicsv) und JPG."
 
-#: gpxedit.js:1106
+#: gpxedit.js:1137
 msgid "Load error"
 msgstr "Ladefehler"
 
-#: gpxedit.js:1209
+#: gpxedit.js:1240
 msgid "Tile server \"{ts}\" has been deleted"
 msgstr "Der Kachelserver „{ts}” wurde gelöscht"
 
-#: gpxedit.js:1212 gpxedit.js:1216
+#: gpxedit.js:1243 gpxedit.js:1247
 msgid "Failed to delete tile server \"{ts}\""
 msgstr "Kachelserver „{ts}” konnte nicht gelöscht werden"
 
-#: gpxedit.js:1231
+#: gpxedit.js:1262
 msgid "Server name or server url should not be empty"
 msgstr "Servername oder Server-URL dürfen nicht leer sein"
 
-#: gpxedit.js:1232 gpxedit.js:1237
+#: gpxedit.js:1263 gpxedit.js:1268
 msgid "Impossible to add tile server"
 msgstr "Kachelserver konnte nicht hinzugefügt werden"
 
-#: gpxedit.js:1236
+#: gpxedit.js:1267
 msgid "A server with this name already exists"
 msgstr "Ein Server mit diesem Namen existiert bereits"
 
-#: gpxedit.js:1302
+#: gpxedit.js:1333
 msgid "Tile server \"{ts}\" has been added"
 msgstr "Kachelserver „{ts}” wurde hinzugefügt"
 
-#: gpxedit.js:1305 gpxedit.js:1309
+#: gpxedit.js:1336 gpxedit.js:1340
 msgid "Failed to add tile server \"{ts}\""
 msgstr "Kachelserver „{ts}” konnte nicht hinzugefügt werden"
 
-#: gpxedit.js:1381
+#: gpxedit.js:1412
 msgid "Failed to restore options values"
 msgstr "Einstellungen konnten nicht wiederhergestellt werden"
 
-#: gpxedit.js:1382 gpxedit.js:1437
+#: gpxedit.js:1413 gpxedit.js:1468
 msgid "Error"
 msgstr "Fehler"
 
-#: gpxedit.js:1436
+#: gpxedit.js:1467
 msgid "Failed to save options values"
 msgstr "Speichern der Einstellungen fehlgeschlagen"
 
-#: gpxedit.js:1503 gpxedit.js:1510 gpxedit.js:1517
+#: gpxedit.js:1534 gpxedit.js:1541 gpxedit.js:1548
 msgid "Impossible to write file"
 msgstr "Datei konnte nicht geschrieben werden"
 
-#: gpxedit.js:1504
+#: gpxedit.js:1535
 msgid "write access denied"
 msgstr "Schreibzugriff verweigert"
 
-#: gpxedit.js:1511
+#: gpxedit.js:1542
 msgid "folder does not exist"
 msgstr "Ordner nicht vorhanden"
 
-#: gpxedit.js:1518
+#: gpxedit.js:1549
 msgid "folder write access denied"
 msgstr "Schreibzugriff auf Verzeichnis verweigert"
 
-#: gpxedit.js:1524
+#: gpxedit.js:1555
 msgid "Bad file name, must end with \".gpx\""
 msgstr "Ungültiger Dateiname: Dateiendung GPX erforderlich"
 
-#: gpxedit.js:1636
+#: gpxedit.js:1671
 msgid "Load file (gpx, kml, csv, png)"
 msgstr "Datei laden (GPX, KML, CSV, PNG)"
 
-#: gpxedit.js:1653
+#: gpxedit.js:1688
 msgid "Load folder"
 msgstr "Ordner laden"
 
-#: gpxedit.js:1665
+#: gpxedit.js:1700
 msgid "There is nothing to save"
 msgstr "Keine Daten die gespeichert werden müssen"
 
-#: gpxedit.js:1670
+#: gpxedit.js:1705
 msgid "Where to save"
 msgstr "Speicherort angeben"
 
