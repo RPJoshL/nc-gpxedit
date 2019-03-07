@@ -985,6 +985,7 @@
         e = e || window.event;
         var kc = e.keyCode;
         //console.log(kc);
+        //console.log(e.key);
 
         if (kc === 161 || kc === 223) {
             e.preventDefault();
@@ -994,7 +995,7 @@
             e.preventDefault();
             $('#sidebar').toggleClass('collapsed');
         }
-        if (kc === 46) {
+        if (e.key === 'Delete') {
             if (gpxedit.hovermiddlemarker) {
                 gpxedit.hovermiddlemarker.fire('cut', gpxedit.hovermiddlemarker);
             }

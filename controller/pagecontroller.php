@@ -157,14 +157,14 @@ class PageController extends Controller {
 
         // PARAMS to view
 
-		require_once('tileservers.php');
+        require_once('tileservers.php');
         $params = [
             'username'=>$this->userId,
-			'basetileservers'=>$baseTileServers,
-			'usertileservers'=>$tss,
-			'useroverlayservers'=>$oss,
-			'usertileserverswms'=>$tssw,
-			'useroverlayserverswms'=>$ossw,
+            'basetileservers'=>$baseTileServers,
+            'usertileservers'=>$tss,
+            'useroverlayservers'=>$oss,
+            'usertileserverswms'=>$tssw,
+            'useroverlayserverswms'=>$ossw,
             'extrasymbols'=>$extraSymbolList,
             'gpxedit_version'=>$this->appVersion
         ];
@@ -175,7 +175,7 @@ class PageController extends Controller {
             ->addAllowedChildSrcDomain('*')
             ->addAllowedObjectDomain('*')
             ->addAllowedScriptDomain('*')
-            //->allowEvalScript('*')
+            ->allowEvalScript(true)
             ->addAllowedConnectDomain('*');
         $response->setContentSecurityPolicy($csp);
         return $response;
