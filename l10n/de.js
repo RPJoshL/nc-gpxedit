@@ -32,6 +32,8 @@ OC.L10N.register(
     "Name" : "Name",
     "Description" : "Beschreibung",
     "Comment" : "Kommentar",
+    "Link text" : "Link Text",
+    "Link URL" : "Link URL",
     "Lat" : "Breitengrad",
     "Lon" : "Längengrad",
     "Symbol" : "Symbol",

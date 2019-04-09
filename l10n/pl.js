@@ -39,4 +39,4 @@ OC.L10N.register(
     "Server name" : "Nazwa servera",
     "Min zoom (1-20)" : "Mini zoom (1-20)"
 },
-"nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\nX-Generator: crowdin.com\nX-Crowdin-Project: gpxedit\nX-Crowdin-Language: pl");
+"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\nX-Generator: crowdin.com\nX-Crowdin-Project: gpxedit\nX-Crowdin-Language: pl");

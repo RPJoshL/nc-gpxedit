@@ -133,4 +133,4 @@ OC.L10N.register(
     "Source management" : "Управление источниками",
     "Authors" : "Авторы"
 },
-"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\nX-Generator: crowdin.com\nX-Crowdin-Project: gpxedit\nX-Crowdin-Language: ru");
+"nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\nX-Generator: crowdin.com\nX-Crowdin-Project: gpxedit\nX-Crowdin-Language: ru");
