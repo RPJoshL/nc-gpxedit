@@ -80,7 +80,7 @@ If you look for more powerfull GPX editors, take a look at :
 - [JOSM](https://josm.openstreetmap.de/)
 
     </description>
-    <version>0.0.10</version>
+    <version>0.0.11</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>GpxEdit</namespace>
@@ -100,7 +100,7 @@ If you look for more powerfull GPX editors, take a look at :
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>
         <database min-version="5.5">mysql</database>
-        <nextcloud min-version="14.0" max-version="15.9"/>
+        <nextcloud min-version="14" max-version="16"/>
     </dependencies>
     <settings>
         <admin>OCA\GpxEdit\Settings\Admin</admin>

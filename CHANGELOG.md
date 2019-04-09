@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+## 0.0.11 – 2019-04-09
+### Changed
+- bump to NC 16
+
+### Fixed
+- allow eval script in main page csp
+  [#49](https://gitlab.com/eneiluj/gpxedit-oc/issues/49) @florom
 
 ## 0.0.10 – 2018-12-09
 ### Changed
