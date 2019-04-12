@@ -7,4 +7,5 @@ git rebase master
 git reset --soft master
 git commit -m "new translations from crowdin"
 git checkout master
-echo "ready to merge l10n_master"
+git merge l10n_master
+echo "MERGE DONE"
