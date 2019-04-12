@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
 "POT-Creation-Date: 2019-04-12 09:53+0200\n"
-"PO-Revision-Date: 2019-04-12 08:18\n"
+"PO-Revision-Date: 2019-04-12 08:36\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -124,7 +124,7 @@ msgstr "Supprimer le dernier point"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
 msgid "Delete last drawn point"
-msgstr ""
+msgstr "Supprimer le dernier point dessiné"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
 msgid "Track"
@@ -290,7 +290,7 @@ msgstr "droite"
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
 msgid "Simple GPX file editor"
-msgstr ""
+msgstr "Simple éditeur de fichiers GPX"
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:4
 msgid "# GpxEdit Nextcloud application\n\n"
@@ -351,7 +351,9 @@ msgid "# GpxEdit Nextcloud application\n\n"
 "- [QLandKarteGT](https://bitbucket.org/kiozen/qlandkarte-gt)\n"
 "- [QMapShack](https://bitbucket.org/maproom/qmapshack/wiki/Home)\n"
 "- [JOSM](https://josm.openstreetmap.de/)"
-msgstr ""
+msgstr "# Application Nextcloud GpxEdit\n\n"
+"Appli Nextcloud simple pour charger, éditer et sauver des fichiers GPX avec une carte interactive.\n"
+"GPX, KML, CSV (format unicsv) et JPG géotagué sont supportés. Les fichiers JPG sont chargés en tant que points d'intérêt."
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:8
 msgid "Extra symbols"
