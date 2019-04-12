@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 07:56+0200\n"
-"PO-Revision-Date: 2019-04-12 06:10\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
+"PO-Revision-Date: 2019-04-12 08:18\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:401
 msgid "Edit"
-msgstr ""
+msgstr "Mengedit"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:402
 msgid "Nothing to edit"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:405
 msgid "Validate changes"
-msgstr ""
+msgstr "Memvalidasi perubahan"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:406
 msgid "Ok"
@@ -116,14 +116,14 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:419
 msgid "Finish drawing"
-msgstr ""
+msgstr "Selesai menggambar"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:420
 msgid "Delete last point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
+msgid "Delete last drawn point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
@@ -136,7 +136,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:498
 msgid "Waypoint"
-msgstr ""
+msgstr "Waypoint"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:503
 msgid "Name"
@@ -160,11 +160,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:511
 msgid "Lat"
-msgstr ""
+msgstr "Tahun"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:513
 msgid "Lon"
-msgstr ""
+msgstr "Bisa"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:515
 msgid "Symbol"
@@ -176,7 +176,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:520
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Simbol yang tidak diketahui"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1007
 msgid "Failed to save file"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1138
 msgid "Load error"
-msgstr ""
+msgstr "Kesalahan beban"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1241
 msgid "Tile server \"{ts}\" has been deleted"
@@ -266,11 +266,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1672
 msgid "Load file (gpx, kml, csv, png)"
-msgstr ""
+msgstr "Memuat file (gpx, kml, csv, png)"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1689
 msgid "Load folder"
-msgstr ""
+msgstr "Muat berkas"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1701
 msgid "There is nothing to save"
@@ -355,7 +355,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Simbol tambahan"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:9
 msgid "Those symbols will be available in GpxEdit."
@@ -367,7 +367,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr ""
+msgstr "Rasio gambar direkomendasikan: 1: 1"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
@@ -401,11 +401,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Luat berkas"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Direktori beban"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:27
 msgid "all files"
@@ -417,15 +417,15 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Nama file"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Nama lagu (opsional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:44
 msgid "Description (optional)"
@@ -433,7 +433,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Tautan teks (opsional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:48
 msgid "Link URL (optional)"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Jelas peta"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:65
 msgid "loading file"
@@ -453,7 +453,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr ""
+msgstr "mengekspor file gpx"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:73
 msgid "saving file"
@@ -461,15 +461,15 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr ""
+msgstr "Simbol default untuk waypoints ketika nilai tidak diatur"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:110
 msgid "Waypoint style"
-msgstr ""
+msgstr "Gaya waypoint"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:114
 msgid "Tooltip"
-msgstr ""
+msgstr "Keterangan alat"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:116
 msgid "on hover"
@@ -489,7 +489,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Bahasa Inggris"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:123
 msgid "Nautical"
@@ -514,7 +514,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr ""
+msgstr "Server kustom ubin"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:138
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:178
@@ -565,7 +565,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:149
 msgid "Your tile servers"
-msgstr ""
+msgstr "Server ubin Anda"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:175
 msgid "Custom overlay tile servers"
@@ -579,7 +579,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:186
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:276
 msgid "Transparent"
-msgstr ""
+msgstr "Jelas"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:188
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:278
@@ -592,7 +592,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr ""
+msgstr "Server ubin kustom WMS"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:230
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:280
@@ -615,7 +615,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr ""
+msgstr "Server overlay kustom WMS"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
@@ -659,7 +659,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:338
 msgid "Shortcuts"
-msgstr ""
+msgstr "Pintasan"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:340
 msgid "toggle sidebar"
@@ -675,9 +675,9 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:352
 msgid "Source management"
-msgstr ""
+msgstr "Sumber manajemen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Penulis"
 

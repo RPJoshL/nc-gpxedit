@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 07:56+0200\n"
-"PO-Revision-Date: 2019-04-12 06:10\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
+"PO-Revision-Date: 2019-04-12 08:18\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -96,11 +96,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Kliknij, aby rozpocząć rysowanie szlaczka"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:415
 msgid "Click last point to finish track"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Anuluj rysowanie"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:418
 msgid "Finish"
@@ -120,10 +120,10 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Usuń ostatni punkt"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
+msgid "Delete last drawn point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
@@ -180,11 +180,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1007
 msgid "Failed to save file"
-msgstr ""
+msgstr "Nie udało się zapisać pliku"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1025
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Plik zapisany pomyślnie jako"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1136
 msgid "Impossible to load this file. "
@@ -192,7 +192,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1137
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Obsługiwane formaty: gpx, kml, csv (unicsv) i jpg."
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1138
 msgid "Load error"
@@ -218,7 +218,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1268
 msgid "A server with this name already exists"
-msgstr ""
+msgstr "Serwer o tej nazwie już istnieje"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1334
 msgid "Tile server \"{ts}\" has been added"
@@ -274,19 +274,19 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1701
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Nic do zapisania"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1706
 msgid "Where to save"
-msgstr ""
+msgstr "Gdzie zapisać"
 
 #: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "w lewo"
 
 #: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "w prawo"
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
 msgid "Simple GPX file editor"
@@ -355,15 +355,15 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Dodatkowe symbole"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Symbole te będą dostępne w GpxEdit."
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr ""
+msgstr "Należy pamiętać, że tylko nazwy symboli są zapisywane w plikach gpx. Inne programy będą wyświetlać domyślne symbole, jeśli nie będę znać nazwy symbolu."
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:34
 msgid "Recommended image ratio : 1:1"
@@ -375,49 +375,49 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Akceptowany format obrazu: png"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Nowa nazwa symbolu"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Prześlij nowy obraz symbolu"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Załaduj i zapisz pliki"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:5
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Opcje"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:6
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "O GpxEdit"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Załaduj plik"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Załaduj katalog"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:27
 msgid "all files"
-msgstr ""
+msgstr "wszystkie pliki"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Nazwa pliku"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:40
 msgid "Metadata"
@@ -425,31 +425,31 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Nazwa utworu (opcjonalnie)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Opis (opcjonalnie)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Link do tekstu (opcjonalnie)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "Link URL (opcjonalnie)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Wybierz katalog i zapisz"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Wyczyść mapę"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:65
 msgid "loading file"
-msgstr ""
+msgstr "ładowanie pliku"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:69
 msgid "exporting file to gpx"
@@ -457,7 +457,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:73
 msgid "saving file"
-msgstr ""
+msgstr "zapisywanie pliku"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
@@ -506,7 +506,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr ""
+msgstr "Wyczyść mapę przed załadowaniem"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:131
 msgid "Approximate new points elevations"
@@ -521,7 +521,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:222
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:268
 msgid "Server name"
-msgstr ""
+msgstr "Nazwa servera"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:139
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:179
@@ -547,7 +547,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:226
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr ""
+msgstr "Mini zoom (1-20)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:144
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:184

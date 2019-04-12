@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 07:56+0200\n"
-"PO-Revision-Date: 2019-04-12 06:10\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
+"PO-Revision-Date: 2019-04-12 08:18\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:2
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:7
 msgid "GpxEdit"
-msgstr ""
+msgstr "GpxEdit"
 
 #: /var/www/html/n15/apps/gpxedit/js/admin.js:15
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:403
@@ -31,7 +31,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:255
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:305
 msgid "Delete"
-msgstr ""
+msgstr "Törlés"
 
 #: /var/www/html/n15/apps/gpxedit/js/filetypes.js:11
 msgid "Load in GpxEdit"
@@ -47,11 +47,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:400
 msgid "Add a waypoint"
-msgstr ""
+msgstr "Útpont hozzáadása"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:401
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:402
 msgid "Nothing to edit"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:404
 msgid "Nothing to delete"
-msgstr ""
+msgstr "Nincs törlendő elem"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:405
 msgid "Validate changes"
@@ -67,16 +67,16 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:406
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:407
 msgid "Discard all changes"
-msgstr ""
+msgstr "Összes változtatás elvetése"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:408
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:416
 msgid "Cancel"
-msgstr ""
+msgstr "Mégsem"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
@@ -120,10 +120,10 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Utolsó pont törlése"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
+msgid "Delete last drawn point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
@@ -136,19 +136,19 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:498
 msgid "Waypoint"
-msgstr ""
+msgstr "Útpont"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:503
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:504
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:505
 msgid "Comment"
-msgstr ""
+msgstr "Megjegyzés"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:506
 msgid "Link text"
@@ -160,11 +160,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:511
 msgid "Lat"
-msgstr ""
+msgstr "Szélesség"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:513
 msgid "Lon"
-msgstr ""
+msgstr "Hosszúság"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:515
 msgid "Symbol"
@@ -172,11 +172,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:518
 msgid "No symbol"
-msgstr ""
+msgstr "Nincs szimbólum"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:520
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Ismeretlen szimbólum"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1007
 msgid "Failed to save file"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1138
 msgid "Load error"
-msgstr ""
+msgstr "Betöltési hiba"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1241
 msgid "Tile server \"{ts}\" has been deleted"
@@ -375,11 +375,11 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Elfogadott kép formátum: png"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Új szimbólum neve"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:42
 msgid "Upload new symbol image"
@@ -392,20 +392,20 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:5
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Beállítások"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:6
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "GpxEdit névjegye"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Fájl betöltése"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Könyvtár betöltése"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:27
 msgid "all files"
@@ -413,15 +413,15 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Fájlnév"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metaadatok"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:42
 msgid "Track name (optional)"
@@ -429,7 +429,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Leírás (opcionális)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:46
 msgid "Link text (optional)"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Térkép törlése"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:65
 msgid "loading file"
@@ -469,7 +469,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:114
 msgid "Tooltip"
-msgstr ""
+msgstr "Buboréksúgó"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:116
 msgid "on hover"
@@ -485,15 +485,15 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:121
 msgid "Metric"
-msgstr ""
+msgstr "Metrikus"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Angol"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:123
 msgid "Nautical"
-msgstr ""
+msgstr "Tengeri"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:125
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:127
@@ -561,7 +561,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:236
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:286
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:149
 msgid "Your tile servers"
@@ -579,7 +579,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:186
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:276
 msgid "Transparent"
-msgstr ""
+msgstr "Átlátszó"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:188
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:278
@@ -597,7 +597,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:230
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:280
 msgid "Format"
-msgstr ""
+msgstr "Formátum"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:232
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:282
@@ -671,7 +671,7 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:344
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentáció"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:352
 msgid "Source management"
@@ -679,5 +679,5 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Szerzők"
 

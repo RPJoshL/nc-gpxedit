@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 07:56+0200\n"
-"PO-Revision-Date: 2019-04-12 06:19\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
+"PO-Revision-Date: 2019-04-12 08:18\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -123,8 +123,8 @@ msgid "Delete last point"
 msgstr "Supprimer le dernier point"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
-msgstr "Supprimer le dernier point dessiné"
+msgid "Delete last drawn point"
+msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
 msgid "Track"
@@ -290,7 +290,7 @@ msgstr "droite"
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
 msgid "Simple GPX file editor"
-msgstr "Éditeur de fichiers GPX simple"
+msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:4
 msgid "# GpxEdit Nextcloud application\n\n"

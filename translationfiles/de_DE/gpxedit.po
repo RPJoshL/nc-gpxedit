@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 07:56+0200\n"
-"PO-Revision-Date: 2019-04-12 06:11\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
+"PO-Revision-Date: 2019-04-12 08:18\n"
 "Last-Translator: eneiluj <eneiluj@posteo.net>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:2
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:7
 msgid "GpxEdit"
-msgstr ""
+msgstr "GpxEdit"
 
 #: /var/www/html/n15/apps/gpxedit/js/admin.js:15
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:403
@@ -31,262 +31,262 @@ msgstr ""
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:255
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:305
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: /var/www/html/n15/apps/gpxedit/js/filetypes.js:11
 msgid "Load in GpxEdit"
-msgstr ""
+msgstr "In GpxEdit laden"
 
 #: /var/www/html/n15/apps/gpxedit/js/filetypes.js:36
 msgid "Edit with GpxEdit"
-msgstr ""
+msgstr "Mit GpxEdit bearbeiten"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:399
 msgid "Draw a track"
-msgstr ""
+msgstr "Strecke zeichnen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:400
 msgid "Add a waypoint"
-msgstr ""
+msgstr "Wegpunkt hinzufügen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:401
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:402
 msgid "Nothing to edit"
-msgstr ""
+msgstr "Keine Änderungen erforderlich"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:404
 msgid "Nothing to delete"
-msgstr ""
+msgstr "Nichts zu löschen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:405
 msgid "Validate changes"
-msgstr ""
+msgstr "Änderungen bestätigen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:406
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:407
 msgid "Discard all changes"
-msgstr ""
+msgstr "Alle Änderungen verwerfen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:408
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:416
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
-msgstr ""
+msgstr "Ziehen, um Elemente zu verschieben,<br/>Klicken, um einen Datenpunkt zu entfernen<br/>Bewegen Sie den Mauszeiger über eine Mittelmarkierung und drücken Sie die Taste „Entf”, um die Linie abzuschneiden."
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:410
 msgid "Click cancel to undo changes"
-msgstr ""
+msgstr "Auf Abbrechen klicken, um die Änderungen zu verwerfen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:411
 msgid "Click on an element to delete it"
-msgstr ""
+msgstr "Auf ein Element klicken, um es zu löschen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:412
 msgid "Click map to add waypoint"
-msgstr ""
+msgstr "In die Karte klicken, um eine Wegpunkt hinzuzufügen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:413
 msgid "Click to start drawing track"
-msgstr ""
+msgstr "Klicken, um eine neue Strecke zu zeichnen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:414
 msgid "Click to continue drawing track"
-msgstr ""
+msgstr "Klicken, um mit dem Zeichnen der Strecke fortzusetzen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:415
 msgid "Click last point to finish track"
-msgstr ""
+msgstr "Klicken Sie auf den letzten Datenpunkt, um die Steckenzeichnung zu beenden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:417
 msgid "Cancel drawing"
-msgstr ""
+msgstr "Zeichnen abbrechen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:418
 msgid "Finish"
-msgstr ""
+msgstr "Beenden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:419
 msgid "Finish drawing"
-msgstr ""
+msgstr "Zeichnen beenden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:420
 msgid "Delete last point"
-msgstr ""
+msgstr "Letzten Datenpunkt löschen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
+msgid "Delete last drawn point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
 msgid "Track"
-msgstr ""
+msgstr "Strecke"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:493
 msgid "Route"
-msgstr ""
+msgstr "Wegstrecke"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:498
 msgid "Waypoint"
-msgstr ""
+msgstr "Wegpunkt"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:503
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:504
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:505
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:506
 msgid "Link text"
-msgstr ""
+msgstr "Link Text"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:508
 msgid "Link URL"
-msgstr ""
+msgstr "Link URL"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:511
 msgid "Lat"
-msgstr ""
+msgstr "Breitengrad"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:513
 msgid "Lon"
-msgstr ""
+msgstr "Längengrad"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:515
 msgid "Symbol"
-msgstr ""
+msgstr "Symbol"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:518
 msgid "No symbol"
-msgstr ""
+msgstr "Kein Symbol"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:520
 msgid "Unknown symbol"
-msgstr ""
+msgstr "Unbekanntes Symbol"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1007
 msgid "Failed to save file"
-msgstr ""
+msgstr "Speichern der Datei fehlgeschlagen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1025
 msgid "File successfully saved as"
-msgstr ""
+msgstr "Datei erfolgreich gespeichert als:"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1136
 msgid "Impossible to load this file. "
-msgstr ""
+msgstr "Datei konnte nicht geladen werden. "
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1137
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
-msgstr ""
+msgstr "Unterstützte Formate sind GPX, KML, CSV (Unicsv) und JPG."
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1138
 msgid "Load error"
-msgstr ""
+msgstr "Ladefehler"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1241
 msgid "Tile server \"{ts}\" has been deleted"
-msgstr ""
+msgstr "Der Kachelserver „{ts}” wurde gelöscht"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1244
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1248
 msgid "Failed to delete tile server \"{ts}\""
-msgstr ""
+msgstr "Kachelserver „{ts}” konnte nicht gelöscht werden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1263
 msgid "Server name or server url should not be empty"
-msgstr ""
+msgstr "Servername oder Server-URL dürfen nicht leer sein"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1264
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1269
 msgid "Impossible to add tile server"
-msgstr ""
+msgstr "Kachelserver konnte nicht hinzugefügt werden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1268
 msgid "A server with this name already exists"
-msgstr ""
+msgstr "Ein Server mit diesem Namen existiert bereits"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1334
 msgid "Tile server \"{ts}\" has been added"
-msgstr ""
+msgstr "Kachelserver „{ts}” wurde hinzugefügt"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1337
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1341
 msgid "Failed to add tile server \"{ts}\""
-msgstr ""
+msgstr "Kachelserver „{ts}” konnte nicht hinzugefügt werden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1413
 msgid "Failed to restore options values"
-msgstr ""
+msgstr "Einstellungen konnten nicht wiederhergestellt werden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1414
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1469
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1468
 msgid "Failed to save options values"
-msgstr ""
+msgstr "Speichern der Einstellungen fehlgeschlagen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1535
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1542
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1549
 msgid "Impossible to write file"
-msgstr ""
+msgstr "Datei konnte nicht geschrieben werden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1536
 msgid "write access denied"
-msgstr ""
+msgstr "Schreibzugriff verweigert"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1543
 msgid "folder does not exist"
-msgstr ""
+msgstr "Ordner nicht vorhanden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1550
 msgid "folder write access denied"
-msgstr ""
+msgstr "Schreibzugriff auf Verzeichnis verweigert"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1556
 msgid "Bad file name, must end with \".gpx\""
-msgstr ""
+msgstr "Ungültiger Dateiname: Dateiendung GPX erforderlich"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1672
 msgid "Load file (gpx, kml, csv, png)"
-msgstr ""
+msgstr "Datei laden (GPX, KML, CSV, PNG)"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1689
 msgid "Load folder"
-msgstr ""
+msgstr "Ordner laden"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1701
 msgid "There is nothing to save"
-msgstr ""
+msgstr "Keine Daten die gespeichert werden müssen"
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1706
 msgid "Where to save"
-msgstr ""
+msgstr "Speicherort angeben"
 
 #: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
 msgid "left"
-msgstr ""
+msgstr "Links"
 
 #: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
 msgid "right"
-msgstr ""
+msgstr "Rechts"
 
 #: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
 msgid "Simple GPX file editor"
@@ -355,329 +355,329 @@ msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:8
 msgid "Extra symbols"
-msgstr ""
+msgstr "Zusätzliche Symbole"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:9
 msgid "Those symbols will be available in GpxEdit."
-msgstr ""
+msgstr "Diese Symbole sind in GpxEdit verfügbar"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
-msgstr ""
+msgstr "Beachten Sie, dass nur die Symbolnamen in GPX-Dateien gespeichert werden. Andere Anwendungen zeigen das Standardsymbol an, wenn diese keinen Symbolnamen erkennen."
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:34
 msgid "Recommended image ratio : 1:1"
-msgstr ""
+msgstr "Empfohlenes Seitenverhältnis: 1:1"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
-msgstr ""
+msgstr "Empfohlene Grafikgröße: zwischen 24x24px und 50x50px"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:36
 msgid "Accepted image format : png"
-msgstr ""
+msgstr "Zulässiges Grafikformat: PNG"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:38
 msgid "New symbol name"
-msgstr ""
+msgstr "Neuer Symbolname"
 
 #: /var/www/html/n15/apps/gpxedit/templates/admin.php:42
 msgid "Upload new symbol image"
-msgstr ""
+msgstr "Neues Symboldatei hochladen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:4
 msgid "Load and save files"
-msgstr ""
+msgstr "Dateien laden und speichern"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:5
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:106
 msgid "Options"
-msgstr ""
+msgstr "Einstellungen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:6
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:316
 msgid "About GpxEdit"
-msgstr ""
+msgstr "Über GpxEdit …"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:24
 msgid "Load file"
-msgstr ""
+msgstr "Datei laden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:25
 msgid "Load directory"
-msgstr ""
+msgstr "Ordner laden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:27
 msgid "all files"
-msgstr ""
+msgstr "Alle Dateien"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:35
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:37
 msgid "File name"
-msgstr ""
+msgstr "Dateiname"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:40
 msgid "Metadata"
-msgstr ""
+msgstr "Metadaten"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:42
 msgid "Track name (optional)"
-msgstr ""
+msgstr "Streckenbezeichnung (optional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:44
 msgid "Description (optional)"
-msgstr ""
+msgstr "Beschreibung (optional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:46
 msgid "Link text (optional)"
-msgstr ""
+msgstr "Link-Beschreibung (optional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:48
 msgid "Link URL (optional)"
-msgstr ""
+msgstr "Link-Adresse (optional)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:51
 msgid "Choose directory and save"
-msgstr ""
+msgstr "Ordner wählen und speichern"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:54
 msgid "Clear map"
-msgstr ""
+msgstr "Karte leeren"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:65
 msgid "loading file"
-msgstr ""
+msgstr "Datei wird geladen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:69
 msgid "exporting file to gpx"
-msgstr ""
+msgstr "Datei als GPX exportieren"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:73
 msgid "saving file"
-msgstr ""
+msgstr "Datei speichern"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
-msgstr ""
+msgstr "Standardsymbol für Wegpunkte, wenn kein Wert festgelegt ist."
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:110
 msgid "Waypoint style"
-msgstr ""
+msgstr "Stil der Wegpunkte"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:114
 msgid "Tooltip"
-msgstr ""
+msgstr "Tooltip"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:116
 msgid "on hover"
-msgstr ""
+msgstr "Beim Daraufzeigen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:117
 msgid "permanent"
-msgstr ""
+msgstr "Dauerhaft"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
-msgstr ""
+msgstr "Maßeinheiten (Seite neu laden, um Änderung zu übernehmen)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:121
 msgid "Metric"
-msgstr ""
+msgstr "Metrisches Maßsystem"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:122
 msgid "English"
-msgstr ""
+msgstr "Angloamerikanischen Maßsysteme"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:123
 msgid "Nautical"
-msgstr ""
+msgstr "Nautisches Maßsystem"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:125
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
-msgstr ""
+msgstr "Festgelegte Symbole anstelle von Standardsymbolen verwenden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:126
 msgid "Use defined symbols"
-msgstr ""
+msgstr "Festgelegte Symbole verwenden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:129
 msgid "Clear map before loading"
-msgstr ""
+msgstr "Karte vor dem Laden leeren"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:131
 msgid "Approximate new points elevations"
-msgstr ""
+msgstr "Neue ungefähre Höhenangaben des Datenpunkts"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr ""
+msgstr "Benutzerdefinierter Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:138
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:178
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:222
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:268
 msgid "Server name"
-msgstr ""
+msgstr "Servername"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:139
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:179
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:223
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:269
 msgid "For example : my custom server"
-msgstr ""
+msgstr "Zum Beispiel: Mein XY-Server"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:140
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:180
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:224
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:270
 msgid "Server url"
-msgstr ""
+msgstr "Serveradresse"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:141
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Zum Beispiel: http://tile.server.org/cycle/{z}/{x}/{y}.png"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:142
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:182
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:226
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:272
 msgid "Min zoom (1-20)"
-msgstr ""
+msgstr "Vergrößerung mind. (1-20)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:144
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:184
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:228
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:274
 msgid "Max zoom (1-20)"
-msgstr ""
+msgstr "Vergrößerung max. (1-20)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:146
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:190
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:236
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:286
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:149
 msgid "Your tile servers"
-msgstr ""
+msgstr "Eigene Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:175
 msgid "Custom overlay tile servers"
-msgstr ""
+msgstr "Benutzerdefinierte Überlagerungs-Kachel-Server"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:181
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Zum Beispiel: http://overlay.server.org/cycle/{z}/{x}/{y}.png"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:186
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:276
 msgid "Transparent"
-msgstr ""
+msgstr "Transparent"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:188
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
-msgstr ""
+msgstr "Deckkraft (0.0-1.0)"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:193
 msgid "Your overlay tile servers"
-msgstr ""
+msgstr "Eigener Überlagerungs-Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:219
 msgid "Custom WMS tile servers"
-msgstr ""
+msgstr "Benutzerdefinierter WMS-Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:230
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:280
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:232
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:282
 msgid "WMS version"
-msgstr ""
+msgstr "WMS-Version"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:234
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:284
 msgid "Layers to display"
-msgstr ""
+msgstr "Anzuzeigende Ebenen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:239
 msgid "Your WMS tile servers"
-msgstr ""
+msgstr "Ihr WMS-Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr ""
+msgstr "Benutzerdefinierte WMS-Überlagerungs-Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr ""
+msgstr "Ihr WMS-Überlagerungs-Kachelserver"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:318
 msgid "Features overview"
-msgstr ""
+msgstr "Funktionsübersicht"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
-msgstr ""
+msgstr "Die Schaltflächen zum Zeichnen, Bearbeiten und Löschen befinden sich in der linken unteren Ecke der Karte."
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:322
 msgid "You can draw a line or add a marker."
-msgstr ""
+msgstr "Sie können eine Linie zeichnen oder eine Markierung hinzufügen."
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
-msgstr ""
+msgstr "Wenn Sie auf eine Linie oder eine Markierung klicken, öffnet sich ein Popup-Fenster, in dem Sie die Objekteigenschaften einstellen können."
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
-msgstr ""
+msgstr "Nach einem Klick auf die Schaltfläche „Bearbeiten” können Sie im Bearbeitungsmodus:"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:332
 msgid "move markers"
-msgstr ""
+msgstr "Markierungen verschieben"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:333
 msgid "move line points"
-msgstr ""
+msgstr "Datenpunkte einer Steckenführung verschieben"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:334
 msgid "click on a line point to remove it"
-msgstr ""
+msgstr "Auf einen Datenpunkt einer Streckenführung klicken, um diesen zu löschen"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
-msgstr ""
+msgstr "Bewegen Sie einen „Mittelmarkierung” (zwischen zwei Linienpunkten) und drücken Sie die „Entf”-Taste, um die Steckenführung in zwei Teile aufzubrechen (diese Aktion kann nicht rückgängig gemacht werden)."
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:338
 msgid "Shortcuts"
-msgstr ""
+msgstr "Tastaturkürzel"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:340
 msgid "toggle sidebar"
-msgstr ""
+msgstr "Seitenleiste ein-/ausblenden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:341
 msgid "toggle minimap"
-msgstr ""
+msgstr "Miniaturkarte ein-/ausblenden"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:344
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:352
 msgid "Source management"
-msgstr ""
+msgstr "Quellcodeverwaltung"
 
 #: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:363
 msgid "Authors"
-msgstr ""
+msgstr "Autoren"
 
