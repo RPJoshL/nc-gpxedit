@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nextcloud 3.14159\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 09:35+0200\n"
+"POT-Creation-Date: 2019-04-12 09:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,7 +126,7 @@ msgid "Delete last point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
-msgid "Delete last point drawn"
+msgid "Delete last drawn point"
 msgstr ""
 
 #: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488

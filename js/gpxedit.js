@@ -418,7 +418,7 @@
         L.drawLocal.draw.toolbar.finish.text = t('gpxedit', 'Finish');
         L.drawLocal.draw.toolbar.finish.title = t('gpxedit', 'Finish drawing');
         L.drawLocal.draw.toolbar.undo.text = t('gpxedit', 'Delete last point');
-        L.drawLocal.draw.toolbar.undo.title = t('gpxedit', 'Delete last point drawn');
+        L.drawLocal.draw.toolbar.undo.title = t('gpxedit', 'Delete last drawn point');
         var drawControl = new L.Control.Draw.Plus(options);
         gpxedit.drawControl = drawControl;
         gpxedit.map.addControl(drawControl);
