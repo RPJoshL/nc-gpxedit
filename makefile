@@ -5,13 +5,13 @@ build_dir=/tmp/build
 sign_dir=/tmp/sign
 cert_dir=$(HOME)/.nextcloud/certificates
 webserveruser ?= www-data
-occ_dir ?= /var/www/html/n17
+occ_dir ?= /var/www/html/n18
 
 all: appstore
 
 clean:
-	rm -rf $(build_dir)
-	rm -rf $(sign_dir)
+	sudo rm -rf $(build_dir)
+	sudo rm -rf $(sign_dir)
 
 appstore: clean
 	mkdir -p $(sign_dir)
@@ -45,6 +45,8 @@ appstore: clean
 	--exclude=translationfiles \
 	--exclude=vendor/bin \
 	$(project_dir) $(sign_dir)
+	# generate info.xml with translations
+	cd $(sign_dir)/$(app_name)/l10n/descriptions && ./gen_info.xml.sh && mv info.xml ../../appinfo/
 	# give the webserver user the right to create signature file
 	sudo chown $(webserveruser) $(sign_dir)/$(app_name)/appinfo
 	sudo -u $(webserveruser) php $(occ_dir)/occ integrity:sign-app --privateKey=$(cert_dir)/$(app_name).key --certificate=$(cert_dir)/$(app_name).crt --path=$(sign_dir)/$(app_name)/
