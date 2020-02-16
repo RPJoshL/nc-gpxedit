@@ -2,682 +2,620 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2019-04-12 09:53+0200\n"
-"PO-Revision-Date: 2019-04-12 08:18\n"
-"Last-Translator: eneiluj <eneiluj@posteo.net>\n"
+"POT-Creation-Date: 2020-02-16 13:46+0100\n"
+"PO-Revision-Date: 2020-02-16 13:11\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: gpxedit\n"
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/translationfiles/templates/gpxedit.pot\n"
 
-#: /var/www/html/n15/apps/gpxedit/appinfo/app.php:43
-#: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:2
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:7
+#: /var/www/html/n18/apps/gpxedit/appinfo/app.php:43
+#: /var/www/html/n18/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:2
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:7
 msgid "GpxEdit"
 msgstr "GpxEdit"
 
-#: /var/www/html/n15/apps/gpxedit/js/admin.js:15
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:403
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1301
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:27
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:165
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:209
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:255
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:305
+#: /var/www/html/n18/apps/gpxedit/js/admin.js:15
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:403
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1301
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:27
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:165
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:209
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:255
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:305
 msgid "Delete"
 msgstr "删除"
 
-#: /var/www/html/n15/apps/gpxedit/js/filetypes.js:11
+#: /var/www/html/n18/apps/gpxedit/js/filetypes.js:11
 msgid "Load in GpxEdit"
 msgstr "载入"
 
-#: /var/www/html/n15/apps/gpxedit/js/filetypes.js:36
+#: /var/www/html/n18/apps/gpxedit/js/filetypes.js:36
 msgid "Edit with GpxEdit"
 msgstr "编辑"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:399
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:399
 msgid "Draw a track"
 msgstr "绘制航迹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:400
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:400
 msgid "Add a waypoint"
 msgstr "添加航迹点"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:401
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:401
 msgid "Edit"
 msgstr "编辑"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:402
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:402
 msgid "Nothing to edit"
 msgstr "无可编辑内容"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:404
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:404
 msgid "Nothing to delete"
 msgstr "无可删除内容"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:405
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:405
 msgid "Validate changes"
 msgstr "确认变更"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:406
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:406
 msgid "Ok"
 msgstr "确定"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:407
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:407
 msgid "Discard all changes"
 msgstr "放弃更改"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:408
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:416
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:408
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:416
 msgid "Cancel"
 msgstr "取消"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:409
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:409
 msgid "Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press \"Del\" to cut the line"
 msgstr "拖动鼠标以移动元素,<br/>单击以删除点<br/>悬停中间标记并按 \"Del\" 以剪切线条"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:410
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:410
 msgid "Click cancel to undo changes"
 msgstr "单击 \"取消\" 撤消更改"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:411
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:411
 msgid "Click on an element to delete it"
 msgstr "点击某个元素将其删除"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:412
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:412
 msgid "Click map to add waypoint"
 msgstr "点击地图添加航迹点"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:413
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:413
 msgid "Click to start drawing track"
 msgstr "点击启动绘制航迹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:414
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:414
 msgid "Click to continue drawing track"
 msgstr "点击继续绘制航迹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:415
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:415
 msgid "Click last point to finish track"
 msgstr "点击最后点完成航迹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:417
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:417
 msgid "Cancel drawing"
 msgstr "取消绘制"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:418
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:418
 msgid "Finish"
 msgstr "完成"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:419
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:419
 msgid "Finish drawing"
 msgstr "完成绘制"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:420
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:420
 msgid "Delete last point"
 msgstr "删除最后一点"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:421
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:421
 msgid "Delete last drawn point"
 msgstr ""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:488
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:488
 msgid "Track"
 msgstr "航迹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:493
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:493
 msgid "Route"
 msgstr "路线"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:498
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:498
 msgid "Waypoint"
 msgstr "航迹点"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:503
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:503
 msgid "Name"
 msgstr "名称"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:504
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:504
 msgid "Description"
 msgstr "描述"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:505
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:505
 msgid "Comment"
 msgstr "评论"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:506
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:506
 msgid "Link text"
 msgstr ""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:508
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:508
 msgid "Link URL"
 msgstr ""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:511
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:511
 msgid "Lat"
 msgstr "纬度"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:513
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:513
 msgid "Lon"
 msgstr "经度"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:515
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:515
 msgid "Symbol"
 msgstr "标志"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:518
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:518
 msgid "No symbol"
 msgstr "没有标志"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:520
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:520
 msgid "Unknown symbol"
 msgstr "未知标志"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1007
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1007
 msgid "Failed to save file"
 msgstr "保存文件失败"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1025
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1025
 msgid "File successfully saved as"
 msgstr "文件成功保存为"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1136
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1136
 msgid "Impossible to load this file. "
 msgstr "无法加载此文件 "
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1137
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1137
 msgid "Supported formats are gpx, kml, csv (unicsv) and jpg."
 msgstr "支持的格式为 gpx、kml、csv (unicsv) 和 jpg。"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1138
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1138
 msgid "Load error"
 msgstr "加载错误"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1241
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1241
 msgid "Tile server \"{ts}\" has been deleted"
 msgstr "Tile服务器 \"{ts}\" 已被删除"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1244
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1248
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1244
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1248
 msgid "Failed to delete tile server \"{ts}\""
 msgstr "无法删除tile服务器 \"{ts}\""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1263
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1263
 msgid "Server name or server url should not be empty"
 msgstr "服务器名称或服务器 url 不应为空"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1264
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1269
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1264
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1269
 msgid "Impossible to add tile server"
 msgstr "无法添加tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1268
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1268
 msgid "A server with this name already exists"
 msgstr "具有此名称的服务器已存在"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1334
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1334
 msgid "Tile server \"{ts}\" has been added"
 msgstr "已添加tile服务器 \"{ts}\""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1337
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1341
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1337
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1341
 msgid "Failed to add tile server \"{ts}\""
 msgstr "无法删除tile服务器 \"{ts}\""
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1413
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1413
 msgid "Failed to restore options values"
 msgstr "无法还原选项值"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1414
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1469
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1414
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1469
 msgid "Error"
 msgstr "错误"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1468
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1468
 msgid "Failed to save options values"
 msgstr "保存选项值失败"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1535
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1542
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1549
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1535
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1542
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1549
 msgid "Impossible to write file"
 msgstr "无法写入文件"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1536
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1536
 msgid "write access denied"
 msgstr "拒绝写入"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1543
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1543
 msgid "folder does not exist"
 msgstr "文件夹不存在"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1550
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1550
 msgid "folder write access denied"
 msgstr "文件夹写入访问被拒绝"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1556
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1556
 msgid "Bad file name, must end with \".gpx\""
 msgstr "文件名错误, 必须以 \". gpx\" 结尾"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1672
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1672
 msgid "Load file (gpx, kml, csv, png)"
 msgstr "加载文件 (gpx、kml、csv、png)"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1689
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1689
 msgid "Load folder"
 msgstr "加载文件夹"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1701
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1701
 msgid "There is nothing to save"
 msgstr "没有可以保存的"
 
-#: /var/www/html/n15/apps/gpxedit/js/gpxedit.js:1706
+#: /var/www/html/n18/apps/gpxedit/js/gpxedit.js:1706
 msgid "Where to save"
 msgstr "在哪里保存"
 
-#: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
+#: /var/www/html/n18/apps/gpxedit/js/leaflet.js:5
 msgid "left"
 msgstr "左"
 
-#: /var/www/html/n15/apps/gpxedit/js/leaflet.js:5
+#: /var/www/html/n18/apps/gpxedit/js/leaflet.js:5
 msgid "right"
 msgstr "右"
 
-#: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
-msgid "Simple GPX file editor"
+#: /var/www/html/n18/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:3
+msgid " "
 msgstr ""
 
-#: /var/www/html/n15/apps/gpxedit/specialAppInfoFakeDummyForL10nScript.php:4
-msgid "# GpxEdit Nextcloud application\n\n"
-"Simple Nextcloud app to load, edit and save GPX files on an interactive map.\n"
-"You can load/save files from your Nextcloud file storage.\n"
-"GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints.\n"
-"Files can be loaded in GpxEdit interface or in Files app.\n\n"
-"Go to [GpxEdit Crowdin project](https://crowdin.com/project/gpxedit) if you want to help to translate this app in your language.\n\n"
-"This is not a perfect GPX editor.\n\n"
-"What's saved :\n"
-"- metadata\n"
-"    - name\n"
-"    - link url\n"
-"    - link text\n"
-"- tracks\n"
-"    - name\n"
-"    - comment\n"
-"    - description\n"
-"    - points\n"
-"        - coordinates\n"
-"        - elevation (just preserves loaded values)\n"
-"        - time (just preserves loaded values)\n"
-"- waypoint\n"
-"    - coordinates\n"
-"    - name\n"
-"    - comment\n"
-"    - description\n"
-"    - symbol\n"
-"    - elevation (just preserves loaded value)\n"
-"    - time (just preserves loaded values)\n\n"
-"GpxEdit does load/save time data.\n"
-"Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data.\n"
-"There is an \"approximate\" option to set elevation to new points if surrounding points have elevation data.\n\n"
-"Tracks are saved with one segment (trkseg tag).\n\n"
-"GpxEdit :\n"
-"- allows you to add extra symbols in admin settings (section : additional)\n"
-"- works with server-side encryption.\n"
-"- works with shared files.\n"
-"- loads GPX, KML, unicsv CSV, geotagged JPG files (no more Gpsbabel dependency)\n"
-"- loads tracks, routes and waypoints\n"
-"- saves tracks, routes and waypoints\n"
-"- supports waypoint symbols\n"
-"- uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) and [Leaflet.draw.plus](https://github.com/Dominique92/Leaflet.draw.plus) amazing plugins\n"
-"- uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl\n"
-"- adds possibility to edit .gpx files directly from the \"Files\" app\n"
-"- is able to cut lines in two\n\n"
-"This app is tested on Nextcloud 14 with Firefox and Chromium.\n\n"
-"Any feedback will be appreciated.\n\n"
-"## Donation\n\n"
-"I develop this app during my free time.\n\n"
-"* [Donate with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66PALMY8SF5JE) (you don't need a paypal account).\n"
-"* [Donate with Liberapay : ![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/eneiluj/donate)\n\n"
-"## Installation\n\n"
-"Check the [AdminDoc](https://gitlab.com/eneiluj/gpxedit-oc/wikis/admindoc) for installation details, integration in \"Files\" app and GpxEdit admin settings.\n\n"
-"## Alternatives\n\n"
-"If you look for more powerfull GPX editors, take a look at :\n"
-"- [Viking](https://sourceforge.net/projects/viking/) which is the best IMHO\n"
-"- [QLandKarteGT](https://bitbucket.org/kiozen/qlandkarte-gt)\n"
-"- [QMapShack](https://bitbucket.org/maproom/qmapshack/wiki/Home)\n"
-"- [JOSM](https://josm.openstreetmap.de/)"
-msgstr ""
-
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:8
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:8
 msgid "Extra symbols"
 msgstr "额外标志"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:9
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:9
 msgid "Those symbols will be available in GpxEdit."
 msgstr "这些标志将在 GpxEdit 中提供。"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:10
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:10
 msgid "Keep in mind that only symbol names are saved in gpx files. Other programs will display default symbol if they do not know a symbol name."
 msgstr "请记住, 只有标志名称保存在 gpx 文件中。如果其他程序不知道标志名, 则会显示默认标志。"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:34
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:34
 msgid "Recommended image ratio : 1:1"
 msgstr "推荐图像比率: 1:1"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:35
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:35
 msgid "Recommended image resolution : between 24x24 and 50x50"
 msgstr "推荐的图像分辨率: 介于24x24 和50x50 之间"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:36
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:36
 msgid "Accepted image format : png"
 msgstr "接受的图像格式: png"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:38
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:38
 msgid "New symbol name"
 msgstr "新标志名"
 
-#: /var/www/html/n15/apps/gpxedit/templates/admin.php:42
+#: /var/www/html/n18/apps/gpxedit/templates/admin.php:42
 msgid "Upload new symbol image"
 msgstr "上载新标志图像"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:4
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:4
 msgid "Load and save files"
 msgstr "加载和保存文件"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:5
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:106
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:5
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:106
 msgid "Options"
 msgstr "选项"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:6
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:316
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:6
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:316
 msgid "About GpxEdit"
 msgstr "关于 GpxEdit"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:24
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:24
 msgid "Load file"
 msgstr "加载文件"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:25
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:25
 msgid "Load directory"
 msgstr "加载目录"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:27
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:27
 msgid "all files"
 msgstr "所有文件"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:35
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:35
 msgid "Save"
 msgstr "保存"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:37
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:37
 msgid "File name"
 msgstr "文件名"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:40
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:40
 msgid "Metadata"
 msgstr "元数据"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:42
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:42
 msgid "Track name (optional)"
 msgstr "航迹名称 (可选)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:44
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:44
 msgid "Description (optional)"
 msgstr "描述（可选）"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:46
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:46
 msgid "Link text (optional)"
 msgstr "链接文本 (可选)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:48
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:48
 msgid "Link URL (optional)"
 msgstr "链接 URL (可选)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:51
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:51
 msgid "Choose directory and save"
 msgstr "选择目录并保存"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:54
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:54
 msgid "Clear map"
 msgstr "清除地图"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:65
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:65
 msgid "loading file"
 msgstr "加载文件"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:69
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:69
 msgid "exporting file to gpx"
 msgstr "将文件导出到 gpx"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:73
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:73
 msgid "saving file"
 msgstr "保存文件..."
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:109
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:109
 msgid "Default symbol for waypoints when value is not set"
 msgstr "未设置值时航点的默认标志"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:110
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:110
 msgid "Waypoint style"
 msgstr "航点类型"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:114
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:114
 msgid "Tooltip"
 msgstr "工具提示"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:116
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:116
 msgid "on hover"
 msgstr "悬停时"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:117
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:117
 msgid "permanent"
 msgstr "永久"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:119
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:119
 msgid "Units (needs page reload to take effect)"
 msgstr "单位 (需要重新加载页面才能生效)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:121
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:121
 msgid "Metric"
 msgstr "公制"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:122
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:122
 msgid "English"
 msgstr "英"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:123
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:123
 msgid "Nautical"
 msgstr "航海"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:125
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:127
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:125
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:127
 msgid "Use defined symbols instead of default symbol"
 msgstr "使用定义的标志而不是默认标志"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:126
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:126
 msgid "Use defined symbols"
 msgstr "使用定义的标志"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:129
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:129
 msgid "Clear map before loading"
 msgstr "加载前清除地图"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:131
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:131
 msgid "Approximate new points elevations"
 msgstr "近似新点海拔"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:135
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:135
 msgid "Custom tile servers"
 msgstr "自定义tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:138
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:178
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:222
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:268
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:138
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:178
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:222
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:268
 msgid "Server name"
 msgstr "服务器名"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:139
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:179
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:223
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:269
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:139
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:179
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:223
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:269
 msgid "For example : my custom server"
 msgstr "例如: 我的自定义服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:140
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:180
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:224
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:270
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:140
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:180
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:224
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:270
 msgid "Server url"
 msgstr "服务器 Url"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:141
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:225
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:141
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
 msgstr "例如: http://tile.server.org/cycle/{z}/{x}/{y}.png"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:142
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:182
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:226
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:272
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:142
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:182
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:226
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:272
 msgid "Min zoom (1-20)"
 msgstr "最小变焦 (1-20)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:144
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:184
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:228
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:274
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:144
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:184
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:228
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:274
 msgid "Max zoom (1-20)"
 msgstr "最大变焦 (1-20)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:146
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:190
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:236
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:286
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:146
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:190
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:236
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:286
 msgid "Add"
 msgstr "添加"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:149
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:149
 msgid "Your tile servers"
 msgstr "您的tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:175
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:175
 msgid "Custom overlay tile servers"
 msgstr "自定义叠加tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:181
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:271
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:181
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:271
 msgid "For example : http://overlay.server.org/cycle/{z}/{x}/{y}.png"
 msgstr "例如: http://overlay.server.org/cycle/{z}/{x}/{y}. png"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:186
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:276
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:186
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:276
 msgid "Transparent"
 msgstr "透明度"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:188
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:278
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:188
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:278
 msgid "Opacity (0.0-1.0)"
 msgstr "不透明度 (0.0-1.0)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:193
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:193
 msgid "Your overlay tile servers"
 msgstr "你的覆盖tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:219
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:219
 msgid "Custom WMS tile servers"
 msgstr "自定义WMS tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:230
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:280
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:230
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:280
 msgid "Format"
 msgstr "格式"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:232
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:282
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:232
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:282
 msgid "WMS version"
 msgstr "WMS 版本"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:234
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:284
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:234
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:284
 msgid "Layers to display"
 msgstr "要显示的图层"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:239
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:239
 msgid "Your WMS tile servers"
 msgstr "您的tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:265
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:265
 msgid "Custom WMS overlay servers"
 msgstr "自定义 WMS 覆盖服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:289
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
 msgstr "您的WMS覆盖tile服务器"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:318
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:318
 msgid "Features overview"
 msgstr "功能概述"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:320
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:320
 msgid "Draw, edition and deletion buttons are in the map's bottom-left corner."
 msgstr "绘图、编辑和删除按钮位于地图的左下角。"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:322
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:322
 msgid "You can draw a line or add a marker."
 msgstr "您可以绘制线条或添加标记。"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:324
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:324
 msgid "If you click on a line or a marker, a popup pops and let you set the object properties."
 msgstr "如果单击某一行或一个标记, 弹出窗口会弹出, 并允许您设置对象属性。"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:329
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:329
 msgid "After a click on \"edition\" button, in edition mode, you can"
 msgstr "点击 \"编辑\" 按钮后, 在编辑模式下, 您可以"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:332
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:332
 msgid "move markers"
 msgstr "移动标记"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:333
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:333
 msgid "move line points"
 msgstr "移动线点"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:334
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:334
 msgid "click on a line point to remove it"
 msgstr "单击某个线点以删除"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:335
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:335
 msgid "hover a \"middle marker\" (between two line points) and press \"Del\" to cut the line in two (this action cannot be canceled)"
 msgstr "悬停一个 \"中间标记\" (介于两个线点之间), 然后按 \"Del\" 将两线剪切 (此操作不能取消)"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:338
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:338
 msgid "Shortcuts"
 msgstr "快捷方式"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:340
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:340
 msgid "toggle sidebar"
 msgstr "切换侧边栏"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:341
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:341
 msgid "toggle minimap"
 msgstr "切换小地图"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:344
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:344
 msgid "Documentation"
 msgstr "文档"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:352
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:352
 msgid "Source management"
 msgstr "源管理"
 
-#: /var/www/html/n15/apps/gpxedit/templates/gpxcontent.php:363
+#: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:363
 msgid "Authors"
 msgstr "作者"
 
