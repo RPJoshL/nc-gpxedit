@@ -2,38 +2,38 @@
 
 Jednoduchá Nextcloud aplikácia pre otváranie, úpravu a ukladanie GPX súborov na interaktívnej mape. Môžete otvárať/ukladať súbory z vášho Nextcloud úložiska súborov. Podporované sú súbory GPX, KML, CSV (unicsv formát) a geograficky označené JPG. JPG súbory sú načítavané ako body trasy. Súbory môžu byť otvorené v rozhraní GpxEdit alebo v aplikácii Súbory.
 
-Go to [GpxEdit Crowdin project](https://crowdin.com/project/gpxedit) if you want to help to translate this app in your language.
+Ak chcete pomôcť s prekladom aplikácie do vášho jazyka navštívte [GpxEdit Crowdin project](https://crowdin.com/project/gpxedit).
 
-This is not a perfect GPX editor.
+Nie je to skvelý GPX editor.
 
-What's saved :
-- metadata
-    - name
-    - link url
-    - link text
-- tracks
-    - name
-    - comment
-    - description
-    - points
-        - coordinates
-        - elevation (just preserves loaded values)
-        - time (just preserves loaded values)
-- waypoint
-    - coordinates
-    - name
-    - comment
-    - description
-    - symbol
-    - elevation (just preserves loaded value)
-    - time (just preserves loaded values)
+Čo sa ukladá:
+- metadáta
+    - názov
+    - url odkaz
+    - text odkazu
+- trasy
+    - názov
+    - komentár
+    - popis
+    - body
+        - súradnice
+        - nadmorská výška (zachovajú sa načítané hodnoty)
+        - čas (zachovajú sa načítané hodnoty)
+- bod trasy
+    - súradnice
+    - názov
+    - komentár
+    - popis
+    - znak
+    - nadmorská výška (zachovajú sa načítané hodnoty)
+    - čas (zachovajú sa načítané hodnoty)
 
 GpxEdit does load/save time data. Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data. There is an "approximate" option to set elevation to new points if surrounding points have elevation data.
 
 Tracks are saved with one segment (trkseg tag).
 
 GpxEdit :
-- allows you to add extra symbols in admin settings (section : additional)
+- vám umožní pridať vlastné znaky v nastaveniach administrácie (sekcia : doplnkové)
 - works with server-side encryption.
 - works with shared files.
 - loads GPX, KML, unicsv CSV, geotagged JPG files (no more Gpsbabel dependency)
@@ -45,18 +45,18 @@ GpxEdit :
 - adds possibility to edit .gpx files directly from the "Files" app
 - is able to cut lines in two
 
-This app is tested on Nextcloud 14 with Firefox and Chromium.
+Táto aplikácia je testovaná pre Nextcloud 14 a Firefox a Chromium.
 
-Any feedback will be appreciated.
+Ocením akúkoľvek spätnú väzbu.
 
-## Installation
+## Inštalácia
 
-Check the [AdminDoc](https://gitlab.com/eneiluj/gpxedit-oc/wikis/admindoc) for installation details, integration in "Files" app and GpxEdit admin settings.
+Pozrite si [AdminDoc](https://gitlab.com/eneiluj/gpxedit-oc/wikis/admindoc) pre podrobnosti o inštalácii, integrácii do aplikácie "Súbory" a nastavenia administrácie GpxEdit.
 
-## Alternatives
+## Alternatívy
 
-If you look for more powerfull GPX editors, take a look at :
-- [Viking](https://sourceforge.net/projects/viking/) which is the best IMHO
+Ak hľadáte výkonnejšie editory GPX súborov, pozrite sa na:
+- [Viking](https://sourceforge.net/projects/viking/), ktorý je podľa mňa najlepší
 - [QLandKarteGT](https://bitbucket.org/kiozen/qlandkarte-gt)
 - [QMapShack](https://bitbucket.org/maproom/qmapshack/wiki/Home)
 - [JOSM](https://josm.openstreetmap.de/)
