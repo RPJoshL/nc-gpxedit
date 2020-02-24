@@ -28,22 +28,22 @@ Nie je to skvelý GPX editor.
     - nadmorská výška (zachovajú sa načítané hodnoty)
     - čas (zachovajú sa načítané hodnoty)
 
-GpxEdit does load/save time data. Elevation data is loaded and saved but every new waypoint/track/trackpoint added by user actions in GpxEdit will have neither elevation nor time data. There is an "approximate" option to set elevation to new points if surrounding points have elevation data.
+GpxEdit načítava/ukladá časové údaje. Údaje nadmorskej výšky sú načítavané a ukladané, ale každý nový bod trasy/trasa pridaná akciami používateľa v GpxEdit nebude mať ani nadmorskú výšku ani časové údaje. K dispozícii je voľba "priemerovania" pre nastavenie nadmorskej výšky novým bodom, ak okolité body majú údaje o nadmorskej výške.
 
-Tracks are saved with one segment (trkseg tag).
+Trasy sú ukladané v jednom segmente (trkseg tag).
 
 GpxEdit :
-- vám umožní pridať vlastné znaky v nastaveniach administrácie (sekcia : doplnkové)
-- works with server-side encryption.
-- works with shared files.
-- loads GPX, KML, unicsv CSV, geotagged JPG files (no more Gpsbabel dependency)
-- loads tracks, routes and waypoints
-- saves tracks, routes and waypoints
-- supports waypoint symbols
-- uses [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) and [Leaflet.draw.plus](https://github.com/Dominique92/Leaflet.draw.plus) amazing plugins
-- uses many other Leaflet plugins like Minimap, Sidebar2, MeasureControl, MousePositionControl
-- adds possibility to edit .gpx files directly from the "Files" app
-- is able to cut lines in two
+- vám umožní pridať vlastné znaky v nastaveniach administrácie (sekcia : doplnkové);
+- pracuje so šifrovaním na strane servera;
+- pracuje so zdieľanými súbormi;
+- otvára GPX, KML, unicsv CSV, lokalizované JPG súbory (už bez závislosti na Gpsbabel);
+- otvára trasy, cesty, body trasy;
+- ukladá trasy, cesty, body trasy;
+- podporuje symboly bodov trasy;
+- používa skvelé zásuvné moduly [Leaflet.Draw](https://github.com/Leaflet/Leaflet.draw) a [Leaflet.draw.plus](https://github.com/Dominique92/Leaflet.draw.plus);
+- používa množstvo ďalších Leaflet zásuvných modulov ako Minimap, Sidebar2, MeasureControl, MousePositionControl;
+- pridáva možnosť upraviť .gpx súbory priamo z aplikácie "Súbory";
+- dokáže rozdeliť čiary na dve.
 
 Táto aplikácia je testovaná pre Nextcloud 14 a Firefox a Chromium.
 
