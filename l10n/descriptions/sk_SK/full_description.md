@@ -1,6 +1,6 @@
-# GpxEdit Nextcloud application
+# Aplikácia GpxEdit pre Nextcloud
 
-Simple Nextcloud app to load, edit and save GPX files on an interactive map. You can load/save files from your Nextcloud file storage. GPX, KML, CSV (unicsv format) and geotagged JPG are supported for loading. JPG files are loaded as waypoints. Files can be loaded in GpxEdit interface or in Files app.
+Jednoduchá Nextcloud aplikácia pre otváranie, úpravu a ukladanie GPX súborov na interaktívnej mape. Môžete otvárať/ukladať súbory z vášho Nextcloud úložiska súborov. Podporované sú súbory GPX, KML, CSV (unicsv formát) a geograficky označené JPG. JPG súbory sú načítavané ako body trasy. Súbory môžu byť otvorené v rozhraní GpxEdit alebo v aplikácii Súbory.
 
 Go to [GpxEdit Crowdin project](https://crowdin.com/project/gpxedit) if you want to help to translate this app in your language.
 
