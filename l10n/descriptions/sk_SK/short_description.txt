@@ -1,1 +1,1 @@
-Simple GPX file editor
+Jednoduchý editor GPX súborov
