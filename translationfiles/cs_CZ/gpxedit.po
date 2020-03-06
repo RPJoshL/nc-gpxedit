@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gpxedit\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
 "POT-Creation-Date: 2020-02-16 13:46+0100\n"
-"PO-Revision-Date: 2020-02-16 13:11\n"
+"PO-Revision-Date: 2020-03-06 21:14\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -452,7 +452,7 @@ msgstr ""
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:135
 msgid "Custom tile servers"
-msgstr ""
+msgstr "Vlastní servery dlaždic"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:138
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:178
@@ -473,12 +473,12 @@ msgstr "Například: můj vlastní server"
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:224
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:270
 msgid "Server url"
-msgstr ""
+msgstr "Url serveru"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:141
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:225
 msgid "For example : http://tile.server.org/cycle/{z}/{x}/{y}.png"
-msgstr ""
+msgstr "Například: http://tile.server.org/cycle/{z}/{x}/{y}.png"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:142
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:182
@@ -553,11 +553,11 @@ msgstr "Vaše WMS dlaždicové servery"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:265
 msgid "Custom WMS overlay servers"
-msgstr ""
+msgstr "Vlastní WMS dlaždicové servery"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:289
 msgid "Your WMS overlay tile servers"
-msgstr ""
+msgstr "Vaše WMS servery pro překryvné vrstvy"
 
 #: /var/www/html/n18/apps/gpxedit/templates/gpxcontent.php:318
 msgid "Features overview"
