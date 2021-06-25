@@ -5,7 +5,7 @@ build_dir=/tmp/build
 sign_dir=/tmp/sign
 cert_dir=$(HOME)/.nextcloud/certificates
 webserveruser ?= www-data
-occ_dir ?= /var/www/html/n18
+occ_dir ?= /var/www/html/n19
 
 all: appstore
 
@@ -23,6 +23,7 @@ appstore: clean
 	--exclude=build \
 	--exclude=README.md \
 	--exclude=.gitignore \
+	--exclude=.idea \
 	--exclude=.travis.yml \
 	--exclude=.scrutinizer.yml \
 	--exclude=CONTRIBUTING.md \
