@@ -178,6 +178,17 @@
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
 
+	function escapeHtml(text) {
+		const map = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#039;',
+		}
+		return text.replace(/[&<>"']/g, (m) => { return map[m] })
+	}
+
     function load_map() {
         // change meta to send referrer
         // usefull for IGN tiles authentication !
@@ -628,11 +639,11 @@
         gpxText = gpxText + '<metadata>\n <time>' + now_utc_str + '</time>\n';
         var trackName = $('#tracknameinput').val();
         if (trackName) {
-            gpxText = gpxText + ' <name>' + escapeHTML(trackName) + '</name>\n';
+            gpxText = gpxText + ' <name>' + escapeHtml(trackName) + '</name>\n';
         }
         var fileDesc = $('#desctext').val();
         if (fileDesc) {
-            gpxText = gpxText + ' <desc>' + escapeHTML(fileDesc) + '</desc>\n';
+            gpxText = gpxText + ' <desc>' + escapeHtml(fileDesc) + '</desc>\n';
         }
         var linkurl = $('#linkurlinput').val();
         if (linkurl) {
@@ -640,7 +651,7 @@
 
             var linktext = $('#linktextinput').val();
             if (linktext) {
-                gpxText = gpxText + '  <text>' + escapeHTML(linktext) + '</text>\n';
+                gpxText = gpxText + '  <text>' + escapeHtml(linktext) + '</text>\n';
             }
             gpxText = gpxText + ' </link>\n';
         }
@@ -720,7 +731,7 @@
                 alt = layer._latlng.alt;
                 gpxText = gpxText + ' <wpt lat="' + lat + '" lon="' + lng + '">\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHtml(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
@@ -729,16 +740,16 @@
                     gpxText = gpxText + '  <ele>' + alt + '</ele>\n';
                 }
                 if (linkText && linkUrl) {
-                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
+                    gpxText = gpxText + '  <link href="' + escapeHtml(linkUrl) + '"><text>' + escapeHtml(linkText) + '</text></link>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHtml(comment) + '</cmt>\n';
                 }
                 if (symbol) {
                     gpxText = gpxText + '  <sym>' + symbol + '</sym>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHtml(description) + '</desc>\n';
                 }
                 if (time) {
                     gpxText = gpxText + '  <time>' + time + '</time>\n';
@@ -748,19 +759,19 @@
             else if(!layer.type || layer.type === 'track') {
                 gpxText = gpxText + ' <trk>\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHtml(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHtml(comment) + '</cmt>\n';
                 }
                 if (linkText && linkUrl) {
-                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
+                    gpxText = gpxText + '  <link href="' + escapeHtml(linkUrl) + '"><text>' + escapeHtml(linkText) + '</text></link>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHtml(description) + '</desc>\n';
                 }
                 gpxText = gpxText + '  <trkseg>\n';
                 for (i = 0; i < layer._latlngs.length; i++) {
@@ -782,19 +793,19 @@
             else if(layer.type === 'route') {
                 gpxText = gpxText + ' <rte>\n';
                 if (name) {
-                    gpxText = gpxText + '  <name>' + escapeHTML(name) + '</name>\n';
+                    gpxText = gpxText + '  <name>' + escapeHtml(name) + '</name>\n';
                 }
                 else{
                     gpxText = gpxText + '  <name></name>\n';
                 }
                 if (comment) {
-                    gpxText = gpxText + '  <cmt>' + escapeHTML(comment) + '</cmt>\n';
+                    gpxText = gpxText + '  <cmt>' + escapeHtml(comment) + '</cmt>\n';
                 }
                 if (linkText && linkUrl) {
-                    gpxText = gpxText + '  <link href="' + escapeHTML(linkUrl) + '"><text>' + escapeHTML(linkText) + '</text></link>\n';
+                    gpxText = gpxText + '  <link href="' + escapeHtml(linkUrl) + '"><text>' + escapeHtml(linkText) + '</text></link>\n';
                 }
                 if (description) {
-                    gpxText = gpxText + '  <desc>' + escapeHTML(description) + '</desc>\n';
+                    gpxText = gpxText + '  <desc>' + escapeHtml(description) + '</desc>\n';
                 }
                 for (i = 0; i < layer._latlngs.length; i++) {
                     lat = layer._latlngs[i].lat;
@@ -1294,9 +1305,9 @@
         }).done(function (response) {
             if (response.done) {
                 $('#'+type+'serverlist ul').prepend(
-                    '<li style="display:none;" servername="' + escapeHTML(sname) +
-                    '" title="' + escapeHTML(surl) + '">' +
-                    escapeHTML(sname) + ' <button>' +
+                    '<li style="display:none;" servername="' + escapeHtml(sname) +
+                    '" title="' + escapeHtml(surl) + '">' +
+                    escapeHtml(sname) + ' <button>' +
                     '<i class="fa fa-trash" aria-hidden="true" style="color:red;"></i> ' +
                     t('gpxedit', 'Delete') +
                     '</button></li>'
@@ -1507,7 +1518,7 @@
         showSavingAnimation();
         var req = {
             path: saveFilePath,
-            content: gpxText 
+            content: gpxText
         };
         var url = OC.generateUrl('/apps/gpxedit/savegpx');
         $.ajax({
