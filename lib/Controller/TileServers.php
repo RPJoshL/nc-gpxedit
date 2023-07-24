@@ -28,7 +28,7 @@ $baseTileServers = [
         'url' => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         'attribution' => 'Map data &copy; 2013 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
         'minzoom' => '1',
-        'maxzoom' => '18'
+        'maxzoom' => '19'
     ),
     Array(
         'name' => 'OpenCycleMap',

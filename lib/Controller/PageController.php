@@ -27,7 +27,7 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
-require_once('conversion.php');
+require_once('Conversion.php');
 
 function delTree($dir) {
     $files = array_diff(scandir($dir), array('.','..'));
@@ -91,13 +91,12 @@ class PageController extends Controller {
     private $config;
     private $appVersion;
     private $userAbsoluteDataPath;
-    private $shareManager;
     private $dbconnection;
     private $dbtype;
     private $dbdblquotes;
 
     public function __construct($AppName, IRequest $request, $UserId,
-                                $userfolder, $config, $shareManager, IAppManager $appManager){
+                                $userfolder, $config, IAppManager $appManager){
         parent::__construct($AppName, $request);
         $this->appVersion = $config->getAppValue('gpxedit', 'installed_version');
         $this->userId = $UserId;
@@ -127,8 +126,6 @@ class PageController extends Controller {
 
             $this->dbconnection = \OC::$server->getDatabaseConnection();
         }
-        //$this->shareManager = \OC::$server->getShareManager();
-        $this->shareManager = $shareManager;
     }
 
     /**
@@ -157,7 +154,7 @@ class PageController extends Controller {
 
         // PARAMS to view
 
-        require_once('tileservers.php');
+        require_once('TileServers.php');
         $params = [
             'username'=>$this->userId,
             'basetileservers'=>$baseTileServers,

@@ -1,1 +1,3 @@
 .idea
+vendor/
+css/Leaflet.LinearMeasurement.css

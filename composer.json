@@ -1,0 +1,21 @@
+{
+    "name": "nextcloud/gpx-editor",
+    "description": "GPX Editor for Nextcloud",
+    "type": "project",
+    "authors": [
+        {
+            "name": "RPJosh",
+            "email": "RPJosh@rpjosh.de"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+		"nextcloud/ocp": "dev-master"
+	},
+
+    "autoload-dev": {
+		"psr-4": {
+			"OCP\\": "vendor/nextcloud/ocp/OCP"
+		}
+	}
+}

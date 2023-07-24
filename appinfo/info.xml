@@ -23,9 +23,18 @@
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>
         <database min-version="5.5">mysql</database>
-        <nextcloud min-version="14" max-version="23"/>
+        <nextcloud min-version="14" max-version="27"/>
     </dependencies>
     <settings>
         <admin>OCA\GpxEdit\Settings\Admin</admin>
     </settings>
+
+    <navigations>
+        <navigation>
+            <id>gpxedit</id>
+            <name>GpxEdit</name>
+            <route>gpxedit.page.index</route>
+            <icon>app.svg</icon>
+        </navigation>
+    </navigations>
 </info>

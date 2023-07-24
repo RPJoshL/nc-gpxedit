@@ -54,7 +54,6 @@ class PageControllerTest extends \PHPUnit\Framework\TestCase {
             'testUser',
             $c->query('ServerContainer')->getUserFolder('testUser'),
             $c->query('ServerContainer')->getConfig(),
-            //$c->getServer()->getShareManager(),
             $c->getServer()->getAppManager()
         );
 	}

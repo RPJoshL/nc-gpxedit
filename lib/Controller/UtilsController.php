@@ -27,6 +27,8 @@ use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
 
+use function OCP\Log\logger;
+
 /**
  * Recursive find files from name pattern
  */
@@ -288,6 +290,7 @@ class UtilsController extends Controller {
      * @NoAdminRequired
      */
     public function saveOptionsValues($optionsValues) {
+        logger('gpxedit')->error("Received options");
         // first we check if user already has options values in DB
         $sqlts = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
