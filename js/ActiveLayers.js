@@ -105,7 +105,7 @@ L.Control.ActiveLayers = L.Control.Layers.extend({
 
   _recountLayers: function () {
     var i, input, obj,
-      inputs = this._form.getElementsByTagName('input'),
+      inputs = document.getElementsByClassName('leaflet-control-layers-selector'),
       inputsLen = inputs.length;
 
     for (i = 0; i < inputsLen; i++) {
