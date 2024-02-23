@@ -33,7 +33,7 @@ use OCP\EventDispatcher\IEventDispatcher;
  */
 class Application extends App implements IBootstrap {
 
-    public const APP_ID = 'gpxmotion';
+    public const APP_ID = 'gpxedit';
 
     /**
      * Constructor
