@@ -10,28 +10,7 @@ use OCP\Settings\ISettings;
 use OCP\Util;
 use OCP\IURLGenerator;
 
-/**
- * Recursive find files from name pattern
- */
-function globRecursive($path, $find, $recursive=True) {
-    $result = Array();
-    $dh = opendir($path);
-    while (($file = readdir($dh)) !== false) {
-        if (substr($file, 0, 1) === '.') continue;
-        $rfile = "{$path}/{$file}";
-        if (is_dir($rfile) and $recursive) {
-            foreach (globRecursive($rfile, $find) as $ret) {
-                array_push($result, $ret);
-            }
-        } else {
-            if (fnmatch($find, $file)){
-                array_push($result, $rfile);
-            }
-        }
-    }
-    closedir($dh);
-    return $result;
-}
+use function OCA\GpxEdit\Helper\globRecursive;
 
 class Admin implements ISettings {
 

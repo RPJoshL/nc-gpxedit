@@ -17,5 +17,10 @@
 		"psr-4": {
 			"OCP\\": "vendor/nextcloud/ocp/OCP"
 		}
+	},
+    "autoload": {
+		"files": [
+			"lib/Helper/Functions.php"
+		]
 	}
 }
