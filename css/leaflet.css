@@ -630,3 +630,13 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+
+
+section.leaflet-control-layers-list label span {
+	display: flex;
+	gap: .4rem;
+	align-items: center;
+}
+section.leaflet-control-layers-list label span input.leaflet-control-layers-selector {
+	height: 1.3rem;
+}
