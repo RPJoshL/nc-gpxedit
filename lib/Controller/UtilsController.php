@@ -247,7 +247,6 @@ class UtilsController extends Controller {
      * @NoAdminRequired
      */
     public function saveOptionsValues($optionsValues) {
-        logger('gpxedit')->error("Received options");
         // first we check if user already has options values in DB
         $sqlts = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
         $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
