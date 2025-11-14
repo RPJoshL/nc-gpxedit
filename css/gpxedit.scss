@@ -1,0 +1,1125 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    --icon-invert: 0%;
+}
+body[data-themes="dark"] {
+    --icon-invert: 95%;
+}
+
+div#map {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /*width: calc(100% - 300px);*/
+}
+
+div.trackcol{
+    width:100px;
+}
+
+div.durationcol{
+    max-width:50px;
+}
+
+#gpxtable a.permalink , #gpxtable a.csrtm , #gpxtable a.csrtms{
+    float: right;
+    font-size: 11px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+div#logo, div#logo img {
+    height:80px;
+}
+div#logo div{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+div#logo div p{
+    width:100%;
+    text-align:center;
+    float:right;
+    font-size:10px;
+}
+div#logo{
+    position:relative;
+}
+div#logo p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+div#logo {
+    background-image: url('images/gpxedit.png');
+    width: 65px;
+    background-size: 65px 65px;
+    background-repeat: no-repeat;
+}
+
+
+#folderrightdiv, #waypointstyle, #comparebutton, #optionbuttonsdiv, #folderdiv, #tzselect, #trackwaypointdisplay,
+#astlegend, #picturestylediv{
+    float:right;
+    display:block;
+}
+
+#picturestyleselect{
+    max-width: 90px;
+}
+
+#folderrightdiv, #removeelevation, #comparebutton, #optionbuttonsdiv{
+    font-size: 11px;
+}
+
+#optionbuttonsdiv{
+    max-width: 60%;
+}
+#optioncheckdiv{
+    max-width: 40%;
+    font-size: 11px;
+}
+#folderdiv, #scantypediv{
+    max-width: 80%;
+}
+
+#tzselect{
+    max-width:200px;
+}
+
+#titlechoosedirform, #optioncheckdiv, #computecheckdiv{
+    float:left;
+    display:block;
+}
+#folderrightdiv {
+    /*max-width:60%;
+    margin-top: 12px;*/
+}
+#scantypediv{
+    float:right;
+}
+
+#optionbuttonsdiv{
+    border-left:solid 1px;
+}
+
+#titlechoosedirform{
+    font-size: 16px;
+    font-weight: bold;
+}
+h1.sectiontitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+h3.sectiontitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+div#gpxeditsettings h1, div#help h1{
+    /*margin-left:30px;*/
+    text-align:center;
+}
+
+ul,hr {
+    margin-top : 3px;
+    margin-bottom : 3px;
+}
+h3 {
+    margin-top : 5px;
+    margin-bottom : 5px;
+}
+
+.transparent {
+    opacity : 0.6;
+}
+
+.uibutton {
+    font-size: 13px;
+    height : 28px;
+}
+
+#filterlist li input{
+    margin-bottom: 10px;
+    width:100px;
+}
+
+#filterlist li b{
+    margin-bottom: 10px;
+}
+
+#filterlist li .ui-spinner {
+    height:28px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#clearfilter{
+    margin-left:10px;
+}
+.filterbutton{
+    float:right;
+}
+
+#filtertabtitle h1{
+    float:left;
+    margin-left:30px;
+}
+#filtertabtitle h3{
+    float:left;
+}
+
+#gpxtable{
+    word-wrap: break-word;
+    border-radius: 7px;
+}
+#gpxtable tr:first-child th:first-child
+{
+    border-top-left-radius: 7px;
+}
+#gpxtable tr:first-child th:last-child
+{
+    border-top-right-radius: 7px;
+}
+#gpxtable tr:last-child td:first-child
+{
+    border-bottom-left-radius: 7px;
+}
+#gpxtable tr:last-child td:last-child
+{
+    border-bottom-right-radius: 7px;
+}
+
+#gpxtable th, #gpxtable td {
+    border: 1px solid grey;
+}
+#gpxtable td {
+    background-color: white;
+}
+
+.activeArea{
+    position: absolute;
+    top: 10px;
+    left: 450px;
+    right: 10px;
+    bottom: 10px;
+}
+
+#gpxeditsettings{
+    color: var(--color-main-text);
+}
+.disclist{
+    margin-left:20px;
+    list-style-type:disc;
+}
+.circlist{
+    margin-left:20px;
+    list-style-type:circle;
+}
+#saved, #failed, #loading, #exporting, #saving {
+    /*width: 330px;*/
+    padding-left: 5px;
+    /*height: 35px;*/
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    background-color: #0074D9;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 3% 50%;
+    border-radius: 7px;
+    /*float: right;*/
+    position:fixed;
+    left:60px;
+    top:60px;
+    display:none;
+    /*z-index: 1000;*/
+}
+#failed{
+    background-color: red;
+}
+#saved .fa, #failed .fa, #loading .fa, #exporting .fa, #saving .fa {
+    font-size: 22px;
+}
+
+#saved p, #failed p, #loading p, #exporting p, #saving p{
+    padding: 6px 6px 6px 6px;
+}
+.clear {
+    clear:both;
+}
+#nofolder {
+    font-size: 16px;
+    font-weight: bold;
+    color:red;
+}
+#nofoldertext ,#nofolder {
+    float:left;
+    clear:both;
+}
+#nofoldertext{
+    color:blue;
+}
+#subfolderselect, #processtypeselect, #tablecriteriasel {
+    max-width:200px;
+    text-overflow:ellipsis;
+}
+/*#ticv {
+    display:none;
+}*/
+
+.spinning {
+    -moz-animation:spin 0.7s linear infinite;
+    -webkit-animation:spin 0.7s linear infinite;
+    animation:spin 0.7s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/*#tablecriterialabel{
+    float:left;
+}
+#tablecriteriasel{
+    float:right;
+}
+*/
+#colorcriteriadiv{
+    float:right;
+}
+
+.toplink:link {
+    color: blue;
+    text-decoration: underline;
+}
+.toplink:visited {
+    color: blue;
+    text-decoration: underline;
+}
+.toplink:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+.toplink:active {
+    color: green;
+    text-decoration: underline;
+}
+#clean_results{
+    word-wrap:break-word;
+}
+#clean_results ul{
+    list-style-type:disc;
+}
+
+#gpxtable thead i.bigfa{
+    width: 100%;
+    text-align: center;
+    font-size:19px;
+}
+.permalink:link {
+    color: black;
+    text-decoration: underline;
+}
+.permalink:visited {
+    color: black;
+    text-decoration: underline;
+}
+.permalink:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+.permalink:active {
+    color: green;
+    text-decoration: underline;
+}
+#folderdiv .permalink{
+    font-size:16px;
+}
+.popuptable{
+    font-size: 10px;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 250px;
+    margin: auto;
+}
+.popuptable td{
+    border: 1px solid black;
+    padding: 0px 5px 0px 5px;
+}
+.popuptable tr:nth-child(even){background-color: #f2f2f2;}
+.popuptable tr:hover {background-color: #ddd;}
+
+#linkinput {
+    width:98%;
+}
+#optiontitle{
+    width:100%;
+    float:left;
+    cursor: pointer;
+}
+
+/* adapt right leaflet controls when sidebar pushes them */
+@media screen and (max-width: 767px) {
+    .leaflet-right { right:40px; }
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
+.tooltipblue{
+    background: rgba(0, 0, 255, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipred{
+    background: rgba(255, 0, 0, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipcyan{
+    background: rgba(0, 255, 255, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltippurple{
+    background: rgba(128, 0, 128, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipLime{
+    background: rgba(0, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipyellow{
+    background: rgba(255, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipblack{
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltiporange{
+    background: rgba(255, 165, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipbrown{
+    background: rgba(165, 42, 42, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipChartreuse{
+    background: rgba(127, 255, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+.tooltipCrimson{
+    background: rgba(220, 20, 60, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipDeepPink{
+    background: rgba(255, 20, 147, 0.4);
+    color: white;
+    font-weight: bold;
+}
+.tooltipGold{
+    background: rgba(255, 215, 0, 0.4);
+    color: black;
+    font-weight: bold;
+}
+
+.leaflet-div-icon2
+{
+    background-image: url('images/pinblue.png') !important;
+    background-repeat: no-repeat !important;
+    width: 21px !important;
+    height: 30px !important;
+}
+
+.leaflet-marker-blue
+{
+    background-image: url('images/marker-icon.png') !important;
+    background-repeat: no-repeat !important;
+    width: 25px !important;
+    height: 41px !important;
+}
+.marker-select{
+    background: url('images/marker-icon.png') no-repeat right 8px center transparent;
+    background-size: 12px 20px;
+}
+.dot-select{
+    background: url('images/symbols/dot.png') no-repeat right 8px center transparent;
+}
+.dot-select,
+.flag-blue-select,
+.flag-red-select,
+.flag-blue-select,
+.flag-red-select,
+.flag-green-select,
+.diamond-blue-select,
+.diamond-green-select,
+.diamond-red-select,
+.block-blue-select,
+.block-green-select,
+.block-red-select,
+.pin-blue-select,
+.pin-green-select,
+.pin-red-select,
+.medical-select,
+.residence-select,
+.drinking-water-select,
+.campground-select,
+.hike-select,
+.bike-trail-select,
+.bar-select,
+.skullcross-select,
+.geocache-select,
+.geocache-open-select,
+.contact-alien-select,
+.contact-bigears-select,
+.contact-female3-select,
+.contact-cat-select,
+.contact-dog-select{
+    background-size: contain;
+}
+
+.leaflet-marker-red
+{
+    background-image: url('images/marker-icon-red.png') !important;
+    background-repeat: no-repeat !important;
+    width: 25px !important;
+    height: 41px !important;
+}
+.flag-blue, .flag-red, .flag-green{
+    background-repeat: no-repeat !important;
+    width: 18px !important;
+    height: 25px !important;
+}
+.flag-blue{
+    background-image: url('images/symbols/flag-blue.png') !important;
+}
+.flag-blue-select{
+    background: url('images/symbols/flag-blue.png') no-repeat right 8px center transparent;
+}
+.flag-red{
+    background-image: url('images/symbols/flag-red.png') !important;
+}
+.flag-red-select{
+    background: url('images/symbols/flag-red.png') no-repeat right 8px center transparent;
+}
+.flag-green{
+    background-image: url('images/symbols/flag-green.png') !important;
+}
+.flag-green-select{
+    background: url('images/symbols/flag-green.png') no-repeat right 8px center transparent;
+}
+.diamond-blue, .diamond-red, .diamond-green{
+    background-size: 18px 18px !important;
+    background-repeat: no-repeat !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+.diamond-blue{
+    background-image: url('images/symbols/diamond-blue.png') !important;
+}
+.diamond-blue-select{
+    background: url('images/symbols/diamond-blue.png') no-repeat right 8px center transparent;
+}
+.diamond-green{
+    background-image: url('images/symbols/diamond-green.png') !important;
+}
+.diamond-green-select{
+    background: url('images/symbols/diamond-green.png') no-repeat right 8px center transparent;
+}
+.diamond-red{
+    background-image: url('images/symbols/diamond-red.png') !important;
+}
+.diamond-red-select{
+    background: url('images/symbols/diamond-red.png') no-repeat right 8px center transparent;
+}
+.block-blue, .block-red, .block-green{
+    background-size: 16px 16px !important;
+    background-repeat: no-repeat !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+.block-blue{
+    background-image: url('images/symbols/block-blue.png') !important;
+}
+.block-blue-select{
+    background: url('images/symbols/block-blue.png') no-repeat right 8px center transparent;
+}
+.block-green{
+    background-image: url('images/symbols/block-green.png') !important;
+}
+.block-green-select{
+    background: url('images/symbols/block-green.png') no-repeat right 8px center transparent;
+}
+.block-red{
+    background-image: url('images/symbols/block-red.png') !important;
+}
+.block-red-select{
+    background: url('images/symbols/block-red.png') no-repeat right 8px center transparent;
+}
+.pin-blue, .pin-red, .pin-green{
+    background-size: 21px 30px !important;
+    background-repeat: no-repeat !important;
+    width: 21px !important;
+    height: 30px !important;
+}
+.pin-blue{
+    background-image: url('images/symbols/pin-blue.png') !important;
+}
+.pin-blue-select{
+    background: url('images/symbols/pin-blue.png') no-repeat right 8px center transparent;
+}
+.pin-green{
+    background-image: url('images/symbols/pin-green.png') !important;
+}
+.pin-green-select{
+    background: url('images/symbols/pin-green.png') no-repeat right 8px center transparent;
+}
+.pin-red{
+    background-image: url('images/symbols/pin-red.png') !important;
+}
+.pin-red-select{
+    background: url('images/symbols/pin-red.png') no-repeat right 8px center transparent;
+}
+.medical{
+    background-image: url('images/symbols/medical.png') !important;
+    background-size: 26px 22px !important;
+    background-repeat: no-repeat !important;
+    width: 26px !important;
+    height: 22px !important;
+}
+.medical-select{
+    background: url('images/symbols/medical.png') no-repeat right 8px center transparent;
+}
+.residence{
+    background-image: url('images/symbols/residence.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.residence-select{
+    background: url('images/symbols/residence.png') no-repeat right 8px center transparent;
+}
+.drinking-water{
+    background-image: url('images/symbols/drinking-water.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.drinking-water-select{
+    background: url('images/symbols/drinking-water.png') no-repeat right 8px center transparent;
+}
+.campground{
+    background-image: url('images/symbols/campground.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.campground-select{
+    background: url('images/symbols/campground.png') no-repeat right 8px center transparent;
+}
+.hike{
+    background-image: url('images/symbols/hike.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.hike-select{
+    background: url('images/symbols/hike.png') no-repeat right 8px center transparent;
+}
+.bike-trail{
+    background-image: url('images/symbols/bike-trail.png') !important;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.bike-trail-select{
+    background: url('images/symbols/bike-trail.png') no-repeat right 8px center transparent;
+}
+.bar{
+    background-image: url('images/symbols/bar.png') !important;
+    background-size: 20px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 20px !important;
+    height: 24px !important;
+}
+.bar-select{
+    background: url('images/symbols/bar.png') no-repeat right 8px center transparent;
+}
+.skullcross{
+    background-image: url('images/symbols/skullcross.png') !important;
+    background-size: 25px 25px !important;
+    background-repeat: no-repeat !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+.skullcross-select{
+    background: url('images/symbols/skullcross.png') no-repeat right 8px center transparent;
+}
+.geocache{
+    background-image: url('images/symbols/geocache.png') !important;
+    background-size: 22px 20px !important;
+    background-repeat: no-repeat !important;
+    width: 22px !important;
+    height: 20px !important;
+}
+.geocache-select{
+    background: url('images/symbols/geocache.png') no-repeat right 8px center transparent;
+}
+.geocache-open{
+    background-image: url('images/symbols/geocache-open.png') !important;
+    background-size: 22px 20px !important;
+    background-repeat: no-repeat !important;
+    width: 22px !important;
+    height: 20px !important;
+}
+.geocache-open-select{
+    background: url('images/symbols/geocache-open.png') no-repeat right 8px center transparent;
+}
+
+.contact-alien, .contact-bigears, .contact-female3, .contact-cat, .contact-dog, .unknown{
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.contact-alien{
+    background-image: url('images/symbols/contact-alien.png') !important;
+}
+.unknown{
+    background-image: url('images/symbols/unknown.png') !important;
+}
+.unknown-select{
+    background: url('images/symbols/unknown.png') no-repeat right 8px center transparent;
+}
+.contact-alien-select{
+    background: url('images/symbols/contact-alien.png') no-repeat right 8px center transparent;
+}
+.contact-bigears{
+    background-image: url('images/symbols/contact-bigears.png') !important;
+}
+.contact-bigears-select{
+    background: url('images/symbols/contact-bigears.png') no-repeat right 8px center transparent;
+}
+.contact-female3{
+    background-image: url('images/symbols/contact-female3.png') !important;
+}
+.contact-female3-select{
+    background: url('images/symbols/contact-female3.png') no-repeat right 8px center transparent;
+}
+.contact-cat{
+    background-image: url('images/symbols/contact-cat.png') !important;
+}
+.contact-cat-select{
+    background: url('images/symbols/contact-cat.png') no-repeat right 8px center transparent;
+}
+.contact-dog{
+    background-image: url('images/symbols/contact-dog.png') !important;
+}
+.contact-dog-select{
+    background: url('images/symbols/contact-dog.png') no-repeat right 8px center transparent;
+}
+
+.popupImage{
+    width: 80px;
+    height: 80px;
+}
+
+.leaflet-popup-content{
+    margin: 4px 12px;
+    min-width: 260px;
+
+    /* So it can be resized by text area */
+    width: unset !important;
+}
+
+.smallRedMarker{
+    background: rgba(255,0,0,1);
+    border: 1px solid black;
+}
+.trackNamesList{
+    list-style-type:disc;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.selectedFolder{
+    color: blue !important;
+    font-weight: bold !important;
+}
+h2#savetitle{
+    text-align: center;
+}
+h2.popupTitle{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.leaflet-popup-content .popupOkButton {
+    display:block;
+
+    width: calc(100% - 20px);
+    margin-inline: auto !important;
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+}
+
+.popupOkButton, .layerLinkText, .layerLinkUrl, .layerLon, .layerLat, .layerName {
+    min-height: 17px;
+    height: 17px;
+}
+tbody tr:not(.group-header):hover {
+    background-color: unset;
+}
+
+.popupdatatable textarea {
+    min-height: 30px;
+    height: 30px;
+}
+.popupdatatable input,textarea,select {
+    width: calc(100% - 6px);
+    margin-left: 6px;
+}
+
+#clearButton {
+    width: 100%;
+}
+#clearButton i{
+    color: red;
+}
+
+#saveButton, #saveName {
+    width: 100%;
+}
+.selectimg{
+    background: url('images/symbols/geocache-open.png') no-repeat right 8px center transparent;
+    background-size: 20px 20px;
+}
+#linktextinput, #linkurlinput, #tracknameinput {
+    width: 100%;
+}
+#desctext{
+    width: 100%;
+    height: 70px;
+}
+#loadtree, #savetree{
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.oc-dialog{
+    z-index: 10000;
+}
+.leaflet-control-layers-selector {
+    min-height: 0px;
+}
+.popupdatatable input, #gpxeditsettings input {
+    min-height: 0px;
+}
+#loaddiv {
+    display: grid;
+    grid-template: 50% 50% / 80px 1fr 1fr;
+}
+#loadButton {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+#loadFolderButton {
+    grid-column: 2;
+    grid-row: 2;
+}
+#loadtypeselect {
+    grid-column: 3;
+    grid-row: 2;
+}
+div#logofolder{
+    grid-column: 1;
+    grid-row: 1/3;
+}
+div#ho button {
+    padding: 0px;
+    min-height: 32px;
+}
+#optiontop {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    text-align: center;
+}
+#optiontop select {
+    width: 100% !important;
+}
+#optiontop label {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#optiontop input[type=checkbox] {
+    margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+#overlayserveradd, #tileserveradd, #tilewmsserveradd, #overlaywmsserveradd {
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+#tileserveradd       p,
+#tilewmsserveradd    p,
+#overlaywmsserveradd p,
+#overlayserveradd    p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#tileserveradd input[type=checkbox],
+#tilewmsserveradd input[type=checkbox],
+#overlaywmsserveradd input[type=checkbox],
+#overlayserveradd input[type=checkbox]{
+    margin-right: auto;
+}
+#tileserveradd input[type=text],
+#tilewmsserveradd input[type=text],
+#overlaywmsserveradd input[type=text],
+#overlayserveradd input[type=text]{
+    width:100%;
+}
+#tileserverdiv, #tilewmsserverdiv,
+#overlayserverdiv, #overlaywmsserverdiv {
+    display: none;
+}
+.customtiletitle {
+    cursor: pointer;
+}
+#metadata {
+    display: none;
+}
+#metadatalabel {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--color-main-background);
+    border: solid 1px var(--color-border);
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: var(--border-radius-element);
+}
+.leaflet-editing-icon {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: -4px !important;
+    margin-top: -4px !important;
+}
+.sidebar-tabs > li.active {
+    background-color: var(--color-background-darker);
+    color: var(--color-main-text);
+}
+.sidebar-tabs > li:hover {
+    background-color: var(--color-background-hover);
+    color: var(--color-main-text);
+}
+.sidebar-tabs, .sidebar-content {
+    background-color: var(--color-main-background);
+    color: var(--color-main-text);
+}
+.leaflet-control-locate.active .fa {
+    color: #2074B6;
+}
+.leaflet-control-locate .fa {
+    color: black;
+}
+.leaflet-bottom {
+    position: fixed;
+}
+input[type=checkbox] {
+    cursor: pointer;
+}
+/* jquery dialog */
+.ui-dialog{
+    z-index: 2001 !important ;
+}
+
+.leaflet-contextmenu {
+    background: var(--color-main-background);
+    box-shadow: 0 1px 7px var(--color-box-shadow);
+    border-radius: 5px;
+    padding: 6px;
+
+    display:none;
+    cursor:default;
+    user-select:none
+}
+
+.leaflet-contextmenu a.leaflet-contextmenu-item{
+    display: block;
+    color: var(--color-main-text);
+    font-size: 13px;
+    line-height:22px;
+    padding:0 12px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+
+    transition: .2s ease-in-out;
+}
+.leaflet-contextmenu a.leaflet-contextmenu-item.over{
+    background-color:var(--color-background-hover);
+    border-top-color: var(--color-border);
+    border-bottom-color: var(--color-border);
+}
+
+.sidebar.leaflet-touch {
+    border-color: var(--color-border);
+}
+
+.leaflet-container {
+    
+    .leaflet-bar {
+        background-color: var(--color-main-background);
+        border-color: var(--color-border) !important;
+        box-shadow: none !important;
+
+        a {
+            background-color: var(--color-main-background);
+            border-bottom-color: var(--color-border);
+            color: var(--color-main-text);
+        }
+
+        a .fa {
+            color: var(--color-main-text);
+        }
+    }
+
+    .leaflet-control-geocoder {
+        background-color: var(--color-main-background);
+        border-color: var(--color-border);
+        box-shadow: none;
+
+        .leaflet-control-geocoder-icon {
+            filter: invert(var(--icon-invert));
+        }
+
+        .leaflet-control-geocoder-form input {
+            background: var(--color-main-background);
+            color: var(--color-main-text);
+        }
+
+        .leaflet-control-geocoder-alternatives li {
+            border-bottom-color: var(--color-border);
+        }
+
+        .leaflet-control-geocoder-alternatives a {
+            color: var(--color-main-text);
+        }
+
+        .leaflet-control-geocoder-alternatives a:hover,
+        .leaflet-control-geocoder-selected {
+            background-color: var(--color-background-hover);
+        }
+    }
+
+    .leaflet-control-geocoder-address-context {
+        color: var(--color-text-maxcontrast);
+    }
+
+    .leaflet-control-layers {
+        background: var(--color-main-background);
+        border-color: var(--color-border);
+        box-shadow: none;
+        color: var(--color-main-text);
+    }
+
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+        background: var(--color-main-background);
+        border: 1px solid var(--color-border);
+        box-shadow: none;
+        color: var(--color-main-text);
+    }
+
+    .leaflet-control-minimap {
+        background: var(--color-main-background);
+        border: solid var(--color-main-background) 4px;
+        box-shadow: none;
+
+        a {
+            background-color: rgba(255, 255, 255, 0.73);
+        }
+    }
+
+    .leaflet-control-mouseposition {
+        background-color: var(--color-main-background);
+        border: 1px solid var(--color-border);
+        border-bottom: unset;
+        box-shadow: none;
+        color: var(--color-text-maxcontrast);
+    }
+
+    .leaflet-control-attribution {
+        background-color: var(--color-main-background);
+        border: 1px solid var(--color-border);
+        border-bottom: unset;
+        color: var(--color-text-maxcontrast);
+
+        a {
+            color: var(--color-text-link);
+        }
+    }
+
+    .leaflet-control-scale-line {
+        background-color: rgba(49, 54, 59, 0.75);
+        color: var(--color-main-text);
+    }
+
+    .leaflet-tooltip {
+        background-color: var(--color-main-background);
+        border-color: var(--color-border);
+        box-shadow: none;
+        color: var(--color-main-text);
+    }
+
+    .leaflet-tooltip-left::before {
+        border-left-color: var(--color-border);
+    }
+
+    .leaflet-tooltip-right::before {
+        border-right-color: var(--color-border);
+    }
+
+    a.icon-ruler,
+    a.leaflet-draw-draw-polyline,
+    a.leaflet-draw-draw-marker,
+    a.leaflet-draw-edit-edit,
+    a.leaflet-draw-edit-remove {
+        background-color: transparent;
+        filter: invert(var(--icon-invert));
+    }
+
+}
