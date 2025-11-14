@@ -344,8 +344,41 @@
         });
         gpxedit.overlayLayers = baseOverlays;
 
+        const convertDDtoDM = (lat, lon) => {
+            const helper = (x, lon) => {
+                return [
+                    x<0?lon?'W':'S':lon?'E':'N',
+                    ' ',
+                    0|Math.abs(x),
+                    '° ',
+                    (0|Math.abs(x)%1*60000)/1000
+                ].join('');
+	        }
+
+	        return helper(lat, false) + ' ' + helper(lon, true);
+        };
+
         gpxedit.map = new L.Map('map', {
             zoomControl: true,
+            contextmenu: true,
+		    contextmenuItems: [
+			    {
+				    text: 'Show coordinates',
+				    callback: function (e) {
+                        const position = e.latlng
+                        alert([(0|position.lat*1000000)/1000000, ' ', (0|position.lng*1000000)/1000000, "\n\n", convertDDtoDM(position.lat, position.lng)].join(''));
+				    }
+			    },
+                {
+                    text: 'Open Google Maps',
+                    callback: function (e) {
+                        const position = e.latlng
+                        const baseURL = "https://www.google.com/maps/search/?api=1&query="
+
+                        window.open(baseURL + position.lat + ',' + position.lng, '_blank');
+                    }
+                }
+            ]
         });
 
         L.control.scale({metric: true, imperial: true, position: 'topleft'})

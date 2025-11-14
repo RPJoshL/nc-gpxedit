@@ -921,6 +921,10 @@ div#ho button {
     cursor: pointer;
     background-color: #F7F7F7;
     border: solid 1px lightgrey;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: var(--border-radius-element);
 }
 .leaflet-editing-icon {
     width: 8px !important;
@@ -946,4 +950,31 @@ input[type=checkbox] {
 /* jquery dialog */
 .ui-dialog{
     z-index: 2001 !important ;
+}
+
+.leaflet-contextmenu {
+    background: var(--color-main-background);
+    border-radius: 5px;
+    padding: 6px;
+
+    display:none;
+    cursor:default;
+    user-select:none
+}
+
+.leaflet-contextmenu a.leaflet-contextmenu-item{
+    display: block;
+    color: var(--color-main-text);
+    font-size: 13px;
+    line-height:22px;
+    padding:0 12px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+
+    transition: .2s ease-in-out;
+}
+.leaflet-contextmenu a.leaflet-contextmenu-item.over{
+    background-color:var(--color-background-hover);
+    border-top-color: var(--color-border);
+    border-bottom-color: var(--color-border);
 }
