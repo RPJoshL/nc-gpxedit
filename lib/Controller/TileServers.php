@@ -31,6 +31,14 @@ $baseTileServers = [
         'maxzoom' => '19'
     ),
     Array(
+        'name' => 'OpenStreetMap (HiDPI)',
+        'type' => 'tile',
+        'url' => 'https://osm.rrze.fau.de/osmhd/{z}/{x}/{y}.png',
+        'attribution' => 'Map data &copy; 2013 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors hosted by <a href="https://osm.rrze.fau.de/">RRZE</a>',
+        'minzoom' => '1',
+        'maxzoom' => '19'
+    ),
+    Array(
         'name' => 'OpenCycleMap',
         'type' => 'tile',
         'url' => 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',

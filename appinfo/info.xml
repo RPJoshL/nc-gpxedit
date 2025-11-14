@@ -23,7 +23,7 @@
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>
         <database min-version="5.5">mysql</database>
-        <nextcloud min-version="28" max-version="31"/>
+        <nextcloud min-version="28" max-version="32"/>
     </dependencies>
     <settings>
         <admin>OCA\GpxEdit\Settings\Admin</admin>
