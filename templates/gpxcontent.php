@@ -89,7 +89,7 @@ echo '</ul>'."\n";
 echo '<ul id="basetileservers" style="display:none">';
 foreach($_['basetileservers'] as $ts){
     echo '<li';
-    foreach (Array('name', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution') as $field) {
+    foreach (Array('name', 'type', 'url', 'layers', 'version', 'format', 'opacity', 'transparent', 'minzoom', 'maxzoom', 'attribution', 'referrerPolicy') as $field) {
         if (array_key_exists($field, $ts)) {
             echo ' '.$field.'="';
             p($ts[$field]);
@@ -121,6 +121,13 @@ echo '</ul>'."\n";
         <option value="metric"><?php p($l->t('Metric')); ?></option>
         <option value="feet"><?php p($l->t('English')); ?></option>
         <option value="nautic"><?php p($l->t('Nautical')); ?></option>
+    </select>
+    <label for="routingForWaypoints"><?php p($l->t('Routing for waypoints'));?>:</label>
+    <select id="routingForWaypoints">
+        <option value=""><?php p($l->t('None')); ?></option>
+        <option value="walking"><?php p($l->t('Walking')); ?></option>
+        <option value="cycling"><?php p($l->t('Cycling')); ?></option>
+        <option value="driving"><?php p($l->t('Driving')); ?></option>
     </select>
     <label title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
     for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>

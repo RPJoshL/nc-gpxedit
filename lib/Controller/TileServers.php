@@ -28,7 +28,8 @@ $baseTileServers = [
         'url' => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         'attribution' => 'Map data &copy; 2013 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
         'minzoom' => '1',
-        'maxzoom' => '19'
+        'maxzoom' => '19',
+        'referrerPolicy' => 'strict-origin-when-cross-origin'
     ),
     Array(
         'name' => 'OpenStreetMap (HiDPI)',

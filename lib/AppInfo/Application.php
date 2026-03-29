@@ -10,16 +10,8 @@
 
 namespace OCA\GpxEdit\AppInfo;
 
-use OC\App\AppManager;
-use OCP\IContainer;
-
-use Psr\Container\ContainerInterface;
 use OCP\AppFramework\App;
-use OCP\AppFramework\IAppContainer;
 
-use OCA\GpxEdit\Controller\PageController;
-use OCA\GpxEdit\Controller\ComparisonController;
-use OCA\GpxEdit\Controller\UtilsController;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
@@ -50,36 +42,7 @@ class Application extends App implements IBootstrap {
         });
 	}
 
-	public function register(IRegistrationContext $context): void {
-
-        $context->registerService(
-            'PageController', function (ContainerInterface $c) {
-                return new PageController(
-                    $c->get('AppName'),
-                    $c->get('Request'),
-                    $c->get('UserId'),
-                    $c->get('ServerContainer')->getUserFolder($c->get('UserId')),
-                    $c->get('ServerContainer')->getConfig(),
-                    $c->get(AppManager::class)
-                );
-            }
-        );
-
-        $context->registerService(
-            'UtilsController', function (ContainerInterface $c) {
-                return new UtilsController(
-                    $c->get('AppName'),
-                    $c->get('Request'),
-                    $c->get('UserId'),
-                    //$c->getServer()->getUserFolder($c->query('UserId')),
-                    //$c->query('OCP\IConfig'),
-                    $c->get('ServerContainer')->getUserFolder($c->get('UserId')),
-                    $c->get('ServerContainer')->getConfig(),
-                    $c->get(AppManager::class)
-                );
-            }
-        );
-	}
+	public function register(IRegistrationContext $context): void {}
 
 	public function boot(IBootContext $context): void {
 	}

@@ -9,3 +9,9 @@ sudo npm install -g sass-embedded@1.85.1
 ```sh
 sass css:css --no-source-map
 ```
+
+## On Route change
+
+```sh
+systemctl restart php8.3-fpm.service
+```

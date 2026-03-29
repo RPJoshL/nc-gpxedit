@@ -1254,11 +1254,15 @@ input[type=checkbox] {
 .leaflet-container .leaflet-tooltip-right::before {
   border-right-color: var(--color-border);
 }
-.leaflet-container a.icon-ruler,
-.leaflet-container a.leaflet-draw-draw-polyline,
-.leaflet-container a.leaflet-draw-draw-marker,
-.leaflet-container a.leaflet-draw-edit-edit,
-.leaflet-container a.leaflet-draw-edit-remove {
+.leaflet-container a.icon-ruler {
   background-color: transparent;
   filter: invert(var(--icon-invert));
+}
+.leaflet-container div.leaflet-pm-toolbar .control-icon {
+  background-color: transparent;
+  filter: invert(var(--icon-invert));
+}
+
+.distance-tooltip {
+  opacity: 0.6;
 }

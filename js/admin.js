@@ -32,6 +32,59 @@ function deleteLogo(button){
     });
 }
 
+addEventListener("DOMContentLoaded", (event) => {
+    const fileInput = document.querySelector("#uploadExtraSymbol input[type='file']");
+
+    htmx.on("#uploadExtraSymbol", "htmx:beforeRequest", (evt) => {
+        if (fileInput.files.length === 0) {
+            // Open filepicker to select file
+            fileInput.click();
+            evt.preventDefault();
+        }
+    });
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+            htmx.trigger("#uploadExtraSymbol", "submit");
+        }
+    })
+
+    htmx.on("#uploadExtraSymbol", "htmx:afterRequest", (evt) => {
+        try {
+            var status = evt.detail.xhr && evt.detail.xhr.status;
+            // Reset Icon
+             $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
+
+            if (status >= 200 && status < 300) {
+                // versuche JSON auszulesen und name zu verwenden
+                var respText = evt.detail.xhr.response;
+                try {
+                    var obj = JSON.parse(respText);
+                    if (obj && obj.data && obj.data.name) {
+                         addLogoLine(obj.data.name);
+                    }
+                    OC.msg.finishedSaving('#extraSymbolsSettingsMsg', obj);
+                } catch(err) {
+                    OC.msg.finishedSaving('#extraSymbolsSettingsMsg', {data:{message: 'Upload finished'}});
+                }
+            } else {
+                OC.msg.finishedError('#extraSymbolsSettingsMsg', 'Failed');
+            }
+        } catch(ignore){}
+    });
+
+    htmx.on("#mapboxApiKey", "htmx:afterRequest", (evt) => {
+        const code = evt.detail.xhr.status;
+
+        if (evt.detail.xhr && evt.detail.xhr.status == 403) {
+            OC.PasswordConfirmation.requirePasswordConfirmation(() => {
+                htmx.trigger("#mapboxApiKey", "submit");
+            });
+        } else {
+            OC.Notification.show(evt.detail.xhr.response, { type: code === 200 ? 'success' : 'error' });
+        }
+    })
+})
+
 $(document).ready(function() {
     var url = OC.generateUrl('/apps/gpxedit/getExtraSymbol?');
     $('tr.extraSymbol img').each(function(){
@@ -40,30 +93,6 @@ $(document).ready(function() {
         $(this).attr('src', fullurl);
     });
 
-	var uploadParamsSymbol = {
-        pasteZone: null,
-        dropZone: null,
-        done: function (e, response) {
-            addLogoLine(response.result.data.name);
-            OC.msg.finishedSaving('#extraSymbolsSettingsMsg', response.result);
-            $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
-        },
-        submit: function(e, response) {
-            OC.msg.startSaving('#extraSymbolsSettingsMsg');
-            $('label#uploadsymbol').removeClass('icon-upload').addClass('icon-loading-small');
-            if ($('input#addExtraSymbolName').val() === ''){
-                OC.msg.finishedError('#extraSymbolsSettingsMsg', 'Empty symbol name');
-                e.preventDefault();
-                $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
-            }
-        },
-        fail: function (e, response){
-            OC.msg.finishedError('#extraSymbolsSettingsMsg', response._response.jqXHR.responseJSON.data.message);
-            $('label#uploadsymbol').addClass('icon-upload').removeClass('icon-loading-small');
-        }
-    };
-
-    $('#uploadsymbol').fileupload(uploadParamsSymbol);
     $('body').on('click', 'button.delExtraSymbol', function(e) {
         deleteLogo($(this));
     });

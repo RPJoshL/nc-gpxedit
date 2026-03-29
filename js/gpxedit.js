@@ -5,11 +5,25 @@
         map: {},
         baseLayers: null,
         restoredTileLayer: null,
-        drawControl: null,
+        /** The layer for drawing markers and lines */
+        drawLayer: null,
         id: 0,
         // indexed by gpxedit_id
         layersData: {},
-        currentAjax: null
+        currentAjax: null,
+
+        /** Distance tooltip when drawing a line */
+        distanceTooltip: null,
+        lastDistanceInformation: {
+            distance: 0,
+            duration: 0,
+            lastDuration: 0,
+            lastPoint: null,
+            lastPointInformation: {
+                distance: 0,
+                duration: 0
+            }
+        }
     };
 
     var symbolSelectClasses = {
@@ -219,6 +233,7 @@
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
             var stransparent = ($(this).attr('transparent') === 'true');
+            var sreferrerPolicy = $(this).attr('referrerPolicy');
             var sopacity = $(this).attr('opacity');
             if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
@@ -226,7 +241,7 @@
             else {
                 sopacity = 1;
             }
-            baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent});
+            baseLayers[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent, referrerPolicy: sreferrerPolicy});
         });
         $('#basetileservers li[type=tilewms]').each(function() {
             var sname = $(this).attr('name');
@@ -235,6 +250,7 @@
             var sversion = $(this).attr('version') || '1.1.1';
             var stransparent = ($(this).attr('transparent') === 'true');
             var sformat = $(this).attr('format') || 'image/png';
+            var sreferrerPolicy = $(this).attr('referrerPolicy');
             var sopacity = $(this).attr('opacity');
             if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
@@ -243,7 +259,7 @@
                 sopacity = 1;
             }
             var sattrib = $(this).attr('attribution') || '';
-            baseLayers[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
+            baseLayers[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib, referrerPolicy: sreferrerPolicy});
         });
         // add custom layers
         $('#tileserverlist li').each(function() {
@@ -279,6 +295,7 @@
             var maxz = parseInt($(this).attr('maxzoom'));
             var sattrib = $(this).attr('attribution');
             var stransparent = ($(this).attr('transparent') === 'true');
+            var sreferrerPolicy = $(this).attr('referrerPolicy');
             var sopacity = $(this).attr('opacity');
             if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
                 sopacity = parseFloat(sopacity);
@@ -286,13 +303,14 @@
             else {
                 sopacity = 0.4;
             }
-            baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent});
+            baseOverlays[sname] = new L.TileLayer(surl, {minZoom: minz, maxZoom: maxz, attribution: sattrib, opacity: sopacity, transparent: stransparent, referrerPolicy: sreferrerPolicy});
         });
         $('#basetileservers li[type=overlaywms]').each(function() {
             var sname = $(this).attr('name');
             var surl = $(this).attr('url');
             var slayers = $(this).attr('layers') || '';
             var sversion = $(this).attr('version') || '1.1.1';
+            var sreferrerPolicy = $(this).attr('referrerPolicy');
             var stransparent = ($(this).attr('transparent') === 'true');
             var sopacity = $(this).attr('opacity');
             if (typeof sopacity !== typeof undefined && sopacity !== false && sopacity !== '') {
@@ -303,7 +321,7 @@
             }
             var sformat = $(this).attr('format') || 'image/png';
             var sattrib = $(this).attr('attribution') || '';
-            baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib});
+            baseOverlays[sname] = new L.tileLayer.wms(surl, {layers: slayers, version: sversion, transparent: stransparent, opacity: sopacity, format: sformat, attribution: sattrib, referrerPolicy: sreferrerPolicy});
         });
         // add custom overlays
         $('#overlayserverlist li').each(function() {
@@ -378,7 +396,8 @@
                         window.open(baseURL + position.lat + ',' + position.lng, '_blank');
                     }
                 }
-            ]
+            ],
+            pmIgnore: false
         });
 
         L.control.scale({metric: true, imperial: true, position: 'topleft'})
@@ -421,70 +440,109 @@
         feet = (unit === 'feet') ? true : false;
         nautic = (unit === 'nautic') ? true : false;
 
-        var options = {
+        gpxedit.map.pm.setLang("own_translations", {
+            tooltips: {
+                placeMarker: t('gpxedit', 'Click map to add waypoint'),
+            },
+            actions: {
+                finish: t('gpxedit', 'Finish'),
+                cancel: t('gpxedit', 'Cancel'),
+                removeLastVertex: t('gpxedit', 'Delete last drawn point'),
+            },
+            buttonTitles: {
+                drawMarkerButton: t('gpxedit', 'Add a waypoint'),
+                drawLineButton: t('gpxedit', 'Draw a track'),
+                deleteButton: t('gpxedit', 'Delete'),
+                editButton: t('gpxedit', 'Edit'),
+            }
+        }, "en")
+
+        // Draw plugin
+        gpxedit.drawLayer = L.featureGroup().addTo(gpxedit.map);
+        gpxedit.map.pm.setGlobalOptions({
+            layerGroup: gpxedit.drawLayer
+        });
+
+        gpxedit.map.pm.addControls({
             position: 'bottomleft',
-            draw: {
-                polyline: {metric: metric, feet: feet, nautic: nautic},
-                polygon: false,
-                circle: false,
-                rectangle: false,
-                marker: {
-                    icon: symbolIcons.marker
-                }
-            },
-            edit: {
-                edit: true,
-                remove: true,
-                //featureGroup: gpxedit.editableLayers,
-            },
-            entry: 'edit-json'
-        };
+            drawMarker: true,
+            drawPolyline: true,
 
-        L.drawLocal.draw.toolbar.buttons.polyline = t('gpxedit', 'Draw a track');
-        L.drawLocal.draw.toolbar.buttons.marker = t('gpxedit', 'Add a waypoint');
-        L.drawLocal.edit.toolbar.buttons.edit = t('gpxedit', 'Edit');
-        L.drawLocal.edit.toolbar.buttons.editDisabled = t('gpxedit', 'Nothing to edit');
-        L.drawLocal.edit.toolbar.buttons.remove = t('gpxedit', 'Delete');
-        L.drawLocal.edit.toolbar.buttons.removeDisabled = t('gpxedit', 'Nothing to delete');
-        L.drawLocal.edit.toolbar.actions.save.title = t('gpxedit', 'Validate changes');
-        L.drawLocal.edit.toolbar.actions.save.text = t('gpxedit', 'Ok');
-        L.drawLocal.edit.toolbar.actions.cancel.title = t('gpxedit', 'Discard all changes');
-        L.drawLocal.edit.toolbar.actions.cancel.text = t('gpxedit', 'Cancel');
-        L.drawLocal.edit.handlers.edit.tooltip.text = t('gpxedit', 'Drag to move elements,<br/>click to remove a point<br/>hover a middle marker and press "Del" to cut the line');
-        L.drawLocal.edit.handlers.edit.tooltip.subtext = t('gpxedit', 'Click cancel to undo changes');
-        L.drawLocal.edit.handlers.remove.tooltip.text = t('gpxedit', 'Click on an element to delete it');
-        L.drawLocal.draw.handlers.marker.tooltip.start = t('gpxedit', 'Click map to add waypoint');
-        L.drawLocal.draw.handlers.polyline.tooltip.start = t('gpxedit', 'Click to start drawing track');
-        L.drawLocal.draw.handlers.polyline.tooltip.cont = t('gpxedit', 'Click to continue drawing track');
-        L.drawLocal.draw.handlers.polyline.tooltip.end = t('gpxedit', 'Click last point to finish track');
-        L.drawLocal.draw.toolbar.actions.text = t('gpxedit', 'Cancel');
-        L.drawLocal.draw.toolbar.actions.title = t('gpxedit', 'Cancel drawing');
-        L.drawLocal.draw.toolbar.finish.text = t('gpxedit', 'Finish');
-        L.drawLocal.draw.toolbar.finish.title = t('gpxedit', 'Finish drawing');
-        L.drawLocal.draw.toolbar.undo.text = t('gpxedit', 'Delete last point');
-        L.drawLocal.draw.toolbar.undo.title = t('gpxedit', 'Delete last drawn point');
-        var drawControl = new L.Control.Draw.Plus(options);
-        gpxedit.drawControl = drawControl;
-        gpxedit.map.addControl(drawControl);
+            editMode: true,
+            removalMode: true,
 
-        // when something is created, we generate popup content
-        // and initialize layer data
-        gpxedit.map.on(L.Draw.Event.CREATED, function (e) {
-            onCreated(e.layerType, e.layer);
-        });
-        // not used for the moment
-        gpxedit.map.on('draw:edited', function (e) {
-            var layers = e.layers;
-            layers.eachLayer(function (layer) {
+            drawCircle: false, drawText: false, drawRectangle: false,
+            drawCircleMarker: false, drawPolygon: false,
+
+            rotateMode: false, dragMode: false, cutMode: false, cutPolygon: false,
+        })
+        gpxedit.map.pm.Toolbar.changeControlOrder([
+            'drawMarker',
+            'drawPolyline',
+            '',
+            'editMode',
+            'removalMode'
+        ])
+
+        gpxedit.map.on("pm:create", (opt) => {
+            onCreated(opt.shape, opt.layer);
+        })
+        gpxedit.map.on("pm:remove", (opt) => {
+            delete gpxedit.layersData[opt.layer.gpxedit_id]
+        })
+
+        /** Mouse listener to update distance popup */
+        const onMouseMove = (e) => {
+            displayDistanceTooltip(e.latlng.lat, e.latlng.lng)
+        }
+        /** Key listener so we can check if routing should be disabled */
+        let ctrlPressed = false;
+        const onKeyDown = (e) => {
+            if (e.key === 'Control') {
+                ctrlPressed = true;
+            }
+        }
+        const onKeyUp = (e) => {
+            if (e.key === 'Control') {
+                ctrlPressed = false;
+            }
+        }
+
+        gpxedit.map.pm.Draw.Line._removeLastVertex = function() {
+            removeRoutePolyline(this);
+        }
+        gpxedit.map.on("pm:drawstart", (e) => {
+            ctrlPressed = false
+
+            e.workingLayer.on("pm:vertexadded", (e) => {
+                routePolyline(e.workingLayer, ctrlPressed);
             });
+
+            // Reset information
+            gpxedit.lastDistanceInformation = {
+                distance: 0,
+                duration: 0,
+                lastDuration: 0,
+                lastPoint: null
+            }
+            gpxedit.distanceTooltip = null
+
+            gpxedit.map.on("mousemove", onMouseMove)
+            document.addEventListener('keyup', onKeyUp);
+            document.addEventListener('keydown', onKeyDown);
         });
-        // remove data associated with the deleted layer
-        gpxedit.map.on('draw:deleted', function (e) {
-            var layers = e.layers;
-            layers.eachLayer(function (layer) {
-                delete gpxedit.layersData[layer.gpxedit_id];
-            });
+
+        gpxedit.map.on("pm:drawend", (e) => {
+            gpxedit.map.off("mousemove", onMouseMove)
+            document.removeEventListener('keyup', onKeyUp);
+            document.removeEventListener('keydown', onKeyDown);
+
+            if(gpxedit.distanceTooltip) {
+                gpxedit.distanceTooltip.remove();
+                gpxedit.distanceTooltip = null;
+            }
         });
+
 
         // load data into popup when it opens
         // this is needed because popup content is created each time we open one
@@ -528,17 +586,17 @@
         var tst = $('#tooltipstyleselect').val();
         var popupTitle;
         var layerType;
-        if (type === 'polyline' || type === 'track') {
+        if (type === 'Line' || type === 'Track') {
             popupTitle = t('gpxedit', 'Track');
             layerType = 'track';
             layer.setStyle(defaultStyle);
         }
-        else if (type === 'route') {
+        else if (type === 'Route') {
             popupTitle = t('gpxedit', 'Route');
             layerType = 'route';
             layer.setStyle(defaultStyle);
         }
-        else if (type === 'marker') {
+        else if (type === 'Marker') {
             popupTitle = t('gpxedit', 'Waypoint');
             layerType = 'marker';
         }
@@ -551,7 +609,7 @@
                    '</td><td><input class="layerLinkText"></input></td></tr>';
         popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Link URL') +
                    '</td><td><input class="layerLinkUrl"></input></td></tr>';
-        if (type === 'marker') {
+        if (type === 'Marker') {
             popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Lat') +
                        '</td><td><input class="layerLat"></input></td></tr>';
             popupTxt = popupTxt + '<tr><td>' + t('gpxedit', 'Lon') +
@@ -575,7 +633,7 @@
                    gpxedit.id + '">OK</button>';
 
         layer.bindPopup(popupTxt);
-        if (type !== 'marker') {
+        if (type !== 'Marker') {
             layer.on('mouseover', function() {
                 layer.bringToFront();
                 layer.setStyle(hoverStyle);
@@ -626,8 +684,9 @@
         }
         layer.gpxedit_id = gpxedit.id;
         layer.type = layerType;
-        gpxedit.drawControl.editLayers.addLayer(layer);
+        gpxedit.drawLayer.addLayer(layer);
         gpxedit.id++;
+
         return layer;
     }
 
@@ -691,7 +750,7 @@
         gpxText = gpxText + '</metadata>\n';
 
         var layerArray = [];
-        gpxedit.drawControl.editLayers.eachLayer(function(layer) {
+        gpxedit.drawLayer.eachLayer(function(layer) {
             layerArray.push(layer);
         });
         // sort
@@ -879,7 +938,7 @@
         else{
             m.setIcon(symbolIcons[wst]);
         }
-        var layer = onCreated('marker', m);
+        var layer = onCreated('Marker', m);
         if (name !== '') {
             if (tst === 'p') {
                 m.bindTooltip(name, {permanent: true});
@@ -980,7 +1039,7 @@
                     }
                 });
             });
-            drawLine(latlngs, name, desc, cmt, 'track', times, linkText, linkUrl);
+            drawLine(latlngs, name, desc, cmt, 'Track', times, linkText, linkUrl);
         });
         dom.find('rte').each(function() {
             var latlngs = [];
@@ -1003,7 +1062,7 @@
                     latlngs.push([lat, lon]);
                 }
             });
-            drawLine(latlngs, name, desc, cmt, 'route', times, linkText, linkUrl);
+            drawLine(latlngs, name, desc, cmt, 'Route', times, linkText, linkUrl);
         });
     }
 
@@ -1011,14 +1070,15 @@
     function clear() {
         var i;
         var layersToRemove = [];
-        gpxedit.drawControl.editLayers.eachLayer(function (layer) {
+
+        gpxedit.drawLayer.eachLayer(function (layer) {
               layer.unbindTooltip();
               delete gpxedit.layersData[layer.gpxedit_id];
               layersToRemove.push(layer);
         });
 
         for(i = 0; i < layersToRemove.length; i++) {
-            gpxedit.drawControl.editLayers.removeLayer(layersToRemove[i]);
+            gpxedit.drawLayer.removeLayer(layersToRemove[i]);
         }
     }
 
@@ -1147,7 +1207,7 @@
                     parseGpx(response.gpxs[i]);
                 }
                 try {
-                    var bounds = gpxedit.drawControl.editLayers.getBounds();
+                    var bounds = gpxedit.drawLayer.getBounds();
                     gpxedit.map.fitBounds(
                         bounds,
                         {
@@ -1229,7 +1289,7 @@
             else {
                 parseGpx(response.gpx);
                 try {
-                    var bounds = gpxedit.drawControl.editLayers.getBounds();
+                    var bounds = gpxedit.drawLayer.getBounds();
                     gpxedit.map.fitBounds(
                         bounds,
                         {
@@ -1327,7 +1387,8 @@
             transparent: stransparent,
             minzoom: sminzoom,
             maxzoom: smaxzoom,
-            attribution: ''
+            attribution: '',
+            referrerPolicy
         };
         var url = OC.generateUrl('/apps/gpxedit/addTileServer');
         $.ajax({
@@ -1406,38 +1467,21 @@
         }
         var tst = $('#tooltipstyleselect').val();
         var theicon = symbolIcons[wst];
-
-        gpxedit.drawControl.setDrawingOptions({
-            marker: {
+        gpxedit.map.pm.Draw.Marker.setOptions({
+            snapDistance: 10,
+            cursorMarker: false,
+            hideMiddleMarkers: true,
+            markerStyle: {
                 icon: theicon
+            },
+            hintlineStyle: {
+                dashArray: [0, 0],
             }
-        });
-
-        var symboo = $('#symboloverwrite').is(':checked');
-        gpxedit.drawControl.editLayers.eachLayer(function(layer) {
-            var id = layer.gpxedit_id;
-            var name = gpxedit.layersData[id].name;
-            var symbol = gpxedit.layersData[id].symbol;
-            if (layer.type === 'marker') {
-                if (    symboo && symbol !== ''
-                     && symbolIcons.hasOwnProperty(symbol)
-                ) {
-                    layer.setIcon(symbolIcons[symbol]);
-                }
-                else{
-                    layer.setIcon(theicon);
-                }
-            }
-            if (name !== '') {
-                layer.unbindTooltip();
-                if (tst === 'p') {
-                    layer.bindTooltip(name, {permanent: true});
-                }
-                else{
-                    layer.bindTooltip(name, {sticky: true});
-                }
-            }
-        });
+        })
+        gpxedit.map.pm.Draw.Line.setOptions({
+            // We show our own tooltips
+            tooltips: false
+        })
     }
 
     function restoreOptions() {
@@ -1470,6 +1514,9 @@
             if (optionsValues.unit !== undefined) {
                 $('#unitselect').val(optionsValues.unit);
             }
+            if (optionsValues.routingForWaypoints !== undefined) {
+                $('#routingForWaypoints').val(optionsValues.routingForWaypoints);
+            }
             if (optionsValues.clearbeforeload !== undefined) {
                 $('#clearbeforeload').prop('checked', optionsValues.clearbeforeload);
             }
@@ -1478,7 +1525,7 @@
             }
             if (optionsValues.approximateele !== undefined) {
                 $('#approximateele').prop('checked', optionsValues.approximateele);
-                L.drawLocal.edit.approximateElevations = $('#approximateele').is(':checked');
+                //L.drawLocal.edit.approximateElevations = $('#approximateele').is(':checked');
             }
             if (optionsValues.tilelayer !== undefined) {
                 gpxedit.restoredTileLayer = optionsValues.tilelayer;
@@ -1491,6 +1538,7 @@
         optionsValues.markerstyle = $('#markerstyleselect').val();
         optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
         optionsValues.unit = $('#unitselect').val();
+        optionsValues.routingForWaypoints = $('#routingForWaypoints').val();
         optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
         optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
         optionsValues.approximateele = $('#approximateele').is(':checked');
@@ -1536,6 +1584,169 @@
             });
             symbolIcons[smallname] = d;
         });
+    }
+
+    /** Adds intermediate routing waypoints from the last added point */
+    function routePolyline(workingLayer, disableRouting = false) {
+        if (workingLayer._routePointCount === undefined) {
+            workingLayer._routePointCount = [];
+        }
+
+        let points = workingLayer.getLatLngs();
+        const handleDefault = () => {
+            workingLayer._routePointCount.push(1);
+
+            const lastPoint = points[points.length - 1]
+            if (gpxedit.lastDistanceInformation.lastPoint) {
+                gpxedit.lastDistanceInformation.distance += getDistance(
+                    gpxedit.lastDistanceInformation.lastPoint,
+                    lastPoint
+                );
+            }
+            gpxedit.lastDistanceInformation.lastPoint = lastPoint
+            gpxedit.lastDistanceInformation.lastPointInformation = null
+            displayDistanceTooltip(lastPoint.lat, lastPoint.lng)
+        }
+
+        const profile = $('#routingForWaypoints').val();
+        if (points.length < 2 || !profile || disableRouting) {
+            handleDefault()
+            return;
+        }
+
+        const start = points[points.length - 2];
+        const end = points[points.length - 1];
+
+        var url = OC.generateUrl('/apps/gpxedit/mapbox/routing');
+        var req = {
+            startLat: start.lat,
+            startLng: start.lng,
+            endLat: end.lat,
+            endLng: end.lng,
+            profile: profile
+        };
+        $.get(url, req).done(function(response) {
+            if (!response || response.error !== undefined) {
+                OC.Notification.showTemporary(response.error);
+                workingLayer._routePointCount.push(1);
+                return;
+            }
+
+            // Remove the last two points as we want to replace them by the snapped ones
+            points.pop(); points.pop();
+
+            // Add all routing points
+            let routeLatLngs = response.route.map(coord => 
+                L.latLng(coord[1], coord[0])
+            )
+            workingLayer._routePointCount.push(routeLatLngs.length - 1)
+            points = points.concat(routeLatLngs)
+
+            gpxedit.lastDistanceInformation.distance += response.distance
+            gpxedit.lastDistanceInformation.duration += response.duration
+            gpxedit.lastDistanceInformation.lastPointInformation = {
+                distance: response.distance,
+                duration: response.duration
+            }
+
+            const lastPoint = routeLatLngs[routeLatLngs.length - 1]
+            gpxedit.lastDistanceInformation.lastPoint = lastPoint
+            displayDistanceTooltip(lastPoint.lat, lastPoint.lng)
+            
+            workingLayer.setLatLngs(points);
+        }).fail(function() {
+            OC.Notification.showTemporary("Failed to get route from server");
+            handleDefault()
+        });
+    }
+
+    /** Removes the previously added route polyline from the working layer */
+    function removeRoutePolyline(options) {
+        const workingLayer = options._layer
+        if (!workingLayer._routePointCount || workingLayer._routePointCount.length === 0) {
+            console.log("No route point to remove")
+            return
+        }
+
+        const countToRemove = workingLayer._routePointCount.pop()
+        if (countToRemove <= 0) {
+            return
+        }
+        workingLayer.setLatLngs(workingLayer.getLatLngs().slice(0, -countToRemove))
+
+        // Remove geoman pointer indicator
+        const marker = options._markers.pop()
+        if (marker) {
+            marker.remove();
+        }
+    }
+
+    function getDistance(latlng1, latlng2) {
+        return gpxedit.map.distance(latlng1, latlng2);
+    }
+
+    function formatDistance(distanceMeters) {
+        const distanceKm = distanceMeters / 1000;
+        return distanceKm.toFixed(2) + ' km';
+    }
+
+    function formatDuration(prefix, durationSeconds) {
+        if(durationSeconds == 0) {
+            return ""
+        }
+
+        const hours = Math.floor(durationSeconds / 3600);
+        const minutes = Math.floor((durationSeconds % 3600) / 60);
+        const seconds = Math.round(durationSeconds % 60);
+        return `${prefix} ${hours > 0 ? hours + ':' : ''}${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    /** Displays a simple tooltip showing distance information */
+    function displayDistanceTooltip(lat, lon) {
+        const currentLatLng = L.latLng(lat, lon)
+
+        // Erster Punkt setzen, wenn noch keiner vorhanden
+        if (gpxedit.lastDistanceInformation.lastPoint == null) {
+            if (gpxedit.distanceTooltip) {
+                gpxedit.map.removeLayer(gpxedit.distanceTooltip);
+                gpxedit.distanceTooltip = null
+            }
+
+            return
+        }
+
+        const lastPoint = gpxedit.lastDistanceInformation.lastPoint
+        const distanceFromLastPoint = getDistance(lastPoint, currentLatLng);
+
+        const totalDistance = gpxedit.lastDistanceInformation.distance + distanceFromLastPoint;
+        const totalDuration = gpxedit.lastDistanceInformation.duration;
+
+        let tooltipText = `
+            ${t('gpxedit', 'Total')}: ${formatDistance(totalDistance)} ${formatDuration("|", totalDuration)}<br>
+            ${t('gpxedit', 'Mouse')}: ${formatDistance(distanceFromLastPoint)}
+        `;
+        if (gpxedit.lastDistanceInformation.lastPointInformation) {
+            tooltipText += `<br>
+                ${t('gpxedit', 'Last point')}: ${formatDistance(gpxedit.lastDistanceInformation.lastPointInformation.distance)} ${formatDuration("|", gpxedit.lastDistanceInformation.lastPointInformation.duration)}<br>
+            `
+        }
+
+        if (!gpxedit.distanceTooltip) {
+            gpxedit.distanceTooltip = L.tooltip(currentLatLng, {
+                permanent: false,
+                direction: 'top',
+                className: 'distance-tooltip',
+                offset: [0, -15],
+            })
+        }
+
+        if(gpxedit.distanceTooltip && !gpxedit.map.hasLayer(gpxedit.distanceTooltip)) {
+            gpxedit.distanceTooltip.addTo(gpxedit.map)
+        }
+
+        gpxedit.distanceTooltip
+            .setLatLng(currentLatLng)
+            .setContent(tooltipText);
     }
 
     function saveAction(targetPath) {
@@ -1617,6 +1828,9 @@
         $('select#unitselect').change(function(e) {
             saveOptions();
         });
+        $('select#routingForWaypoints').change(function(e) {
+            saveOptions();
+        });
         $('select#markerstyleselect').change(function(e) {
             updateLeafletDrawMarkerStyle();
             saveOptions();
@@ -1635,7 +1849,7 @@
             saveOptions();
         });
         $('body').on('change', '#approximateele', function() {
-            L.drawLocal.edit.approximateElevations = $(this).is(':checked');
+            //L.drawLocal.edit.approximateElevations = $(this).is(':checked');
             saveOptions();
         });
         $('body').on('click', 'button.popupOkButton', function(e) {
@@ -1741,7 +1955,7 @@
         });
 
         $('button#saveButton').click(function(e) {
-            if (gpxedit.drawControl.editLayers.getLayers().length === 0) {
+            if (gpxedit.drawLayer.getLayers().length === 0) {
                 showFailAnimation(t('gpxedit', 'There is nothing to save'));
             }
             else{
@@ -1811,17 +2025,6 @@
         if (dirparam && dirparam !== undefined) {
             loadFolderAction(dirparam);
         }
-
-        L.LatLngUtil.cloneLatLng = function (latlng) {
-            var ll = L.latLng(latlng.lat, latlng.lng);
-            if (latlng.alt) {
-                ll.alt = latlng.alt;
-            }
-            if (latlng.time) {
-                ll.time = latlng.time;
-            }
-            return ll;
-        };
 
         gpxedit.map.on('middlehover', function(m) {
             gpxedit.hovermiddlemarker = m;

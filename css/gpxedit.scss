@@ -1113,13 +1113,18 @@ input[type=checkbox] {
         border-right-color: var(--color-border);
     }
 
-    a.icon-ruler,
-    a.leaflet-draw-draw-polyline,
-    a.leaflet-draw-draw-marker,
-    a.leaflet-draw-edit-edit,
-    a.leaflet-draw-edit-remove {
+    a.icon-ruler {
         background-color: transparent;
         filter: invert(var(--icon-invert));
     }
 
+    div.leaflet-pm-toolbar .control-icon {
+        background-color: transparent;
+        filter: invert(var(--icon-invert));
+    }
+
+}
+
+.distance-tooltip {
+    opacity: 0.6;
 }

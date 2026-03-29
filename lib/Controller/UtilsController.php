@@ -11,66 +11,61 @@
 
 namespace OCA\GpxEdit\Controller;
 
+use OCA\GpxEdit\AppInfo\Application;
+use OCA\GpxEdit\Helper\Helper;
 use OCP\App\IAppManager;
 
-use OCP\IURLGenerator;
+use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
+use OCP\AppFramework\Http\Attribute\PublicPage;
+use OCP\AppFramework\Http\TextPlainResponse;
+use OCP\Files\IRootFolder;
+use OCP\IAppConfig;
+use OCP\IDBConnection;
 use OCP\IConfig;
 
 use OCP\AppFramework\Http;
-use OCP\AppFramework\Http\RedirectResponse;
 
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 
 use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\DataDisplayResponse;
-use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Controller;
-
-use function OCP\Log\logger;
-
-use function OCA\GpxEdit\Helper\globRecursive;
-use function OCA\GpxEdit\Helper\getProgramPath;
-use function OCA\GpxEdit\Helper\endswith;
 
 class UtilsController extends Controller {
 
+    private string $userAbsoluteDataPath;
+    private string $dbtype;
+    private string $dbDoubleQuotes;
 
-    private $userId;
-    private $userfolder;
-    private $config;
-    private $userAbsoluteDataPath;
-    private $dbconnection;
-    private $dbtype;
+    public function __construct(
+        string $appName, 
+        IRequest $request, 
+        private ?string $userId,
+        private IAppConfig $appConfig, 
+        private IRootFolder $rootFolder,
+        private IConfig $config,
+        private IDBConnection $dbconnection,
+        IAppManager $appManager
+    ){
+        parent::__construct($appName, $request);
 
-    public function __construct($AppName, IRequest $request, $UserId,
-        $userfolder, $config, IAppManager $appManager){
-        parent::__construct($AppName, $request);
-        $this->userId = $UserId;
         $this->dbtype = $config->getSystemValue('dbtype');
-        // IConfig object
-        $this->config = $config;
-        if ($this->dbtype === 'pgsql'){
-            $this->dbdblquotes = '"';
-        }
-        else{
-            $this->dbdblquotes = '';
-        }
-        if ($UserId !== '' and $userfolder !== null){
-            // path of user files folder relative to DATA folder
-            $this->userfolder = $userfolder;
-            // absolute path to user files folder
-            $this->userAbsoluteDataPath =
-                $this->config->getSystemValue('datadirectory').
-                rtrim($this->userfolder->getFullPath(''), '/');
+		if ($this->dbtype === 'pgsql') {
+			$this->dbDoubleQuotes = '"';
+		} else {
+			$this->dbDoubleQuotes = '';
+		}
+
+        if ($this->userId !== null){
+            $userFolder = $this->rootFolder->getUserFolder($this->userId);
+            $this->userAbsoluteDataPath = $this->config->getSystemValue('datadirectory').rtrim($userFolder->getFullPath(''), '/');
 
             // make cache if it does not exist
             $cachedirpath = $this->userAbsoluteDataPath.'/../cache';
             if (! is_dir($cachedirpath)){
                 mkdir($cachedirpath);
             }
-
-            $this->dbconnection = \OC::$server->getDatabaseConnection();
         }
     }
 
@@ -99,7 +94,7 @@ class UtilsController extends Controller {
     public function uploadExtraSymbol($addExtraSymbolName) {
 		$newSymbol = $this->request->getUploadedFile('uploadsymbol');
 		$filename = str_replace(array('../', '..\\', '/'), '', $addExtraSymbolName);
-        if (!endswith($newSymbol['name'], '.png')){
+        if (!Helper::endswith($newSymbol['name'], '.png')){
             return new DataResponse(
                 [
                     'data' =>
@@ -138,6 +133,12 @@ class UtilsController extends Controller {
         );
     }
 
+    #[PasswordConfirmationRequired]
+    public function saveMapboxApiKey($mapboxApiKey) {
+        $this->appConfig->setValueString(Application::APP_ID, MapboxController::API_KEY_CONFIG, $mapboxApiKey, false, true);
+        return new TextPlainResponse('API key saved');
+    }
+
     /**
      * @NoAdminRequired
      * @NoCSRFRequired
@@ -148,7 +149,7 @@ class UtilsController extends Controller {
         $filepath = $this->config->getSystemValue('datadirectory').'/gpxedit/symbols/'.$filename;
         $filecontent = file_get_contents($filepath);
         $response = new DataDisplayResponse(
-            $filecontent, \OCP\AppFramework\Http::STATUS_OK, Array('Content-type'=>'image/png')
+            $filecontent, Http::STATUS_OK, Array('Content-type'=>'image/png')
         );
         $csp = new ContentSecurityPolicy();
         $csp->addAllowedImageDomain('*')
@@ -167,22 +168,22 @@ class UtilsController extends Controller {
                     $minzoom, $maxzoom, $attribution) {
         // first we check it does not already exist
         $sqlts = 'SELECT servername FROM *PREFIX*gpxedit_tile_servers ';
-        $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
+        $sqlts .= 'WHERE '.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.'=\''.$this->userId.'\' ';
         $sqlts .= 'AND servername='.$this->db_quote_escape_string($servername).' ';
         $sqlts .= 'AND type='.$this->db_quote_escape_string($type).' ';
         $req = $this->dbconnection->prepare($sqlts);
-        $req->execute();
+        $res = $req->execute();
         $ts = null;
-        while ($row = $req->fetch()){
+        while ($row = $res->fetch()){
             $ts = $row['servername'];
             break;
         }
-        $req->closeCursor();
+        $res->closeCursor();
 
         // then if not, we insert it
         if ($ts === null){
             $sql = 'INSERT INTO *PREFIX*gpxedit_tile_servers';
-            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', type, servername, url, layers, version, format, opacity, transparent, minzoom, maxzoom, attribution) ';
+            $sql .= ' ('.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.', type, servername, url, layers, version, format, opacity, transparent, minzoom, maxzoom, attribution) ';
             $sql .= 'VALUES (\''.$this->userId.'\',';
             $sql .= $this->db_quote_escape_string($type).',';
             $sql .= $this->db_quote_escape_string($servername).',';
@@ -196,8 +197,7 @@ class UtilsController extends Controller {
             $sql .= $this->db_quote_escape_string($maxzoom).',';
             $sql .= $this->db_quote_escape_string($attribution).');';
             $req = $this->dbconnection->prepare($sql);
-            $req->execute();
-            $req->closeCursor();
+            $req->execute()->closeCursor();
             $ok = 1;
         }
         else{
@@ -223,11 +223,10 @@ class UtilsController extends Controller {
      */
     public function deleteTileServer($servername, $type) {
         $sqldel = 'DELETE FROM *PREFIX*gpxedit_tile_servers ';
-        $sqldel .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' AND servername=';
+        $sqldel .= 'WHERE '.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.'='.$this->db_quote_escape_string($this->userId).' AND servername=';
         $sqldel .= $this->db_quote_escape_string($servername).' AND type='.$this->db_quote_escape_string($type).';';
         $req = $this->dbconnection->prepare($sqldel);
-        $req->execute();
-        $req->closeCursor();
+        $req->execute()->closeCursor();
 
         $response = new DataResponse(
             [
@@ -249,34 +248,34 @@ class UtilsController extends Controller {
     public function saveOptionsValues($optionsValues) {
         // first we check if user already has options values in DB
         $sqlts = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
-        $sqlts .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ';
+        $sqlts .= 'WHERE '.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.'=\''.$this->userId.'\' ';
         $req = $this->dbconnection->prepare($sqlts);
-        $req->execute();
+        $res = $req->execute();
         $check = null;
-        while ($row = $req->fetch()){
+        while ($row = $res->fetch()){
             $check = $row['jsonvalues'];
             break;
         }
-        $req->closeCursor();
+        $res->closeCursor();
 
         // if nothing is there, we insert
         if ($check === null){
             $sql = 'INSERT INTO *PREFIX*gpxedit_options';
-            $sql .= ' ('.$this->dbdblquotes.'user'.$this->dbdblquotes.', jsonvalues) ';
+            $sql .= ' ('.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.', jsonvalues) ';
             $sql .= 'VALUES (\''.$this->userId.'\',';
             $sql .= '\''.$optionsValues.'\');';
             $req = $this->dbconnection->prepare($sql);
-            $req->execute();
-            $req->closeCursor();
+            $res = $req->execute();
+            $res->closeCursor();
         }
         // else we update the values
         else{
             $sqlupd = 'UPDATE *PREFIX*gpxedit_options ';
             $sqlupd .= 'SET jsonvalues=\''.$optionsValues.'\' ';
-            $sqlupd .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'=\''.$this->userId.'\' ; ';
+            $sqlupd .= 'WHERE '.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.'=\''.$this->userId.'\' ; ';
             $req = $this->dbconnection->prepare($sqlupd);
-            $req->execute();
-            $req->closeCursor();
+            $res = $req->execute();
+            $res->closeCursor();
         }
 
         $response = new DataResponse(
@@ -298,14 +297,14 @@ class UtilsController extends Controller {
      */
     public function getOptionsValues($optionsValues) {
         $sqlov = 'SELECT jsonvalues FROM *PREFIX*gpxedit_options ';
-        $sqlov .= 'WHERE '.$this->dbdblquotes.'user'.$this->dbdblquotes.'='.$this->db_quote_escape_string($this->userId).' ;';
+        $sqlov .= 'WHERE '.$this->dbDoubleQuotes.'user'.$this->dbDoubleQuotes.'='.$this->db_quote_escape_string($this->userId).' ;';
         $req = $this->dbconnection->prepare($sqlov);
-        $req->execute();
+        $res = $req->execute();
         $ov = '{}';
-        while ($row = $req->fetch()){
+        while ($row = $res->fetch()){
             $ov = $row["jsonvalues"];
         }
-        $req->closeCursor();
+        $res->closeCursor();
 
         $response = new DataResponse(
             [

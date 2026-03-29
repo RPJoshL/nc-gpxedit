@@ -1,5 +1,6 @@
 <?php
 OCP\Util::addscript('gpxedit', 'admin');
+OCP\Util::addscript('gpxedit', 'htmx');
 OCP\Util::addstyle('gpxedit', 'admin');
 ?>
 
@@ -34,12 +35,33 @@ OCP\Util::addstyle('gpxedit', 'admin');
         <label><?php p($l->t('Recommended image ratio : 1:1')); ?></label><br/>
         <label><?php p($l->t('Recommended image resolution : between 24x24 and 50x50')); ?></label><br/>
         <label><?php p($l->t('Accepted image format : png')); ?></label><br/>
-        <form class="uploadButton" method="post" action="<?php p($_['uploadPath']) ?>">
-        <label for="addExtraSymbolName"><?php p($l->t('New symbol name')); ?> :</label>
+        <form
+            id="uploadExtraSymbol"
+            class="uploadButton" 
+            hx-encoding='multipart/form-data'
+            hx-post="<?php p($_['uploadPath']) ?>"
+            hx-swap="none"
+        >
+            <label for="addExtraSymbolName"><?php p($l->t('New symbol name')); ?> :</label>
             <input type="text" name="addExtraSymbolName" id="addExtraSymbolName"></input>
 
             <input id="uploadsymbol" class="upload-symbol-field" name="uploadsymbol" type="file"></input>
-            <label for="uploadsymbol" class="button icon-upload svg" id="uploadsymbol" title="<?php p($l->t('Upload new symbol image')) ?>"></label>
+            <input type="hidden" name="requesttoken" value="<?= $_['requesttoken'] ?>">
+
+            <button class="icon-upload svg" id="uploadsymbol" title="<?php p($l->t('Upload new symbol image')) ?>"></button>
             <span id="extraSymbolsSettingsMsg" class="msg"></span>
+        </form>
+
+        <form 
+            id="mapboxApiKey" 
+            hx-post="<?php p($_['saveMapboxApiKeyPath']) ?>"
+            hx-swap="none"
+        >
+            <label for="mapboxApiKey">Mapbox API key:</label>
+            <input placeholder="<?php p($_['adminMapboxApiKey']) ?>" type="password" name="mapboxApiKey"></input>
+
+            <input type="hidden" name="requesttoken" value="<?= $_['requesttoken'] ?>">
+
+            <button class="icon-checkmark svg" title="Save Mapbox API key"></button>
         </form>
     </div>
