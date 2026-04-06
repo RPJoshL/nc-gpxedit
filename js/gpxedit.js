@@ -29,6 +29,7 @@
                 elevationDown: 0,
             }
         },
+        historyDistanceInformation: [],
 
         /** Generic elevation chart data */
         elevationChart: {
@@ -584,6 +585,7 @@
                 lastDuration: 0,
                 lastPoint: null
             }
+            gpxedit.historyDistanceInformation = []
             gpxedit.distanceTooltip = null
 
             gpxedit.map.on("mousemove", onMouseMove)
@@ -1780,6 +1782,7 @@
 
             workingLayer._routePointCount.push(1);
 
+            storeDistanceInformation()
             const lastPoint = points[points.length - 1]
             if (gpxedit.lastDistanceInformation.lastPoint) {
                 gpxedit.lastDistanceInformation.distance += getDistance(
@@ -1801,6 +1804,16 @@
         });
     }
 
+    /** 
+     * Stores the current distance information in history. Should be called
+     * when the infos are modified after adding a route polyline
+     */
+    function storeDistanceInformation() {
+        gpxedit.historyDistanceInformation.push({
+            ...gpxedit.lastDistanceInformation
+        })
+    }
+
     /** Adds intermediate routing waypoints from the last added point */
     function routePolyline(workingLayer, disableRouting = false) {
         if (workingLayer._routePointCount === undefined) {
@@ -1820,6 +1833,7 @@
 
             workingLayer._routePointCount.push(1);
 
+            storeDistanceInformation()
             const lastPoint = points[points.length - 1]
             if (gpxedit.lastDistanceInformation.lastPoint) {
                 gpxedit.lastDistanceInformation.distance += getDistance(
@@ -1869,6 +1883,7 @@
             workingLayer._routePointCount.push(routeLatLngs.length - 1)
             points = points.concat(routeLatLngs)
 
+            storeDistanceInformation()
             gpxedit.lastDistanceInformation.distance += response.distance
             gpxedit.lastDistanceInformation.duration += response.duration
             gpxedit.lastDistanceInformation.elevationUp += (response.elevationUp || 0)
@@ -1911,6 +1926,8 @@
         if (marker) {
             marker.remove();
         }
+
+        gpxedit.lastDistanceInformation = gpxedit.historyDistanceInformation.pop()
 
         if ($('#fetchaltitudeforroutes').is(':checked')) {
             showElevationChart(workingLayer)
