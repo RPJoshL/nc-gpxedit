@@ -24,6 +24,7 @@ return [
         ['name' => 'page#getfoldergpxs', 'url' => '/getfoldergpxs', 'verb' => 'POST'],
         ['name' => 'page#savegpx', 'url' => '/savegpx', 'verb' => 'POST'],
         ['name' => 'mapbox#routing', 'url' => '/mapbox/routing', 'verb' => 'GET'],
+        ['name' => 'mapbox#elevation', 'url' => '/mapbox/elevation', 'verb' => 'GET'],
         ['name' => 'utils#addTileServer', 'url' => '/addTileServer', 'verb' => 'POST'],
         ['name' => 'utils#deleteTileServer', 'url' => '/deleteTileServer', 'verb' => 'POST'],
         ['name' => 'utils#getOptionsValues', 'url' => '/getOptionsValues', 'verb' => 'POST'],

@@ -3,17 +3,21 @@
 namespace OCA\GpxEdit\Controller;
 
 use OCA\GpxEdit\AppInfo\Application;
+use OCA\GpxEdit\Helper\TerrainElevation;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\Http\Client\IClient;
 use OCP\Http\Client\IClientService;
 use OCP\IAppConfig;
+use OCP\IConfig;
 use OCP\IRequest;
+use Psr\Log\LoggerInterface;
 
 class MapboxController extends Controller {
 
 	private IClient $client;
+	private TerrainElevation $terrainElevation;
 
 	public const API_KEY_CONFIG = "mapbox_api_key";
 
@@ -22,15 +26,21 @@ class MapboxController extends Controller {
         IRequest $request, 
         private ?string $userId,
         private IAppConfig $appConfig,
-		private IClientService $clientService
+		private IConfig $config,
+		private IClientService $clientService,
+		private LoggerInterface $logger
 	) {
 		parent::__construct($appName, $request);
 
 		$this->client = $clientService->newClient();
+		$this->terrainElevation = new TerrainElevation(
+			$appConfig->getValueString(Application::APP_ID, self::API_KEY_CONFIG, ''),
+			$this->client, $this->config,
+		);
 	}
 
 	#[NoAdminRequired]
-	public function routing($startLat, $startLng, $endLat, $endLng, $profile) {
+	public function routing($startLat, $startLng, $endLat, $endLng, $profile, bool $fetchElevation): JSONResponse {
 		$mapboxApiKey = $this->appConfig->getValueString(Application::APP_ID, self::API_KEY_CONFIG, '');
 		if (empty($mapboxApiKey)) {
 			return new JSONResponse(['error' => 'Mapbox API key is not set']);
@@ -65,14 +75,62 @@ class MapboxController extends Controller {
 				return new JSONResponse(['error' => 'No route found']);
 			}
 
+			$route = $data['routes'][0]['geometry']['coordinates'];
+
+			// Elevation calculation
+			$lastElevation = null;
+			$elevationUp = 0;
+			$elevationDown = 0;
+			if ($fetchElevation) {
+				foreach ($route as &$wp) {
+					$elevation = $this->terrainElevation->getElevation($wp[1], $wp[0]);
+
+					$wp[2] = $elevation;
+
+					if ($lastElevation !== null) {
+						$elevationDiff = $elevation - $lastElevation;
+						
+						if ($elevationDiff > 0) {
+							$elevationUp += $elevationDiff;
+						} else {
+							$elevationDown += abs($elevationDiff);
+						}
+					}
+					$lastElevation = $elevation;
+				}
+			}
+
 			return new JSONResponse([
-				'route' => $data['routes'][0]['geometry']['coordinates'],
+				'route' => $route,
 				'waypoints' => $data['waypoints'] ?? [],
 				'distance' => $data['routes'][0]['distance'] ?? null,
 				'duration' => $data['routes'][0]['duration'] ?? null,
+				'elevationUp' => $elevationUp,
+				'elevationDown' => $elevationDown,
 			]);
 		} catch (\Exception $e) {
+			$this->logger->error('Error fetching routing data from Mapbox API', ['exception' => $e]);
 			return new JSONResponse(['error' => 'Failed to fetch routing data from Mapbox API']);
+		}
+	}
+
+	#[NoAdminRequired]
+	public function elevation($lat, $lng): JSONResponse {
+		$mapboxApiKey = $this->appConfig->getValueString(Application::APP_ID, self::API_KEY_CONFIG, '');
+		if (empty($mapboxApiKey)) {
+			return new JSONResponse(['error' => 'Mapbox API key is not set']);
+		}
+
+		// sanitize coordinates to ensure valid float strings
+		$lat = strval((float)$lat);
+		$lng = strval((float)$lng);
+
+		try {
+			$elevation = $this->terrainElevation->getElevation($lat, $lng);
+			return new JSONResponse(['elevation' => $elevation]);
+		} catch (\Exception $e) {
+			$this->logger->error('Error fetching elevation data from Mapbox API', ['exception' => $e]);
+			return new JSONResponse(['error' => 'Failed to fetch elevation data from Mapbox API']);
 		}
 	}
 

@@ -129,6 +129,10 @@ echo '</ul>'."\n";
         <option value="cycling"><?php p($l->t('Cycling')); ?></option>
         <option value="driving"><?php p($l->t('Driving')); ?></option>
     </select>
+    <label for="fetchaltitudeforroutes"><?php p($l->t('Fetch altitude for routes'));?>:</label>
+    <input title="<?php p($l->t('Fetch altitude for routes')); ?>"
+        id="fetchaltitudeforroutes" type="checkbox" checked>
+    </input>
     <label title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
     for="symboloverwrite"><?php p($l->t('Use defined symbols')); ?></label>
     <input title="<?php p($l->t('Use defined symbols instead of default symbol')); ?>"
@@ -377,4 +381,6 @@ if (count($_['useroverlayserverswms']) > 0){
 </div>
 <!-- ============= MAP DIV =============== -->
 <div id="map" class="sidebar-map"></div>
-
+<div id="overlay-content">
+    <div id="elevationChart" data-hidden></div>
+</div>

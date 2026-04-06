@@ -17,6 +17,7 @@ script('gpxedit', 'leaflet.snap');
 script('gpxedit', 'Leaflet.LinearMeasurement');
 script('gpxedit', 'gpxedit');
 script('gpxedit', 'leaflet-contextmenu');
+script('gpxedit', 'echarts');
 
 style('gpxedit', 'style');
 style('gpxedit', 'leaflet');

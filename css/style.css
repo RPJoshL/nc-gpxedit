@@ -1,3 +1,49 @@
 .icon-gpxedit-black {
     background-image: url("app_black.svg");
 }
+
+#app-content {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+}
+
+#overlay-content {
+    position: relative;
+
+    flex-grow: 1;
+
+    /** Some padding to not cut off buttons displayed on the map */
+    margin-inline: 60px;
+
+    /* Allow clicks to pass through to the map by default */
+    pointer-events: none;
+}
+
+#elevationChart {
+    position: absolute;
+    width: 90%;
+    max-width: 1200px;
+    height: 500px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    z-index: 100;
+    background-color: rgba(0, 16, 26, 0.9);
+    border-radius: 4px;
+
+    /* Make the chart itself interactive */
+    pointer-events: auto;
+    transition: .3s ease-in-out;
+}
+#elevationChart:has(canvas) {
+    background-color: transparent;
+}
+#elevationChart canvas {
+    border-radius: 4px;
+}
+#elevationChart[data-hidden] {
+    opacity: 0;
+    pointer-events: none;
+}

@@ -17,12 +17,23 @@
         lastDistanceInformation: {
             distance: 0,
             duration: 0,
+            elevationUp: 0,
+            elevationDown: 0,
+
             lastDuration: 0,
             lastPoint: null,
             lastPointInformation: {
                 distance: 0,
-                duration: 0
+                duration: 0,
+                elevationUp: 0,
+                elevationDown: 0,
             }
+        },
+
+        /** Generic elevation chart data */
+        elevationChart: {
+            circleIndicator: null,
+            chart: null,
         }
     };
 
@@ -187,6 +198,51 @@
         color: '#1196DA',
         weight: 7
     };
+
+    const toggleElevationChart = () => {
+        const elevationChart = document.getElementById('elevationChart');
+        elevationChart.toggleAttribute('data-hidden');
+
+        if(elevationChart.hasAttribute('data-hidden')) {
+            if (gpxedit.elevationChart.circleIndicator !== null) {
+                gpxedit.elevationChart.circleIndicator.remove()
+                gpxedit.elevationChart.circleIndicator = null
+            }
+        } else {
+            if (gpxedit.elevationChart.chart) {
+                gpxedit.elevationChart.chart.resize();
+            }
+        }
+    }
+
+    const elevationControl =  L.Control.extend({
+        options: {
+            position: 'topleft'
+        },
+
+        onAdd: function (map) {
+            const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+
+            container.innerHTML = `
+                <a href="#" title="Mein Tool" style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    width:30px;
+                    height:30px;
+                    font-size:18px;
+                ">⛰️</a>
+            `;
+
+            L.DomEvent.disableClickPropagation(container);
+
+            container.onclick = () => {
+                toggleElevationChart();
+            };
+
+            return container;
+        }
+    });
 
     function endsWith(str, suffix) {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -413,6 +469,7 @@
             color: '#FF0080',
             type: 'line'
         }));
+        gpxedit.map.addControl(new elevationControl());
         L.control.sidebar('sidebar').addTo(gpxedit.map);
 
         gpxedit.map.setView(new L.LatLng(27, 5), 3);
@@ -485,7 +542,7 @@
         ])
 
         gpxedit.map.on("pm:create", (opt) => {
-            onCreated(opt.shape, opt.layer);
+            onCreated(opt.shape, opt.layer, opt.shape === 'Line' ? getDistanceSummary() : "");
         })
         gpxedit.map.on("pm:remove", (opt) => {
             delete gpxedit.layersData[opt.layer.gpxedit_id]
@@ -493,7 +550,7 @@
 
         /** Mouse listener to update distance popup */
         const onMouseMove = (e) => {
-            displayDistanceTooltip(e.latlng.lat, e.latlng.lng)
+            displayDistanceTooltip(e.latlng)
         }
         /** Key listener so we can check if routing should be disabled */
         let ctrlPressed = false;
@@ -522,6 +579,8 @@
             gpxedit.lastDistanceInformation = {
                 distance: 0,
                 duration: 0,
+                elevationUp: 0,
+                elevationDown: 0,
                 lastDuration: 0,
                 lastPoint: null
             }
@@ -542,7 +601,6 @@
                 gpxedit.distanceTooltip = null;
             }
         });
-
 
         // load data into popup when it opens
         // this is needed because popup content is created each time we open one
@@ -579,10 +637,106 @@
 
     }
 
+    function showElevationChart(layer) {
+        const createCircleMarker = () => {
+            if(gpxedit.elevationChart.circleIndicator !== null) {
+                return
+            }
+
+            gpxedit.elevationChart.circleIndicator = L.circleMarker([0,0], {
+                radius: 5,
+                fill: true,
+                fillColor: 'green',
+                fillOpacity: 1,
+                color:'green',
+            }).addTo(gpxedit.map).setRadius(0);
+        }
+        createCircleMarker();
+        gpxedit.elevationChart.circleIndicator.bringToFront();
+
+        const chartDom = document.getElementById('elevationChart');
+        gpxedit.elevationChart.chart = echarts.init(chartDom, "dark");
+
+        const elevationData = layer.getLatLngs()
+
+        let distance = 0
+        let up = 0
+        let down = 0
+        let lastDataPoint = null
+        const chartData = elevationData.map(point => {
+            if(!point.alt) {
+                return null
+            }
+
+            if (lastDataPoint) {
+                distance += point.distanceTo(lastDataPoint);
+                const elevationDiff = point.alt - lastDataPoint.alt
+                if (elevationDiff > 0) {
+                    up += elevationDiff
+                } else {
+                    down -= elevationDiff
+                }
+            }
+            lastDataPoint = point
+
+            return {distance: distance, point: point};
+        }).filter(p => p !== null);
+
+        const option = {
+            title: {
+                text: t('gpxedit', 'Elevation') + `↑${up.toFixed(0)} m ↓${down.toFixed(0)} m`
+            },
+            backgroundColor: 'rgba(0, 16, 26, 0.9)',
+            tooltip: {
+                trigger: 'axis',
+                formatter: function(params) {
+                    const idx = params[0].dataIndex;
+                    const point = chartData[idx];
+
+                    createCircleMarker();
+                    gpxedit.elevationChart.circleIndicator.bringToFront();
+                    gpxedit.elevationChart.circleIndicator.setLatLng(point.point).setRadius(6);
+
+                    let slope = 0;
+                    if(idx>0){
+                        const prev = chartData[idx-1];
+                        slope = (point.point.alt-prev.point.alt)/(point.distance-prev.distance)*100;
+                    }
+                    return `${t('gpxedit', 'Distance')}: ${(point.distance / 1000).toFixed(2)} km<br>
+                            ${t('gpxedit', 'Elevation')}: ${point.point.alt.toFixed(1)} m<br>
+                            ${t('gpxedit', 'Slope')}: ${slope.toFixed(1)} %`;
+                }
+            },
+            xAxis: { 
+                type: 'value',
+                name: t('gpxedit', 'Distance') + ' (km)',
+                max: 'dataMax',
+                axisLabel: {
+                    formatter: function (value) { return (value/1000).toFixed(1) + ' km'; }
+                }
+            },
+            yAxis: { 
+                type: 'value',
+                name: t('gpxedit', 'Elevation') + ' (m)',
+                min: 'dataMin',
+                axisLabel: {
+                    formatter: function (value) { return value.toFixed(0) + ' m'; }
+                },
+            },
+            series: [{
+                data: chartData.map(p => [p.distance, p.point.alt]),
+                type: 'line',
+                smooth: true
+            }]
+        };
+
+        gpxedit.elevationChart.chart.setOption(option);
+    }
+
     // called when something is drawn by hand or when a gpx is loaded
     // it generates the popup content and initializes the layer's data
     // it returns the layer in case we want to set the layer's data manually (when loading a gpx)
-    function onCreated(type, layer) {
+    function onCreated(type, layer, description) {
         var tst = $('#tooltipstyleselect').val();
         var popupTitle;
         var layerType;
@@ -643,6 +797,12 @@
             });
         }
 
+        if (type === "Line" || type === "Track") {
+            layer.on('click', () => {
+                showElevationChart(layer);
+            })
+        }
+
         // get properties of the splited line
         if (layer.hasOwnProperty('gpxedit_id')) {
             gpxedit.layersData[gpxedit.id] = {
@@ -673,7 +833,7 @@
         else {
             gpxedit.layersData[gpxedit.id] = {
                 name: '',
-                description: '',
+                description: description || '',
                 comment: '',
                 linkUrl: '',
                 linkText: '',
@@ -1086,11 +1246,18 @@
      * get key events
      */
     function checkKey(e) {
+        // Disable input handling for text fields to avoid conflicts with shortcuts
+        if ($(e.target).is('input, textarea')) {
+            return;
+        }
+
         e = e || window.event;
         var kc = e.keyCode;
-        //console.log(kc);
-        //console.log(e.key);
 
+        if (kc == 69) { // E (elevation)
+            e.preventDefault();
+            toggleElevationChart();
+        } 
         if (kc === 161 || kc === 223) {
             e.preventDefault();
             gpxedit.minimapControl._toggleDisplayButtonClicked();
@@ -1523,6 +1690,9 @@
             if (optionsValues.symboloverwrite !== undefined) {
                 $('#symboloverwrite').prop('checked', optionsValues.symboloverwrite);
             }
+            if (optionsValues.fetchElevationForRoutes !== undefined) {
+                $('#fetchaltitudeforroutes').prop('checked', optionsValues.fetchElevationForRoutes);
+            }
             if (optionsValues.approximateele !== undefined) {
                 $('#approximateele').prop('checked', optionsValues.approximateele);
                 //L.drawLocal.edit.approximateElevations = $('#approximateele').is(':checked');
@@ -1539,6 +1709,7 @@
         optionsValues.tooltipstyle = $('#tooltipstyleselect').val();
         optionsValues.unit = $('#unitselect').val();
         optionsValues.routingForWaypoints = $('#routingForWaypoints').val();
+        optionsValues.fetchElevationForRoutes = $('#fetchaltitudeforroutes').is(':checked');
         optionsValues.clearbeforeload = $('#clearbeforeload').is(':checked');
         optionsValues.symboloverwrite = $('#symboloverwrite').is(':checked');
         optionsValues.approximateele = $('#approximateele').is(':checked');
@@ -1586,14 +1757,67 @@
         });
     }
 
+    function addPointWithElevation(workingLayer, points) {
+        const last = points[points.length - 1]
+
+        var url = OC.generateUrl('/apps/gpxedit/mapbox/elevation');
+        var req = {
+            lat: last.lat,
+            lng: last.lng
+        };
+        $.get(url, req).done(function(response) {
+            if (!response || response.error !== undefined) {
+                OC.Notification.showTemporary(response.error);
+                workingLayer._routePointCount.push(1);
+                return;
+            }
+
+            const pointWithElevation = L.latLng(last.lat, last.lng, response.elevation)
+
+            points.pop()
+            points.push(pointWithElevation)
+            workingLayer.setLatLngs(points);
+
+            workingLayer._routePointCount.push(1);
+
+            const lastPoint = points[points.length - 1]
+            if (gpxedit.lastDistanceInformation.lastPoint) {
+                gpxedit.lastDistanceInformation.distance += getDistance(
+                    gpxedit.lastDistanceInformation.lastPoint,
+                    pointWithElevation
+                );
+
+                const elevationDifference = response.elevation - (gpxedit.lastDistanceInformation.lastPoint.alt || 0)
+                if (elevationDifference > 0) {
+                    gpxedit.lastDistanceInformation.elevationUp += elevationDifference;
+                } else {
+                    gpxedit.lastDistanceInformation.elevationDown += Math.abs(elevationDifference);
+                }
+            }
+            gpxedit.lastDistanceInformation.lastPoint = lastPoint
+            gpxedit.lastDistanceInformation.lastPointInformation = null
+            displayDistanceTooltip(lastPoint)
+            showElevationChart(workingLayer)
+        });
+    }
+
     /** Adds intermediate routing waypoints from the last added point */
     function routePolyline(workingLayer, disableRouting = false) {
         if (workingLayer._routePointCount === undefined) {
             workingLayer._routePointCount = [];
         }
 
+        // Configuration values
+        const profile = $('#routingForWaypoints').val();
+        const elevation = $('#fetchaltitudeforroutes').is(':checked');
+
         let points = workingLayer.getLatLngs();
         const handleDefault = () => {
+            if(elevation && points.length > 0) {
+                addPointWithElevation(workingLayer, points)
+                return
+            }
+
             workingLayer._routePointCount.push(1);
 
             const lastPoint = points[points.length - 1]
@@ -1605,10 +1829,9 @@
             }
             gpxedit.lastDistanceInformation.lastPoint = lastPoint
             gpxedit.lastDistanceInformation.lastPointInformation = null
-            displayDistanceTooltip(lastPoint.lat, lastPoint.lng)
+            displayDistanceTooltip(lastPoint)
         }
 
-        const profile = $('#routingForWaypoints').val();
         if (points.length < 2 || !profile || disableRouting) {
             handleDefault()
             return;
@@ -1623,7 +1846,8 @@
             startLng: start.lng,
             endLat: end.lat,
             endLng: end.lng,
-            profile: profile
+            profile: profile,
+            fetchElevation: elevation
         };
         $.get(url, req).done(function(response) {
             if (!response || response.error !== undefined) {
@@ -1636,24 +1860,32 @@
             points.pop(); points.pop();
 
             // Add all routing points
-            let routeLatLngs = response.route.map(coord => 
-                L.latLng(coord[1], coord[0])
-            )
+            let routeLatLngs = response.route.map(coord => {
+                const lat = coord[1];
+                const lng = coord[0];
+                const ele = coord.length > 2 ? coord[2] : undefined;
+                return (ele !== undefined && !isNaN(ele)) ? L.latLng(lat, lng, ele) : L.latLng(lat, lng);
+            });
             workingLayer._routePointCount.push(routeLatLngs.length - 1)
             points = points.concat(routeLatLngs)
 
             gpxedit.lastDistanceInformation.distance += response.distance
             gpxedit.lastDistanceInformation.duration += response.duration
+            gpxedit.lastDistanceInformation.elevationUp += (response.elevationUp || 0)
+            gpxedit.lastDistanceInformation.elevationDown += (response.elevationDown || 0)
             gpxedit.lastDistanceInformation.lastPointInformation = {
                 distance: response.distance,
-                duration: response.duration
+                duration: response.duration,
+                elevationUp: response.elevationUp || 0,
+                elevationDown: response.elevationDown || 0
             }
 
             const lastPoint = routeLatLngs[routeLatLngs.length - 1]
             gpxedit.lastDistanceInformation.lastPoint = lastPoint
-            displayDistanceTooltip(lastPoint.lat, lastPoint.lng)
+            displayDistanceTooltip(lastPoint)
             
-            workingLayer.setLatLngs(points);
+            workingLayer.setLatLngs(points)
+            if(elevation) showElevationChart(workingLayer)
         }).fail(function() {
             OC.Notification.showTemporary("Failed to get route from server");
             handleDefault()
@@ -1679,6 +1911,10 @@
         if (marker) {
             marker.remove();
         }
+
+        if ($('#fetchaltitudeforroutes').is(':checked')) {
+            showElevationChart(workingLayer)
+        }
     }
 
     function getDistance(latlng1, latlng2) {
@@ -1701,10 +1937,25 @@
         return `${prefix} ${hours > 0 ? hours + ':' : ''}${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
 
-    /** Displays a simple tooltip showing distance information */
-    function displayDistanceTooltip(lat, lon) {
-        const currentLatLng = L.latLng(lat, lon)
+    function formatElevation(prefix, up, down) {
+        if (up == null && down == null) {
+            return ""
+        }
 
+        return `${prefix} ↑${up.toFixed(0)} m ↓${down.toFixed(0)} m`;
+    }
+
+    function getDistanceSummary(distanceFromLastPoint = 0) {
+        const totalDistance = gpxedit.lastDistanceInformation.distance + distanceFromLastPoint;
+        const totalDuration = gpxedit.lastDistanceInformation.duration;
+        const elevationUp = gpxedit.lastDistanceInformation.elevationUp;
+        const elevationDown = gpxedit.lastDistanceInformation.elevationDown;
+
+        return `${t('gpxedit', 'Total')}: ${formatDistance(totalDistance)} ${formatDuration("|", totalDuration)} ${formatElevation("|", elevationUp, elevationDown)}`
+    }
+
+    /** Displays a simple tooltip showing distance information */
+    function displayDistanceTooltip(currentLatLng) {
         // Erster Punkt setzen, wenn noch keiner vorhanden
         if (gpxedit.lastDistanceInformation.lastPoint == null) {
             if (gpxedit.distanceTooltip) {
@@ -1718,16 +1969,13 @@
         const lastPoint = gpxedit.lastDistanceInformation.lastPoint
         const distanceFromLastPoint = getDistance(lastPoint, currentLatLng);
 
-        const totalDistance = gpxedit.lastDistanceInformation.distance + distanceFromLastPoint;
-        const totalDuration = gpxedit.lastDistanceInformation.duration;
-
         let tooltipText = `
-            ${t('gpxedit', 'Total')}: ${formatDistance(totalDistance)} ${formatDuration("|", totalDuration)}<br>
+            ${getDistanceSummary(distanceFromLastPoint)}<br>
             ${t('gpxedit', 'Mouse')}: ${formatDistance(distanceFromLastPoint)}
         `;
         if (gpxedit.lastDistanceInformation.lastPointInformation) {
             tooltipText += `<br>
-                ${t('gpxedit', 'Last point')}: ${formatDistance(gpxedit.lastDistanceInformation.lastPointInformation.distance)} ${formatDuration("|", gpxedit.lastDistanceInformation.lastPointInformation.duration)}<br>
+                ${t('gpxedit', 'Last point')}: ${formatDistance(gpxedit.lastDistanceInformation.lastPointInformation.distance)} ${formatDuration("|", gpxedit.lastDistanceInformation.lastPointInformation.duration)} ${formatElevation("|", gpxedit.lastDistanceInformation.lastPointInformation.elevationUp, gpxedit.lastDistanceInformation.lastPointInformation.elevationDown)}<br>
             `
         }
 
@@ -1850,6 +2098,9 @@
         });
         $('body').on('change', '#approximateele', function() {
             //L.drawLocal.edit.approximateElevations = $(this).is(':checked');
+            saveOptions();
+        });
+        $('body').on('change', '#fetchaltitudeforroutes', function() {
             saveOptions();
         });
         $('body').on('click', 'button.popupOkButton', function(e) {
