@@ -563,6 +563,9 @@
         const onKeyUp = (e) => {
             if (e.key === 'Control') {
                 ctrlPressed = false;
+            } else {
+                // Pressing any other key will also enable routing again
+                ctrlPressed = false
             }
         }
 
@@ -1253,26 +1256,92 @@
             return;
         }
 
-        e = e || window.event;
-        var kc = e.keyCode;
+        switch(e.key.toLowerCase()) {
+            case 'e': // Elevation
+                toggleElevationChart()
+                break
+            case 'm': // Map
+                gpxedit.minimapControl._toggleDisplayButtonClicked()
+                break
+            case 's': // Satellit: toggle between map and satellite
+                const satelliteMap = "Google Maps Sattellite"
+                const lastMainMapKey = "gpxedit_preferred_map"
 
-        if (kc == 69) { // E (elevation)
-            e.preventDefault();
-            toggleElevationChart();
-        } 
-        if (kc === 161 || kc === 223) {
-            e.preventDefault();
-            gpxedit.minimapControl._toggleDisplayButtonClicked();
+                let switchTo = ""
+
+                const active = gpxedit.activeLayers.getActiveBaseLayer()
+                if (active.name === satelliteMap) {
+                    let fromStorage = window.localStorage.getItem(lastMainMapKey)
+                    if (fromStorage) {
+                        switchTo = fromStorage
+                    }
+                } else {
+                    window.localStorage.setItem(lastMainMapKey, active.name);
+                    switchTo = satelliteMap
+                }
+
+                // Validate that the layer is available
+                if (gpxedit.baseLayers[switchTo] === undefined) {
+                    switchTo = "OpenStreetMap"
+                }
+
+                // Make sure the zoom level matches the max zoom level of the new layer to avoid blank maps
+                const newLayerMaxZoom = gpxedit.baseLayers[switchTo].options.maxZoom || 19
+                if (gpxedit.map.getZoom() > newLayerMaxZoom) {
+                    gpxedit.map.setZoom(newLayerMaxZoom)
+
+                    setTimeout(() => {
+                        toggleBaseLayerByName(switchTo)
+                    }, 400)
+                } else {
+                    toggleBaseLayerByName(switchTo)
+                }
+
+                break
+            case 'escape': // Abort current action
+                gpxedit.map.pm.Draw.disable();
+                break
+            case "<":
+            case "\\":
+                $('#sidebar').toggleClass('collapsed')
+                break
+            case "delete":
+                if (gpxedit.hovermiddlemarker) {
+                    gpxedit.hovermiddlemarker.fire('cut', gpxedit.hovermiddlemarker);
+                }
+                break
+            default:
+                return
         }
-        if (kc === 60 || kc === 220) {
-            e.preventDefault();
-            $('#sidebar').toggleClass('collapsed');
+
+        e.preventDefault()
+    }
+
+    /** Toggles the base layer by name */
+    function toggleBaseLayerByName(name) {
+        const baseLayerContainer = document.querySelector('.leaflet-control-layers-base');
+        
+        if (!baseLayerContainer) {
+            console.warn("Leaflet Layer-Control not found")
+            return
         }
-        if (e.key === 'Delete') {
-            if (gpxedit.hovermiddlemarker) {
-                gpxedit.hovermiddlemarker.fire('cut', gpxedit.hovermiddlemarker);
+
+        const spans = baseLayerContainer.querySelectorAll('span')
+        
+        let found = false
+        spans.forEach(span => {
+            if (span.textContent.trim() === name.trim()) {
+                const parent = span.closest('span') ? span.parentElement : null
+                const input = parent ? parent.querySelector('input') : null
+
+                if (input) {
+                    input.click()
+                    found = true
+                }
             }
-        }
+        });
+
+        if (!found) console.log("Layer '" + name + "' was not found.")
     }
 
     function showSaveFailAnimation(path, message) {
